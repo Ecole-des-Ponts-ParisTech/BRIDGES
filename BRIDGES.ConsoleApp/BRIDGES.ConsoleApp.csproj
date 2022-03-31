@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Authors>École des Ponts ParisTech</Authors>
+		<Company>École des Ponts ParisTech</Company>
+		<Description>Console application based on BRIDGES class library which contains implemented examples.</Description>
+
+		<RepositoryUrl>https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES</RepositoryUrl>
+	  
+		<TargetFramework>net6.0</TargetFramework>
+		<OutputType>Exe</OutputType>
+	  
+		<IncludeSymbols>true</IncludeSymbols>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+	    <ProjectReference Include="..\BRIDGES\BRIDGES.csproj" />
+	</ItemGroup>
+
+</Project>

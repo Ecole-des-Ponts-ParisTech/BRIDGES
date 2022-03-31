@@ -1,2 +1,2 @@
 # BRIDGES
-Tools from the Build'in platform for Geometry and Structural Design
+`BRIDGES` is a cross-platform class library providing basic functionalities for geometry processing as well as structural mechanics, construction-aware design, robotics, assembly-aware design.
