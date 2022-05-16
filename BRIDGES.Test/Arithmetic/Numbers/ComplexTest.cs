@@ -5,6 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BRIDGES.Arithmetic.Numbers;
 using BRIDGES.Algebra.Fundamentals;
 
+
 namespace BRIDGES.Test.Arithmetic.Numbers
 {
     /// <summary>
@@ -136,7 +137,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         /// Tests the computation of the conjugate of a given <see cref="Complex"/>.
         /// </summary>
         [TestMethod("Static Conjugate(Complex)")]
-        public void Static_Conjugate()
+        public void Static_Conjugate_Complex()
         {
             // Arrange
             Complex complex = new Complex(3.0, 1.0);
@@ -183,6 +184,22 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
+        /// Tests the computation of the opposite of a given <see cref="Complex"/>.
+        /// </summary>
+        [TestMethod("Static Opposite(Complex)")]
+        public void Static_Opposite_Complex()
+        {
+            // Arrange
+            Complex complex = new Complex(1.0, -5.0);
+            Complex result = new Complex(-1.0, 5.0);
+            // Act
+             Complex otherComplex = Complex.Opposite(complex);
+            // Assert
+            Assert.IsTrue(otherComplex.Equals(result));
+        }
+
+
+        /// <summary>
         /// Tests the static multiplication of two <see cref="Complex"/>.
         /// </summary>
         [TestMethod("Static Multiply(Complex,Complex)")]
@@ -211,6 +228,21 @@ namespace BRIDGES.Test.Arithmetic.Numbers
             // Act
             Complex otherComplex = Complex.Divide(complexA, complexB);
             // Assert 
+            Assert.IsTrue(otherComplex.Equals(result));
+        }
+
+        /// <summary>
+        /// Tests the computation of the inverse of a given <see cref="Complex"/>.
+        /// </summary>
+        [TestMethod("Static Inverse(Complex)")]
+        public void Static_Inverse_Complex()
+        {
+            // Arrange
+            Complex complex = new Complex(2.0, 3.0);
+            Complex result = new Complex(2.0 / 13.0, -3.0 / 13.0);
+            // Act
+            Complex otherComplex = Complex.Inverse(complex);
+            // Assert
             Assert.IsTrue(otherComplex.Equals(result));
         }
 
@@ -273,7 +305,6 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         public void Static_Subtract_Real_Complex()
         {
             // Arrange
-
             Real real = new Real(10.0);
             Complex complex = new Complex(1.5, 6.0);
             Complex result = new Complex(8.5, -6.0);
@@ -813,12 +844,27 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         public void Inverse()
         {
             // Arrange
-            Complex complex = new Complex(3.0, -4.0);
-            Complex result = new Complex(0.6, 0.8);
+            Complex complex = new Complex(2.0, 3.0);
+            Complex result = new Complex(2.0 / 13.0, -3.0 / 13.0);
             // Act
             complex.Inverse();
             // Assert
             Assert.IsTrue(complex.Equals(result));
+        }
+
+
+        /// <summary>
+        /// Tests the computation of the norm of the current <see cref="Complex"/>
+        /// </summary>
+        [TestMethod("Method Norm()")]
+        public void Norm()
+        {
+            // Arrange
+            Complex complex = new Complex(2.0, 3.0);
+            // Act
+            double norm = complex.Norm();
+            // Assert
+            Assert.AreEqual(25.0, norm, Settings.AbsolutePrecision);
         }
 
 

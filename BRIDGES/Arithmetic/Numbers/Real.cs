@@ -70,12 +70,24 @@ namespace BRIDGES.Arithmetic.Numbers
         /// <inheritdoc cref="operator -(Real, Real)"/>
         public static Real Subtract(Real realA, Real realB) { return new Real(realA.Value - realB.Value); }
 
+        /// <summary>
+        /// Computes the opposite of the given <see cref="Real"/> number.
+        /// </summary>
+        /// <returns> The new <see cref="Real"/> number, opposite of the initial one. </returns>
+        public static Real Opposite(Real real) { return new Real(-real.Value); }
+
 
         /// <inheritdoc cref="operator *(Real, Real)"/>
         public static Real Multiply(Real realA, Real realB) { return new Real(realA.Value * realB.Value); }
 
         /// <inheritdoc cref="operator /(Real, Real)"/>
         public static Real Divide(Real realA, Real realB) { return new Real(realA.Value / realB.Value); }
+
+        /// <summary>
+        /// Computes the inverse of the given <see cref="Real"/> number.
+        /// </summary>
+        /// <returns> The new <see cref="Real"/> number, inverse of the initial one. </returns>
+        public static Real Inverse(Real real) { return new Real( 1/real.Value); }
 
         #endregion
 
@@ -261,7 +273,7 @@ namespace BRIDGES.Arithmetic.Numbers
         #endregion
 
 
-        #region Explicit IField<Real>
+        #region Explicit Additive.IAbelianGroup<Real>
 
         /******************** Properties ********************/
 
@@ -270,13 +282,6 @@ namespace BRIDGES.Arithmetic.Numbers
 
         /// <inheritdoc/>
         bool Alg_Fund.IAddable<Real>.IsCommutative => true;
-
-
-        /// <inheritdoc/>
-        bool Alg_Fund.IMultiplicable<Real>.IsAssociative => true;
-
-        /// <inheritdoc/>
-        bool Alg_Fund.IMultiplicable<Real>.IsCommutative => true;
 
 
         /******************** Methods ********************/
@@ -290,6 +295,20 @@ namespace BRIDGES.Arithmetic.Numbers
         /// <inheritdoc/>
         Real Alg_Fund.IZeroable<Real>.Zero() { return Real.Zero(); }
 
+        #endregion
+
+        #region Explicit Multiplicative.IAbelianGroup<Real>
+
+        /******************** Properties ********************/
+
+        /// <inheritdoc/>
+        bool Alg_Fund.IMultiplicable<Real>.IsAssociative => true;
+
+        /// <inheritdoc/>
+        bool Alg_Fund.IMultiplicable<Real>.IsCommutative => true;
+
+
+        /******************** Methods ********************/
 
         /// <inheritdoc/>
         Real Alg_Fund.IMultiplicable<Real>.Multiply(Real other) { return new Real(Value * other.Value); }
@@ -301,6 +320,5 @@ namespace BRIDGES.Arithmetic.Numbers
         Real Alg_Fund.IOneable<Real>.One() { return Real.One(); }
 
         #endregion
-
     }
 }

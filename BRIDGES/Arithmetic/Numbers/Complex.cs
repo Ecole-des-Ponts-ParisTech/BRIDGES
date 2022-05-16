@@ -45,7 +45,8 @@ namespace BRIDGES.Arithmetic.Numbers
         {
             get
             {
-                if (Modulus == 0)
+                // Computes the norm (square of the modulus)
+                if ((RealPart * RealPart) + (ImaginaryPart * ImaginaryPart) == 0)
                 {
                     throw new InvalidOperationException("The argument of the complex is not defined. The modulus must be none zero to access the argument of a complex.");
                 }
@@ -143,7 +144,7 @@ namespace BRIDGES.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Computes the opposite of the current <see cref="Complex"/> number.
+        /// Computes the opposite of the given <see cref="Complex"/> number.
         /// </summary>
         /// <returns> The new <see cref="Complex"/> number, opposite of the initial one. </returns>
         public static Complex Opposite(Complex complex) { return new Complex(-complex.RealPart, -complex.ImaginaryPart); }
@@ -159,21 +160,21 @@ namespace BRIDGES.Arithmetic.Numbers
         /// <inheritdoc cref="operator /(Complex, Complex)"/>
         public static Complex Divide(Complex complexA, Complex complexB)
         {
-            double modulusB = ((complexB.RealPart * complexB.RealPart) + (complexB.ImaginaryPart * complexB.ImaginaryPart));
+            double normB = ((complexB.RealPart * complexB.RealPart) + (complexB.ImaginaryPart * complexB.ImaginaryPart));
 
-            return new Complex(((complexA.RealPart * complexB.RealPart) + (complexA.ImaginaryPart * complexB.ImaginaryPart)) / modulusB,
-                ((complexA.ImaginaryPart * complexB.RealPart) - (complexA.RealPart * complexB.ImaginaryPart)) / modulusB);
+            return new Complex(((complexA.RealPart * complexB.RealPart) + (complexA.ImaginaryPart * complexB.ImaginaryPart)) / normB,
+                ((complexA.ImaginaryPart * complexB.RealPart) - (complexA.RealPart * complexB.ImaginaryPart)) / normB);
         }
 
         /// <summary>
-        /// Computes the inverse of the current <see cref="Complex"/> number.
+        /// Computes the inverse of the given <see cref="Complex"/> number.
         /// </summary>
         /// <returns> The new <see cref="Complex"/> number, inverse of the initial one. </returns>
         public static Complex Inverse(Complex complex)
         {
-            double modulus = complex.Modulus;
+            double norm = (complex.RealPart * complex.RealPart) + (complex.ImaginaryPart * complex.ImaginaryPart);
 
-            return new Complex(complex.RealPart / modulus, -complex.ImaginaryPart / modulus);
+            return new Complex(complex.RealPart / norm, -complex.ImaginaryPart / norm);
         }
 
 
@@ -206,9 +207,9 @@ namespace BRIDGES.Arithmetic.Numbers
         /// <inheritdoc cref="operator /(Real, Complex)"/>
         public static Complex Divide(Real real, Complex complex)
         {
-            double modulus = ((complex.RealPart * complex.RealPart) + (complex.ImaginaryPart * complex.ImaginaryPart));
+            double norm = ((complex.RealPart * complex.RealPart) + (complex.ImaginaryPart * complex.ImaginaryPart));
 
-            return new Complex(real.Value * (complex.RealPart / modulus), real.Value * (-complex.ImaginaryPart / modulus));
+            return new Complex(real.Value * (complex.RealPart / norm), real.Value * (-complex.ImaginaryPart / norm));
         }
 
 
@@ -278,10 +279,10 @@ namespace BRIDGES.Arithmetic.Numbers
         /// <returns> The new <see cref="Complex"/> number resulting from the division. </returns>
         public static Complex operator /(Complex complexA, Complex complexB)
         {
-            double modulusB = ((complexB.RealPart * complexB.RealPart) + (complexB.ImaginaryPart * complexB.ImaginaryPart));
+            double normB = ((complexB.RealPart * complexB.RealPart) + (complexB.ImaginaryPart * complexB.ImaginaryPart));
 
-            return new Complex(((complexA.RealPart * complexB.RealPart) + (complexA.ImaginaryPart * complexB.ImaginaryPart)) / modulusB,
-                ((complexA.ImaginaryPart * complexB.RealPart) - (complexA.RealPart * complexB.ImaginaryPart)) / modulusB);
+            return new Complex(((complexA.RealPart * complexB.RealPart) + (complexA.ImaginaryPart * complexB.ImaginaryPart)) / normB,
+                ((complexA.ImaginaryPart * complexB.RealPart) - (complexA.RealPart * complexB.ImaginaryPart)) / normB);
         }
 
 
@@ -354,9 +355,9 @@ namespace BRIDGES.Arithmetic.Numbers
         /// <returns> The new <see cref="Complex"/> number resulting from the division. </returns>
         public static Complex operator /(Real real, Complex complex)
         {
-            double modulus = ((complex.RealPart * complex.RealPart) + (complex.ImaginaryPart * complex.ImaginaryPart));
+            double norm = ((complex.RealPart * complex.RealPart) + (complex.ImaginaryPart * complex.ImaginaryPart));
 
-            return new Complex(real.Value * (complex.RealPart / modulus), real.Value * (-complex.ImaginaryPart / modulus));
+            return new Complex(real.Value * (complex.RealPart / norm), real.Value * (-complex.ImaginaryPart / norm));
         }
 
 
@@ -429,9 +430,9 @@ namespace BRIDGES.Arithmetic.Numbers
         /// <returns> The new <see cref="Complex"/> number resulting from the division. </returns>
         public static Complex operator /(double number, Complex complex)
         {
-            double modulus = ((complex.RealPart * complex.RealPart) + (complex.ImaginaryPart * complex.ImaginaryPart));
+            double norm = ((complex.RealPart * complex.RealPart) + (complex.ImaginaryPart * complex.ImaginaryPart));
 
-            return new Complex(number * (complex.RealPart / modulus), number * (-complex.ImaginaryPart / modulus));
+            return new Complex(number * (complex.RealPart / norm), number * (-complex.ImaginaryPart / norm));
         }
 
         #endregion
@@ -490,15 +491,22 @@ namespace BRIDGES.Arithmetic.Numbers
         /// <returns> <see langword="true"/> if the current <see cref="Complex"/> number was inversed, <see langword="false"/> otherwise. </returns>
         public bool Inverse() 
         {
-            double modulus = Modulus;
-            if (modulus == 0.0) { return false; }
+            double norm = (RealPart * RealPart) + (ImaginaryPart * ImaginaryPart);
+            if (norm == 0.0) { return false; }
             else
             {
-                RealPart /= modulus;
-                ImaginaryPart = -ImaginaryPart / modulus;
+                RealPart /= norm;
+                ImaginaryPart = -ImaginaryPart / norm;
                 return true;
             }
         }
+
+
+        /// <summary>
+        /// Computes the norm of the current <see cref="Complex"/> number.
+        /// </summary>
+        /// <returns> The value of the norm. </returns>
+        public double Norm() { return (RealPart * RealPart) + (ImaginaryPart * ImaginaryPart); }
 
 
         /// <inheritdoc cref="IEquatable{T}.Equals(T)"/>
@@ -533,7 +541,7 @@ namespace BRIDGES.Arithmetic.Numbers
         #endregion
 
 
-        #region Explicit IField<Complex>
+        #region Explicit Additive.IAbelianGroup<Complex>
 
         /******************** Properties ********************/
 
@@ -542,13 +550,6 @@ namespace BRIDGES.Arithmetic.Numbers
 
         /// <inheritdoc/>
         bool Alg_Fund.IAddable<Complex>.IsCommutative => true;
-
-
-        /// <inheritdoc/>
-        bool Alg_Fund.IMultiplicable<Complex>.IsAssociative => true;
-
-        /// <inheritdoc/>
-        bool Alg_Fund.IMultiplicable<Complex>.IsCommutative => true;
 
 
         /******************** Methods ********************/
@@ -562,8 +563,21 @@ namespace BRIDGES.Arithmetic.Numbers
         /// <inheritdoc/>
         Complex Alg_Fund.IZeroable<Complex>.Zero() { return Complex.Zero(); }
 
+        #endregion
 
-        
+        #region Explicit Multiplicative.IAbelianGroup<Complex>
+
+        /******************** Properties ********************/
+
+        /// <inheritdoc/>
+        bool Alg_Fund.IMultiplicable<Complex>.IsAssociative => true;
+
+        /// <inheritdoc/>
+        bool Alg_Fund.IMultiplicable<Complex>.IsCommutative => true;
+
+
+        /******************** Methods ********************/
+
         /// <inheritdoc/>
         Complex Alg_Fund.IMultiplicable<Complex>.Multiply(Complex other) { return Multiply(this, other); }
 
