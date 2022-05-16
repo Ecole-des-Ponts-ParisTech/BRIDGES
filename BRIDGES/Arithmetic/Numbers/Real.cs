@@ -10,7 +10,7 @@ namespace BRIDGES.Arithmetic.Numbers
     /// Structure defining a real number.
     /// </summary>
     public struct Real
-        : Alg_Str.IField<Real>, 
+        : Alg_Str.Additive.IAbelianGroup<Real>, Alg_Str.Multiplicative.IAbelianGroup<Real>,
           IEquatable<Real>
     {
         #region Properties
@@ -61,18 +61,14 @@ namespace BRIDGES.Arithmetic.Numbers
         #endregion
 
         #region Static Methods
-        
+
+        /******************** Algebraic Field ********************/
+
         /// <inheritdoc cref="operator +(Real, Real)"/>
         public static Real Add(Real realA, Real realB) { return new Real(realA.Value + realB.Value); }
 
         /// <inheritdoc cref="operator -(Real, Real)"/>
         public static Real Subtract(Real realA, Real realB) { return new Real(realA.Value - realB.Value); }
-
-        /// <summary>
-        /// Computes the opposite of the current <see cref="Real"/> number.
-        /// </summary>
-        /// <returns> The new <see cref="Real"/> number, opposite of the initial one. </returns>
-        public static Real Opposite(Real real) { return new Real(-real.Value); }
 
 
         /// <inheritdoc cref="operator *(Real, Real)"/>
@@ -80,12 +76,6 @@ namespace BRIDGES.Arithmetic.Numbers
 
         /// <inheritdoc cref="operator /(Real, Real)"/>
         public static Real Divide(Real realA, Real realB) { return new Real(realA.Value / realB.Value); }
-
-        /// <summary>
-        /// Computes the inverse of the current <see cref="Real"/> number.
-        /// </summary>
-        /// <returns> The new <see cref="Real"/> number, inverse of the initial one. </returns>
-        public static Real Inverse(Real real) { return new Real( 1 / real.Value); }
 
         #endregion
 

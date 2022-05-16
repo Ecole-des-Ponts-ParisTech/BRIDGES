@@ -9,8 +9,8 @@ namespace BRIDGES.Arithmetic.Numbers
     /// <summary>
     /// Structure defining a complex number.
     /// </summary>
-    public struct Complex 
-        : Alg_Str.IField<Complex>, Alg_Fund.IGroupAction<Complex, double>, 
+    public struct Complex
+        : Alg_Str.Additive.IAbelianGroup<Complex>, Alg_Str.Multiplicative.IAbelianGroup<Complex>, Alg_Fund.IGroupAction<Complex, double>, 
           IEquatable<Complex>
     {
         #region Properties
@@ -533,7 +533,7 @@ namespace BRIDGES.Arithmetic.Numbers
         #endregion
 
 
-        #region Explicit IField<Real>
+        #region Explicit IField<Complex>
 
         /******************** Properties ********************/
 
