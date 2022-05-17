@@ -506,7 +506,10 @@ namespace BRIDGES.Arithmetic.Numbers
         /// Computes the norm of the current <see cref="Complex"/> number.
         /// </summary>
         /// <returns> The value of the norm. </returns>
-        public double Norm() { return (RealPart * RealPart) + (ImaginaryPart * ImaginaryPart); }
+        public double Norm() 
+        { 
+            return (RealPart * RealPart) + (ImaginaryPart * ImaginaryPart); 
+        }
 
 
         /// <inheritdoc cref="IEquatable{T}.Equals(T)"/>

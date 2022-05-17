@@ -87,7 +87,7 @@ namespace BRIDGES.Arithmetic.Numbers
         /// Computes the inverse of the given <see cref="Real"/> number.
         /// </summary>
         /// <returns> The new <see cref="Real"/> number, inverse of the initial one. </returns>
-        public static Real Inverse(Real real) { return new Real( 1/real.Value); }
+        public static Real Inverse(Real real) { return new Real( 1 / real.Value); }
 
         #endregion
 
@@ -199,7 +199,7 @@ namespace BRIDGES.Arithmetic.Numbers
 
         #endregion
 
-        #region Cast
+        #region Casts
 /*
         /// <summary>
         /// Casts a <see cref="Real"/> number into a <see cref="double"/>-precision real number.
