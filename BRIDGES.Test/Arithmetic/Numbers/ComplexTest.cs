@@ -454,6 +454,21 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
+        /// Tests the static opposite operator of a <see cref="Complex"/> number.
+        /// </summary>
+        [TestMethod("Operator Subtract(Complex)")]
+        public void Operator_Substract_Complex()
+        {
+            // Arrange
+            Complex complex = new Complex(5.0, -15.0);
+            Complex result = new Complex(-5.0, 15.0);
+            // Act
+            Complex otherComplex = -complex;
+            // Assert
+            Assert.IsTrue(otherComplex.Equals(result));
+        }
+
+        /// <summary>
         /// Tests the static multiplication operator of two <see cref="Complex"/> numbers.
         /// </summary>
         [TestMethod("Operator Multiply(Complex,Complex)")]

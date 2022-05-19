@@ -580,6 +580,21 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
+        /// Tests the static opposite operator of a <see cref="Quaternion"/> number.
+        /// </summary>
+        [TestMethod("Operator Subtract(Quaternion)")]
+        public void Operator_Substract_Quaternion()
+        {
+            // Arrange
+            Quaternion quaternion = new Quaternion(5.0, -15.0, -7.5, 2.5);
+            Quaternion result = new Quaternion(-5.0, 15.0, 7.5, -2.5);
+            // Act
+            Quaternion otherQuaternion = -quaternion;
+            // Assert
+            Assert.IsTrue(otherQuaternion.Equals(result));
+        }
+
+        /// <summary>
         /// Tests the static multiplication operator of two <see cref="Quaternion"/> numbers.
         /// </summary>
         [TestMethod("Operator Multiply(Quaternion,Quaternion)")]

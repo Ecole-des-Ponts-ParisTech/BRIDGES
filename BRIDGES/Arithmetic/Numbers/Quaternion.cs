@@ -66,7 +66,7 @@ namespace BRIDGES.Arithmetic.Numbers
         /// <param name="components"> Value of the components. </param>
         public Quaternion(double[] components)
         {
-            if(components.Length != 4) { throw new ArgumentException("The length of the components array is different from four, the dimension of Quaternions."); }
+            if(components.Length != 4) { throw new ArgumentException("The length of the components array is different from four, the dimension of quaternions."); }
             
             ScalarPart = components[0]; 
             I = components[1]; 
@@ -133,10 +133,7 @@ namespace BRIDGES.Arithmetic.Numbers
             return new Quaternion(quaternionA.ScalarPart - quaternionB.ScalarPart, quaternionA.I - quaternionB.I, quaternionA.J - quaternionB.J, quaternionA.K - quaternionB.K);
         }
 
-        /// <summary>
-        /// Computes the opposite of the given <see cref="Quaternion"/> number.
-        /// </summary>
-        /// <returns> The new <see cref="Quaternion"/> number, opposite of the initial one. </returns>
+        /// <inheritdoc cref="operator -(Quaternion)"/>
         public static Quaternion Opposite(Quaternion quaternion) 
         { 
             return new Quaternion(-quaternion.ScalarPart, -quaternion.I, -quaternion.J, -quaternion.K); 
@@ -166,6 +163,7 @@ namespace BRIDGES.Arithmetic.Numbers
         /// <summary>
         /// Computes the inverse of the current <see cref="Quaternion"/> number.
         /// </summary>
+        /// <param name="quaternion"> <see cref="Quaternion"/> to be inversed. </param>
         /// <returns> The new <see cref="Quaternion"/> number, inverse of the initial one. </returns>
         public static Quaternion Inverse(Quaternion quaternion)
         {
@@ -354,6 +352,15 @@ namespace BRIDGES.Arithmetic.Numbers
             return new Quaternion(quaternionA.ScalarPart - quaternionB.ScalarPart, quaternionA.I - quaternionB.I, quaternionA.J - quaternionB.J, quaternionA.K - quaternionB.K);
         }
 
+        /// <summary>
+        /// Computes the opposite of the given <see cref="Quaternion"/> number.
+        /// </summary>
+        /// <param name="quaternion"> <see cref="Quaternion"/> number to be opposed. </param>
+        /// <returns> The new <see cref="Quaternion"/> number, opposite of the initial one. </returns>
+        public static Quaternion operator -(Quaternion quaternion)
+        {
+            return new Quaternion(-quaternion.ScalarPart, -quaternion.I, -quaternion.J, -quaternion.K);
+        }
 
         /// <summary>
         /// Computes the multiplication of two <see cref="Quaternion"/> numbers.
@@ -688,35 +695,35 @@ namespace BRIDGES.Arithmetic.Numbers
         #endregion
 
         #region Casts
-/*
-        /// <summary>
-        /// Casts a <see cref="Complex"/> number into a <see cref="Quaternion"/> number.
-        /// </summary>
-        /// <param name="complex"> <see cref="Complex"/> number to cast. </param>
-        /// <returns> The <see cref="Quaternion"/> number resulting from the cast. </returns>
-        public static implicit operator Quaternion(Complex complex) { return new Quaternion(complex.RealPart, complex.ImaginaryPart, 0.0, 0.0); }
+        /*
+                /// <summary>
+                /// Casts a <see cref="Complex"/> number into a <see cref="Quaternion"/> number.
+                /// </summary>
+                /// <param name="complex"> <see cref="Complex"/> number to cast. </param>
+                /// <returns> The new <see cref="Quaternion"/> number resulting from the cast. </returns>
+                public static implicit operator Quaternion(Complex complex) { return new Quaternion(complex.RealPart, complex.ImaginaryPart, 0.0, 0.0); }
 
-        /// <summary>
-        /// Casts a <see cref="Real"/> number into a <see cref="Quaternion"/> number.
-        /// </summary>
-        /// <param name="real"> <see cref="Real"/> number to cast. </param>
-        /// <returns> The <see cref="Quaternion"/> number resulting from the cast. </returns>
-        public static implicit operator Quaternion(Real real) { return new Quaternion(real.Value, 0.0, 0.0, 0.0); }
+                /// <summary>
+                /// Casts a <see cref="Real"/> number into a <see cref="Quaternion"/> number.
+                /// </summary>
+                /// <param name="real"> <see cref="Real"/> number to cast. </param>
+                /// <returns> The new <see cref="Quaternion"/> number resulting from the cast. </returns>
+                public static implicit operator Quaternion(Real real) { return new Quaternion(real.Value, 0.0, 0.0, 0.0); }
 
-        /// <summary>
-        /// Casts a <see cref="double"/>-precision real number into a <see cref="Quaternion"/> number.
-        /// </summary>
-        /// <param name="number"> <see cref="double"/>-precision real number to cast. </param>
-        /// <returns> The <see cref="Quaternion"/> number resulting from the cast. </returns>
-        public static implicit operator Quaternion(double number) { return new Quaternion(number, 0.0, 0.0, 0.0); }
+                /// <summary>
+                /// Casts a <see cref="double"/>-precision real number into a <see cref="Quaternion"/> number.
+                /// </summary>
+                /// <param name="number"> <see cref="double"/>-precision real number to cast. </param>
+                /// <returns> The new <see cref="Quaternion"/> number resulting from the cast. </returns>
+                public static implicit operator Quaternion(double number) { return new Quaternion(number, 0.0, 0.0, 0.0); }
 
-        /// <summary>
-        /// Casts a <see cref="ValueTuple{T1, T2, T3, T4}"/> into a <see cref="Quaternion"/> number.
-        /// </summary>
-        /// <param name="quadruple"> <see cref="ValueTuple{T1, T2, T3, T4}"/> to cast. </param>
-        /// <returns> The <see cref="Quaternion"/> number resulting from the cast. </returns>
-        public static implicit operator Quaternion(ValueTuple<double, double, double, double> quadruple) { return new Quaternion(quadruple.Item1, quadruple.Item2, quadruple.Item3, quadruple.Item4); }
-*/
+                /// <summary>
+                /// Casts a <see cref="ValueTuple{T1, T2, T3, T4}"/> into a <see cref="Quaternion"/> number.
+                /// </summary>
+                /// <param name="quadruple"> <see cref="ValueTuple{T1, T2, T3, T4}"/> to cast. </param>
+                /// <returns> The new <see cref="Quaternion"/> number resulting from the cast. </returns>
+                public static implicit operator Quaternion(ValueTuple<double, double, double, double> quadruple) { return new Quaternion(quadruple.Item1, quadruple.Item2, quadruple.Item3, quadruple.Item4); }
+        */
         #endregion
 
         #region Methods
@@ -787,7 +794,7 @@ namespace BRIDGES.Arithmetic.Numbers
         #endregion
 
 
-        #region Override Object
+        #region Override : Object
 
         /// <inheritdoc cref="object.Equals(object)"/>
         public override bool Equals(object obj)
@@ -810,7 +817,7 @@ namespace BRIDGES.Arithmetic.Numbers
         #endregion
 
 
-        #region Explicit Additive.IAbelianGroup<Quaternion>
+        #region Explicit : Additive.IAbelianGroup<Quaternion>
 
         /******************** Properties ********************/
 
@@ -840,7 +847,7 @@ namespace BRIDGES.Arithmetic.Numbers
 
         #endregion
 
-        #region Explicit Multiplicative.IAbelianGroup<Quaternion>
+        #region Explicit : Multiplicative.IAbelianGroup<Quaternion>
 
         /******************** Properties ********************/
 
@@ -864,7 +871,7 @@ namespace BRIDGES.Arithmetic.Numbers
 
         #endregion
 
-        #region Explicit IGroupAction<Quaternion,double>
+        #region Explicit : IGroupAction<Quaternion,double>
 
         /// <inheritdoc/>
         Quaternion Alg_Fund.IGroupAction<Quaternion, double>.Multiply(double factor) { return Multiply(factor, this); }

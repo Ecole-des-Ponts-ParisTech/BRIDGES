@@ -70,10 +70,7 @@ namespace BRIDGES.Arithmetic.Numbers
         /// <inheritdoc cref="operator -(Real, Real)"/>
         public static Real Subtract(Real realA, Real realB) { return new Real(realA.Value - realB.Value); }
 
-        /// <summary>
-        /// Computes the opposite of the given <see cref="Real"/> number.
-        /// </summary>
-        /// <returns> The new <see cref="Real"/> number, opposite of the initial one. </returns>
+        /// <inheritdoc cref="operator -(Real)"/>
         public static Real Opposite(Real real) { return new Real(-real.Value); }
 
 
@@ -86,6 +83,7 @@ namespace BRIDGES.Arithmetic.Numbers
         /// <summary>
         /// Computes the inverse of the given <see cref="Real"/> number.
         /// </summary>
+        /// <param name="real"> <see cref="Real"/> to be inversed. </param>
         /// <returns> The new <see cref="Real"/> number, inverse of the initial one. </returns>
         public static Real Inverse(Real real) { return new Real( 1 / real.Value); }
 
@@ -110,6 +108,13 @@ namespace BRIDGES.Arithmetic.Numbers
         /// <param name="realB"> <see cref="Real"/> number to subtract with. </param>
         /// <returns> The new <see cref="Real"/> number resulting from the subtraction. </returns>
         public static Real operator -(Real realA, Real realB) { return new Real(realA.Value - realB.Value); }
+
+        /// <summary>
+        /// Computes the opposite of the given <see cref="Real"/> number.
+        /// </summary>
+        /// <param name="real"> <see cref="Real"/> number to be opposed. </param>
+        /// <returns> The new <see cref="Real"/> number, opposite of the initial one. </returns>
+        public static Real operator -(Real real) { return new Real(-real.Value); }
 
         /// <summary>
         /// Computes the multiplication of two <see cref="Real"/> numbers.
@@ -200,21 +205,21 @@ namespace BRIDGES.Arithmetic.Numbers
         #endregion
 
         #region Casts
-/*
-        /// <summary>
-        /// Casts a <see cref="Real"/> number into a <see cref="double"/>-precision real number.
-        /// </summary>
-        /// <param name="real"> <see cref="Real"/> number to cast. </param>
-        /// <returns> The <see cref="double"/>-precision real number resulting from the cast. </returns>
-        public static implicit operator double(Real real) { return real.Value; }
+        /*
+                /// <summary>
+                /// Casts a <see cref="Real"/> number into a <see cref="double"/>-precision real number.
+                /// </summary>
+                /// <param name="real"> <see cref="Real"/> number to cast. </param>
+                /// <returns> The new <see cref="double"/>-precision real number resulting from the cast. </returns>
+                public static implicit operator double(Real real) { return real.Value; }
 
-        /// <summary>
-        /// Casts a <see cref="double"/>-precision real number into a <see cref="Real"/> number.
-        /// </summary>
-        /// <param name="number"> <see cref="double"/>-precision real number to cast. </param>
-        /// <returns> The <see cref="Real"/> number resulting from the cast. </returns>
-        public static implicit operator Real(double number) { return new Real(number); }
-*/
+                /// <summary>
+                /// Casts a <see cref="double"/>-precision real number into a <see cref="Real"/> number.
+                /// </summary>
+                /// <param name="number"> <see cref="double"/>-precision real number to cast. </param>
+                /// <returns> The new <see cref="Real"/> number resulting from the cast. </returns>
+                public static implicit operator Real(double number) { return new Real(number); }
+        */
         #endregion
 
         #region Methods
@@ -250,7 +255,7 @@ namespace BRIDGES.Arithmetic.Numbers
         #endregion
 
 
-        #region Override Object
+        #region Override : Object
 
         /// <inheritdoc cref="object.Equals(object)"/>
         public override bool Equals(object obj)
@@ -273,7 +278,7 @@ namespace BRIDGES.Arithmetic.Numbers
         #endregion
 
 
-        #region Explicit Additive.IAbelianGroup<Real>
+        #region Explicit : Additive.IAbelianGroup<Real>
 
         /******************** Properties ********************/
 
@@ -297,7 +302,7 @@ namespace BRIDGES.Arithmetic.Numbers
 
         #endregion
 
-        #region Explicit Multiplicative.IAbelianGroup<Real>
+        #region Explicit : Multiplicative.IAbelianGroup<Real>
 
         /******************** Properties ********************/
 

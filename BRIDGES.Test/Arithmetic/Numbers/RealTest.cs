@@ -223,6 +223,21 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
+        /// Tests the static opposite operator of a <see cref="Real"/> number.
+        /// </summary>
+        [TestMethod("Operator Subtract(Real)")]
+        public void Operator_Substract_Real()
+        {
+            // Arrange
+            Real real = new Real(5.0);
+            Real result = new Real(-5.0);
+            // Act
+            Real otherReal = -real;
+            // Assert
+            Assert.IsTrue(otherReal.Equals(result));
+        }
+
+        /// <summary>
         /// Tests the static multiplication operator of two <see cref="Real"/> numbers.
         /// </summary>
         [TestMethod("Operator Multiply(Real,Real)")]

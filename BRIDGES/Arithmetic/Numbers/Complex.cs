@@ -143,10 +143,7 @@ namespace BRIDGES.Arithmetic.Numbers
             return new Complex(complexA.RealPart - complexB.RealPart, complexA.ImaginaryPart - complexB.ImaginaryPart); 
         }
 
-        /// <summary>
-        /// Computes the opposite of the given <see cref="Complex"/> number.
-        /// </summary>
-        /// <returns> The new <see cref="Complex"/> number, opposite of the initial one. </returns>
+        /// <inheritdoc cref="operator -(Complex)"/>
         public static Complex Opposite(Complex complex) { return new Complex(-complex.RealPart, -complex.ImaginaryPart); }
 
 
@@ -169,6 +166,7 @@ namespace BRIDGES.Arithmetic.Numbers
         /// <summary>
         /// Computes the inverse of the given <see cref="Complex"/> number.
         /// </summary>
+        /// <param name="complex"> <see cref="Complex"/> to be inversed. </param>
         /// <returns> The new <see cref="Complex"/> number, inverse of the initial one. </returns>
         public static Complex Inverse(Complex complex)
         {
@@ -208,7 +206,7 @@ namespace BRIDGES.Arithmetic.Numbers
         public static Complex Divide(Real real, Complex complex)
         {
             double norm = ((complex.RealPart * complex.RealPart) + (complex.ImaginaryPart * complex.ImaginaryPart));
-
+            
             return new Complex(real.Value * (complex.RealPart / norm), real.Value * (-complex.ImaginaryPart / norm));
         }
 
@@ -257,6 +255,16 @@ namespace BRIDGES.Arithmetic.Numbers
         public static Complex operator -(Complex complexA, Complex complexB)
         {
             return new Complex(complexA.RealPart - complexB.RealPart, complexA.ImaginaryPart - complexB.ImaginaryPart);
+        }
+
+        /// <summary>
+        /// Computes the opposite of the given <see cref="Complex"/> number.
+        /// </summary>
+        /// <param name="complex"> <see cref="Complex"/> number to be opposed. </param>
+        /// <returns> The new <see cref="Complex"/> number, opposite of the initial one. </returns>
+        public static Complex operator -(Complex complex) 
+        { 
+            return new Complex(-complex.RealPart, -complex.ImaginaryPart); 
         }
 
         /// <summary>
@@ -438,28 +446,28 @@ namespace BRIDGES.Arithmetic.Numbers
         #endregion
 
         #region Casts
-/*
-        /// <summary>
-        /// Casts a <see cref="Real"/> number into a <see cref="Complex"/> number.
-        /// </summary>
-        /// <param name="real"> <see cref="Real"/> number to cast. </param>
-        /// <returns> The <see cref="Complex"/> number resulting from the cast. </returns>
-        public static implicit operator Complex(Real real) { return new Complex(real.Value, 0.0); }
+        /*
+                /// <summary>
+                /// Casts a <see cref="Real"/> number into a <see cref="Complex"/> number.
+                /// </summary>
+                /// <param name="real"> <see cref="Real"/> number to cast. </param>
+                /// <returns> The new <see cref="Complex"/> number resulting from the cast. </returns>
+                public static implicit operator Complex(Real real) { return new Complex(real.Value, 0.0); }
 
-        /// <summary>
-        /// Casts a <see cref="double"/>-precision real number into a <see cref="Complex"/> number.
-        /// </summary>
-        /// <param name="number"> <see cref="double"/>-precision real number to cast. </param>
-        /// <returns> The <see cref="Complex"/> number resulting from the cast. </returns>
-        public static implicit operator Complex(double number) { return new Complex(number, 0.0); }
+                /// <summary>
+                /// Casts a <see cref="double"/>-precision real number into a <see cref="Complex"/> number.
+                /// </summary>
+                /// <param name="number"> <see cref="double"/>-precision real number to cast. </param>
+                /// <returns> The new <see cref="Complex"/> number resulting from the cast. </returns>
+                public static implicit operator Complex(double number) { return new Complex(number, 0.0); }
 
-        /// <summary>
-        /// Casts a <see cref="ValueTuple{T1, T2}"/> into a <see cref="Complex"/> number.
-        /// </summary>
-        /// <param name="pair"> <see cref="ValueTuple{T1, T2}"/> to cast. </param>
-        /// <returns> The <see cref="Complex"/> number resulting from the cast. </returns>
-        public static implicit operator Complex(ValueTuple<double, double> pair) { return new Complex(pair.Item1, pair.Item2); }
-*/
+                /// <summary>
+                /// Casts a <see cref="ValueTuple{T1, T2}"/> into a <see cref="Complex"/> number.
+                /// </summary>
+                /// <param name="pair"> <see cref="ValueTuple{T1, T2}"/> to cast. </param>
+                /// <returns> The new <see cref="Complex"/> number resulting from the cast. </returns>
+                public static implicit operator Complex(ValueTuple<double, double> pair) { return new Complex(pair.Item1, pair.Item2); }
+        */
         #endregion
 
         #region Methods
@@ -520,8 +528,8 @@ namespace BRIDGES.Arithmetic.Numbers
 
         #endregion
 
-        
-        #region Override Object
+
+        #region Override : Object
 
         /// <inheritdoc cref="object.Equals(object)"/>
         public override bool Equals(object obj)
@@ -544,7 +552,7 @@ namespace BRIDGES.Arithmetic.Numbers
         #endregion
 
 
-        #region Explicit Additive.IAbelianGroup<Complex>
+        #region Explicit : Additive.IAbelianGroup<Complex>
 
         /******************** Properties ********************/
 
@@ -568,7 +576,7 @@ namespace BRIDGES.Arithmetic.Numbers
 
         #endregion
 
-        #region Explicit Multiplicative.IAbelianGroup<Complex>
+        #region Explicit : Multiplicative.IAbelianGroup<Complex>
 
         /******************** Properties ********************/
 
@@ -592,7 +600,7 @@ namespace BRIDGES.Arithmetic.Numbers
 
         #endregion
 
-        #region Explicit IGroupAction<Complex,double>
+        #region Explicit : IGroupAction<Complex,double>
 
         /// <inheritdoc/>
         Complex Alg_Fund.IGroupAction<Complex, double>.Multiply(double factor) { return Multiply(factor, this); }
