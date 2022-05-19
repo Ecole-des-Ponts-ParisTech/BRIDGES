@@ -12,7 +12,7 @@ namespace BRIDGES
         /// <summary>
         /// Absolute angular precision (in radians).
         /// </summary>
-        public const double AngularPrecision = Math.PI / 500.0;
+        public const double AngularPrecision = Math.PI / 1e4;
 
         /// <summary>
         /// Absolute linear precision.
