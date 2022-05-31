@@ -10,7 +10,7 @@ namespace BRIDGES.Arithmetic.Numbers
     /// Structure defining a complex number.
     /// </summary>
     public struct Complex
-        : Alg_Str.Additive.IAbelianGroup<Complex>, Alg_Str.Multiplicative.IAbelianGroup<Complex>, Alg_Fund.IGroupAction<Complex, double>, 
+        : Alg_Str.Additive.IAbelianGroup<Complex>, Alg_Str.Multiplicative.IAbelianGroup<Complex>, Alg_Str.IGroupAction<double, Complex>, 
           IEquatable<Complex>
     {
         #region Properties
@@ -82,28 +82,28 @@ namespace BRIDGES.Arithmetic.Numbers
 
         #endregion
 
-        #region Static Members
+        #region Static Properties
 
         /// <summary>
         /// Gets a new instance of the <see cref="Complex"/> structure equal to the additive neutral element.<br/>
         /// It corresponds to the <see cref="Complex"/> with a real number equal to zero and an imaginary number equal to zero : (0.0, 0.0).
         /// </summary>
         /// <returns> The new <see cref="Complex"/> number equal to zero. </returns>
-        public static Complex Zero() { return new Complex(0.0, 0.0); }
+        public static Complex Zero { get { return new Complex(0.0, 0.0); } }
 
         /// <summary>
         /// Gets a new instance of the <see cref="Complex"/> structure equal to the multiplicative neutral element.<br/>
         /// It corresponds to the <see cref="Complex"/> with a real number equal to one and an imaginary number equal to zero : (1.0, 0.0).
         /// </summary>
         /// <returns> The new <see cref="Complex"/> number equal to one. </returns>
-        public static Complex One() { return new Complex(1.0, 0.0); }
+        public static Complex One { get { return new Complex(1.0, 0.0); } }
 
         /// <summary>
         /// Gets a new instance of the <see cref="Complex"/> structure equal to the unit imaginary element.<br/>
         /// It corresponds to the <see cref="Complex"/> with a real number equal to zero and an imaginary number equal to one : (0.0, 1.0).
         /// </summary>
         /// <returns> The new <see cref="Complex"/> number equal to imaginary one. </returns>
-        public static Complex ImaginaryOne() => new Complex(0.0, 1.0);
+        public static Complex ImaginaryOne { get { return new Complex(0.0, 1.0); } }
 
         #endregion
 
@@ -572,7 +572,7 @@ namespace BRIDGES.Arithmetic.Numbers
         Complex Alg_Fund.ISubtractable<Complex>.Subtract(Complex other) { return new Complex(RealPart - other.RealPart, ImaginaryPart - other.ImaginaryPart); }
 
         /// <inheritdoc/>
-        Complex Alg_Fund.IZeroable<Complex>.Zero() { return Complex.Zero(); }
+        Complex Alg_Fund.IZeroable<Complex>.Zero() { return new Complex(0.0, 0.0); }
 
         #endregion
 
@@ -596,17 +596,17 @@ namespace BRIDGES.Arithmetic.Numbers
         Complex Alg_Fund.IDivisible<Complex>.Divide(Complex other) { return Divide(this, other); }
 
         /// <inheritdoc/>
-        Complex Alg_Fund.IOneable<Complex>.One() { return Complex.One(); }
+        Complex Alg_Fund.IOneable<Complex>.One() { return new Complex(1.0, 0.0); }
 
         #endregion
 
         #region Explicit : IGroupAction<Complex,double>
 
         /// <inheritdoc/>
-        Complex Alg_Fund.IGroupAction<Complex, double>.Multiply(double factor) { return Multiply(factor, this); }
+        Complex Alg_Str.IGroupAction<double, Complex>.Multiply(double factor) { return Multiply(factor, this); }
 
         /// <inheritdoc/>
-        Complex Alg_Fund.IGroupAction<Complex, double>.Divide(double divisor) { return Divide(this, divisor); }
+        Complex Alg_Str.IGroupAction<double, Complex>.Divide(double divisor) { return Divide(this, divisor); }
 
         #endregion
 

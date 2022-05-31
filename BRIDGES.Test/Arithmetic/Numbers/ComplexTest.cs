@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using BRIDGES.Arithmetic.Numbers;
 using BRIDGES.Algebra.Fundamentals;
+using BRIDGES.Algebra.Structures;
 
 
 namespace BRIDGES.Test.Arithmetic.Numbers
@@ -69,7 +70,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
         #endregion
 
-        #region Static Members
+        #region Static Properties
 
         /// <summary>
         /// Tests the initialisation of the <see cref="Complex"/> number corresponding to the additive neutral element.
@@ -80,7 +81,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
             // Arrange
             Complex result = new Complex(0.0, 0.0);
             // Act
-            Complex complex = Complex.Zero();
+            Complex complex = Complex.Zero;
             // Assert
             Assert.IsTrue(complex.Equals(result));
         }
@@ -94,7 +95,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
             // Arrange
             Complex result = new Complex(1.0, 0.0);
             // Act
-            Complex complex = Complex.One();
+            Complex complex = Complex.One;
             // Assert
             Assert.IsTrue(complex.Equals(result));
         }
@@ -108,7 +109,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
             // Arrange
             Complex result = new Complex(0.0, 1.0);
             // Act
-            Complex complex = Complex.ImaginaryOne();
+            Complex complex = Complex.ImaginaryOne;
             // Assert
             Assert.IsTrue(complex.Equals(result));
         }
@@ -1082,10 +1083,10 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         #region Explicit IGroupAction<Complex,double>
 
         /// <summary>
-        /// Tests the <see cref="IGroupAction{T, TValue}.Multiply(TValue)"/> method
+        /// Tests the <see cref="IGroupAction{TValue, T}.Multiply(TValue)"/> method
         /// computing the scalar multiplication of the current <see cref="Complex"/> number with a <see cref="double"/>-precision real number.
         /// </summary>
-        [TestMethod("AsIGroupAction<Complex,Double> Multiply(Double)")]
+        [TestMethod("AsIGroupAction<Double,Complex> Multiply(Double)")]
         public void AsIGroupAction_Multiply_Double()
         {
             // Arrange
@@ -1093,17 +1094,17 @@ namespace BRIDGES.Test.Arithmetic.Numbers
             double number = 4.0;
             Complex result = new Complex(4.0, 10.0);
             //Act
-            IGroupAction<Complex, double> groupActionable = (IGroupAction<Complex, double>)complex;
+            IGroupAction<double, Complex> groupActionable = (IGroupAction<double, Complex>)complex;
             Complex otherComplex = groupActionable.Multiply(number);
             // Assert
             Assert.IsTrue(otherComplex.Equals(result));
         }
 
         /// <summary>
-        /// Tests the <see cref="IGroupAction{T, TValue}.Divide(TValue)"/> method
+        /// Tests the <see cref="IGroupAction{TValue,T}.Divide(TValue)"/> method
         /// computing the scalar division of the current <see cref="Complex"/> number with a <see cref="double"/>-precision real number.
         /// </summary>
-        [TestMethod("AsIGroupAction<Complex,Double> Divide(Double)")]
+        [TestMethod("AsIGroupAction<Double,Complex> Divide(Double)")]
         public void AsIGroupAction_Divide_Double()
         {
             // Arrange
@@ -1111,7 +1112,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
             double number = 4.0;
             Complex result = new Complex(0.25, 1.5);
             //Act
-            IGroupAction<Complex, double> groupActionable = (IGroupAction<Complex, double>)complex;
+            IGroupAction<double, Complex> groupActionable = (IGroupAction<double, Complex>)complex;
             Complex otherComplex = groupActionable.Divide(number);
             // Assert
             Assert.IsTrue(otherComplex.Equals(result));

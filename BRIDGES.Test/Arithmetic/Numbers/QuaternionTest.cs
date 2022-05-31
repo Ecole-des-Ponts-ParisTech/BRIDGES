@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using BRIDGES.Arithmetic.Numbers;
 using BRIDGES.Algebra.Fundamentals;
+using BRIDGES.Algebra.Structures;
 
 
 namespace BRIDGES.Test.Arithmetic.Numbers
@@ -73,7 +74,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
         #endregion
 
-        #region Static Members
+        #region Static Properties
 
         /// <summary>
         /// Tests the initialisation of the <see cref="Quaternion"/> number corresponding to the additive neutral element.
@@ -84,7 +85,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
             // Arrange
             Quaternion result = new Quaternion(0.0, 0.0, 0.0, 0.0);
             // Act
-            Quaternion quaternion = Quaternion.Zero();
+            Quaternion quaternion = Quaternion.Zero;
             // Assert
             Assert.IsTrue(quaternion.Equals(result));
         }
@@ -98,7 +99,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
             // Arrange
             Quaternion result = new Quaternion(1.0, 0.0, 0.0, 0.0);
             // Act
-            Quaternion quaternion = Quaternion.One();
+            Quaternion quaternion = Quaternion.One;
             // Assert
             Assert.IsTrue(quaternion.Equals(result));
         }
@@ -1380,39 +1381,39 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         #region Explicit IGroupAction<Complex,double>
 
         /// <summary>
-        /// Tests the <see cref="IGroupAction{T, TValue}.Multiply(TValue)"/> method
+        /// Tests the <see cref="IGroupAction{TValue, T}.Multiply(TValue)"/> method
         /// computing the scalar multiplication of the current <see cref="Quaternion"/> number with a <see cref="double"/>-precision real number.
         /// </summary>
-        [TestMethod("AsIGroupAction<Complex,Double> Multiply(Double)")]
+        [TestMethod("AsIGroupAction<Double,Quaternion> Multiply(Double)")]
         public void AsIGroupAction_Multiply_Double()
         {
             // Arrange
-            Complex complex = new Complex(1.0, 2.5);
+            Quaternion quaternion = new Quaternion(1.0, 2.5, -5.0, 10.0);
             double number = 4.0;
-            Complex result = new Complex(4.0, 10.0);
+            Quaternion result = new Quaternion(4.0, 10.0, -20.0, 40.0);
             //Act
-            IGroupAction<Complex, double> groupActionable = (IGroupAction<Complex, double>)complex;
-            Complex otherComplex = groupActionable.Multiply(number);
+            IGroupAction <double, Quaternion> groupActionable = (IGroupAction<double, Quaternion>)quaternion;
+            Quaternion otherQuaternion = groupActionable.Multiply(number);
             // Assert
-            Assert.IsTrue(otherComplex.Equals(result));
+            Assert.IsTrue(otherQuaternion.Equals(result));
         }
 
         /// <summary>
-        /// Tests the <see cref="IGroupAction{T, TValue}.Divide(TValue)"/> method
+        /// Tests the <see cref="IGroupAction{TValue, T}.Divide(TValue)"/> method
         /// computing the scalar division of the current <see cref="Quaternion"/> number with a <see cref="double"/>-precision real number.
         /// </summary>
-        [TestMethod("AsIGroupAction<Complex,Double> Divide(Double)")]
+        [TestMethod("AsIGroupAction<Double,Quaternion> Divide(Double)")]
         public void AsIGroupAction_Divide_Double()
         {
             // Arrange
-            Complex complex = new Complex(1.0, 6.0);
+            Quaternion quaternion = new Quaternion(1.0, 2.5, 5.0, -10.0);
             double number = 4.0;
-            Complex result = new Complex(0.25, 1.5);
+            Quaternion result = new Quaternion(0.25, 0.625, 1.25, -2.5);
             //Act
-            IGroupAction<Complex, double> groupActionable = (IGroupAction<Complex, double>)complex;
-            Complex otherComplex = groupActionable.Divide(number);
+            IGroupAction<double, Quaternion> groupActionable = (IGroupAction<double, Quaternion>)quaternion;
+            Quaternion otherQuaternion = groupActionable.Divide(number);
             // Assert
-            Assert.IsTrue(otherComplex.Equals(result));
+            Assert.IsTrue(otherQuaternion.Equals(result));
         }
 
         #endregion

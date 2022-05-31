@@ -53,7 +53,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
         #endregion
 
-        #region Static Members
+        #region Static Properties
 
         /// <summary>
         /// Tests the initialisation of the <see cref="Real"/> number corresponding to the additive neutral element.
@@ -64,7 +64,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
             // Arrange
             Real result = new Real(0.0);
             // Act
-            Real real = Real.Zero();
+            Real real = Real.Zero;
             // Assert
             Assert.IsTrue(real.Equals(result));
         }
@@ -78,7 +78,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
             // Arrange
             Real result = new Real(1.0);
             // Act
-            Real real = Real.One();
+            Real real = Real.One;
             // Assert
             Assert.IsTrue(real.Equals(result));
         }
