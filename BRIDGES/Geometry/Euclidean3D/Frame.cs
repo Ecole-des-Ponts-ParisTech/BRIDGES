@@ -26,11 +26,11 @@ namespace BRIDGES.Geometry.Euclidean3D
         /// </summary>
         public int Dimension { get { return _axes.Length; } }
 
+
         /// <summary>
         /// Gets or sets the origin <see cref="Point"/> of the current <see cref="Frame"/>.
         /// </summary>
         public Point Origin { get; set; }
-
 
         /// <summary>
         /// Gets the first axis of the current <see cref="Frame"/>.
@@ -46,6 +46,7 @@ namespace BRIDGES.Geometry.Euclidean3D
         /// Gets the third axis of the current <see cref="Frame"/>.
         /// </summary>
         public Vector ZAxis { get { return _axes[2]; } }
+
 
         /// <summary>
         /// Gets the axis of the current <see cref="Frame"/> at the given index.
@@ -68,8 +69,8 @@ namespace BRIDGES.Geometry.Euclidean3D
         /// <exception cref="ArgumentException"> The given axes are not linearly independent. </exception>
         public Frame(Point origin, Vector xAxis, Vector yAxis, Vector zAxis)
         {
-            // Verification : Orthogonal Vectors
-            if ( !Vector.AreOrthogonal(yAxis, xAxis) || !Vector.AreOrthogonal(zAxis, xAxis) || !Vector.AreOrthogonal(zAxis, yAxis))
+            // Verification : Linearly independent
+            if ( Vector.AreParallel(yAxis, xAxis) || Vector.AreParallel(zAxis, xAxis) || Vector.AreParallel(zAxis, yAxis))
             {
                 throw new ArgumentException("The given axes are not linearly independent.");
             }
@@ -101,8 +102,8 @@ namespace BRIDGES.Geometry.Euclidean3D
                 throw new RankException("The number of axes given is different from three, the dimension of the space.");
             }
 
-            // Verification : Orthogonal Vectors
-            if (!Vector.AreOrthogonal(axes[0], axes[1]) || !Vector.AreOrthogonal(axes[0], axes[2]) || !Vector.AreOrthogonal(axes[1], axes[2]))
+            // Verification : Linearly independent
+            if (Vector.AreParallel(axes[0], axes[1]) || Vector.AreParallel(axes[0], axes[2]) || Vector.AreParallel(axes[1], axes[2]))
             {
                 throw new ArgumentException("The given axes are not linearly independent.");
             }

@@ -9,7 +9,7 @@ using BRIDGES.Algebra.Fundamentals;
 namespace BRIDGES.Test.Arithmetic.Numbers
 {
     /// <summary>
-    /// Class testing the members of the <see cref="Real"/> class.
+    /// Class testing the members of the <see cref="Real"/> structure.
     /// </summary>
     [TestClass]
     public class RealTest
@@ -17,7 +17,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         #region Behavior
 
         /// <summary>
-        /// Tests that <see cref="Real"/> are not reference type.
+        /// Tests that <see cref="Real"/> is not reference type.
         /// </summary>
         [TestMethod("Behavior IsNotReference")]
         public void IsNotReference()
@@ -38,7 +38,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         #region Properties
 
         /// <summary>
-        /// Tests the initialisation of the <see cref="Real.Value"/> property.
+        /// Tests the initialisation of the <see cref="Real"/> from its value and the <see cref="Real.Value"/> property.
         /// </summary>
         [TestMethod("Property Value")]
         public void Value()
@@ -56,9 +56,9 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         #region Static Properties
 
         /// <summary>
-        /// Tests the initialisation of the <see cref="Real"/> number corresponding to the additive neutral element.
+        /// Tests the static property <see cref="Real.Zero"/>.
         /// </summary>
-        [TestMethod("Static Zero()")]
+        [TestMethod("Static Zero")]
         public void Static_Zero()
         {
             // Arrange
@@ -70,9 +70,9 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the initialisation of the <see cref="Real"/> number corresponding to the multiplicative neutral element.
+        /// Tests the static property <see cref="Real.One"/>.
         /// </summary>
-        [TestMethod("Static One()")]
+        [TestMethod("Static One")]
         public void Static_One()
         {
             // Arrange
@@ -90,7 +90,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         /******************** Algebraic Field ********************/
 
         /// <summary>
-        /// Tests the static addition of two <see cref="Real"/> numbers.
+        /// Tests the static method <see cref="Real.Add(Real, Real)"/>.
         /// </summary>
         [TestMethod("Static Add(Real,Real)")]
         public void Static_Add_Real_Real()
@@ -106,7 +106,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static subtraction of two <see cref="Real"/> numbers.
+        /// Tests the static method <see cref="Real.Subtract(Real, Real)"/>.
         /// </summary>
         [TestMethod("Static Subtract(Real,Real)")]
         public void Static_Substract_Real_Real()
@@ -122,7 +122,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the computation of the opposite of a given <see cref="Real"/> number.
+        /// Tests the static method <see cref="Real.Opposite(Real)"/>.
         /// </summary>
         [TestMethod("Static Opposite(Real)")]
         public void Static_Opposite_Real()
@@ -138,7 +138,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static multiplication of two <see cref="Real"/> numbers.
+        /// Tests the static method <see cref="Real.Multiply(Real, Real)"/>.
         /// </summary>
         [TestMethod("Static Multiply(Real,Real)")]
         public void Static_Multiply_Real_Real()
@@ -154,7 +154,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static division of two <see cref="Real"/> numbers.
+        /// Tests the static method <see cref="Real.Divide(Real, Real)"/>.
         /// </summary>
         [TestMethod("Static Divide(Real,Real)")]
         public void Static_Divide_Real_Real()
@@ -170,7 +170,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the computation of the inverse of a given <see cref="Real"/> number.
+        /// Tests the static method <see cref="Real.Inverse(Real)"/>.
         /// </summary>
         [TestMethod("Static Inverse(Real)")]
         public void Static_Inverse_Real()
@@ -191,7 +191,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         /******************** Algebraic Field ********************/
 
         /// <summary>
-        /// Tests the static addition operator of two <see cref="Real"/> numbers.
+        /// Tests the static operator <see cref="Real.operator +(Real,Real)"/>.
         /// </summary>
         [TestMethod("Operator Add(Real,Real)")]
         public void Operator_Add_Real_Real()
@@ -207,7 +207,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static Subtraction operator of two <see cref="Real"/> numbers.
+        /// Tests the static operator <see cref="Real.operator -(Real,Real)"/>.
         /// </summary>
         [TestMethod("Operator Subtract(Real,Real)")]
         public void Operator_Substract_Real_Real()
@@ -223,7 +223,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static opposite operator of a <see cref="Real"/> number.
+        /// Tests the static operator <see cref="Real.operator -(Real)"/>.
         /// </summary>
         [TestMethod("Operator Subtract(Real)")]
         public void Operator_Substract_Real()
@@ -238,7 +238,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static multiplication operator of two <see cref="Real"/> numbers.
+        /// Tests the static operator <see cref="Real.operator *(Real,Real)"/>.
         /// </summary>
         [TestMethod("Operator Multiply(Real,Real)")]
         public void Operator_Multiply_Real_Real()
@@ -254,7 +254,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static division of operator two <see cref="Real"/> numbers.
+        /// Tests the static operator <see cref="Real.operator /(Real,Real)"/>.
         /// </summary>
         [TestMethod("Operator Divide(Real,Real)")]
         public void Operator_Divide_Real_Real()
@@ -273,7 +273,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         /******************** double Embedding ********************/
 
         /// <summary>
-        /// Tests the static addition operator of a <see cref="Real"/> number with a <see cref="double"/>-precision real number.
+        /// Tests the static operator <see cref="Real.operator +(Real,double)"/>.
         /// </summary>
         [TestMethod("Operator Add(Real,Double)")]
         public void Operator_Add_Real_Double()
@@ -289,7 +289,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static addition operator of a <see cref="double"/>-precision real number with a <see cref="Real"/> number.
+        /// Tests the static operator <see cref="Real.operator +(double,Real)"/>.
         /// </summary>
         [TestMethod("Operator Add(Double,Real)")]
         public void Operator_Add_Double_Real()
@@ -306,7 +306,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static subtraction operator of a <see cref="Real"/> number with a <see cref="double"/>-precision real number.
+        /// Tests the static operator <see cref="Real.operator -(Real,double)"/>.
         /// </summary>
         [TestMethod("Operator Subtract(Real,Double)")]
         public void Operator_Subtract_Real_Double()
@@ -322,7 +322,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static subtraction operator of a <see cref="double"/>-precision real number with a <see cref="Real"/> number.
+        /// Tests the static operator <see cref="Real.operator -(double,Real)"/>.
         /// </summary>
         [TestMethod("Operator Subtract(Double,Real)")]
         public void Operator_Subtract_Double_Real()
@@ -339,7 +339,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static multiplication operator of a <see cref="Real"/> number with a <see cref="double"/>-precision real number.
+        /// Tests the static operator <see cref="Real.operator *(Real,double)"/>.
         /// </summary>
         [TestMethod("Operator Multiply(Real,Double)")]
         public void Operator_Multiply_Real_Double()
@@ -355,7 +355,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static multiplication operator of a <see cref="double"/>-precision real number with a <see cref="Real"/> number.
+        /// Tests the static operator <see cref="Real.operator *(double,Real)"/>.
         /// </summary>
         [TestMethod("Operator Multiply(Double,Real)")]
         public void Operator_Multiply_Double_Real()
@@ -372,7 +372,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static division operator of a <see cref="Real"/> number by a <see cref="double"/>-precision real number.
+        /// Tests the static operator <see cref="Real.operator /(Real,double)"/>.
         /// </summary>
         [TestMethod("Operator Divide(Real,Double)")]
         public void Operator_Divide_Real_Double()
@@ -388,7 +388,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static division operator of a <see cref="double"/>-precision real number by a <see cref="Real"/> number.
+        /// Tests the static operator <see cref="Real.operator /(double,Real)"/>.
         /// </summary>
         [TestMethod("Operator Divide(Double,Real)")]
         public void Operator_Divide_Double_Real()
@@ -406,43 +406,43 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         #endregion
 
         #region Casts
-/*
-        /// <summary>
-        /// Tests the implicit cast of a <see cref="Real"/> number into a <see cref="double"/>-precision real number.
-        /// </summary>
-        [TestMethod("Cast ToDouble")]
-        public void Cast_ToDouble()
-        {
-            // Arrange
-            Real real = new Real(5.0);
-            double result = 5.0;
-            // Act
-            double number = real;
-            // Assert
-            Assert.AreEqual(number, result, Settings.AbsolutePrecision);
-        }
+        /*
+                /// <summary>
+                /// Tests the implicit cast of a <see cref="Real"/> into a <see cref="double"/>.
+                /// </summary>
+                [TestMethod("Cast ToDouble")]
+                public void Cast_ToDouble()
+                {
+                    // Arrange
+                    Real real = new Real(5.0);
+                    double result = 5.0;
+                    // Act
+                    double number = real;
+                    // Assert
+                    Assert.AreEqual(number, result, Settings.AbsolutePrecision);
+                }
 
-        /// <summary>
-        /// Tests the implicit cast of a <see cref="double"/>-precision real number into a <see cref="Real"/> number.
-        /// </summary>
-        [TestMethod("Cast FromDouble")]
-        public void Cast_FromDouble()
-        {
-            // Arrange
-            double number = 20.0;
-            Real result = new Real(20.0);
-            // Act
-            Real real = number;
-            // Assert
-            Assert.IsTrue(real.Equals(result));
-        }
-*/
+                /// <summary>
+                /// Tests the implicit cast of a <see cref="double"/> into a <see cref="Real"/>.
+                /// </summary>
+                [TestMethod("Cast FromDouble")]
+                public void Cast_FromDouble()
+                {
+                    // Arrange
+                    double number = 20.0;
+                    Real result = new Real(20.0);
+                    // Act
+                    Real real = number;
+                    // Assert
+                    Assert.IsTrue(real.Equals(result));
+                }
+        */
         #endregion
 
         #region Methods
 
         /// <summary>
-        /// Tests the computation of the opposite of the current <see cref="Real"/> number.
+        /// Tests the method <see cref="Real.Opposite()"/>.
         /// </summary>
         [TestMethod("Method Opposite()")]
         public void Opposite()
@@ -457,7 +457,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the computation of the inverse of the current <see cref="Real"/> number.
+        /// Tests the method <see cref="Real.Inverse()"/>.
         /// </summary>
         [TestMethod("Method Inverse()")]
         public void Inverse()
@@ -473,7 +473,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the equality comparison of the current <see cref="Real"/> number with another <see cref="Real"/> number.
+        /// Tests the method <see cref="Real.Equals(Real)"/>.
         /// </summary>
         [TestMethod("Method Equals(Real)")]
         public void Equals_Real()
@@ -488,12 +488,12 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         #endregion
 
 
-        #region Explicit Additive.IAbelianGroup<Real>
+        #region Explicit : Additive.IAbelianGroup<Real>
 
         /******************** Properties ********************/
 
         /// <summary>
-        /// Tests the <see cref="IAddable{T}.IsAssociative"/> property of the <see cref="Real"/> number.
+        /// Tests the <see cref="IAddable{T}.IsAssociative"/> property of <see cref="Real"/>.
         /// </summary>
         [TestMethod("AsIAddable<Real> Property IsAssociative")]
         public void AsIAddable_IsAssociative()
@@ -507,7 +507,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the <see cref="IAddable{T}.IsCommutative"/> property of the <see cref="Real"/> number.
+        /// Tests the <see cref="IAddable{T}.IsCommutative"/> property of <see cref="Real"/>.
         /// </summary>
         [TestMethod("AsIAddable<Real> Property IsCommutative")]
         public void AsIAddable_IsCommutative()
@@ -524,8 +524,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         /******************** Methods ********************/
 
         /// <summary>
-        /// Tests the <see cref="IAddable{T}.Add(T)"/> method
-        /// computing the addition of the current <see cref="Real"/> number with another <see cref="Real"/> number.
+        /// Tests the <see cref="IAddable{T}.Add(T)"/> method of <see cref="Real"/>.
         /// </summary>
         [TestMethod("AsIAddable<Real> Add(Real)")]
         public void AsIAddable_Add_Real()
@@ -542,8 +541,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the <see cref="ISubtractable{T}.Subtract(T)"/> method
-        /// computing the subtraction of the current <see cref="Real"/> number with another <see cref="Real"/> number.
+        /// Tests the <see cref="ISubtractable{T}.Subtract(T)"/> method of <see cref="Real"/>.
         /// </summary>
         [TestMethod("AsISubtractable<Real> Subtract(Real)")]
         public void AsISubtractable_Substract_Real()
@@ -560,7 +558,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the <see cref="IZeroable{T}.Zero"/> method returning the additive neutral element of the <see cref="Real"/> numbers.
+        /// Tests the <see cref="IZeroable{T}.Zero"/> method of <see cref="Real"/>.
         /// </summary>
         [TestMethod("AsIZeroable<Real> Zero()")]
         public void AsIZeroable_Zero()
@@ -577,12 +575,12 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
         #endregion
 
-        #region Explicit Additive.IAbelianGroup<Real>
+        #region Explicit : Additive.IAbelianGroup<Real>
 
         /******************** Properties ********************/
 
         /// <summary>
-        /// Tests the <see cref="IMultiplicable{T}.IsAssociative"/> property of the <see cref="Real"/> number.
+        /// Tests the <see cref="IMultiplicable{T}.IsAssociative"/> property of <see cref="Real"/>.
         /// </summary>
         [TestMethod("AsIMultiplicable<Real> Property IsAssociative")]
         public void AsIMultiplicable_IsAssociative()
@@ -596,7 +594,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the <see cref="IMultiplicable{T}.IsCommutative"/> property of the <see cref="Real"/> number.
+        /// Tests the <see cref="IMultiplicable{T}.IsCommutative"/> property of <see cref="Real"/>.
         /// </summary>
         [TestMethod("AsIMultiplicable<Real> Property IsCommutative")]
         public void AsIMultiplicable_IsCommutative()
@@ -613,8 +611,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         /******************** Methods ********************/
 
         /// <summary>
-        /// Tests the <see cref="IMultiplicable{T}.Multiply(T)"/> method
-        /// computing the multiplication of the current <see cref="Real"/> number with another <see cref="Real"/> number.
+        /// Tests the <see cref="IMultiplicable{T}.Multiply(T)"/> method of <see cref="Real"/>.
         /// </summary>
         [TestMethod("AsIMultiplicable<Real> Multiply(Real)")]
         public void AsIMultiplicable_Multiply_Real()
@@ -631,8 +628,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the <see cref="IDivisible{T}.Divide(T)"/> method
-        /// computing the division of the current <see cref="Real"/> number with another <see cref="Real"/> number.
+        /// Tests the <see cref="IDivisible{T}.Divide(T)"/> method of <see cref="Real"/>.
         /// </summary>
         [TestMethod("AsIDivisible<Real> Divide(Real)")]
         public void AsIDivisible_Divide_Real()
@@ -649,7 +645,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the <see cref="IOneable{T}.One"/> method returning the multiplicative neutral element of the <see cref="Real"/> numbers.
+        /// Tests the <see cref="IOneable{T}.One"/> method of <see cref="Real"/>.
         /// </summary>
         [TestMethod("AsIOneable<Real> One()")]
         public void AsIOneable_One()

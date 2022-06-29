@@ -149,30 +149,6 @@ namespace BRIDGES.Geometry.Euclidean3D
             (pointA.X * pointB.Y) - (pointA.Y * pointB.X));
 
 
-        /// <summary>
-        /// Computes an inversion of the current point in a sphere with a certain ratio.
-        /// </summary>
-        /// <param name="point"> A point to operate on.</param>
-        /// <param name="centre"> The centre of inversion.</param>
-        /// <param name="ratio"> The ratio of inversion.</param>
-        /// <returns> The <see cref="Point"/> resulting fro the inversion.</returns>
-        public static Point MobiusInversion(Point point, Point centre, double ratio)
-        {
-            if (centre.Equals(point))
-            {
-                throw new ArgumentException("The centre of inversion should be different from the point to transform.");
-            }
-            else
-            {
-                Point diff = point - centre;
-                double dividende = DotProduct(diff, diff);
-                Point newPoint = diff * (ratio / dividende);
-
-                return newPoint;
-            }
-        }
-
-
         /******************** Algebraic Additive Group ********************/
 
         /// <inheritdoc cref="operator +(Point, Point)"/>
@@ -353,6 +329,16 @@ namespace BRIDGES.Geometry.Euclidean3D
         #region Methods
 
         /// <summary>
+        /// Gets the coordinates of the current <see cref="Point"/>.
+        /// </summary>
+        /// <returns> The array representation of the <see cref="Point"/>'s coordinates. </returns>
+        public double[] GetCoordinates()
+        {
+            return new double[3] { X, Y, Z };
+        }
+
+
+        /// <summary>
         /// Computes the distance of the current <see cref="Point"/> to another <see cref="Point"/> (using the L2-norm).
         /// </summary>
         /// <param name="other"> <see cref="Point"/> to evaluate the distance to. </param>
@@ -370,16 +356,6 @@ namespace BRIDGES.Geometry.Euclidean3D
         public double Norm()
         {
             return Math.Sqrt((X * X) + (Y * Y) + (Z * Z));
-        }
-
-
-        /// <summary>
-        /// Gets the coordinates of the current <see cref="Point"/>.
-        /// </summary>
-        /// <returns> The array representation of the <see cref="Point"/>'s coordinates. </returns>
-        public double[] GetCoordinates()
-        {
-            return new double[3] { X, Y, Z };
         }
 
 
@@ -460,7 +436,9 @@ namespace BRIDGES.Geometry.Euclidean3D
 
         #endregion
 
-        #region Explicit : IGroupAction<Point,double>
+        #region Explicit : IGroupAction<Double,Point>
+
+        /******************** Methods ********************/
 
         /// <inheritdoc/>
         Point Alg_Str.IGroupAction<double, Point>.Multiply(double factor) { return new Point(factor * X, factor * Y, factor * Z); }
@@ -472,7 +450,7 @@ namespace BRIDGES.Geometry.Euclidean3D
 
         #region Explicit : IDotProduct<Point>
 
-        /******************** INorm<Point> ********************/
+        /******************** Methods ********************/
 
         /// <inheritdoc cref="Alg_Meas.INorm{T}.Unitise"/>
         /// <exception cref="DivideByZeroException"> The length of the current <see cref="Point"/> must be different than zero.</exception> 
@@ -490,8 +468,6 @@ namespace BRIDGES.Geometry.Euclidean3D
             return;
         }
 
-
-        /******************** IDotProduct<Point> ********************/
 
         /// <inheritdoc cref="Alg_Meas.IDotProduct{TValue,T}.DotProduct(T)"/>
         double Alg_Meas.IDotProduct<double,Point>.DotProduct(Point other)

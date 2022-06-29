@@ -67,6 +67,7 @@ namespace BRIDGES.Geometry.Euclidean3D
             _plane = new Plane(plane);
             Radius = radius;
         }
+        
 
         #endregion
 
@@ -152,7 +153,7 @@ namespace BRIDGES.Geometry.Euclidean3D
         }
 
         #endregion
-
+        
 
         #region Override : Object
 

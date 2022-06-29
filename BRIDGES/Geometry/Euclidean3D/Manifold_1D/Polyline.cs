@@ -108,6 +108,35 @@ namespace BRIDGES.Geometry.Euclidean3D
         #region Methods
 
         /// <summary>
+        /// Adds a vertex at the end of the polyline.
+        /// </summary>
+        /// <param name="vertex"> Position of the new vertex. </param>
+        public void AddVertex(Point vertex)
+        {
+            _vertices.Add(vertex);
+        }
+
+        /// <summary>
+        /// Adds a list of vertices at the end of the polyline.
+        /// </summary>
+        /// <param name="vertices"> Position of the new vertices. </param>
+        public void AddVertices(List<Point> vertices)
+        {
+            _vertices.AddRange(vertices);
+        }
+
+        /// <summary>
+        /// Inserts a vertex in the polyline at the given index.
+        /// </summary>
+        /// <param name="index"> Zero-based index at which the vertex should be inserted. </param>
+        /// <param name="vertex"> Position of the new vertex. </param>
+        public void InsertVertex(int index, Point vertex)
+        {
+            _vertices.Insert(index, vertex);
+        }
+
+
+        /// <summary>
         /// Flips the current <see cref="Polyline"/> by reversing the list of vertices.
         /// </summary>
         public void Flip()

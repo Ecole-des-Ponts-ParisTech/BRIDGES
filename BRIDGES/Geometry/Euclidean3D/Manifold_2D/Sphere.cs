@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace BRIDGES.Geometry.Euclidean3D.Manifold_2D
+
+namespace BRIDGES.Geometry.Euclidean3D
 {
     /// <summary>
     /// Class defining a sphere in three-dimensional euclidean space.
@@ -35,6 +34,7 @@ namespace BRIDGES.Geometry.Euclidean3D.Manifold_2D
             Centre = centre;
             Radius = radius;
         }
+
         #endregion
 
         #region Methods

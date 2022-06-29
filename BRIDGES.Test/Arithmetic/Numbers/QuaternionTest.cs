@@ -10,7 +10,7 @@ using BRIDGES.Algebra.Structures;
 namespace BRIDGES.Test.Arithmetic.Numbers
 {
     /// <summary>
-    /// Class testing the members of the <see cref="Quaternion"/> class.
+    /// Class testing the members of the <see cref="Quaternion"/> structure.
     /// </summary>
     [TestClass]
     public class QuaternionTest
@@ -18,7 +18,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         #region Behavior
 
         /// <summary>
-        /// Tests that <see cref="Quaternion"/> are not reference type.
+        /// Tests that <see cref="Quaternion"/> is not reference type.
         /// </summary>
         [TestMethod("Behavior IsNotReference")]
         public void IsNotReference()
@@ -39,7 +39,8 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         #region Properties
 
         /// <summary>
-        /// Tests the initialisation of the <see cref="Quaternion.ScalarPart"/>, <see cref="Quaternion.I"/>, <see cref="Quaternion.J"/> and <see cref="Quaternion.K"/> properties.
+        /// Tests the initialisation of the <see cref="Quaternion"/> from its real and imaginary components,
+        /// and the <see cref="Quaternion.ScalarPart"/>, <see cref="Quaternion.I"/>, <see cref="Quaternion.J"/>, <see cref="Quaternion.K"/> properties.
         /// </summary>
         [TestMethod("Property ScalarPart, I, J & K")]
         public void RealPartAndImaginaryPart()
@@ -56,7 +57,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the computation of the <see cref="Quaternion.VectorPart"/> property.
+        /// Tests the property <see cref="Quaternion.VectorPart"/>.
         /// </summary>
         [TestMethod("Property VectorPart")]
         public void VectorPart()
@@ -77,9 +78,9 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         #region Static Properties
 
         /// <summary>
-        /// Tests the initialisation of the <see cref="Quaternion"/> number corresponding to the additive neutral element.
+        /// Tests the static property <see cref="Quaternion.Zero"/>.
         /// </summary>
-        [TestMethod("Static Zero()")]
+        [TestMethod("Static Zero")]
         public void Static_Zero()
         {
             // Arrange
@@ -91,9 +92,9 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the initialisation of the <see cref="Quaternion"/> number corresponding to the multiplicative neutral element.
+        /// Tests the static property <see cref="Quaternion.One"/>.
         /// </summary>
-        [TestMethod("Static One()")]
+        [TestMethod("Static One")]
         public void Static_One()
         {
             // Arrange
@@ -109,7 +110,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         #region Static Methods
 
         /// <summary>
-        /// Tests the computation of the conjugate of a given <see cref="Quaternion"/> number.
+        /// Tests the static method <see cref="Quaternion.Conjugate(Quaternion)"/>.
         /// </summary>
         [TestMethod("Static Conjugate(Quaternion)")]
         public void Static_Conjugate_Quaternion()
@@ -127,7 +128,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         /******************** Algebraic Field ********************/
 
         /// <summary>
-        /// Tests the static addition of two <see cref="Quaternion"/> numbers.
+        /// Tests the static method <see cref="Quaternion.Add(Quaternion, Quaternion)"/>.
         /// </summary>
         [TestMethod("Static Add(Quaternion,Quaternion)")]
         public void Static_Add_Quaternion_Quaternion()
@@ -143,7 +144,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static subtraction of two <see cref="Quaternion"/> numbers.
+        /// Tests the static method <see cref="Quaternion.Subtract(Quaternion, Quaternion)"/>.
         /// </summary>
         [TestMethod("Static Subtract(Quaternion,Quaternion)")]
         public void Static_Substract_Quaternion_Quaternion()
@@ -159,7 +160,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the computation of the opposite of a given <see cref="Quaternion"/> number.
+        /// Tests the static method <see cref="Quaternion.Opposite(Quaternion)"/>.
         /// </summary>
         [TestMethod("Static Opposite(Quaternion)")]
         public void Static_Opposite_Quaternion()
@@ -175,7 +176,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static multiplication of two <see cref="Quaternion"/> numbers.
+        /// Tests the static method <see cref="Quaternion.Multiply(Quaternion, Quaternion)"/>.
         /// </summary>
         [TestMethod("Static Multiply(Quaternion,Quaternion)")]
         public void Static_Multiply_Quaternion_Quaternion()
@@ -195,7 +196,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static division of two <see cref="Quaternion"/> numbers.
+        /// Tests the static method <see cref="Quaternion.Divide(Quaternion, Quaternion)"/>.
         /// </summary>
         [TestMethod("Static Divide(Quaternion,Quaternion)")]
         public void Static_Divide_Quaternion_Quaternion()
@@ -215,7 +216,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the computation of the inverse of a given <see cref="Quaternion"/> number.
+        /// Tests the static method <see cref="Quaternion.Inverse(Quaternion)"/>.
         /// </summary>
         [TestMethod("Static Inverse(Quaternion)")]
         public void Static_Inverse_Quaternion()
@@ -233,7 +234,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         /******************** Complex Embedding ********************/
 
         /// <summary>
-        /// Tests the static addition of a <see cref="Quaternion"/> number with a <see cref="Complex"/> number.
+        /// Tests the static method <see cref="Quaternion.Add(Quaternion, Complex)"/>.
         /// </summary>
         [TestMethod("Static Add(Quaternion,Complex)")]
         public void Static_Add_Quaternion_Complex()
@@ -249,7 +250,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static addition of a <see cref="Complex"/> number with a <see cref="Quaternion"/> number.
+        /// Tests the static method <see cref="Quaternion.Add(Complex, Quaternion)"/>.
         /// </summary>
         [TestMethod("Static Add(Complex,Quaternion)")]
         public void Static_Add_Complex_Quaternion()
@@ -266,7 +267,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static subtraction of a <see cref="Quaternion"/> number with a <see cref="Complex"/> number.
+        /// Tests the static method <see cref="Quaternion.Subtract(Quaternion, Complex)"/>.
         /// </summary>
         [TestMethod("Static Subtract(Quaternion,Complex)")]
         public void Static_Subtract_Quaternion_Complex()
@@ -282,7 +283,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static subtraction of a <see cref="Complex"/> number with a <see cref="Quaternion"/> number.
+        /// Tests the static method <see cref="Quaternion.Subtract(Complex, Quaternion)"/>.
         /// </summary>
         [TestMethod("Static Subtract(Complex,Quaternion)")]
         public void Static_Subtract_Complex_Quaternion()
@@ -299,7 +300,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static multiplication of a <see cref="Quaternion"/> number with a <see cref="Complex"/> number.
+        /// Tests the static method <see cref="Quaternion.Multiply(Quaternion, Complex)"/>.
         /// </summary>
         [TestMethod("Static Multiply(Quaternion,Complex)")]
         public void Static_Multiply_Quaternion_Complex()
@@ -316,7 +317,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static multiplication of a <see cref="Complex"/> number with a <see cref="Quaternion"/> number.
+        /// Tests the static method <see cref="Quaternion.Multiply(Complex, Quaternion)"/>.
         /// </summary>
         [TestMethod("Static Multiply(Complex,Quaternion)")]
         public void Static_Multiply_Complex_Quaternion()
@@ -334,7 +335,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static division of a <see cref="Quaternion"/> number by a <see cref="Complex"/> number.
+        /// Tests the static method <see cref="Quaternion.Divide(Quaternion, Complex)"/>.
         /// </summary>
         [TestMethod("Static Divide(Quaternion,Complex)")]
         public void Static_Divide_Quaternion_Complex()
@@ -354,7 +355,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static division of a <see cref="Complex"/> number by a <see cref="Quaternion"/> number.
+        /// Tests the static method <see cref="Quaternion.Divide(Complex, Quaternion)"/>.
         /// </summary>
         [TestMethod("Static Divide(Complex,Quaternion)")]
         public void Static_Divide_Complex_Quaternion()
@@ -377,7 +378,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         /******************** Real Embedding ********************/
 
         /// <summary>
-        /// Tests the static addition of a <see cref="Quaternion"/> number with a <see cref="Real"/> number.
+        /// Tests the static method <see cref="Quaternion.Add(Quaternion, Real)"/>.
         /// </summary>
         [TestMethod("Static Add(Quaternion,Real)")]
         public void Static_Add_Quaternion_Real()
@@ -393,7 +394,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static addition of a <see cref="Real"/> number with a <see cref="Quaternion"/> number.
+        /// Tests the static method <see cref="Quaternion.Add(Real, Quaternion)"/>.
         /// </summary>
         [TestMethod("Static Add(Real,Quaternion)")]
         public void Static_Add_Real_Quaternion()
@@ -410,7 +411,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static subtraction of a <see cref="Quaternion"/> number with a <see cref="Real"/> number.
+        /// Tests the static method <see cref="Quaternion.Subtract(Quaternion, Real)"/>.
         /// </summary>
         [TestMethod("Static Subtract(Quaternion,Real)")]
         public void Static_Subtract_Quaternion_Real()
@@ -426,7 +427,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static subtraction of a <see cref="Real"/> number with a <see cref="Quaternion"/> number.
+        /// Tests the static method <see cref="Quaternion.Subtract(Real, Quaternion)"/>.
         /// </summary>
         [TestMethod("Static Subtract(Real,Quaternion)")]
         public void Static_Subtract_Real_Quaternion()
@@ -443,7 +444,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static multiplication of a <see cref="Quaternion"/> number with a <see cref="Real"/> number.
+        /// Tests the static method <see cref="Quaternion.Multiply(Quaternion, Real)"/>.
         /// </summary>
         [TestMethod("Static Multiply(Quaternion,Real)")]
         public void Static_Multiply_Quaternion_Real()
@@ -459,7 +460,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static multiplication of a <see cref="Real"/> number with a <see cref="Quaternion"/> number.
+        /// Tests the static method <see cref="Quaternion.Multiply(Real, Quaternion)"/>.
         /// </summary>
         [TestMethod("Static Multiply(Real,Quaternion)")]
         public void Static_Multiply_Real_Quaternion()
@@ -476,7 +477,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static division of a <see cref="Quaternion"/> number by a <see cref="Real"/> number.
+        /// Tests the static method <see cref="Quaternion.Divide(Quaternion, Real)"/>.
         /// </summary>
         [TestMethod("Static Divide(Quaternion,Real)")]
         public void Static_Divide_Quaternion_Real()
@@ -492,7 +493,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static division of a <see cref="Real"/> number by a <see cref="Quaternion"/> number.
+        /// Tests the static method <see cref="Quaternion.Divide(Real, Quaternion)"/>.
         /// </summary>
         [TestMethod("Static Divide(Real,Quaternion)")]
         public void Static_Divide_Real_Quaternion()
@@ -511,7 +512,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         /******************** Group Action ********************/
 
         /// <summary>
-        /// Tests the static multiplication of a <see cref="double"/>-precision real number with a <see cref="Quaternion"/> number.
+        /// Tests the static method <see cref="Quaternion.Multiply(double, Quaternion)"/>.
         /// </summary>
         [TestMethod("Static Multiply(Double,CoQuaternionmplex)")]
         public void Static_Multiply_Double_Quaternion()
@@ -527,7 +528,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static division of a <see cref="Quaternion"/> number by a <see cref="double"/>-precision real number.
+        /// Tests the static method <see cref="Quaternion.Divide(Quaternion, double)"/>.
         /// </summary>
         [TestMethod("Static Divide(Quaternion,Double)")]
         public void Static_Divide_Quaternion_Double()
@@ -549,7 +550,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         /******************** Algebraic Field ********************/
 
         /// <summary>
-        /// Tests the static addition operator of two <see cref="Quaternion"/> numbers.
+        /// Tests the static operator <see cref="Quaternion.operator +(Quaternion, Quaternion)"/>.
         /// </summary>
         [TestMethod("Operator Add(Quaternion,Quaternion)")]
         public void Operator_Add_Quaternion_Quaternion()
@@ -565,7 +566,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static Subtraction operator of two <see cref="Quaternion"/> numbers.
+        /// Tests the static operator <see cref="Quaternion.operator -(Quaternion, Quaternion)"/>.
         /// </summary>
         [TestMethod("Operator Subtract(Quaternion,Quaternion)")]
         public void Operator_Substract_Quaternion_Quaternion()
@@ -581,7 +582,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static opposite operator of a <see cref="Quaternion"/> number.
+        /// Tests the static operator <see cref="Quaternion.operator -(Quaternion)"/>.
         /// </summary>
         [TestMethod("Operator Subtract(Quaternion)")]
         public void Operator_Substract_Quaternion()
@@ -596,7 +597,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static multiplication operator of two <see cref="Quaternion"/> numbers.
+        /// Tests the static operator <see cref="Quaternion.operator *(Quaternion, Quaternion)"/>.
         /// </summary>
         [TestMethod("Operator Multiply(Quaternion,Quaternion)")]
         public void Operator_Multiply_Quaternion_Quaternion()
@@ -616,7 +617,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static division of operator two <see cref="Quaternion"/> numbers.
+        /// Tests the static operator <see cref="Quaternion.operator /(Quaternion, Quaternion)"/>.
         /// </summary>
         [TestMethod("Operator Divide(Quaternion,Quaternion)")]
         public void Operator_Divide_Quaternion_Quaternion()
@@ -639,7 +640,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         /******************** Complex Embedding ********************/
 
         /// <summary>
-        /// Tests the static addition operator of a <see cref="Quaternion"/> number with a <see cref="Complex"/> number.
+        /// Tests the static operator <see cref="Quaternion.operator +(Quaternion, Complex)"/>.
         /// </summary>
         [TestMethod("Operator Add(Quaternion,Complex)")]
         public void Operator_Add_Quaternion_Complex()
@@ -655,7 +656,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static addition operator of a <see cref="Complex"/> number with a <see cref="Quaternion"/> number.
+        /// Tests the static operator <see cref="Quaternion.operator +(Complex, Quaternion)"/>.
         /// </summary>
         [TestMethod("Operator Add(Complex,Quaternion)")]
         public void Operator_Add_Complex_Quaternion()
@@ -672,7 +673,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static subtraction operator of a <see cref="Quaternion"/> number with a <see cref="Complex"/> number.
+        /// Tests the static operator <see cref="Quaternion.operator -(Quaternion, Complex)"/>.
         /// </summary>
         [TestMethod("Operator Subtract(Quaternion,Complex)")]
         public void Operator_Subtract_Quaternion_Complex()
@@ -688,7 +689,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static subtraction operator of a <see cref="Complex"/> number with a <see cref="Quaternion"/> number.
+        /// Tests the static operator <see cref="Quaternion.operator -(Complex, Quaternion)"/>.
         /// </summary>
         [TestMethod("Operator Subtract(Complex,Quaternion)")]
         public void Operator_Subtract_Complex_Quaternion()
@@ -705,7 +706,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static multiplication operator of a <see cref="Quaternion"/> number with a <see cref="Complex"/> number.
+        /// Tests the static operator <see cref="Quaternion.operator *(Quaternion, Complex)"/>.
         /// </summary>
         [TestMethod("Operator Multiply(Quaternion,Complex)")]
         public void Operator_Multiply_Quaternion_Complex()
@@ -722,7 +723,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static multiplication operator of a <see cref="Complex"/> number with a <see cref="Quaternion"/> number.
+        /// Tests the static operator <see cref="Quaternion.operator *(Complex, Quaternion)"/>.
         /// </summary>
         [TestMethod("Operator Multiply(Complex,Quaternion)")]
         public void Operator_Multiply_Complex_Quaternion()
@@ -740,7 +741,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static division operator of a <see cref="Quaternion"/> number by a <see cref="Complex"/> number.
+        /// Tests the static operator <see cref="Quaternion.operator /(Quaternion, Complex)"/>.
         /// </summary>
         [TestMethod("Operator Divide(Quaternion,Complex)")]
         public void Operator_Divide_Quaternion_Complex()
@@ -760,7 +761,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static division operator of a <see cref="Complex"/> number by a <see cref="Quaternion"/> number.
+        /// Tests the static operator <see cref="Quaternion.operator /(Complex, Quaternion)"/>.
         /// </summary>
         [TestMethod("Operator Divide(Complex,Quaternion)")]
         public void Operator_Divide_Complex_Quaternion()
@@ -783,7 +784,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         /******************** Real Embedding ********************/
 
         /// <summary>
-        /// Tests the static addition operator of a <see cref="Quaternion"/> number with a <see cref="Real"/> number.
+        /// Tests the static operator <see cref="Quaternion.operator +(Quaternion, Real)"/>.
         /// </summary>
         [TestMethod("Operator Add(Quaternion,Real)")]
         public void Operator_Add_Quaternion_Real()
@@ -799,7 +800,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static addition operator of a <see cref="Real"/> number with a <see cref="Quaternion"/> number.
+        /// Tests the static operator <see cref="Quaternion.operator +(Real, Quaternion)"/>.
         /// </summary>
         [TestMethod("Operator Add(Real,Quaternion)")]
         public void Operator_Add_Real_Quaternion()
@@ -816,7 +817,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static subtraction operator of a <see cref="Quaternion"/> number with a <see cref="Real"/> number.
+        /// Tests the static operator <see cref="Quaternion.operator -(Quaternion, Real)"/>.
         /// </summary>
         [TestMethod("Operator Subtract(Quaternion,Real)")]
         public void Operator_Subtract_Quaternion_Real()
@@ -832,7 +833,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static subtraction operator of a <see cref="Real"/> number with a <see cref="Quaternion"/> number.
+        /// Tests the static operator <see cref="Quaternion.operator -(Real, Quaternion)"/>.
         /// </summary>
         [TestMethod("Operator Subtract(Real,Quaternion)")]
         public void Operator_Subtract_Real_Quaternion()
@@ -849,7 +850,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static multiplication operator of a <see cref="Quaternion"/> number with a <see cref="Real"/> number.
+        /// Tests the static operator <see cref="Quaternion.operator *(Quaternion, Real)"/>.
         /// </summary>
         [TestMethod("Operator Multiply(Quaternion,Real)")]
         public void Operator_Multiply_Quaternion_Real()
@@ -865,7 +866,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static multiplication operator of a <see cref="Real"/> number with a <see cref="Quaternion"/> number.
+        /// Tests the static operator <see cref="Quaternion.operator *(Real, Quaternion)"/>.
         /// </summary>
         [TestMethod("Operator Multiply(Real,Quaternion)")]
         public void Operator_Multiply_Real_Quaternion()
@@ -882,7 +883,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static division operator of a <see cref="Quaternion"/> number by a <see cref="Real"/> number.
+        /// Tests the static operator <see cref="Quaternion.operator /(Quaternion, Real)"/>.
         /// </summary>
         [TestMethod("Operator Divide(Quaternion,Real)")]
         public void Operator_Divide_Quaternion_Real()
@@ -898,7 +899,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static division operator of a <see cref="Real"/> number by a <see cref="Quaternion"/> number.
+        /// Tests the static operator <see cref="Quaternion.operator /(Real, Quaternion)"/>.
         /// </summary>
         [TestMethod("Operator Divide(Real,Quaternion)")]
         public void Operator_Divide_Real_Quaternion()
@@ -917,9 +918,9 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         /******************** double Embedding ********************/
 
         /// <summary>
-        /// Tests the static addition operator of a <see cref="Quaternion"/> number with a <see cref="double"/>-precision real number.
+        /// Tests the static operator <see cref="Quaternion.operator +(Quaternion, double)"/>.
         /// </summary>
-        [TestMethod("Operator Add(Quaternion,Real)")]
+        [TestMethod("Operator Add(Quaternion,Double)")]
         public void Operator_Add_Quaternion_Double()
         {
             // Arrange
@@ -933,9 +934,9 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static addition operator of a <see cref="double"/>-precision real number with a <see cref="Quaternion"/> number.
+        /// Tests the static operator <see cref="Quaternion.operator +(double, Quaternion)"/>.
         /// </summary>
-        [TestMethod("Operator Add(Real,Quaternion)")]
+        [TestMethod("Operator Add(Double,Quaternion)")]
         public void Operator_Add_Double_Quaternion()
         {
             // Arrange
@@ -950,9 +951,9 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static subtraction operator of a <see cref="Quaternion"/> number with a <see cref="double"/>-precision real number.
+        /// Tests the static operator <see cref="Quaternion.operator -(Quaternion, double)"/>.
         /// </summary>
-        [TestMethod("Operator Subtract(Quaternion,Real)")]
+        [TestMethod("Operator Subtract(Quaternion,Double)")]
         public void Operator_Subtract_Quaternion_Double()
         {
             // Arrange
@@ -966,9 +967,9 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static subtraction operator of a <see cref="double"/>-precision real number with a <see cref="Quaternion"/> number.
+        /// Tests the static operator <see cref="Quaternion.operator -(double, Quaternion)"/>.
         /// </summary>
-        [TestMethod("Operator Subtract(Real,Quaternion)")]
+        [TestMethod("Operator Subtract(Double,Quaternion)")]
         public void Operator_Subtract_Double_Quaternion()
         {
             // Arrange
@@ -983,9 +984,9 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static multiplication operator of a <see cref="Quaternion"/> number with a <see cref="double"/>-precision real number.
+        /// Tests the static operator <see cref="Quaternion.operator *(Quaternion, double)"/>.
         /// </summary>
-        [TestMethod("Operator Multiply(Quaternion,Real)")]
+        [TestMethod("Operator Multiply(Quaternion,Double)")]
         public void Operator_Multiply_Quaternion_Double()
         {
             // Arrange
@@ -999,9 +1000,9 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static multiplication operator of a <see cref="double"/>-precision real number with a <see cref="Quaternion"/> number.
+        /// Tests the static operator <see cref="Quaternion.operator *(double, Quaternion)"/>.
         /// </summary>
-        [TestMethod("Operator Multiply(Real,Quaternion)")]
+        [TestMethod("Operator Multiply(Double,Quaternion)")]
         public void Operator_Multiply_Double_Quaternion()
         {
             // Arrange
@@ -1016,9 +1017,9 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static division operator of a <see cref="Quaternion"/> number by a <see cref="double"/>-precision real number.
+        /// Tests the static operator <see cref="Quaternion.operator /(Quaternion, double)"/>.
         /// </summary>
-        [TestMethod("Operator Divide(Quaternion,Real)")]
+        [TestMethod("Operator Divide(Quaternion,Double)")]
         public void Operator_Divide_Quaternion_Double()
         {
             // Arrange
@@ -1032,9 +1033,9 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static division operator of a <see cref="double"/>-precision real number by a <see cref="Quaternion"/> number.
+        /// Tests the static operator <see cref="Quaternion.operator /(double, Quaternion)"/>.
         /// </summary>
-        [TestMethod("Operator Divide(Real,Quaternion)")]
+        [TestMethod("Operator Divide(Double,Quaternion)")]
         public void Operator_Divide_Double_Quaternion()
         {
             // Arrange
@@ -1052,7 +1053,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         #region Casts
 /*
         /// <summary>
-        /// Tests the implicit cast of a <see cref="Complex"/> number into a <see cref="Quaternion"/> number.
+        /// Tests the implicit cast of a <see cref="Complex"/> into a <see cref="Quaternion"/>.
         /// </summary>
         [TestMethod("Cast FromComplex")]
         public void Cast_FromComplex()
@@ -1067,7 +1068,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the implicit cast of a <see cref="Real"/> number into a <see cref="Quaternion"/> number.
+        /// Tests the implicit cast of a <see cref="Real"/> into a <see cref="Quaternion"/>.
         /// </summary>
         [TestMethod("Cast FromReal")]
         public void Cast_FromReal()
@@ -1082,7 +1083,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the implicit cast of a <see cref="double"/>-precision real number into a <see cref="Quaternion"/> number.
+        /// Tests the implicit cast of a <see cref="double"/> into a <see cref="Quaternion"/>.
         /// </summary>
         [TestMethod("Cast FromDouble")]
         public void Cast_FromDouble()
@@ -1097,7 +1098,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the implicit cast of a <see cref="ValueTuple{T1,T2,T3,T4}"/> into a <see cref="Quaternion"/> number.
+        /// Tests the implicit cast of a <see cref="ValueTuple{T1,T2,T3,T4}"/> into a <see cref="Quaternion"/>.
         /// </summary>
         [TestMethod("Cast FromValueTuple")]
         public void Cast_FromValueTuple()
@@ -1116,7 +1117,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         #region Methods
 
         /// <summary>
-        /// Tests the computation of the conjugate of the current <see cref="Quaternion"/> number.
+        /// Tests the method <see cref="Quaternion.Conjugate()"/>.
         /// </summary>
         [TestMethod("Method Conjugate()")]
         public void Conjugate()
@@ -1131,7 +1132,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the computation of the opposite of the current <see cref="Quaternion"/> number.
+        /// Tests the method <see cref="Quaternion.Opposite()"/>.
         /// </summary>
         [TestMethod("Method Opposite()")]
         public void Opposite()
@@ -1146,7 +1147,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the computation of the inverse of the current <see cref="Quaternion"/> number.
+        /// Tests the method <see cref="Quaternion.Inverse()"/>.
         /// </summary>
         [TestMethod("Method Inverse()")]
         public void Inverse()
@@ -1162,7 +1163,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the computation of the norm of the current <see cref="Quaternion"/> number.
+        /// Tests the method <see cref="Quaternion.Norm()"/>.
         /// </summary>
         [TestMethod("Method Norm()")]
         public void Norm()
@@ -1177,7 +1178,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the equality comparison of the current <see cref="Quaternion"/> number with another <see cref="Quaternion"/> number.
+        /// Tests the method <see cref="Quaternion.Equals(Quaternion)"/>.
         /// </summary>
         [TestMethod("Method Equals(Quaternion)")]
         public void Equals_Quaternion()
@@ -1192,12 +1193,12 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         #endregion
 
 
-        #region Explicit Additive.IAbelianGroup<Complex>
+        #region Explicit : Additive.IAbelianGroup<Quaternion>
 
         /******************** Properties ********************/
 
         /// <summary>
-        /// Tests the <see cref="IAddable{T}.IsAssociative"/> property of <see cref="Quaternion"/> numbers.
+        /// Tests the <see cref="IAddable{T}.IsAssociative"/> property of <see cref="Quaternion"/>.
         /// </summary>
         [TestMethod("AsIAddable<Quaternion> Property IsAssociative")]
         public void AsIAddable_IsAssociative()
@@ -1211,7 +1212,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the <see cref="IAddable{T}.IsCommutative"/> property of <see cref="Quaternion"/> numbers.
+        /// Tests the <see cref="IAddable{T}.IsCommutative"/> property of <see cref="Quaternion"/>.
         /// </summary>
         [TestMethod("AsIAddable<Quaternion> Property IsCommutative")]
         public void AsIAddable_IsCommutative()
@@ -1228,8 +1229,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         /******************** Methods ********************/
 
         /// <summary>
-        /// Tests the <see cref="IAddable{T}.Add(T)"/> method 
-        /// computing the addition of the current <see cref="Quaternion"/> number with another <see cref="Quaternion"/> number.
+        /// Tests the <see cref="IAddable{T}.Add(T)"/> method of <see cref="Quaternion"/>.
         /// </summary>
         [TestMethod("AsIAddable<Quaternion> Add(Quaternion)")]
         public void AsIAddable_Add_Quaternion()
@@ -1246,8 +1246,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the <see cref="ISubtractable{T}.Subtract(T)"/> method 
-        /// computing the subtraction of the current <see cref="Quaternion"/> number with another <see cref="Quaternion"/> number.
+        /// Tests the <see cref="ISubtractable{T}.Subtract(T)"/> method of <see cref="Quaternion"/>.
         /// </summary>
         [TestMethod("AsISubtractable<Quaternion> Subtract(Quaternion)")]
         public void AsISubtractable_Substract_Quaternion()
@@ -1264,7 +1263,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the <see cref="IZeroable{T}.Zero"/> method returning the additive neutral element of the <see cref="Quaternion"/> numbers.
+        /// Tests the <see cref="IZeroable{T}.Zero"/> method ofe <see cref="Quaternion"/>.
         /// </summary>
         [TestMethod("AsIZeroable<Complex> Zero()")]
         public void AsIZeroable_Zero()
@@ -1278,15 +1277,15 @@ namespace BRIDGES.Test.Arithmetic.Numbers
             // Assert
             Assert.IsTrue(otherQuaternion.Equals(result));
         }
-        
+
         #endregion
 
-        #region Explicit Additive.IAbelianGroup<Complex>
+        #region Explicit : Additive.IAbelianGroup<Quaternion>
 
         /******************** Properties ********************/
 
         /// <summary>
-        /// Tests the <see cref="IMultiplicable{T}.IsAssociative"/> property of <see cref="Quaternion"/> numbers.
+        /// Tests the <see cref="IMultiplicable{T}.IsAssociative"/> property of <see cref="Quaternion"/>.
         /// </summary>
         [TestMethod("AsIMultiplicable<Quaternion> Property IsAssociative")]
         public void AsIMultiplicable_IsAssociative()
@@ -1300,7 +1299,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the <see cref="IMultiplicable{T}.IsCommutative"/> property of the <see cref="Quaternion"/>.
+        /// Tests the <see cref="IMultiplicable{T}.IsCommutative"/> property of <see cref="Quaternion"/>.
         /// </summary>
         [TestMethod("AsIMultiplicable<Quaternion> Property IsCommutative")]
         public void AsIMultiplicable_IsCommutative()
@@ -1317,8 +1316,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         /******************** Methods ********************/
 
         /// <summary>
-        /// Tests the <see cref="IMultiplicable{T}.Multiply(T)"/> method 
-        /// computing the multiplication of the current <see cref="Quaternion"/> number with another <see cref="Quaternion"/> number.
+        /// Tests the <see cref="IMultiplicable{T}.Multiply(T)"/> method of <see cref="Quaternion"/>.
         /// </summary>
         [TestMethod("AsIMultiplicable<Quaternion> Multiply(Quaternion)")]
         public void AsIMultiplicable_Multiply_Quaternion()
@@ -1339,8 +1337,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the <see cref="IDivisible{T}.Divide(T)"/> method 
-        /// computing the division of the current <see cref="Quaternion"/> number with another <see cref="Quaternion"/> number.
+        /// Tests the <see cref="IDivisible{T}.Divide(T)"/> method of <see cref="Quaternion"/>.
         /// </summary>
         [TestMethod("AsIDivisible<Quaternion> Divide(Quaternion)")]
         public void AsIDivisible_Divide_Quaternion()
@@ -1361,7 +1358,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the <see cref="IOneable{T}.One"/> method returning the multiplicative neutral element of the <see cref="Quaternion"/> numbers.
+        /// Tests the <see cref="IOneable{T}.One"/> method of <see cref="Quaternion"/>.
         /// </summary>
         [TestMethod("AsIOneable<Quaternion> One()")]
         public void AsIOneable_One()
@@ -1378,11 +1375,10 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
         #endregion
 
-        #region Explicit IGroupAction<Complex,double>
+        #region Explicit : IGroupAction<Double,Quaternion>
 
         /// <summary>
-        /// Tests the <see cref="IGroupAction{TValue, T}.Multiply(TValue)"/> method
-        /// computing the scalar multiplication of the current <see cref="Quaternion"/> number with a <see cref="double"/>-precision real number.
+        /// Tests the <see cref="IGroupAction{TValue, T}.Multiply(TValue)"/> method of <see cref="Quaternion"/>.
         /// </summary>
         [TestMethod("AsIGroupAction<Double,Quaternion> Multiply(Double)")]
         public void AsIGroupAction_Multiply_Double()
@@ -1399,8 +1395,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the <see cref="IGroupAction{TValue, T}.Divide(TValue)"/> method
-        /// computing the scalar division of the current <see cref="Quaternion"/> number with a <see cref="double"/>-precision real number.
+        /// Tests the <see cref="IGroupAction{TValue, T}.Divide(TValue)"/> method of <see cref="Quaternion"/>.
         /// </summary>
         [TestMethod("AsIGroupAction<Double,Quaternion> Divide(Double)")]
         public void AsIGroupAction_Divide_Double()

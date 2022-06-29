@@ -141,11 +141,20 @@ namespace BRIDGES.Geometry.Euclidean3D
         #region Static Properties
 
         /// <summary>
+        /// Gets a new <see cref="Vector"/> with coordinates (0.0, 0.0, 0.0)
+        /// </summary>
+        public static Vector Zero
+        {
+            get { return new Vector(0.0, 0.0, 0.0); }
+        }
+
+
+        /// <summary>
         /// Gets a new <see cref="Vector"/> with coordinates (1.0, 0.0, 0.0).
         /// </summary>
         public static Vector WorldX
         {
-            get { return new Vector(); }
+            get { return new Vector(1.0, 0.0, 0.0); }
         }
 
         /// <summary>
@@ -162,14 +171,6 @@ namespace BRIDGES.Geometry.Euclidean3D
         public static Vector WorldZ
         {
             get { return new Vector(0.0, 0.0, 1.0); }
-        }
-
-        /// <summary>
-        /// Gets a new <see cref="Vector"/> with coordinates (0.0, 0.0, 0.0)
-        /// </summary>
-        public static Vector Zero 
-        { 
-            get { return new Vector(0.0, 0.0, 0.0); } 
         }
 
         #endregion
@@ -392,6 +393,7 @@ namespace BRIDGES.Geometry.Euclidean3D
             return Math.Sqrt((X * X) + (Y * Y) + (Z * Z));
         }
 
+
         /// <summary>
         /// Unitises the current <see cref="Vector"/> (using the L2-norm).
         /// </summary>
@@ -416,6 +418,7 @@ namespace BRIDGES.Geometry.Euclidean3D
         {
             return Math.Abs((X * X) + (Y * Y) + (Z * Z) - 1.0) < Settings.AbsolutePrecision;
         }
+
 
         /// <summary>
         /// Computes the angle made by the current <see cref="Vector"/> with another <see cref="Vector"/>.
@@ -472,7 +475,7 @@ namespace BRIDGES.Geometry.Euclidean3D
             return $"({X},{Y},{Z})";
         }
 
-        #endregion
+        #endregion-
 
 
         #region Explicit : Additive.IAbelianGroup<Vector>
@@ -511,6 +514,8 @@ namespace BRIDGES.Geometry.Euclidean3D
 
         #region Explicit : IGroupAction<Vector,double>
 
+        /******************** Methods ********************/
+
         /// <inheritdoc/>
         Vector Alg_Str.IGroupAction<double, Vector>.Multiply(double factor) { return new Vector(factor * X, factor * Y, factor * Z); }
 
@@ -521,7 +526,7 @@ namespace BRIDGES.Geometry.Euclidean3D
 
         #region Explicit : IDotProduct<Vector>
 
-        /******************** IMetric<Vector> ********************/
+        /******************** Methods ********************/
 
         /// <inheritdoc cref="Alg_Meas.IMetric{T}.DistanceTo(T)"/>
         double Alg_Meas.IMetric<Vector>.DistanceTo(Vector other)
@@ -531,16 +536,12 @@ namespace BRIDGES.Geometry.Euclidean3D
         }
 
 
-        /******************** INorm<Vector> ********************/
-
         /// <inheritdoc cref="Alg_Meas.INorm{T}.Norm"/>
         double Alg_Meas.INorm<Vector>.Norm()
         {
             return Math.Sqrt((X * X) + (Y * Y) + (Z * Z));
         }
 
-
-        /******************** IDotProduct<Vector> ********************/
 
         /// <inheritdoc cref="Alg_Meas.IDotProduct{TValue,T}.DotProduct(T)"/>
         double Alg_Meas.IDotProduct<double, Vector>.DotProduct(Vector other)
