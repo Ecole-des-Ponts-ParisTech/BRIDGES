@@ -1,13 +1,13 @@
 ﻿using System;
 
 
-namespace BRIDGES.Algebra.Structures.Multiplicative
+namespace BRIDGES.Algebra.Sets.Additive
 {
     /// <summary>
-    /// Interface defining a multiplicative semi-group.
+    /// Interface defining an additive semi-group.
     /// </summary>
-    /// <typeparam name="T"> Type of the elements in the multiplicative set. </typeparam>
-    internal interface ISemiGroup<T> : IMagma<T>
+    /// <typeparam name="T"> Type of the elements in the additive set. </typeparam>
+    public interface ISemiGroup<T> : IMagma<T>
         where T : ISemiGroup<T>
     {
         // In the C#8.0 language version, interfaces can have explicit implementations.

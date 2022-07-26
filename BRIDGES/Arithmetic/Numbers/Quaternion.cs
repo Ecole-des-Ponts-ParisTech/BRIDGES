@@ -1,7 +1,7 @@
 ﻿using System;
 
 using Alg_Fund = BRIDGES.Algebra.Fundamentals;
-using Alg_Str = BRIDGES.Algebra.Structures;
+using Alg_Str = BRIDGES.Algebra.Sets;
 
 
 namespace BRIDGES.Arithmetic.Numbers
@@ -10,7 +10,7 @@ namespace BRIDGES.Arithmetic.Numbers
     /// Structure defining quaternion number.
     /// </summary>
     public struct Quaternion
-        : Alg_Str.Additive.IAbelianGroup<Quaternion>, Alg_Str.Multiplicative.IAbelianGroup<Quaternion>, Alg_Fund.IGroupAction<Quaternion, double>,
+        : Alg_Str.Additive.IAbelianGroup<Quaternion>, Alg_Str.Multiplicative.IAbelianGroup<Quaternion>, Alg_Str.IGroupAction<double, Quaternion>,
           IEquatable<Quaternion>
     {
         #region Properties
@@ -88,21 +88,21 @@ namespace BRIDGES.Arithmetic.Numbers
 
         #endregion
 
-        #region Static Members
+        #region Static Properties
 
         /// <summary>
         /// Gets a new instance of the <see cref="Quaternion"/> structure equal to the additive neutral element.<br/>
         /// It corresponds to the <see cref="Quaternion"/> with a real number equal to zero and an imaginary part equal to zero : (0.0, 0.0, 0.0, 0.0).
         /// </summary>
         /// <returns> The new <see cref="Quaternion"/> number equal to zero. </returns>
-        public static Quaternion Zero() { return new Quaternion(0.0, 0.0, 0.0, 0.0); }
+        public static Quaternion Zero { get { return new Quaternion(0.0, 0.0, 0.0, 0.0); } }
 
         /// <summary>
         /// Gets a new instance of the <see cref="Quaternion"/> structure equal to the multiplicative neutral element.<br/>
         /// It corresponds to the <see cref="Quaternion"/> with a real number equal to one and an imaginary number equal to zero : (1.0, 0.0, 0.0, 0.0).
         /// </summary>
         /// <returns> The new <see cref="Quaternion"/> number equal to one. </returns>
-        public static Quaternion One() { return new Quaternion(1.0, 0.0, 0.0, 0.0); }
+        public static Quaternion One { get { return new Quaternion(1.0, 0.0, 0.0, 0.0); } }
 
         #endregion
 
@@ -843,7 +843,7 @@ namespace BRIDGES.Arithmetic.Numbers
         }
 
         /// <inheritdoc/>
-        Quaternion Alg_Fund.IZeroable<Quaternion>.Zero() { return Quaternion.Zero(); }
+        Quaternion Alg_Fund.IZeroable<Quaternion>.Zero() { return new Quaternion(0.0, 0.0, 0.0, 0.0); }
 
         #endregion
 
@@ -867,17 +867,17 @@ namespace BRIDGES.Arithmetic.Numbers
         Quaternion Alg_Fund.IDivisible<Quaternion>.Divide(Quaternion other) { return Divide(this, other); }
 
         /// <inheritdoc/>
-        Quaternion Alg_Fund.IOneable<Quaternion>.One() { return Quaternion.One(); }
+        Quaternion Alg_Fund.IOneable<Quaternion>.One() { return new Quaternion(1.0, 0.0, 0.0, 0.0); }
 
         #endregion
 
         #region Explicit : IGroupAction<Quaternion,double>
 
         /// <inheritdoc/>
-        Quaternion Alg_Fund.IGroupAction<Quaternion, double>.Multiply(double factor) { return Multiply(factor, this); }
+        Quaternion Alg_Str.IGroupAction<double, Quaternion>.Multiply(double factor) { return Multiply(factor, this); }
 
         /// <inheritdoc/>
-        Quaternion Alg_Fund.IGroupAction<Quaternion, double>.Divide(double divisor) { return Divide(this, divisor); }
+        Quaternion Alg_Str.IGroupAction<double, Quaternion>.Divide(double divisor) { return Divide(this, divisor); }
 
         #endregion
     }

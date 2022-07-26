@@ -1,13 +1,13 @@
 ﻿using System;
 
 
-namespace BRIDGES.Algebra.Structures.Additive
+namespace BRIDGES.Algebra.Sets.Multiplicative
 {
     /// <summary>
-    /// Interface defining an additive abelian group.
+    /// Interface defining a multiplicative abelian group.
     /// </summary>
-    /// <typeparam name="T"> Type of the elements in the additive set. </typeparam>
-    internal interface IAbelianGroup<T> : IGroup<T>
+    /// <typeparam name="T"> Type of the elements in the multiplicative set. </typeparam>
+    public interface IAbelianGroup<T> : IGroup<T>
         where T : IAbelianGroup<T>
     {
         // In the C#8.0 language version, interfaces can have explicit implementations.

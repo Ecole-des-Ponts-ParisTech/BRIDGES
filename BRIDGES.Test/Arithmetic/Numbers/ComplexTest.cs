@@ -4,12 +4,13 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using BRIDGES.Arithmetic.Numbers;
 using BRIDGES.Algebra.Fundamentals;
+using BRIDGES.Algebra.Sets;
 
 
 namespace BRIDGES.Test.Arithmetic.Numbers
 {
     /// <summary>
-    /// Class testing the members of the <see cref="Complex"/> class.
+    /// Class testing the members of the <see cref="Complex"/> structure.
     /// </summary>
     [TestClass]
     public class ComplexTest
@@ -17,7 +18,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         #region Behavior
 
         /// <summary>
-        /// Tests that <see cref="Complex"/> are not reference type.
+        /// Tests that <see cref="Complex"/> is not reference type.
         /// </summary>
         [TestMethod("Behavior IsNotReference")]
         public void IsNotReference()
@@ -38,7 +39,8 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         #region Properties
 
         /// <summary>
-        /// Tests the initialisation of the <see cref="Complex.RealPart"/> and the <see cref="Complex.ImaginaryPart"/> properties.
+        /// Tests the initialisation of the <see cref="Complex"/> from its real and imaginary part,
+        /// and the <see cref="Complex.RealPart"/>, <see cref="Complex.ImaginaryPart"/> properties.
         /// </summary>
         [TestMethod("Property RealPart & ImaginaryPart")]
         public void RealPartAndImaginaryPart()
@@ -53,7 +55,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the computation of the <see cref="Complex.Modulus"/> and the <see cref="Complex.Argument"/> properties.
+        /// Tests the <see cref="Complex.Modulus"/> and <see cref="Complex.Argument"/> properties.
         /// </summary>
         [TestMethod("Property Modulus & Argument")]
         public void ModulusAndArgument()
@@ -69,46 +71,46 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
         #endregion
 
-        #region Static Members
+        #region Static Properties
 
         /// <summary>
-        /// Tests the initialisation of the <see cref="Complex"/> number corresponding to the additive neutral element.
+        /// Tests the static property <see cref="Complex.Zero"/>.
         /// </summary>
-        [TestMethod("Static Zero()")]
+        [TestMethod("Static Zero")]
         public void Static_Zero()
         {
             // Arrange
             Complex result = new Complex(0.0, 0.0);
             // Act
-            Complex complex = Complex.Zero();
+            Complex complex = Complex.Zero;
             // Assert
             Assert.IsTrue(complex.Equals(result));
         }
 
         /// <summary>
-        /// Tests the initialisation of the <see cref="Complex"/> number corresponding to the multiplicative neutral element.
+        /// Tests the static property <see cref="Complex.One"/>.
         /// </summary>
-        [TestMethod("Static One()")]
+        [TestMethod("Static One")]
         public void Static_One()
         {
             // Arrange
             Complex result = new Complex(1.0, 0.0);
             // Act
-            Complex complex = Complex.One();
+            Complex complex = Complex.One;
             // Assert
             Assert.IsTrue(complex.Equals(result));
         }
 
         /// <summary>
-        /// Tests the initialisation of the <see cref="Complex"/> number corresponding to unit imaginary element.
+        /// Tests the static property <see cref="Complex.ImaginaryOne"/>.
         /// </summary>
-        [TestMethod("Static ImaginaryOne()")]
+        [TestMethod("Static ImaginaryOne")]
         public void Static_ImaginaryOne()
         {
             // Arrange
             Complex result = new Complex(0.0, 1.0);
             // Act
-            Complex complex = Complex.ImaginaryOne();
+            Complex complex = Complex.ImaginaryOne;
             // Assert
             Assert.IsTrue(complex.Equals(result));
         }
@@ -118,7 +120,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         #region Static Methods
 
         /// <summary>
-        /// Tests the initialisation of a <see cref="Complex"/> number its from polar coordinates.
+        /// Tests the static method <see cref="Complex.FromPolarCoordinates(double, double)"/>.
         /// </summary>
         [TestMethod("Static FromPolarCoordinates(Double,Double)")]
         public void Static_FromPolarCoordinates()
@@ -134,7 +136,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the computation of the conjugate of a given <see cref="Complex"/> number.
+        /// Tests the static method <see cref="Complex.Conjugate(Complex)"/>.
         /// </summary>
         [TestMethod("Static Conjugate(Complex)")]
         public void Static_Conjugate_Complex()
@@ -152,7 +154,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         /******************** Algebraic Field ********************/
 
         /// <summary>
-        /// Tests the static addition of two <see cref="Complex"/> numbers.
+        /// Tests the static method <see cref="Complex.Add(Complex, Complex)"/>.
         /// </summary>
         [TestMethod("Static Add(Complex,Complex)")]
         public void Static_Add_Complex_Complex()
@@ -168,7 +170,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static subtraction of two <see cref="Complex"/> numbers.
+        /// Tests the static method <see cref="Complex.Subtract(Complex, Complex)"/>.
         /// </summary>
         [TestMethod("Static Subtract(Complex,Complex)")]
         public void Static_Substract_Complex_Complex()
@@ -184,7 +186,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the computation of the opposite of a given <see cref="Complex"/> number.
+        /// Tests the static method <see cref="Complex.Opposite(Complex)"/>.
         /// </summary>
         [TestMethod("Static Opposite(Complex)")]
         public void Static_Opposite_Complex()
@@ -200,7 +202,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static multiplication of two <see cref="Complex"/> numbers.
+        /// Tests the static method <see cref="Complex.Multiply(Complex, Complex)"/>.
         /// </summary>
         [TestMethod("Static Multiply(Complex,Complex)")]
         public void Static_Multiply_Complex_Complex()
@@ -216,7 +218,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static division of two <see cref="Complex"/> numbers.
+        /// Tests the static method <see cref="Complex.Divide(Complex, Complex)"/>.
         /// </summary>
         [TestMethod("Static Divide(Complex,Complex)")]
         public void Static_Divide_Complex_Complex()
@@ -232,7 +234,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the computation of the inverse of a given <see cref="Complex"/> number.
+        /// Tests the static method <see cref="Complex.Inverse(Complex)"/>.
         /// </summary>
         [TestMethod("Static Inverse(Complex)")]
         public void Static_Inverse_Complex()
@@ -250,7 +252,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         /******************** Real Embedding ********************/
 
         /// <summary>
-        /// Tests the static addition of a <see cref="Complex"/> number with a <see cref="Real"/> number.
+        /// Tests the static method <see cref="Complex.Add(Complex, Real)"/>.
         /// </summary>
         [TestMethod("Static Add(Complex,Real)")]
         public void Static_Add_Complex_Real()
@@ -266,7 +268,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static addition of a <see cref="Real"/> number with a <see cref="Complex"/> number.
+        /// Tests the static method <see cref="Complex.Add(Real, Complex)"/>.
         /// </summary>
         [TestMethod("Static Add(Real,Complex)")]
         public void Static_Add_Real_Complex()
@@ -283,7 +285,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static subtraction of a <see cref="Complex"/> number with a <see cref="Real"/> number.
+        /// Tests the static method <see cref="Complex.Subtract(Complex, Real)"/>.
         /// </summary>
         [TestMethod("Static Subtract(Complex,Real)")]
         public void Static_Subtract_Complex_Real()
@@ -299,7 +301,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static subtraction of a <see cref="Real"/> number with a <see cref="Complex"/> number.
+        /// Tests the static method <see cref="Complex.Subtract(Real, Complex)"/>.
         /// </summary>
         [TestMethod("Static Subtract(Real,Complex)")]
         public void Static_Subtract_Real_Complex()
@@ -316,7 +318,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static multiplication of a <see cref="Complex"/> number with a <see cref="Real"/> number.
+        /// Tests the static method <see cref="Complex.Multiply(Complex, Real)"/>.
         /// </summary>
         [TestMethod("Static Multiply(Complex,Real)")]
         public void Static_Multiply_Complex_Real()
@@ -332,7 +334,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static multiplication of a <see cref="Real"/> number with a <see cref="Complex"/> number.
+        /// Tests the static method <see cref="Complex.Multiply(Real, Complex)"/>.
         /// </summary>
         [TestMethod("Static Multiply(Real,Complex)")]
         public void Static_Multiply_Real_Complex()
@@ -349,7 +351,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static division of a <see cref="Complex"/> number by a <see cref="Real"/> number.
+        /// Tests the static method <see cref="Complex.Divide(Complex, Real)"/>.
         /// </summary>
         [TestMethod("Static Divide(Complex,Real)")]
         public void Static_Divide_Complex_Real()
@@ -365,7 +367,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static division of a <see cref="Real"/> number by a <see cref="Complex"/> number.
+        /// Tests the static method <see cref="Complex.Divide(Real, Complex)"/>.
         /// </summary>
         [TestMethod("Static Divide(Real,Complex)")]
         public void Static_Divide_Real_Complex()
@@ -384,7 +386,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         /******************** Group Action ********************/
 
         /// <summary>
-        /// Tests the static multiplication of a <see cref="double"/>-precision real number with a <see cref="Complex"/> number.
+        /// Tests the static method <see cref="Complex.Multiply(double, Complex)"/>.
         /// </summary>
         [TestMethod("Static Multiply(Double,Complex)")]
         public void Static_Multiply_Double_Complex()
@@ -400,7 +402,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static division of a <see cref="Complex"/> number by a <see cref="double"/>-precision real number.
+        /// Tests the static method <see cref="Complex.Divide(Complex, double)"/>.
         /// </summary>
         [TestMethod("Static Divide(Complex,Double)")]
         public void Static_Divide_Complex_Double()
@@ -422,7 +424,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         /******************** Algebraic Field ********************/
 
         /// <summary>
-        /// Tests the static addition operator of two <see cref="Complex"/> numbers.
+        /// Tests the static operator <see cref="Complex.operator +(Complex,Complex)"/>.
         /// </summary>
         [TestMethod("Operator Add(Complex,Complex)")]
         public void Operator_Add_Complex_Complex()
@@ -438,7 +440,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static Subtraction operator of two <see cref="Complex"/> numbers.
+        /// Tests the static operator <see cref="Complex.operator -(Complex,Complex)"/>.
         /// </summary>
         [TestMethod("Operator Subtract(Complex,Complex)")]
         public void Operator_Substract_Complex_Complex()
@@ -454,7 +456,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static opposite operator of a <see cref="Complex"/> number.
+        /// Tests the static operator <see cref="Complex.operator -(Complex)"/>.
         /// </summary>
         [TestMethod("Operator Subtract(Complex)")]
         public void Operator_Substract_Complex()
@@ -469,7 +471,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static multiplication operator of two <see cref="Complex"/> numbers.
+        /// Tests the static operator <see cref="Complex.operator *(Complex,Complex)"/>.
         /// </summary>
         [TestMethod("Operator Multiply(Complex,Complex)")]
         public void Operator_Multiply_Complex_Complex()
@@ -485,7 +487,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static division of operator two <see cref="Complex"/> numbers.
+        /// Tests the static operator <see cref="Complex.operator /(Complex,Complex)"/>.
         /// </summary>
         [TestMethod("Operator Divide(Complex,Complex)")]
         public void Operator_Divide_Complex_Complex()
@@ -504,7 +506,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         /******************** Real Embedding ********************/
 
         /// <summary>
-        /// Tests the static addition operator of a <see cref="Complex"/> number with a <see cref="Real"/> number.
+        /// Tests the static operator <see cref="Complex.operator +(Complex,Real)"/>.
         /// </summary>
         [TestMethod("Operator Add(Complex,Real)")]
         public void Operator_Add_Complex_Real()
@@ -520,7 +522,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static addition operator of a <see cref="Real"/> number with a <see cref="Complex"/> number.
+        /// Tests the static operator <see cref="Complex.operator +(Real,Complex)"/>.
         /// </summary>
         [TestMethod("Operator Add(Real,Complex)")]
         public void Operator_Add_Real_Complex()
@@ -537,7 +539,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static subtraction operator of a <see cref="Complex"/> number with a <see cref="Real"/> number.
+        /// Tests the static operator <see cref="Complex.operator -(Complex,Real)"/>.
         /// </summary>
         [TestMethod("Operator Subtract(Complex,Real)")]
         public void Operator_Subtract_Complex_Real()
@@ -553,7 +555,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static subtraction operator of a <see cref="Real"/> number with a <see cref="Complex"/> number.
+        /// Tests the static operator <see cref="Complex.operator -(Real,Complex)"/>.
         /// </summary>
         [TestMethod("Operator Subtract(Real,Complex)")]
         public void Operator_Subtract_Real_Complex()
@@ -571,7 +573,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static multiplication operator of a <see cref="Complex"/> number with a <see cref="Real"/> number.
+        /// Tests the static operator <see cref="Complex.operator *(Complex,Real)"/>.
         /// </summary>
         [TestMethod("Operator Multiply(Complex,Real)")]
         public void Operator_Multiply_Complex_Real()
@@ -587,7 +589,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static multiplication operator of a <see cref="Real"/> number with a <see cref="Complex"/> number.
+        /// Tests the static operator <see cref="Complex.operator *(Real,Complex)"/>.
         /// </summary>
         [TestMethod("Operator Multiply(Real,Complex)")]
         public void Operator_Multiply_Real_Complex()
@@ -604,7 +606,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static division operator of a <see cref="Complex"/> number by a <see cref="Real"/> number.
+        /// Tests the static operator <see cref="Complex.operator /(Complex,Real)"/>.
         /// </summary>
         [TestMethod("Operator Divide(Complex,Real)")]
         public void Operator_Divide_Complex_Real()
@@ -620,7 +622,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static division operator of a <see cref="Real"/> number by a <see cref="Complex"/> number.
+        /// Tests the static operator <see cref="Complex.operator /(Real,Complex)"/>.
         /// </summary>
         [TestMethod("Operator Divide(Real,Complex)")]
         public void Operator_Divide_Real_Complex()
@@ -634,12 +636,12 @@ namespace BRIDGES.Test.Arithmetic.Numbers
             // Assert
             Assert.IsTrue(otherComplex.Equals(result));
         }
-        
+
 
         /******************** double Embedding ********************/
 
         /// <summary>
-        /// Tests the static addition operator of a <see cref="Complex"/> number with a <see cref="double"/>-precision real number.
+        /// Tests the static operator <see cref="Complex.operator +(Complex,double)"/>.
         /// </summary>
         [TestMethod("Operator Add(Complex,Double)")]
         public void Operator_Add_Complex_Double()
@@ -655,7 +657,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static addition operator of a <see cref="double"/>-precision real number with a <see cref="Complex"/> number.
+        /// Tests the static operator <see cref="Complex.operator +(double,Complex)"/>.
         /// </summary>
         [TestMethod("Operator Add(Double,Complex)")]
         public void Operator_Add_Double_Complex()
@@ -672,7 +674,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static subtraction operator of a <see cref="Complex"/> number with a <see cref="double"/>-precision real number.
+        /// Tests the static operator <see cref="Complex.operator -(Complex,double)"/>.
         /// </summary>
         [TestMethod("Operator Subtract(Complex,Double)")]
         public void Operator_Subtract_Complex_Double()
@@ -688,7 +690,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static subtraction operator of a <see cref="double"/>-precision real number with a <see cref="Complex"/> number.
+        /// Tests the static operator <see cref="Complex.operator -(double,Complex)"/>.
         /// </summary>
         [TestMethod("Operator Subtract(Double,Complex)")]
         public void Operator_Subtract_Double_Complex()
@@ -705,7 +707,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static multiplication operator of a <see cref="Complex"/> number with a <see cref="double"/>-precision real number.
+        /// Tests the static operator <see cref="Complex.operator *(Complex,double)"/>.
         /// </summary>
         [TestMethod("Operator Multiply(Complex,Double)")]
         public void Operator_Multiply_Complex_Double()
@@ -721,7 +723,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static multiplication operator of a <see cref="double"/>-precision real number with a <see cref="Complex"/> number.
+        /// Tests the static operator <see cref="Complex.operator *(double,Complex)"/>.
         /// </summary>
         [TestMethod("Operator Multiply(Double,Complex)")]
         public void Operator_Multiply_Double_Complex()
@@ -738,7 +740,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the static division operator of a <see cref="Complex"/> number by a <see cref="double"/>-precision real number.
+        /// Tests the static operator <see cref="Complex.operator /(Complex,double)"/>.
         /// </summary>
         [TestMethod("Operator Divide(Complex,Double)")]
         public void Operator_Divide_Complex_Double()
@@ -754,7 +756,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the static division operator of a <see cref="double"/>-precision real number by a <see cref="Complex"/> number.
+        /// Tests the static operator <see cref="Complex.operator /(double,Complex)"/>.
         /// </summary>
         [TestMethod("Operator Divide(Double,Complex)")]
         public void Operator_Divide_Double_Complex()
@@ -774,7 +776,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         #region Casts
         /*
                 /// <summary>
-                /// Tests the implicit cast of a <see cref="Real"/> number into a <see cref="Complex"/> number.
+                /// Tests the implicit cast of a <see cref="Real"/> into a <see cref="Complex"/>.
                 /// </summary>
                 [TestMethod("Cast FromReal")]
                 public void Cast_FromReal()
@@ -789,7 +791,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
                 }
 
                 /// <summary>
-                /// Tests the implicit cast of a <see cref="double"/>-precision real number into a <see cref="Complex"/> number.
+                /// Tests the implicit cast of a <see cref="double"/> into a <see cref="Complex"/>.
                 /// </summary>
                 [TestMethod("Cast FromDouble")]
                 public void Cast_FromDouble()
@@ -804,7 +806,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
                 }
 
                 /// <summary>
-                /// Tests the implicit cast of a <see cref="ValueTuple{T1,T2}"/> into a <see cref="Complex"/> number.
+                /// Tests the implicit cast of a <see cref="ValueTuple{T1,T2}"/> into a <see cref="Complex"/>.
                 /// </summary>
                 [TestMethod("Cast FromValueTuple")]
                 public void Cast_FromValueTuple()
@@ -823,7 +825,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         #region Methods
 
         /// <summary>
-        /// Tests the computation of the conjugate of the current <see cref="Complex"/> number.
+        /// Tests the method <see cref="Complex.Conjugate()"/>.
         /// </summary>
         [TestMethod("Method Conjugate()")]
         public void Conjugate()
@@ -838,7 +840,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the computation of the opposite of the current <see cref="Complex"/> number.
+        /// Tests the method <see cref="Complex.Opposite()"/>.
         /// </summary>
         [TestMethod("Method Opposite()")]
         public void Opposite()
@@ -853,7 +855,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the computation of the inverse of the current <see cref="Complex"/> number.
+        /// Tests the method <see cref="Complex.Inverse()"/>.
         /// </summary>
         [TestMethod("Method Inverse()")]
         public void Inverse()
@@ -869,7 +871,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the computation of the norm of the current <see cref="Complex"/> number.
+        /// Tests the method <see cref="Complex.Norm()"/>.
         /// </summary>
         [TestMethod("Method Norm()")]
         public void Norm()
@@ -884,7 +886,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
         /// <summary>
-        /// Tests the equality comparison of the current <see cref="Complex"/> number with another <see cref="Complex"/> number.
+        /// Tests the method <see cref="Complex.Equals(Complex)"/>.
         /// </summary>
         [TestMethod("Method Equals(Complex)")]
         public void Equals_Complex()
@@ -900,12 +902,12 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
 
 
-        #region Explicit Additive.IAbelianGroup<Complex>
+        #region Explicit : Additive.IAbelianGroup<Complex>
 
         /******************** Properties ********************/
 
         /// <summary>
-        /// Tests the <see cref="IAddable{T}.IsAssociative"/> property of <see cref="Complex"/> numbers.
+        /// Tests the <see cref="IAddable{T}.IsAssociative"/> property of <see cref="Complex"/>.
         /// </summary>
         [TestMethod("AsIAddable<Complex> Property IsAssociative")]
         public void AsIAddable_IsAssociative()
@@ -919,16 +921,15 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the <see cref="IAddable{T}.IsCommutative"/> property of <see cref="Complex"/> numbers.
+        /// Tests the <see cref="IAddable{T}.IsCommutative"/>  property of <see cref="Complex"/>.
         /// </summary>
         [TestMethod("AsIAddable<Complex> Property IsCommutative")]
         public void AsIAddable_IsCommutative()
         {
             // Arrange
             Complex complex = new Complex(1.0, -5.0);
-            IAddable<Complex> addable = (IAddable<Complex>)complex;
             // Act
-            complex.Conjugate();
+            IAddable<Complex> addable = (IAddable<Complex>)complex;
             // Assert
             Assert.IsTrue(addable.IsCommutative);
         }
@@ -937,8 +938,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         /******************** Methods ********************/
 
         /// <summary>
-        /// Tests the <see cref="IAddable{T}.Add(T)"/> method 
-        /// computing the addition of the current <see cref="Complex"/> number with another <see cref="Complex"/> number.
+        /// Tests the <see cref="IAddable{T}.Add(T)"/> method of <see cref="Complex"/>.
         /// </summary>
         [TestMethod("AsIAddable<Complex> Add(Complex)")]
         public void AsIAddable_Add_Complex()
@@ -955,8 +955,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the <see cref="ISubtractable{T}.Subtract(T)"/> method 
-        /// computing the subtraction of the current <see cref="Complex"/> number with another <see cref="Complex"/> number.
+        /// Tests the <see cref="ISubtractable{T}.Subtract(T)"/> method of <see cref="Complex"/>.
         /// </summary>
         [TestMethod("AsISubtractable<Complex> Subtract(Complex)")]
         public void AsISubtractable_Substract_Complex()
@@ -973,7 +972,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the <see cref="IZeroable{T}.Zero"/> method returning the additive neutral element of the <see cref="Complex"/> numbers.
+        /// Tests the <see cref="IZeroable{T}.Zero"/> method of <see cref="Complex"/>.
         /// </summary>
         [TestMethod("AsIZeroable<Complex> Zero()")]
         public void AsIZeroable_Zero()
@@ -990,12 +989,12 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
         #endregion
 
-        #region Explicit Additive.IAbelianGroup<Complex>
+        #region Explicit : Additive.IAbelianGroup<Complex>
 
         /******************** Properties ********************/
 
         /// <summary>
-        /// Tests the <see cref="IMultiplicable{T}.IsAssociative"/> property of <see cref="Complex"/> numbers.
+        /// Tests the <see cref="IMultiplicable{T}.IsAssociative"/> property of <see cref="Complex"/>.
         /// </summary>
         [TestMethod("AsIMultiplicable<Complex> Property IsAssociative")]
         public void AsIMultiplicable_IsAssociative()
@@ -1026,8 +1025,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         /******************** Methods ********************/
 
         /// <summary>
-        /// Tests the <see cref="IMultiplicable{T}.Multiply(T)"/> method
-        /// computing the multiplication of the current <see cref="Complex"/> number with another <see cref="Complex"/> number.
+        /// Tests the <see cref="IMultiplicable{T}.Multiply(T)"/> method of <see cref="Complex"/>.
         /// </summary>
         [TestMethod("AsIMultiplicable<Complex> Multiply(Complex)")]
         public void AsIMultiplicable_Multiply_Complex()
@@ -1044,8 +1042,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the <see cref="IDivisible{T}.Divide(T)"/> method
-        /// computing the division of the current <see cref="Complex"/> number with another <see cref="Complex"/> number.
+        /// Tests the <see cref="IDivisible{T}.Divide(T)"/> method of <see cref="Complex"/>.
         /// </summary>
         [TestMethod("AsIDivisible<Complex> Divide(Complex)")]
         public void AsIDivisible_Divide_Complex()
@@ -1062,7 +1059,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
         }
 
         /// <summary>
-        /// Tests the <see cref="IOneable{T}.One"/> method returning the multiplicative neutral element of the <see cref="Complex"/> numbers.
+        /// Tests the <see cref="IOneable{T}.One"/> method of <see cref="Complex"/>.
         /// </summary>
         [TestMethod("AsIOneable<Complex> One()")]
         public void AsIOneable_One()
@@ -1079,13 +1076,12 @@ namespace BRIDGES.Test.Arithmetic.Numbers
 
         #endregion
 
-        #region Explicit IGroupAction<Complex,double>
+        #region Explicit : IGroupAction<Double,Complex>
 
         /// <summary>
-        /// Tests the <see cref="IGroupAction{T, TValue}.Multiply(TValue)"/> method
-        /// computing the scalar multiplication of the current <see cref="Complex"/> number with a <see cref="double"/>-precision real number.
+        /// Tests the <see cref="IGroupAction{TValue, T}.Multiply(TValue)"/> method of <see cref="Complex"/>.
         /// </summary>
-        [TestMethod("AsIGroupAction<Complex,Double> Multiply(Double)")]
+        [TestMethod("AsIGroupAction<Double,Complex> Multiply(Double)")]
         public void AsIGroupAction_Multiply_Double()
         {
             // Arrange
@@ -1093,17 +1089,16 @@ namespace BRIDGES.Test.Arithmetic.Numbers
             double number = 4.0;
             Complex result = new Complex(4.0, 10.0);
             //Act
-            IGroupAction<Complex, double> groupActionable = (IGroupAction<Complex, double>)complex;
+            IGroupAction<double, Complex> groupActionable = (IGroupAction<double, Complex>)complex;
             Complex otherComplex = groupActionable.Multiply(number);
             // Assert
             Assert.IsTrue(otherComplex.Equals(result));
         }
 
         /// <summary>
-        /// Tests the <see cref="IGroupAction{T, TValue}.Divide(TValue)"/> method
-        /// computing the scalar division of the current <see cref="Complex"/> number with a <see cref="double"/>-precision real number.
+        /// Tests the <see cref="IGroupAction{TValue,T}.Divide(TValue)"/> method of <see cref="Complex"/>.
         /// </summary>
-        [TestMethod("AsIGroupAction<Complex,Double> Divide(Double)")]
+        [TestMethod("AsIGroupAction<Double,Complex> Divide(Double)")]
         public void AsIGroupAction_Divide_Double()
         {
             // Arrange
@@ -1111,7 +1106,7 @@ namespace BRIDGES.Test.Arithmetic.Numbers
             double number = 4.0;
             Complex result = new Complex(0.25, 1.5);
             //Act
-            IGroupAction<Complex, double> groupActionable = (IGroupAction<Complex, double>)complex;
+            IGroupAction<double, Complex> groupActionable = (IGroupAction<double, Complex>)complex;
             Complex otherComplex = groupActionable.Divide(number);
             // Assert
             Assert.IsTrue(otherComplex.Equals(result));

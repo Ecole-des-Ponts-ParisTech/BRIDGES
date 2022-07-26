@@ -1,7 +1,7 @@
 ﻿using System;
 
 using Alg_Fund = BRIDGES.Algebra.Fundamentals;
-using Alg_Str = BRIDGES.Algebra.Structures;
+using Alg_Str = BRIDGES.Algebra.Sets;
 
 
 namespace BRIDGES.Arithmetic.Numbers
@@ -44,19 +44,18 @@ namespace BRIDGES.Arithmetic.Numbers
 
         #endregion
 
-        #region Static Members
+        #region Static Properties
 
         /// <summary>
         /// Gets a new instance of the <see cref="Real"/> structure equal to zero.
         /// </summary>
-        /// <returns> The new instance <see cref="Real"/> number equal to zero. </returns>
-        public static Real Zero() { return new Real(0.0); }
+        public static Real Zero { get { return new Real(0.0); } }
 
         /// <summary>
         /// Gets a new instance of the <see cref="Real"/> structure equal to one.
         /// </summary>
         /// <returns> The new <see cref="Real"/> number equal to one. </returns>
-        public static Real One() { return new Real(1.0); }
+        public static Real One { get { return new Real(1.0); } }
 
         #endregion
 
@@ -298,7 +297,7 @@ namespace BRIDGES.Arithmetic.Numbers
         Real Alg_Fund.ISubtractable<Real>.Subtract(Real other) { return new Real(Value - other.Value); }
 
         /// <inheritdoc/>
-        Real Alg_Fund.IZeroable<Real>.Zero() { return Real.Zero(); }
+        Real Alg_Fund.IZeroable<Real>.Zero() { return new Real(0.0); }
 
         #endregion
 
@@ -322,7 +321,7 @@ namespace BRIDGES.Arithmetic.Numbers
         Real Alg_Fund.IDivisible<Real>.Divide(Real other) { return new Real(Value / other.Value); }
 
         /// <inheritdoc/>
-        Real Alg_Fund.IOneable<Real>.One() { return Real.One(); }
+        Real Alg_Fund.IOneable<Real>.One() { return new Real(1.0); }
 
         #endregion
     }

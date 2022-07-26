@@ -3,14 +3,14 @@
 using BRIDGES.Algebra.Fundamentals;
 
 
-namespace BRIDGES.Algebra.Structures.Multiplicative
+namespace BRIDGES.Algebra.Sets.Multiplicative
 {
     /// <summary>
-    /// Interface defining a multiplicative loop.
+    /// Interface defining a multiplicative magma.
     /// </summary>
     /// <typeparam name="T"> Type of the elements in the multiplicative set. </typeparam>
-    internal interface ILoop<T> : IQuasiGroup<T>, IOneable<T>
-        where T : ILoop<T>
+    public interface IMagma<T> : IMultiplicable<T>
+        where T : IMagma<T>
     {
         /* Nothing to do */
     }

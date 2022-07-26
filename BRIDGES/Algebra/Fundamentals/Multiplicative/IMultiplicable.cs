@@ -7,7 +7,7 @@ namespace BRIDGES.Algebra.Fundamentals
     /// Interface defining the multiplication of two operands, i.e. an internal binary operation.
     /// </summary>
     /// <typeparam name="T"> Type of the elements in the multiplicative set. </typeparam>
-    internal interface IMultiplicable<T>
+    public interface IMultiplicable<T>
         where T : IMultiplicable<T>
     {
         #region Properties
