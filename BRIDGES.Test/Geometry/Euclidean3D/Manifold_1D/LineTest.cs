@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using BRIDGES.Geometry.Euclidean3D;
 using Alg_Fund = BRIDGES.Algebra.Fundamentals;
-using Alg_Str = BRIDGES.Algebra.Structures;
+using Alg_Str = BRIDGES.Algebra.Sets;
 using Alg_Mes = BRIDGES.Algebra.Measure;
 
 

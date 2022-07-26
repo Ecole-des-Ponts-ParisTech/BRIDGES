@@ -1,7 +1,7 @@
 ﻿using System;
 
 using Alg_Fund = BRIDGES.Algebra.Fundamentals;
-using Alg_Str = BRIDGES.Algebra.Structures;
+using Alg_Str = BRIDGES.Algebra.Sets;
 using Alg_Meas = BRIDGES.Algebra.Measure;
 
 using Geo_Ker = BRIDGES.Geometry.Kernel;

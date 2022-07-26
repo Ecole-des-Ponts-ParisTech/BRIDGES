@@ -1,13 +1,13 @@
 ﻿using System;
 
 
-namespace BRIDGES.Algebra.Structures.Multiplicative
+namespace BRIDGES.Algebra.Sets.Additive
 {
     /// <summary>
-    /// Interface defining a multiplicative group.
+    /// Interface defining an additive group.
     /// </summary>
-    /// <typeparam name="T"> Type of the elements in the multiplicative set. </typeparam>
-    internal interface IGroup<T> : IMonoid<T>, ILoop<T>
+    /// <typeparam name="T"> Type of the elements in the additive set. </typeparam>
+    public interface IGroup<T> : IMonoid<T>, ILoop<T>
         where T : IGroup<T>
     {
         // In the C#8.0 language version, interfaces can have explicit implementations.
@@ -25,10 +25,10 @@ namespace BRIDGES.Algebra.Structures.Multiplicative
         #region Methods
 
         /// <summary>
-        /// Gets the inverse element of the current element.
+        /// Gets the opposite element of the current element.
         /// </summary>
-        /// <returns> <see langword="true"/> if the current element was inversed, <see langword="false"/> otherwise. </returns>
-        bool Inverse();
+        /// <returns> <see langword="true"/> if the current element was opposed, <see langword="false"/> otherwise. </returns>
+        bool Opposite();
 
         #endregion
     }

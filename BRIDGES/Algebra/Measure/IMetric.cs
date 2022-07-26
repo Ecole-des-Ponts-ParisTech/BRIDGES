@@ -8,7 +8,7 @@ namespace BRIDGES.Algebra.Measure
     /// Interface defining the distance between two <typeparamref name="T"/>.
     /// </summary>
     /// <typeparam name="T"> Type of the elements in the set. </typeparam>
-    internal interface IMetric<T>
+    public interface IMetric<T>
     {
         #region Methods
 

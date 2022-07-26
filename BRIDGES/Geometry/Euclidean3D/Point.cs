@@ -1,7 +1,7 @@
 ﻿using System;
 
 using Alg_Fund = BRIDGES.Algebra.Fundamentals;
-using Alg_Str = BRIDGES.Algebra.Structures;
+using Alg_Set = BRIDGES.Algebra.Sets;
 using Alg_Meas = BRIDGES.Algebra.Measure;
 
 using Geo_Ker = BRIDGES.Geometry.Kernel;
@@ -13,7 +13,7 @@ namespace BRIDGES.Geometry.Euclidean3D
     /// Structure defining a point in three-dimensional euclidean space.
     /// </summary>
     public struct Point
-        : Alg_Str.Additive.IAbelianGroup<Point>, Alg_Str.IGroupAction<double, Point>,
+        : Alg_Set.Additive.IAbelianGroup<Point>, Alg_Set.IGroupAction<double, Point>,
           Alg_Meas.IDotProduct<double, Point>,
           Geo_Ker.IAnalytic<double>,
           IEquatable<Point>
@@ -422,7 +422,7 @@ namespace BRIDGES.Geometry.Euclidean3D
         Point Alg_Fund.ISubtractable<Point>.Subtract(Point other) { return new Point(X - other.X, Y - other.Y, Z - other.Z); }
 
         /// <inheritdoc/>
-        bool Alg_Str.Additive.IGroup<Point>.Opposite() 
+        bool Alg_Set.Additive.IGroup<Point>.Opposite() 
         { 
             X = -X; 
             Y = -Y; 
@@ -441,10 +441,10 @@ namespace BRIDGES.Geometry.Euclidean3D
         /******************** Methods ********************/
 
         /// <inheritdoc/>
-        Point Alg_Str.IGroupAction<double, Point>.Multiply(double factor) { return new Point(factor * X, factor * Y, factor * Z); }
+        Point Alg_Set.IGroupAction<double, Point>.Multiply(double factor) { return new Point(factor * X, factor * Y, factor * Z); }
 
         /// <inheritdoc/>
-        Point Alg_Str.IGroupAction<double, Point>.Divide(double divisor) { return new Point(X / divisor, Y / divisor, Z / divisor); }
+        Point Alg_Set.IGroupAction<double, Point>.Divide(double divisor) { return new Point(X / divisor, Y / divisor, Z / divisor); }
 
         #endregion
 

@@ -7,7 +7,7 @@ namespace BRIDGES.Algebra.Fundamentals
     /// Interfaces defining the neutral element of the addition.
     /// </summary>
     /// <typeparam name="T"> Type of the elements in the additive set. </typeparam>
-    internal interface IZeroable<T>
+    public interface IZeroable<T>
         where T : IZeroable<T>
     {
         #region Methods

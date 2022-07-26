@@ -7,7 +7,7 @@ namespace BRIDGES.Algebra.Fundamentals
     /// Interfaces defining the neutral element of the multiplication.
     /// </summary>
     /// <typeparam name="T"> Type of the elements in the multiplicative set. </typeparam>
-    internal interface IOneable<T> : IMultiplicable<T>
+    public interface IOneable<T> : IMultiplicable<T>
         where T : IOneable<T>
     {
         #region Methods

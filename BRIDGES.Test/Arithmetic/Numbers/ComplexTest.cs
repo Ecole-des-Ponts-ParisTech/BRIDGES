@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using BRIDGES.Arithmetic.Numbers;
 using BRIDGES.Algebra.Fundamentals;
-using BRIDGES.Algebra.Structures;
+using BRIDGES.Algebra.Sets;
 
 
 namespace BRIDGES.Test.Arithmetic.Numbers

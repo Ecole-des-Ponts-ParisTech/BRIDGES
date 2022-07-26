@@ -185,7 +185,7 @@ namespace BRIDGES.Geometry.Euclidean3D
         /// <inheritdoc cref="object.ToString"/>
         public override string ToString()
         {
-            return $"A plane at {Origin}, of normal {Normal}.";
+            return $"Plane at {Origin}, of normal {Normal}.";
         }
 
         #endregion

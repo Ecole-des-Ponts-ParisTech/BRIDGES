@@ -8,7 +8,7 @@ namespace BRIDGES.Algebra.Measure
     /// Interface defining the norm of a <typeparamref name="T"/>.
     /// </summary>
     /// <typeparam name="T"> Type of the elements in the normed set. </typeparam>
-    internal interface INorm<T> : IMetric<T>
+    public interface INorm<T> : IMetric<T>
     {
         #region Methods
 

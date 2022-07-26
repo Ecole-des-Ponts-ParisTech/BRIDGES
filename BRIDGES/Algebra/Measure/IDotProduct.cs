@@ -9,7 +9,7 @@ namespace BRIDGES.Algebra.Measure
     /// </summary>
     /// <typeparam name="TValue"> Type of the elements in the field. </typeparam>
     /// <typeparam name="T"> Type of the elements in the set. </typeparam>
-    internal interface IDotProduct<TValue, T> : INorm<T>
+    public interface IDotProduct<TValue, T> : INorm<T>
     {
         #region Methods
 

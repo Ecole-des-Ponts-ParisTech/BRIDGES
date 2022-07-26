@@ -14,24 +14,31 @@ namespace BRIDGES.Geometry.Euclidean3D
     {
         #region Properties
 
-        /// <summary>
-        /// Gets a boolean evaluating whether the current <see cref="Segment"/> is closed or not;
-        /// </summary>
+        /// <inheritdoc/>
         public bool IsClosed 
         { 
             get { return false; }
         }
 
 
-        /// <summary>
-        /// Gets the start <see cref="Point"/> of the current <see cref="Segment"/>.
-        /// </summary>
+        /// <inheritdoc/>
         public Point StartPoint { get; set; }
 
-        /// <summary>
-        /// Gets the end <see cref="Point"/> of the current <see cref="Segment"/>.
-        /// </summary>
+        /// <inheritdoc/>
         public Point EndPoint { get; set; }
+
+
+        /// <inheritdoc/>
+        public double DomainStart 
+        { 
+            get { return 0.0; } 
+        }
+
+        /// <inheritdoc/>
+        public double DomainEnd
+        {
+            get { return 1.0; }
+        }
 
         #endregion
 
@@ -67,10 +74,9 @@ namespace BRIDGES.Geometry.Euclidean3D
         /// </summary>
         public void Flip()
         {
-            Point temp = StartPoint;
-            StartPoint = EndPoint;
-            EndPoint = temp;
+            (EndPoint, StartPoint) = (StartPoint, EndPoint);
         }
+
 
         /// <summary>
         /// Computes the length of the current <see cref="Segment"/>.
@@ -90,9 +96,7 @@ namespace BRIDGES.Geometry.Euclidean3D
         /// <exception cref="ArgumentOutOfRangeException"> The input curve parameter cannot be negative. </exception>
         public Point PointAt(double parameter, Geo_Ker.CurveParameterFormat format)
         {
-            if (parameter < 0) { throw new ArgumentOutOfRangeException("The input curve parameter cannot be negative."); }
-
-            else if (format == Geo_Ker.CurveParameterFormat.Length) { return PointAt_LengthParameter(parameter); }
+            if (format == Geo_Ker.CurveParameterFormat.ArcLength) { return PointAt_ArcLengthParameter(parameter); }
             else if (format == Geo_Ker.CurveParameterFormat.Normalised) { return PointAt_NormalizedParameter(parameter); }
 
             else { throw new NotImplementedException(); }
@@ -112,22 +116,21 @@ namespace BRIDGES.Geometry.Euclidean3D
             return StartPoint.Equals(other.StartPoint) && EndPoint.Equals(other.EndPoint);
         }
 
-        #endregion
 
-        #region Private Methods
-
-        /********** For PointAt(Double,CurveParameterFormat) **********/
+        /********** Private Helpers **********/
 
         /// <summary>
         /// Evaluates the current <see cref="Segment"/> at the given length parameter.
         /// </summary>
         /// <param name="parameter"> Positive length parameter. </param>
         /// <returns> The <see cref="Point"/> on the <see cref="Segment"/> at the given length parameter. </returns>
-        /// <exception cref="ArgumentOutOfRangeException"> The input length curve parameter is larger than the segment length. </exception>
-        private Point PointAt_LengthParameter(double parameter)
+        /// <exception cref="ArgumentOutOfRangeException"> The arc length parameter can not be negative. </exception>
+        /// <exception cref="ArgumentOutOfRangeException"> The arc length parameter is larger than the curve length. </exception>
+        private Point PointAt_ArcLengthParameter(double parameter)
         {
             // If the parameter is larger than the curve length.
-            if (parameter > Length()) { throw new ArgumentOutOfRangeException("The input length curve parameter is larger than the segment length."); }
+            if (parameter < 0.0) { throw new ArgumentOutOfRangeException("The arc length parameter can not be negative."); }
+            if (Length() < parameter) { throw new ArgumentOutOfRangeException("The arc length parameter is larger than the curve length."); }
 
             // If the parameter is lower than the curve length (and positive).
             Vector axis = EndPoint - StartPoint;
@@ -141,15 +144,14 @@ namespace BRIDGES.Geometry.Euclidean3D
         /// </summary>
         /// <param name="parameter"> Positive normalised parameter. </param>
         /// <returns> The <see cref="Point"/> on the <see cref="Segment"/> at the given normalised parameter. </returns>
-        /// <exception cref="ArgumentOutOfRangeException"> The input normalised curve parameter is larger than the upper bound of the segment domain. </exception>
+        /// <exception cref="ArgumentOutOfRangeException"> The normalized parameter is outside the segment's domain. </exception>
         private Point PointAt_NormalizedParameter(double parameter)
         {
             // If the parameter exceeds the curve domain.
-            if (parameter > 1.0) { throw new ArgumentOutOfRangeException("The input normalised curve parameter is larger than the upper bound of the segment domain."); }
+            if (parameter < DomainStart || DomainEnd < parameter) { throw new ArgumentOutOfRangeException("The normalized parameter is outside the segment's domain."); }
 
-            // If the parameter is within the curve domain.
             Vector vector = EndPoint - StartPoint;
-
+            
             return StartPoint + (parameter * vector);
         }
 
@@ -173,7 +175,7 @@ namespace BRIDGES.Geometry.Euclidean3D
         /// <inheritdoc cref="object.ToString"/>
         public override string ToString()
         {
-            return $"Ray starting at {StartPoint}, ending at {EndPoint}.";
+            return $"Segment from {StartPoint} to {EndPoint}.";
         }
 
         #endregion

@@ -124,7 +124,7 @@ namespace BRIDGES.Geometry.Euclidean3D
         /// <exception cref="NotImplementedException"> The given format for the curve parameter is not implemented for the circle. </exception>
         public Point PointAt(double parameter, CurveParameterFormat format)
         {
-            if (format == CurveParameterFormat.Length)
+            if (format == CurveParameterFormat.ArcLength)
             {
                 double angle = (parameter / Radius) % (2 * Math.PI);
                 return Centre + ((Radius * Math.Cos(angle)) * _plane.XAxis) + ((Radius * Math.Sin(angle)) * Vector.CrossProduct(_plane.Normal, _plane.XAxis));
@@ -172,7 +172,7 @@ namespace BRIDGES.Geometry.Euclidean3D
         /// <inheritdoc cref="object.ToString"/>
         public override string ToString()
         {
-            return $"A circle at {Centre}, of radius {Radius}.";
+            return $"Circle at {Centre}, of radius {Radius}.";
         }
 
         #endregion
@@ -194,6 +194,17 @@ namespace BRIDGES.Geometry.Euclidean3D
             get { return Centre + ((Radius / _plane.XAxis.Length()) * _plane.XAxis); }
         }
 
+        /// <inheritdoc/>
+        double ICurve<Point>.DomainStart
+        {
+            get { return 0.0; }
+        }
+
+        /// <inheritdoc/>
+        double ICurve<Point>.DomainEnd
+        {
+            get { return 2.0 * Math.PI; }
+        }
 
         /******************** Method ********************/
 

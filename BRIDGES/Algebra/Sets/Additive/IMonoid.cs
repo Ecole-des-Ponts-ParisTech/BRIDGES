@@ -3,14 +3,14 @@
 using BRIDGES.Algebra.Fundamentals;
 
 
-namespace BRIDGES.Algebra.Structures.Additive
+namespace BRIDGES.Algebra.Sets.Additive
 {
     /// <summary>
-    /// Interface defining an additive magma.
+    /// Interface defining an additive monoid.
     /// </summary>
     /// <typeparam name="T"> Type of the elements in the additive set. </typeparam>
-    internal interface IMagma<T> : IAddable<T>
-        where T : IMagma<T>
+    public interface IMonoid<T> : ISemiGroup<T>, IZeroable<T>
+        where T : IMonoid<T>
     {
         /* Nothing to do */
     }

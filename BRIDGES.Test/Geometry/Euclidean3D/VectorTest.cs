@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using BRIDGES.Geometry.Euclidean3D;
 using Alg_Fund = BRIDGES.Algebra.Fundamentals;
-using Alg_Str = BRIDGES.Algebra.Structures;
+using Alg_Str = BRIDGES.Algebra.Sets;
 using Alg_Mes = BRIDGES.Algebra.Measure;
 
 
@@ -112,7 +112,7 @@ namespace BRIDGES.Test.Geometry.Euclidean3D
             // Act
             Vector vector = new Vector(new double[3] { 2.0, 5.0, 8.0 });
             try { Vector otherVector = new Vector(new double[] { 2.0, 5.0, 8.0, 11.0 }); }
-            catch (ArgumentOutOfRangeException e) { throwsException = true; }
+            catch (ArgumentOutOfRangeException) { throwsException = true; }
             // Assert
             Assert.IsTrue(vector.Equals(result));
             Assert.IsTrue(throwsException);

@@ -72,7 +72,7 @@ namespace BRIDGES.Geometry.Euclidean3D
         /// <inheritdoc cref="object.ToString"/>
         public override string ToString()
         {
-            return $"A sphere at {Centre}, of radius {Radius}.";
+            return $"Sphere at {Centre}, of radius {Radius}.";
         }
 
         #endregion

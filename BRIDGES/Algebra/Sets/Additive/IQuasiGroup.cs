@@ -3,14 +3,14 @@
 using BRIDGES.Algebra.Fundamentals;
 
 
-namespace BRIDGES.Algebra.Structures.Additive
+namespace BRIDGES.Algebra.Sets.Additive
 {
     /// <summary>
-    /// Interface defining an additive loop.
+    /// Interface defining an additive quasi-group.
     /// </summary>
     /// <typeparam name="T"> Type of the elements in the additive set. </typeparam>
-    internal interface ILoop<T> : IQuasiGroup<T>, IZeroable<T>
-        where T : ILoop<T>
+    public interface IQuasiGroup<T> : IMagma<T>, ISubtractable<T>
+        where T : IQuasiGroup<T>
     {
         /* Nothing to do */
     }

@@ -10,7 +10,7 @@ namespace BRIDGES.Algebra.Fundamentals
     /// <remarks>
     /// The existence of an inverse is assumed but not its unicity. The left and right inverse can differ from one another.
     /// </remarks>
-    internal interface IDivisible<T> : IMultiplicable<T>
+    public interface IDivisible<T> : IMultiplicable<T>
         where T : IDivisible<T>
     {
         #region Methods

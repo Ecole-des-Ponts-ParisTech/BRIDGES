@@ -120,13 +120,13 @@ namespace BRIDGES.Test.Geometry.Euclidean3D
             Basis basis = new Basis(new Vector(1.0, 2.0, -0.5), new Vector(-1.5, 2.5, 1.0), new Vector(-0.6, -0.4, 2.0));
 
             try { Basis otherBasis = new Basis(new Vector(1.0, 2.0, -0.5), new Vector(-1.5, -3.0, 0.75), new Vector(-0.6, -0.4, 2.0)); }
-            catch (ArgumentException e) { xyThrowsException = true; }
+            catch (ArgumentException) { xyThrowsException = true; }
 
             try { Basis otherBasis = new Basis(new Vector(1.0, 2.0, -0.5), new Vector(-1.5, 2.5, 1.0), new Vector(2.5, 5.0, -1.25)); }
-            catch (ArgumentException e) { xzThrowsException = true; }
+            catch (ArgumentException) { xzThrowsException = true; }
 
             try { Basis otherBasis = new Basis(new Vector(1.0, 2.0, -0.5), new Vector(-1.5, 2.5, 1.0), new Vector(-0.75, 1.25, 0.5)); }
-            catch (ArgumentException e) { yzThrowsException = true; }
+            catch (ArgumentException) { yzThrowsException = true; }
 
             // Assert
             Assert.IsTrue(xyThrowsException);
@@ -151,16 +151,16 @@ namespace BRIDGES.Test.Geometry.Euclidean3D
             Basis basis = new Basis(new Vector[3] { new Vector(1.0, 2.0, -0.5), new Vector(-1.5, 2.5, 1.0), new Vector(-0.6, -0.4, 2.0) });
 
             try { Basis otherBasis = new Basis(new Vector[2] { new Vector(1.0, 2.0, -0.5), new Vector(-1.5, 2.5, 1.0) }); }
-            catch (RankException e) { throwsException = true; }
+            catch (RankException) { throwsException = true; }
 
             try { Basis otherBasis = new Basis(new Vector[3] { new Vector(1.0, 2.0, -0.5), new Vector(-1.5, -3.0, 0.75), new Vector(-0.6, -0.4, 2.0) }); }
-            catch (ArgumentException e) { xyThrowsException = true; }
+            catch (ArgumentException) { xyThrowsException = true; }
 
             try { Basis otherBasis = new Basis(new Vector[3] { new Vector(1.0, 2.0, -0.5), new Vector(-1.5, 2.5, 1.0), new Vector(2.5, 5.0, -1.25) }); }
-            catch (ArgumentException e) { xzThrowsException = true; }
+            catch (ArgumentException) { xzThrowsException = true; }
 
             try { Basis otherBasis = new Basis(new Vector[3] { new Vector(1.0, 2.0, -0.5), new Vector(-1.5, 2.5, 1.0), new Vector(-0.75, 1.25, 0.5) }); }
-            catch (ArgumentException e) { yzThrowsException = true; }
+            catch (ArgumentException) { yzThrowsException = true; }
 
             // Assert
             Assert.IsTrue(basis.Equals(result));

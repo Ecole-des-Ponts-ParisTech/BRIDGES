@@ -7,7 +7,7 @@ namespace BRIDGES.Algebra.Fundamentals
     /// Interface defining the addition of two operands, i.e. an internal binary operation.
     /// </summary>
     /// <typeparam name="T"> Type of the elements in the additive set. </typeparam>
-    internal interface IAddable<T>
+    public interface IAddable<T>
         where T : IAddable<T>
     {
         #region Properties

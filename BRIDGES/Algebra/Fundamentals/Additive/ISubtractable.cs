@@ -10,7 +10,7 @@ namespace BRIDGES.Algebra.Fundamentals
     /// <remarks>
     /// The existence of an opposite is assumed but not its unicity. The left and right opposite can differ from one another.
     /// </remarks>
-    internal interface ISubtractable<T>
+    public interface ISubtractable<T>
         where T : ISubtractable<T>
     {
         #region Methods

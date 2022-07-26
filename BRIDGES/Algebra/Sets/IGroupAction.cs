@@ -1,14 +1,14 @@
 ﻿using System;
 
 
-namespace BRIDGES.Algebra.Structures
+namespace BRIDGES.Algebra.Sets
 {
     /// <summary>
     /// Interface defining a group action of a field on a set.
     /// </summary>
     /// <typeparam name="TValue"> Type of the elements in the field. </typeparam>
     /// <typeparam name="T"> Type of the elements in the set. </typeparam>
-    internal interface IGroupAction<TValue, T>
+    public interface IGroupAction<TValue, T>
     {
         #region Methods
 

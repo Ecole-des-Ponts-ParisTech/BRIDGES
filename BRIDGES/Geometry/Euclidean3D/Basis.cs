@@ -153,7 +153,7 @@ namespace BRIDGES.Geometry.Euclidean3D
         /// <inheritdoc cref="object.ToString"/>
         public override string ToString()
         {
-            return $"A basis of dimension {Dimension}.";
+            return $"Basis of dimension {Dimension}.";
         }
 
         #endregion

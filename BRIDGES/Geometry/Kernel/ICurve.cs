@@ -9,13 +9,14 @@ namespace BRIDGES.Geometry.Kernel
     public enum CurveParameterFormat
     {
         /// <summary>
-        /// The curve is spanned by a parameter starting from 0.0 and each piece is represented by an interval [i ; i+1]
+        /// The curve is spanned by a parameter ranging from <see cref="ICurve{TPoint}.DomainStart"/> to <see cref="ICurve{TPoint}.DomainEnd"/>.
         /// </summary>
         Normalised,
+
         /// <summary>
         /// The curve is spanned by a parameter from 0.0 (start) to L (end), where L is the length of the curve. 
         /// </summary>
-        Length
+        ArcLength
     }
 
 
@@ -28,21 +29,32 @@ namespace BRIDGES.Geometry.Kernel
         #region Properties
 
         /// <summary>
-        /// Gets a boolean evaluating whether the current <see cref="ICurve{TPoint}"/> is closed or not;
+        /// Gets a boolean evaluating whether the current curve is closed or not;
         /// </summary>
         bool IsClosed { get; }
 
 
         /// <summary>
-        /// Gets the start <typeparamref name="TPoint"/> of the current <see cref="ICurve{TPoint}"/>.
+        /// Gets the start point of the current curve.
         /// </summary>
         TPoint StartPoint { get; }
 
         /// <summary>
-        /// Gets the end <typeparamref name="TPoint"/> of the current <see cref="ICurve{TPoint}"/>.
+        /// Gets the end point of the current curve.
         /// </summary>
         TPoint EndPoint { get; }
-        
+
+
+        /// <summary>
+        /// Gets the start value of the current curve's domain.
+        /// </summary>
+        double DomainStart { get; }
+
+        /// <summary>
+        /// Gets the end value of the current curve's domain.
+        /// </summary>
+        double DomainEnd { get; }
+
         #endregion
 
         #region Methods
