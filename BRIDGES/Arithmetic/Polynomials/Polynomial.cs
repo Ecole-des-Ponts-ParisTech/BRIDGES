@@ -368,7 +368,7 @@ namespace BRIDGES.Arithmetic.Polynomials
 
 
         /// <summary>
-        /// Computes the current <see cref="Polynomial"/> at a given value.
+        /// Computes the current <see cref="Polynomial"/> at a given value using Horner's method.
         /// </summary>
         /// <param name="val"> Value to evaluate at. </param>
         /// <returns> The computed value of the current <see cref="Polynomial"/>. </returns>
@@ -376,19 +376,19 @@ namespace BRIDGES.Arithmetic.Polynomials
         {
             /* Horners method could be used */
 
-            double result = 0.0;
-            for (int i = 0; i < Degree + 1; i++)
+            double result = _coefficients[Degree];
+            for (int i = Degree - 1; i > -1; i--)
             {
-                result += _coefficients[i] * Math.Pow(val, i);
+                result = (result * val) + _coefficients[i];
             }
 
-            return (result);
+            return result;
         }
 
         #endregion
 
 
-        #region Explicit : Additive.IAbelianGroup<Point>
+        #region Explicit : Additive.IAbelianGroup<Polynomial>
 
         /******************** Properties ********************/
 
@@ -428,7 +428,7 @@ namespace BRIDGES.Arithmetic.Polynomials
 
         #endregion
 
-        #region Explicit : Multiplicative.IAbelianGroup<Real>
+        #region Explicit : Multiplicative.IAbelianGroup<Polynomial>
 
         /******************** Properties ********************/
 
@@ -449,7 +449,7 @@ namespace BRIDGES.Arithmetic.Polynomials
 
         #endregion
 
-        #region Explicit : IGroupAction<Double,Point>
+        #region Explicit : IGroupAction<Double,Polynomial>
 
         /******************** Methods ********************/
 

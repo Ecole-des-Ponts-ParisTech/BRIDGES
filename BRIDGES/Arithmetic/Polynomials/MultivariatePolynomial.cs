@@ -32,8 +32,11 @@ namespace BRIDGES.Arithmetic.Polynomials
         /// </summary>
         /// <param name="coefficients"> Coefficients of the multivariate polynomial. </param>
         /// <param name="monomials"> Monomials of the multivariate polynomial. </param>
+        /// <exception cref="RankException"> The same number of coefficients and monomials must be provided. </exception>
         public MultivariatePolynomial(double[] coefficients, Monomial[] monomials)
         {
+            if (coefficients.Length != monomials.Length) { throw new RankException("The same number of coefficients and monomials must be provided."); }
+
             _coefficients = coefficients;
 
             _monomials = monomials;
@@ -51,6 +54,26 @@ namespace BRIDGES.Arithmetic.Polynomials
         public static implicit operator MultivariatePolynomial(Monomial monomial)
         {
             return new MultivariatePolynomial(new double[1] { 1.0 }, new Monomial[1] { monomial });
+        }
+
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// Computes the current <see cref="MultivariatePolynomial"/> at a given value.
+        /// </summary>
+        /// <param name="val"> Value to evaluate at. </param>
+        /// <returns> The computed value of the current <see cref="MultivariatePolynomial"/>. </returns>
+        public double EvaluateAt(double[] val)
+        {
+            double result = 0.0;
+            for (int i = 0; i < _coefficients.Length; i++)
+            {
+                result += _coefficients[i] * _monomials[i].EvaluateAt(val); 
+            }
+
+            return result;
         }
 
         #endregion
