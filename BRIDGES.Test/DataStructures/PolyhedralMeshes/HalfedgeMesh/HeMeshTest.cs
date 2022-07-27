@@ -234,7 +234,7 @@ namespace BRIDGES.Test.DataStructures.PolyhedralMeshes.HalfedgeMesh
 
             HeHalfedge<Euc3D.Point> absentHe = default;
             try { absentHe = _parallelepiped.GetHalfedge(absentIndex); }
-            catch (KeyNotFoundException e) { throwsException = true; }
+            catch (KeyNotFoundException) { throwsException = true; }
 
             // Assert
             Assert.AreEqual(existingIndex, existingHe.Index);
@@ -395,15 +395,16 @@ namespace BRIDGES.Test.DataStructures.PolyhedralMeshes.HalfedgeMesh
         public void AddVertex_TPosition()
         {
             // Arrange
-            HeMesh<Euc3D.Point> heMesh = new HeMesh<Euc3D.Point>();
+            HeMesh<Euc3D.Point> mesh = new HeMesh<Euc3D.Point>();
 
             Euc3D.Point point = new Euc3D.Point(1.0, 2.0, 4.0);
 
             // Act
-            heMesh.AddVertex(point);
+            HeVertex<Euc3D.Point> vertex = mesh.AddVertex(point);
 
             // Assert
-            Assert.AreEqual(1, heMesh.VertexCount);
+            Assert.AreEqual(1, mesh.VertexCount);
+            Assert.IsTrue(point.Equals(vertex.Position));
         }
 
 
@@ -426,7 +427,7 @@ namespace BRIDGES.Test.DataStructures.PolyhedralMeshes.HalfedgeMesh
 
             HeVertex<Euc3D.Point> absentVertex = default;
             try { absentVertex = _parallelepiped.GetVertex(absentIndex); }
-            catch (KeyNotFoundException e) { throwsException = true; }
+            catch (KeyNotFoundException) { throwsException = true; }
 
             // Assert
             Assert.AreEqual(existingIndex, existingVertex.Index);
@@ -567,7 +568,7 @@ namespace BRIDGES.Test.DataStructures.PolyhedralMeshes.HalfedgeMesh
 
             HeEdge<Euc3D.Point> absentEdge = default;
             try { absentEdge = _parallelepiped.GetEdge(absentIndex); }
-            catch (KeyNotFoundException e) { throwsException = true; }
+            catch (KeyNotFoundException) { throwsException = true; }
 
             // Assert
             Assert.AreEqual(existingIndex, existingEdge.Index);
@@ -745,7 +746,7 @@ namespace BRIDGES.Test.DataStructures.PolyhedralMeshes.HalfedgeMesh
 
             HeFace<Euc3D.Point> absentFace = default;
             try { absentFace = _parallelepiped.GetFace(absentIndex); }
-            catch (KeyNotFoundException e) { throwsException = true; }
+            catch (KeyNotFoundException) { throwsException = true; }
 
             // Assert
             Assert.AreEqual(existingIndex, existingFace.Index);
@@ -847,7 +848,7 @@ namespace BRIDGES.Test.DataStructures.PolyhedralMeshes.HalfedgeMesh
             HeFace<Euc3D.Point> face = heMesh.GetFace(4);
 
             // Act
-            heMesh.RemoveFace(face);
+            heMesh.EraseFace(face);
 
             // Assert
             Assert.AreEqual(8, heMesh.VertexCount);
@@ -870,5 +871,7 @@ namespace BRIDGES.Test.DataStructures.PolyhedralMeshes.HalfedgeMesh
         // RemoveVertex_HeVertex()
         // RemoveEdge_HeEdge()
         // EraseEdge_HeEdge()
+        // RemoveFace_HeFace()
+        // EraseFace_HeFace()
     }
 }

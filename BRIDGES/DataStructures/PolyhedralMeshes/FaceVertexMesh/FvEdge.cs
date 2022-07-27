@@ -35,7 +35,7 @@ namespace BRIDGES.DataStructures.PolyhedralMeshes.FaceVertexMesh
             : base(index, startVertex, endVertex)
         {
             // Instanciate fields
-            _adjacentFaces = new List<FvFace<TPosition>>();
+            _adjacentFaces = new List<FvFace<TPosition>>(2);
 
             // Initialise vertex fields
             startVertex._connectedEdges.Add(this);
@@ -100,7 +100,13 @@ namespace BRIDGES.DataStructures.PolyhedralMeshes.FaceVertexMesh
         /// <inheritdoc/>
         public override IReadOnlyList<FvFace<TPosition>> AdjacentFaces()
         {
-            return _adjacentFaces;
+            FvFace<TPosition>[] adjacentFaces = new FvFace<TPosition>[_adjacentFaces.Count];
+            for (int i_AF = 0; i_AF < _adjacentFaces.Count; i_AF++)
+            {
+                adjacentFaces[i_AF] = _adjacentFaces[i_AF];
+            }
+
+            return adjacentFaces;
         }
 
         #endregion

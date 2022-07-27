@@ -649,9 +649,6 @@ namespace BRIDGES.DataStructures.PolyhedralMeshes.FaceVertexMesh
         /// <inheritdoc/>
         public override void EraseEdge(FvEdge<TPosition> edge)
         {
-            // Manage connection with start and end vertices
-            edge.StartVertex._connectedEdges.Remove(edge);
-            edge.EndVertex._connectedEdges.Remove(edge);
 
             // Manage connection with adjacent face
             IReadOnlyList<FvFace<TPosition>> adjacentFaces = edge.AdjacentFaces();
@@ -659,6 +656,10 @@ namespace BRIDGES.DataStructures.PolyhedralMeshes.FaceVertexMesh
             {
                 EraseFace(adjacentFaces[i_AF]);
             }
+
+            // Manage connection with start and end vertices
+            edge.StartVertex._connectedEdges.Remove(edge);
+            edge.EndVertex._connectedEdges.Remove(edge);
 
             // Remove the pair of edges from the mesh
             _edges.Remove(edge.Index);
@@ -771,6 +772,7 @@ namespace BRIDGES.DataStructures.PolyhedralMeshes.FaceVertexMesh
             }
 
             // Erase the face.
+            //face._faceEdges = new List<FvEdge<TPosition>>();
             EraseFace(face);
         }
 

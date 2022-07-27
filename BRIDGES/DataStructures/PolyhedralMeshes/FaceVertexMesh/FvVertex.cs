@@ -133,7 +133,13 @@ namespace BRIDGES.DataStructures.PolyhedralMeshes.FaceVertexMesh
         /// <inheritdoc/>
         public override IReadOnlyList<FvEdge<TPosition>> ConnectedEdges()
         {
-            return _connectedEdges;
+            FvEdge<TPosition>[] connectedEdges = new FvEdge<TPosition>[_connectedEdges.Count];
+            for (int i_CE = 0; i_CE < _connectedEdges.Count; i_CE++)
+            {
+                connectedEdges[i_CE] = _connectedEdges[i_CE];
+            }
+
+            return connectedEdges;
         }
 
 

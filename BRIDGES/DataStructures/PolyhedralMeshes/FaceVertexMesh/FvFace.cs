@@ -44,6 +44,11 @@ namespace BRIDGES.DataStructures.PolyhedralMeshes.FaceVertexMesh
             // Initialise fields
             _faceVertices = faceVertices;
             _faceEdges = faceEdges;
+
+            for (int i_E = 0; i_E < _faceEdges.Count; i_E++)
+            {
+                _faceEdges[i_E]._adjacentFaces.Add(this);
+            }
         }
 
         #endregion
@@ -104,7 +109,13 @@ namespace BRIDGES.DataStructures.PolyhedralMeshes.FaceVertexMesh
         /// <inheritdoc/>
         public override IReadOnlyList<FvVertex<TPosition>> FaceVertices()
         {
-            return _faceVertices;
+            FvVertex<TPosition>[] faceVertices = new FvVertex<TPosition>[_faceVertices.Count];
+            for (int i_FV = 0; i_FV < _faceVertices.Count; i_FV++)
+            {
+                faceVertices[i_FV] = _faceVertices[i_FV];
+            }
+
+            return faceVertices;
         }
 
 
@@ -113,7 +124,13 @@ namespace BRIDGES.DataStructures.PolyhedralMeshes.FaceVertexMesh
         /// <inheritdoc/>
         public override IReadOnlyList<FvEdge<TPosition>> FaceEdges()
         {
-            return _faceEdges;
+            FvEdge<TPosition>[] faceEdges = new FvEdge<TPosition>[_faceEdges.Count];
+            for (int i_F = 0; i_F < _faceEdges.Count; i_F++)
+            {
+                faceEdges[i_F] = _faceEdges[i_F];
+            }
+
+            return faceEdges;
         }
 
 
