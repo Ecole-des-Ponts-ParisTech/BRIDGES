@@ -331,31 +331,7 @@ namespace BRIDGES.Arithmetic.Polynomials
 
         #endregion
 
-        #region Methods
-
-        /// <summary>
-        /// Cleans the leading zero coefficients.
-        /// </summary>
-        private void Clean()
-        {
-            int actualDegree = 0;
-            for (int i_D = _coefficients.Length - 1; i_D > - 1; i_D--)
-            {
-                if (_coefficients[i_D] != 0.0) { actualDegree = i_D; break; }
-            }
-
-            int coefCount = actualDegree + 1;
-
-            double[] coefficients = new double[coefCount];
-            for (int i_C = 0; i_C < coefCount; i_C++)
-            {
-                coefficients[i_C] = _coefficients[i_C];
-            }
-
-            _coefficients = coefficients;
-            
-        }
-
+        #region Public Methods 
 
         /// <summary>
         /// Returns the coefficents of the current <see cref="Polynomial"/>, starting from the constant value.
@@ -384,6 +360,34 @@ namespace BRIDGES.Arithmetic.Polynomials
 
             return result;
         }
+
+        #endregion
+
+        #region Other Methods
+
+        /// <summary>
+        /// Cleans the leading zero coefficients.
+        /// </summary>
+        private void Clean()
+        {
+            int actualDegree = 0;
+            for (int i_D = _coefficients.Length - 1; i_D > -1; i_D--)
+            {
+                if (_coefficients[i_D] != 0.0) { actualDegree = i_D; break; }
+            }
+
+            int coefCount = actualDegree + 1;
+
+            double[] coefficients = new double[coefCount];
+            for (int i_C = 0; i_C < coefCount; i_C++)
+            {
+                coefficients[i_C] = _coefficients[i_C];
+            }
+
+            _coefficients = coefficients;
+
+        }
+
 
         #endregion
 

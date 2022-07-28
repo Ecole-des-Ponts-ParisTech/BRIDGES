@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 
 namespace BRIDGES.Arithmetic.Polynomials.Specials
@@ -13,7 +14,7 @@ namespace BRIDGES.Arithmetic.Polynomials.Specials
         /// <summary>
         /// Knot vector associated with the current <see cref="BSpline"/>.
         /// </summary>
-        protected double[] _knotVector;
+        protected List<double> _knotVector;
 
         #endregion
 
@@ -29,7 +30,7 @@ namespace BRIDGES.Arithmetic.Polynomials.Specials
         /// </summary>
         public double[] KnotVector
         {
-            get { return _knotVector.Clone() as double[]; }
+            get { return _knotVector.ToArray(); }
         }
 
         #endregion
@@ -42,23 +43,15 @@ namespace BRIDGES.Arithmetic.Polynomials.Specials
         /// <param name="index"> Index of the B-Spline polynomial. </param>
         /// <param name="degree"> Degree of the B-Spline polynomial. </param>
         /// <param name="knotVector"> Knot vector of the B-Spline polynomial. </param>
-        /// <exception cref="ArgumentException"> The knot vector should contain at least one element. </exception>
-        /// <exception cref="RankException"> The knot vector should contain at least (degree - 1) elements.</exception>
-        public BSpline(int index, int degree, double[] knotVector)
+        public BSpline(int index, int degree, IEnumerable<double> knotVector)
         {
-            int knotCount = knotVector.Length;
-
-            if (knotCount == 0) { throw new ArgumentException("The knot vector should contain at least one element."); }
-            if (knotCount < degree - 1) { throw new RankException($"The knot vector should contain at least {degree - 1} elements."); }
-
-            // Instanciate fields (Necessary)
-            _coefficients = ComputeCoefficients(index, degree, knotVector); 
-
-            // Initialise fields (verifications on the knot vector should be done)
-            _knotVector = knotVector;
-
             // Initialise properties
             Index = index;
+
+            // Initialise fields
+            SetKnotVector(knotVector, degree);
+
+            SetCoefficients(index, degree, _knotVector); 
         }
 
         #endregion
@@ -75,10 +68,10 @@ namespace BRIDGES.Arithmetic.Polynomials.Specials
         /// <param name="degree"> Degree of the <see cref="BSpline"/> basis. </param>
         /// <param name="knotVector"> Knot vector of the <see cref="BSpline"/> basis. </param>
         /// <returns> The (zero-based) index of the knot span containing the value. </returns>
-        public static int FindKnotSpanIndex(double val, int degree, double[] knotVector)
+        public static int FindKnotSpanIndex(double val, int degree, IList<double> knotVector)
         {
             // Number of segments in the control polygon.
-            int n = knotVector.Length - degree - 1;
+            int n = knotVector.Count - degree - 1;
 
             // Special case : The value equals the last possible knot.
             if (val == knotVector[n + 1]) { return n; }
@@ -98,46 +91,6 @@ namespace BRIDGES.Arithmetic.Polynomials.Specials
             return i_MidKnot;
         }
 
-        /// <summary>
-        /// Computes the coefficients of the current <see cref="BSpline"/>.
-        /// </summary>
-        /// <param name="index"> Index of the <see cref="BSpline"/>. </param>
-        /// <param name="degree"> Degree of the <see cref="BSpline"/>. </param>
-        /// <param name="knotVector"> Knot vector of the <see cref="BSpline"/>. </param>
-        /// <returns> The coefficients of the <see cref="BSpline"/>. </returns>
-        private static double[] ComputeCoefficients(int index, int degree, double[] knotVector)
-        {
-            // Number of knot span
-            int m = knotVector.Length - 1;
-
-            // Initialise the zeroth-degree B-Spline polynomials from N_{index,0} to N_{index+degree,0}
-            Polynomial[][] N = new Polynomial[degree + 1][]; // Beware the indices are inverted in N.
-            N[0] = new Polynomial[degree + 1];
-            for (int j = 0; j < degree + 1; j++) { N[0][j] = new Polynomial(1.0); }
-
-            // Compute the triangular table.
-            for (int d = 1; d < degree + 1; d++)
-            {
-
-                N[d] = new Polynomial[degree + 1 - d];
-
-                for (int j = 0; j < degree + 1 - d; j++)
-                {
-                    // Compute N_{index + j, d}
-                    Polynomial first = new Polynomial(-knotVector[index + j], 1.0);
-                    first = first / (knotVector[index + j + degree] - knotVector[index + j]);
-
-                    Polynomial second = new Polynomial(knotVector[index + j + degree + 1], -1.0);
-                    second = second / (knotVector[index + j + degree + 1] - knotVector[index + j + 1]);
-
-                    N[d][j] = first * N[d - 1][j] + second * N[d - 1][j + 1];
-                }
-            }
-
-            return N[degree][0]._coefficients;
-        }
-
-
         /******************** On B-Spline Polynomial Basis ********************/
 
         /// <summary>
@@ -147,14 +100,14 @@ namespace BRIDGES.Arithmetic.Polynomials.Specials
         /// The code is adapted from algorithm 2.2 described in <see href="https://doi.org/10.1007/978-3-642-59223-2">the NURBS Book</see>, by L. Piegl and  W. Tiller.
         /// </remarks>
         /// <param name="val"> Value to evaluate at. </param>
-        /// <param name="spanIndex"> Index of knot span containing the value. </param>
+        /// <param name="knotSpanIndex"> Index of knot span containing the value. </param>
         /// <param name="degree"> Degree of the <see cref="BSpline"/> basis. </param>
         /// <param name="knotVector"> Knot vector of the <see cref="BSpline"/> basis. </param>
         /// <returns> 
         /// The values of the non-zero <see cref="BSpline"/> polynomials of the basis, i.e. those ranging from 
-        /// N_{<paramref name="spanIndex"/> - <paramref name="degree"/>, <paramref name="degree"/>} to N_{<paramref name="spanIndex"/>, <paramref name="degree"/>}.
+        /// N_{<paramref name="knotSpanIndex"/> - <paramref name="degree"/>, <paramref name="degree"/>} to N_{<paramref name="knotSpanIndex"/>, <paramref name="degree"/>}.
         /// </returns>
-        public static double[] EvaluateBasisAt(double val, int spanIndex, int degree, double[] knotVector)
+        public static double[] EvaluateBasisAt(double val, int knotSpanIndex, int degree, IList<double> knotVector)
         {
             // Value of the polynomials
             double[] N = new double[degree + 1];
@@ -171,8 +124,8 @@ namespace BRIDGES.Arithmetic.Polynomials.Specials
 
             for (int j = 1; j < degree + 1; j++)
             {
-                left[j] = val - knotVector[spanIndex + 1 - j];
-                right[j] = knotVector[spanIndex + j];
+                left[j] = val - knotVector[knotSpanIndex + 1 - j];
+                right[j] = knotVector[knotSpanIndex + j];
 
                 double saved = 0.0;
 
@@ -205,7 +158,7 @@ namespace BRIDGES.Arithmetic.Polynomials.Specials
         /// N_{<paramref name="knotSpanIndex"/> - <paramref name="degree"/>, <paramref name="degree"/>} to N_{<paramref name="knotSpanIndex"/>, <paramref name="degree"/>}. <br/>
         /// The first index corresponds to the order of derivation, the second to the index of the <see cref="BSpline"/> polynomial shifted to start from zero.
         /// </returns>
-        public static double[][] EvaluateBasisDerivativesAt(double val, int knotSpanIndex, int degree, double[] knotVector, int order)
+        public static double[][] EvaluateBasisDerivativesAt(double val, int knotSpanIndex, int degree, IList<double> knotVector, int order)
         {
             int n = order < degree ? order : degree;
 
@@ -331,7 +284,7 @@ namespace BRIDGES.Arithmetic.Polynomials.Specials
         /// <param name="degree"> Degree of the <see cref="BSpline"/> to compute. </param>
         /// <param name="knotVector"> Knot Vector associated with the <see cref="BSpline"/> to compute. </param>
         /// <returns> The <see cref="BSpline"/> of the given index and degree, associated with the knot vector. </returns>
-        public static BSpline ComputeBSpline(int index, int degree, double[] knotVector)
+        public static BSpline ComputeBSpline(int index, int degree, IList<double> knotVector)
         {
             return new BSpline(index, degree, knotVector);
         }
@@ -347,10 +300,10 @@ namespace BRIDGES.Arithmetic.Polynomials.Specials
         /// <param name="degree"> Degree of the <see cref="BSpline"/> to evaluate. </param>
         /// <param name="knotVector"> Knot Vector associated with the <see cref="BSpline"/> to evaluate. </param>
         /// <returns> The value of the <see cref="BSpline"/> the given value. </returns>
-        public static double EvaluateAt(double val, int index,  int degree, double[] knotVector)
+        public static double EvaluateAt(double val, int index,  int degree, IList<double> knotVector)
         {
             // Number of knot span
-            int m = knotVector.Length - 1;
+            int m = knotVector.Count - 1;
 
             // If the first B-spline polynomial is evaluated at the first knot,
             // or if the last B-spline polynomial is evaluated at the last knot.
@@ -412,7 +365,7 @@ namespace BRIDGES.Arithmetic.Polynomials.Specials
         /// <param name="knotVector"> Initial knot Vector associated with the <see cref="BSpline"/> to evaluate. </param>
         /// <param name="order"> Order of the derivative. </param>
         /// <returns> The value of the successive <see cref="BSpline"/> derivatives at the given value. The index corresponds to the order of derivation. </returns>
-        public static double[] EvaluateDerivativesAt(double val, int index, int degree, double[] knotVector, int order)
+        public static double[] EvaluateDerivativesAt(double val, int index, int degree, IList<double> knotVector, int order)
         {
             int n = order < degree ? order : degree;
 
@@ -504,7 +457,8 @@ namespace BRIDGES.Arithmetic.Polynomials.Specials
 
         #endregion
 
-        #region Methods
+
+        #region Public Methods
 
         /// <summary>
         /// Computes the current <see cref="BSpline"/> at a given value.
@@ -514,7 +468,7 @@ namespace BRIDGES.Arithmetic.Polynomials.Specials
         public override double EvaluateAt(double val)
         {
             // Number of knot span
-            int m = _knotVector.Length - 1;
+            int m = _knotVector.Count - 1;
 
             // Get the index of the knot span containing the value.
             int i_KnotSpan = FindKnotSpanIndex(val, Degree, _knotVector);
@@ -528,6 +482,90 @@ namespace BRIDGES.Arithmetic.Polynomials.Specials
 
             // The value is within the non-zero domain of the current B-Spline polynomial.
             return base.EvaluateAt(val);
+        }
+
+        #endregion
+
+        #region Other Methods
+
+        /// <summary>
+        /// Sets the knot vector of the current <see cref="BSpline"/> polynomial while ensuring its validity.
+        /// </summary>
+        /// <param name="knotVector"> Knot vector to set. </param>
+        /// <param name="degree"> Degree of the B-Spline polynomial. </param>
+        /// <exception cref="ArgumentException"> The number of knots provided is not valid. </exception>
+        /// <exception cref="ArgumentException"> The knots should be provided in ascending order. </exception>
+        protected void SetKnotVector(IEnumerable<double> knotVector, int degree)
+        {
+            IEnumerator<double> knotEnumerator = knotVector.GetEnumerator();
+
+            try
+            {
+                _knotVector = new List<double>();
+
+                double previousKnot;
+                if (knotEnumerator.MoveNext())
+                {
+                    previousKnot = knotEnumerator.Current;
+                    _knotVector.Add(previousKnot);
+                }
+                else { throw new ArgumentException($"The number of knots provided is not valid.", nameof(knotVector)); }
+
+                while (knotEnumerator.MoveNext())
+                {
+                    double knot = knotEnumerator.Current;
+
+                    if (knot < previousKnot) { throw new ArgumentException("The knots should be provided in ascending order.", nameof(knotVector)); }
+
+                    _knotVector.Add(knot);
+
+                    previousKnot = knot;
+                }
+
+                if (_knotVector.Count < degree + 2)
+                {
+                    throw new ArgumentException($"The number of knots provided is not valid.", nameof(knotVector));
+                }
+            }
+            finally { knotEnumerator.Dispose(); }
+        }
+
+        /// <summary>
+        /// Sets the coefficients of the current <see cref="BSpline"/> polynomial.
+        /// </summary>
+        /// <param name="index"> Index of the <see cref="BSpline"/> polynomial. </param>
+        /// <param name="degree"> Degree of the <see cref="BSpline"/> polynomial. </param>
+        /// <param name="knotVector"> Knot vector of the <see cref="BSpline"/> polynomial. </param>
+        /// <returns> The coefficients of the <see cref="BSpline"/> polynomial. </returns>
+        protected void SetCoefficients(int index, int degree, IList<double> knotVector)
+        {
+            // Number of knot span
+            int m = knotVector.Count - 1;
+
+            // Initialise the zeroth-degree B-Spline polynomials from N_{index,0} to N_{index+degree,0}
+            Polynomial[][] N = new Polynomial[degree + 1][]; // Beware the indices are inverted in N.
+            N[0] = new Polynomial[degree + 1];
+            for (int j = 0; j < degree + 1; j++) { N[0][j] = new Polynomial(1.0); }
+
+            // Compute the triangular table.
+            for (int d = 1; d < degree + 1; d++)
+            {
+                N[d] = new Polynomial[degree + 1 - d];
+
+                for (int j = 0; j < degree + 1 - d; j++)
+                {
+                    // Compute N_{index + j, d}
+                    Polynomial first = new Polynomial(-knotVector[index + j], 1.0);
+                    first = first / (knotVector[index + j + degree] - knotVector[index + j]);
+
+                    Polynomial second = new Polynomial(knotVector[index + j + degree + 1], -1.0);
+                    second = second / (knotVector[index + j + degree + 1] - knotVector[index + j + 1]);
+
+                    N[d][j] = first * N[d - 1][j] + second * N[d - 1][j + 1];
+                }
+            }
+
+            _coefficients = N[degree][0]._coefficients;
         }
 
         #endregion

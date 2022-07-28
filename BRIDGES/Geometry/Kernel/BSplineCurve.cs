@@ -66,12 +66,12 @@ namespace BRIDGES.Geometry.Kernel
 
 
         /// <summary>
-        /// Gets the curve degree.
+        /// Gets the degree of the interpolating polynomials in the <see cref="Arith_Spe.BSpline"/> basis.
         /// </summary>
         public int Degree { get; protected set; }
 
         /// <summary>
-        /// Gets the number of knots.
+        /// Number of knots of the interpolating <see cref="Arith_Spe.BSpline"/> polynomial basis.
         /// </summary>
         public int KnotCount 
         { 
@@ -79,7 +79,7 @@ namespace BRIDGES.Geometry.Kernel
         }
 
         /// <summary>
-        /// Gets the number of control points.
+        /// Gets the number of control points of the curve.
         /// </summary>
         public int PointCount 
         { 
@@ -91,97 +91,62 @@ namespace BRIDGES.Geometry.Kernel
         #region Constructors
 
         /// <summary>
-        /// Initialises a new instance of <see cref="BSplineCurve{TPoint}"/>.
+        /// Initialises a new instance of <see cref="BSplineCurve{TPoint}"/> class.
         /// </summary>
         protected BSplineCurve()
         {
-            // Instanciate Fields
-            _controlPoints = new List<TPoint>();
-            _knotVector = new List<double>();
+            /* Do nothing */
         }
 
         /// <summary>
         /// Initialises a new instance of <see cref="BSplineCurve{TPoint}"/> class.
         /// </summary>
-        /// <param name="degree"> Degree of the interpolating <see cref="Arith_Spe.BSpline"/> polynomial basis. </param>
+        /// <param name="degree"> Degree of the interpolating polynomials in the <see cref="Arith_Spe.BSpline"/> basis. </param>
         /// <param name="controlPoints"> Control points of the <see cref="BSplineCurve{TPoint}"/>. </param>
         /// <exception cref="ArgumentException"> The degree of the curve should be positive. </exception>
         public BSplineCurve(int degree, IEnumerable<TPoint> controlPoints)
         {
-            // Initialise fields
-            _controlPoints = new List<TPoint>();
-            foreach (TPoint controlPoint in controlPoints)
+            if (degree < 0)
             {
-                _controlPoints.Add(controlPoint);
-            }
-
-            // Compute a "uniform" knot vector between 0.0 and 1.0
-            double domainStart = 0.0, domainEnd = 1.0;
-
-            int i_LastKnot = _controlPoints.Count + degree - 1;
-
-            _knotVector = new List<double>(degree + _controlPoints.Count);
-            for (int i = 0; i < (degree + 1); i++) // Constant knots at the start
-            {
-                _knotVector[i] = domainStart; 
-            }
-            for (int i = (degree + 1); i < (i_LastKnot - degree); i++) // Varying knots in the middle
-            {
-                var ratio = (double)(i - degree) / ((double)(i_LastKnot - 2 * degree));
-                _knotVector[i] = domainStart + (domainEnd - domainStart) * ratio;
-            }
-            for (int i = (i_LastKnot - degree); i < (i_LastKnot + 1); i++) // Constant knots at the end
-            { 
-                _knotVector[i] = domainEnd; 
+                throw new ArgumentException("The degree of the curve should be positive.", nameof(degree));
             }
 
             // Initialise properties
-            if (degree < 0) { throw new ArgumentException("The degree of the curve should be positive.", nameof(degree)); }
             Degree = degree;
 
+            // Initialise fields
+            SetControlPoints(controlPoints);
+            
+            SetUniformKnotVector(0.0, 1.0, degree, degree + _controlPoints.Count);
         }
 
         /// <summary>
         /// Initialises a new instance of <see cref="BSplineCurve{TControlPoint}"/> class by defining its fields.
         /// </summary>
-        /// <param name="degree"> Degree of the interpolating <see cref="Arith_Spe.BSpline"/> polynomial basis. </param>
+        /// <param name="degree"> Degree of the interpolating polynomials in the <see cref="Arith_Spe.BSpline"/> basis. </param>
         /// <param name="knotVector"> Knot vector of the interpolating <see cref="Arith_Spe.BSpline"/> polynomial basis. </param>
         /// <param name="controlPoints"> Control points of the <see cref="BSplineCurve{TControlPoint}"/>. </param>
-        /// <exception cref="ArgumentException"> The knots should be provided in ascending order. </exception>
-        /// <exception cref="ArgumentException"> The number of knots provided is not valid. </exception>
         /// <exception cref="ArgumentException"> The degree of the curve should be positive. </exception>
         public BSplineCurve(int degree, IEnumerable<double> knotVector, IEnumerable<TPoint> controlPoints)
         {
-            // Initialise fields
-            _controlPoints = new List<TPoint>();
-            foreach (TPoint controlPoint in controlPoints)
-            {
-                _controlPoints.Add(controlPoint);
-            }
-
-            _knotVector = new List<double>(_controlPoints.Count + degree);
-            foreach(double knot in knotVector)
-            {
-                if (knot < _knotVector[_knotVector.Count - 1]) 
-                {
-                    throw new ArgumentException("The knots should be provided in ascending order.", nameof(knotVector));
-                }
-                _knotVector.Add(knot);
-            }
-
-            if(_knotVector.Count - 1 != (_controlPoints.Count + degree)) 
-            {
-                throw new ArgumentException($"The number of knots provided is not valid. {_controlPoints.Count + degree} knots are expected.", nameof(knotVector));
+            if (degree < 0) 
+            { 
+                throw new ArgumentException("The degree of the curve should be positive.", nameof(degree));
             }
 
             // Initialise properties
-            if (degree < 0) { throw new ArgumentException("The degree of the curve should be positive.", nameof(degree)); }
             Degree = degree;
+
+            // Initialise fields
+            SetControlPoints(controlPoints);
+
+            // Sets the knot
+            SetKnotVector(knotVector);
         }
 
         #endregion
 
-        #region Methods
+        #region Public Methods
 
         /// <inheritdoc/>
         public double Length()
@@ -242,5 +207,98 @@ namespace BRIDGES.Geometry.Kernel
         }
 
         #endregion
+
+        #region Other Methods
+
+        /// <summary>
+        /// Sets the control points of the current <see cref="BSplineCurve{TPoint}"/>.
+        /// </summary>
+        /// <param name="controlPoints"> Control points of the <see cref="BSplineCurve{TPoint}"/>. </param>
+        /// <exception cref="ArgumentException"> The number of control points provided is not valid. </exception>
+        protected void SetControlPoints(IEnumerable<TPoint> controlPoints)
+        {
+            // Initialise fields
+            _controlPoints = new List<TPoint>();
+            foreach (TPoint controlPoint in controlPoints)
+            {
+                _controlPoints.Add(controlPoint);
+            }
+
+            if (_controlPoints.Count == 0) 
+            {
+                throw new ArgumentException("The number of control points provided is not valid.");
+            }
+        }
+
+        /// <summary>
+        /// Sets the knot vector of the current <see cref="BSplineCurve{TPoint}"/> while ensuring its validity.
+        /// </summary>
+        /// <param name="knotVector"> Knot vector to set. </param>
+        /// <exception cref="ArgumentException"> The number of knots provided is not valid. </exception>
+        /// <exception cref="ArgumentException"> The knots should be provided in ascending order. </exception>
+        protected void SetKnotVector(IEnumerable<double> knotVector)
+        {
+            IEnumerator<double> knotEnumerator = knotVector.GetEnumerator();
+
+            try
+            {
+                _knotVector = new List<double>(_controlPoints.Count + Degree);
+
+                double previousKnot;
+                if (knotEnumerator.MoveNext())
+                {
+                    previousKnot = knotEnumerator.Current;
+                    _knotVector.Add(previousKnot);
+                }
+                else { throw new ArgumentException($"The number of knots provided is not valid. {_controlPoints.Count + Degree} knots are expected.", nameof(knotVector)); }
+
+                while (knotEnumerator.MoveNext())
+                {
+                    double knot = knotEnumerator.Current;
+
+                    if (knot < previousKnot) { throw new ArgumentException("The knots should be provided in ascending order.", nameof(knotVector)); }
+
+                    _knotVector.Add(knot);
+
+                    previousKnot = knot;
+                }
+
+                if (_knotVector.Count - 1 != (_controlPoints.Count + Degree))
+                {
+                    throw new ArgumentException($"The number of knots provided is not valid. {_controlPoints.Count + Degree} knots are expected.", nameof(knotVector));
+                }
+            }
+            finally { knotEnumerator.Dispose(); }
+        }
+
+        /// <summary>
+        /// Creates and sets the knot vector for the current <see cref="BSplineCurve{TPoint}"/> with a uniform middle part.
+        /// </summary>
+        /// <param name="domainStart"> Start value of the curve domain. </param>
+        /// <param name="domainEnd"> End value of the curve domain. </param>
+        /// <param name="degree"> Degree of the interpolating polynomials in the <see cref="Arith_Spe.BSpline"/> basis. </param>
+        /// <param name="knotCount"> Number of knots of the interpolating <see cref="Arith_Spe.BSpline"/> polynomial basis. </param>
+        protected void SetUniformKnotVector(double domainStart, double domainEnd, int degree, int knotCount)
+        {
+            int i_LastKnot = knotCount - 1;
+
+            _knotVector = new List<double>(knotCount);
+            for (int i = 0; i < (degree + 1); i++) // Constant knots at the start
+            {
+                _knotVector[i] = domainStart;
+            }
+            for (int i = (degree + 1); i < (i_LastKnot - degree); i++) // Varying knots in the middle
+            {
+                var ratio = (double)(i - degree) / ((double)(i_LastKnot - 2 * degree));
+                _knotVector[i] = domainStart + (domainEnd - domainStart) * ratio;
+            }
+            for (int i = (i_LastKnot - degree); i < (i_LastKnot + 1); i++) // Constant knots at the end
+            {
+                _knotVector[i] = domainEnd;
+            }
+        }
+
+        #endregion
     }
+
 }
