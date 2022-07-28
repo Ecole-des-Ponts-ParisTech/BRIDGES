@@ -42,8 +42,8 @@ namespace BRIDGES.Geometry.Euclidean3D
         /// <param name="index"> Index of the coordinate to get or set. </param>
         /// <returns> The value of the coordinate at the given index. </returns>
         /// <exception cref="ArgumentOutOfRangeException">
-        /// The given index is lower than zero or exceeds the dimension of the <see cref="Vector"/>. 
-        /// For a three-dimensional euclidean <see cref="Vector"/>, the index should be between zero and two (both included).
+        /// The given index is lower than zero or exceeds the number of coordinates of the vector.
+        /// For a three-dimensional euclidean vector, the index can range from zero to two.
         /// </exception>
         public double this[int index]
         {
@@ -54,8 +54,8 @@ namespace BRIDGES.Geometry.Euclidean3D
                 else if (index == 2) { return Z; }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("The given index is lower than zero or exceeds the dimension of the vector." +
-                    "For a three-dimensional euclidean vector, the index should be between zero and 2 (both included).");
+                    throw new ArgumentOutOfRangeException("The given index is lower than zero or exceeds the number of coordinates of the vector." +
+                    "For a three-dimensional euclidean vector, the index can range from zero to two.");
                 }
             }
 
@@ -66,14 +66,14 @@ namespace BRIDGES.Geometry.Euclidean3D
                 else if (index == 2) { Z = value; }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("The given index is lower than zero or exceeds the dimension of the vector." +
-                        "For a three-dimensional euclidean vector, the index should be between zero and 2 (both included).");
+                    throw new ArgumentOutOfRangeException("The given index is lower than zero or exceeds the number of coordinates of the vector." +
+                        "For a three-dimensional euclidean vector, the index can range from zero to two.");
                 }
             }
         }
 
         /// <summary>
-        /// Gets the number of coordinates of the current <see cref="Vector"/>.
+        /// Gets the dimension of the current <see cref="Vector"/>'s euclidean space.
         /// </summary>
         public int Dimension { get { return 3; } }
 
@@ -180,13 +180,14 @@ namespace BRIDGES.Geometry.Euclidean3D
         /// <summary>
         /// Returns the cross product of two <see cref="Vector"/>.
         /// </summary>
-        /// <param name="vectorA"> Left <see cref="Vector"/> for the cross product.</param>
-        /// <param name="vectorB"> Right <see cref="Vector"/> for the cross product.</param>
+        /// <param name="left"> Left <see cref="Vector"/> for the cross product.</param>
+        /// <param name="right"> Right <see cref="Vector"/> for the cross product.</param>
         /// <returns> A new <see cref="Vector"/> resulting from the cross product of two <see cref="Vector"/>.</returns>
-        public static Vector CrossProduct(Vector vectorA, Vector vectorB) =>
-            new Vector((vectorA.Y * vectorB.Z) - (vectorA.Z * vectorB.Y),
-            (vectorA.Z * vectorB.X) - (vectorA.X * vectorB.Z),
-            (vectorA.X * vectorB.Y) - (vectorA.Y * vectorB.X));
+        public static Vector CrossProduct(Vector left, Vector right) =>
+            new Vector((left.Y * right.Z) - (left.Z * right.Y),
+            (left.Z * right.X) - (left.X * right.Z),
+            (left.X * right.Y) - (left.Y * right.X));
+
 
         /// <summary>
         /// Evaluates whether two <see cref="Vector"/> are parallel.
@@ -196,7 +197,7 @@ namespace BRIDGES.Geometry.Euclidean3D
         /// <returns> <see langword="true"/> if the two <see cref="Vector"/> are parallel, <see langword="false"/> otherwise. </returns>
         public static bool AreParallel(Vector vectorA, Vector vectorB)
         {
-            return (vectorA.Length() * vectorB.Length() - Math.Abs(Vector.DotProduct(vectorA, vectorB))) < Settings.AbsolutePrecision;
+            return (vectorA.Length() * vectorB.Length()) - Math.Abs(Vector.DotProduct(vectorA, vectorB)) < Settings.AbsolutePrecision;
         }
 
         /// <summary>
@@ -214,40 +215,41 @@ namespace BRIDGES.Geometry.Euclidean3D
         /******************** Algebraic Additive Group ********************/
 
         /// <inheritdoc cref="Vector.operator +(Vector, Vector)"/>
-        public static Vector Add(Vector vectorA, Vector vectorB)
+        public static Vector Add(Vector left, Vector right)
         {
-            return new Vector(vectorA.X + vectorB.X, vectorA.Y + vectorB.Y, vectorA.Z + vectorB.Z);
+            return new Vector(left.X + right.X, left.Y + right.Y, left.Z + right.Z);
         }
 
         /// <inheritdoc cref="Vector.operator -(Vector, Vector)"/>
-        public static Vector Subtract(Vector vectorA, Vector vectorB)
+        public static Vector Subtract(Vector left, Vector right)
         {
-            return new Vector(vectorA.X - vectorB.X, vectorA.Y - vectorB.Y, vectorA.Z - vectorB.Z);
+            return new Vector(left.X - right.X, left.Y - right.Y, left.Z - right.Z);
         }
 
 
         /******************** Group Action ********************/
 
         /// <inheritdoc cref="Vector.operator *(double, Vector)"/>
-        public static Vector Multiply(double factor, Vector vector)
+        public static Vector Multiply(double factor, Vector operand)
         {
-            return new Vector(factor * vector.X, factor * vector.Y, factor * vector.Z);
+            return new Vector(factor * operand.X, factor * operand.Y, factor * operand.Z);
         }
 
         /// <inheritdoc cref="Vector.operator /(Vector, double)"/>
-        public static Vector Divide(Vector vector, double divisor)
+        public static Vector Divide(Vector operand, double divisor)
         {
-            return new Vector(vector.X / divisor, vector.Y / divisor, vector.Z / divisor);
+            return new Vector(operand.X / divisor, operand.Y / divisor, operand.Z / divisor);
         }
 
 
         /******************** Hilbert Space ********************/
 
         /// <inheritdoc cref="Vector.operator *(Vector, Vector)"/>
-        public static double DotProduct(Vector vectorA, Vector vectorB)
+        public static double DotProduct(Vector left, Vector right)
         {
-            return (vectorA.X * vectorB.X) + (vectorA.Y * vectorB.Y) + (vectorA.Z * vectorB.Z);
+            return (left.X * right.X) + (left.Y * right.Y) + (left.Z * right.Z);
         }
+
 
         /// <summary>
         /// Computes the angle between two <see cref="Vector"/>.
@@ -273,33 +275,58 @@ namespace BRIDGES.Geometry.Euclidean3D
         /// <summary>
         /// Computes the addition of two <see cref="Vector"/>.
         /// </summary>
-        /// <param name="vectorA"> <see cref="Vector"/> for the addition. </param>
-        /// <param name="vectorB"> <see cref="Vector"/> for the addition. </param>
+        /// <param name="left"> <see cref="Vector"/> for the addition. </param>
+        /// <param name="right"> <see cref="Vector"/> for the addition. </param>
         /// <returns> The new <see cref="Vector"/> resulting from the addition. </returns>
-        public static Vector operator +(Vector vectorA, Vector vectorB)
+        public static Vector operator +(Vector left, Vector right)
         {
-            return new Vector(vectorA.X + vectorB.X, vectorA.Y + vectorB.Y, vectorA.Z + vectorB.Z);
+            return new Vector(left.X + right.X, left.Y + right.Y, left.Z + right.Z);
         }
 
         /// <summary>
         /// Computes the subtraction of two <see cref="Vector"/>.
         /// </summary>
-        /// <param name="vectorA"> <see cref="Vector"/> to subtract. </param>
-        /// <param name="vectorB"> <see cref="Vector"/> to subtract with. </param>
+        /// <param name="left"> <see cref="Vector"/> to subtract. </param>
+        /// <param name="right"> <see cref="Vector"/> to subtract with. </param>
         /// <returns> The new <see cref="Vector"/> resulting from the subtraction. </returns>
-        public static Vector operator -(Vector vectorA, Vector vectorB)
+        public static Vector operator -(Vector left, Vector right)
         {
-            return new Vector(vectorA.X - vectorB.X, vectorA.Y - vectorB.Y, vectorA.Z - vectorB.Z);
+            return new Vector(left.X - right.X, left.Y - right.Y, left.Z - right.Z);
         }
 
         /// <summary>
         /// Computes the opposite of the given <see cref="Vector"/>.
         /// </summary>
-        /// <param name="vector"> <see cref="Vector"/> to be opposed. </param>
+        /// <param name="operand"> <see cref="Vector"/> to be opposed. </param>
         /// <returns> The new <see cref="Vector"/>, opposite of the initial one. </returns>
-        public static Vector operator -(Vector vector)
+        public static Vector operator -(Vector operand)
         {
-            return new Vector(-vector.X, -vector.Y, -vector.Z);
+            return new Vector(-operand.X, -operand.Y, -operand.Z);
+        }
+
+
+        /******************** Point Embedding ********************/
+
+        /// <summary>
+        /// Computes the addition of a <see cref="Vector"/> with a <see cref="Point"/>.
+        /// </summary>
+        /// <param name="vector"> <see cref="Vector"/> for the addition. </param>
+        /// <param name="point"> <see cref="Point"/> for the addition. </param>
+        /// <returns> The new <see cref="Vector"/> resulting from the addition. </returns>
+        public static Vector operator +(Vector vector, Point point)
+        {
+            return new Vector(vector.X + point.X, vector.Y + point.Y, vector.Z + point.Z);
+        }
+
+        /// <summary>
+        /// Computes the subtraction of a <see cref="Vector"/> with a <see cref="Point"/>.
+        /// </summary>
+        /// <param name="vector"> <see cref="Vector"/> to subtract. </param>
+        /// <param name="point"> <see cref="Point"/> to subtract with. </param>
+        /// <returns> The new <see cref="Vector"/> resulting from the subtraction. </returns>
+        public static Vector operator -(Vector vector, Point point)
+        {
+            return new Vector(vector.X - point.X, vector.Y - point.Y, vector.Z - point.Z);
         }
 
 
@@ -309,28 +336,28 @@ namespace BRIDGES.Geometry.Euclidean3D
         /// Computes the scalar multiplication of a <see cref="Vector"/> with a <see cref="double"/>-precision real number.
         /// </summary>
         /// <param name="factor"> <see cref="double"/>-precision real number. </param>
-        /// <param name="vector"> <see cref="Vector"/> to multiply. </param>
+        /// <param name="operand"> <see cref="Vector"/> to multiply. </param>
         /// <returns> The new <see cref="Vector"/> resulting from the scalar multiplication. </returns>
-        public static Vector operator *(double factor, Vector vector)
+        public static Vector operator *(double factor, Vector operand)
         {
-            return new Vector(factor * vector.X, factor * vector.Y, factor * vector.Z);
+            return new Vector(factor * operand.X, factor * operand.Y, factor * operand.Z);
         }
 
         /// <inheritdoc cref="Vector.operator *(double, Vector)"/>
-        public static Vector operator *(Vector vector, double factor)
+        public static Vector operator *(Vector operand, double factor)
         {
-            return new Vector(vector.X * factor, vector.Y * factor, vector.Z * factor);
+            return new Vector(operand.X * factor, operand.Y * factor, operand.Z * factor);
         }
 
         /// <summary>
         /// Computes the scalar division of a <see cref="Vector"/> with a <see cref="double"/>-precision real number.
         /// </summary>
-        /// <param name="vector"> <see cref="Vector"/> to divide. </param>
+        /// <param name="operand"> <see cref="Vector"/> to divide. </param>
         /// <param name="divisor"> <see cref="double"/>-precision real number to divide with. </param>
         /// <returns> The new <see cref="Vector"/> resulting from the scalar division. </returns>
-        public static Vector operator /(Vector vector, double divisor)
+        public static Vector operator /(Vector operand, double divisor)
         {
-            return new Vector(vector.X / divisor, vector.Y / divisor, vector.Z / divisor);
+            return new Vector(operand.X / divisor, operand.Y / divisor, operand.Z / divisor);
         }
 
 
@@ -339,12 +366,12 @@ namespace BRIDGES.Geometry.Euclidean3D
         /// <summary>
         /// Computes the dot product of two <see cref="Vector"/>.
         /// </summary>
-        /// <param name="vectorA"> <see cref="Vector"/> for the dot product. </param>
-        /// <param name="vectorB"> <see cref="Vector"/> for the dot product. </param>
+        /// <param name="left"> <see cref="Vector"/> for the dot product. </param>
+        /// <param name="right"> <see cref="Vector"/> for the dot product. </param>
         /// <returns> The new <see cref="Vector"/> resulting from the dot product of two <see cref="Vector"/>. </returns>
-        public static double operator *(Vector vectorA, Vector vectorB)
+        public static double operator *(Vector left, Vector right)
         {
-            return (vectorA.X * vectorB.X) + (vectorA.Y * vectorB.Y) + (vectorA.Z * vectorB.Z);
+            return (left.X * right.X) + (left.Y * right.Y) + (left.Z * right.Z);
         }
 
         #endregion
@@ -492,10 +519,10 @@ namespace BRIDGES.Geometry.Euclidean3D
         /******************** Methods ********************/
 
         /// <inheritdoc/>
-        Vector Alg_Fund.IAddable<Vector>.Add(Vector other) { return new Vector(X + other.X, Y + other.Y, Z + other.Z); }
+        Vector Alg_Fund.IAddable<Vector>.Add(Vector right) { return new Vector(X + right.X, Y + right.Y, Z + right.Z); }
 
         /// <inheritdoc/>
-        Vector Alg_Fund.ISubtractable<Vector>.Subtract(Vector other) { return new Vector(X - other.X, Y - other.Y, Z - other.Z); }
+        Vector Alg_Fund.ISubtractable<Vector>.Subtract(Vector right) { return new Vector(X - right.X, Y - right.Y, Z - right.Z); }
 
         /// <inheritdoc/>
         bool Alg_Str.Additive.IGroup<Vector>.Opposite()
@@ -544,9 +571,9 @@ namespace BRIDGES.Geometry.Euclidean3D
 
 
         /// <inheritdoc cref="Alg_Meas.IDotProduct{TValue,T}.DotProduct(T)"/>
-        double Alg_Meas.IDotProduct<double, Vector>.DotProduct(Vector other)
+        double Alg_Meas.IDotProduct<double, Vector>.DotProduct(Vector right)
         {
-            return (X * other.X) + (Y * other.Y) + (Z * other.Z);
+            return (X * right.X) + (Y * right.Y) + (Z * right.Z);
         }
 
         #endregion

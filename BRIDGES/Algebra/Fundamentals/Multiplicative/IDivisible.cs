@@ -18,9 +18,9 @@ namespace BRIDGES.Algebra.Fundamentals
         /// <summary>
         /// Divides the current element with another element.
         /// </summary>
-        /// <param name="other"> Element to divide with. </param>
+        /// <param name="right"> Element to divide with on the right. </param>
         /// <returns> The new element resulting from the division. </returns>
-        T Divide(T other);
+        T Divide(T right);
 
         #endregion
     }

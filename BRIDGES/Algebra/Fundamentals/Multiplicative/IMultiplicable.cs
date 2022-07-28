@@ -37,9 +37,9 @@ namespace BRIDGES.Algebra.Fundamentals
         /// <summary>
         /// Multiplies the current element with another element.
         /// </summary>
-        /// <param name="other"> Element to multiply with. </param>
+        /// <param name="right"> Element to multiply with on the right. </param>
         /// <returns> The new element resulting from the multiplication. </returns>
-        T Multiply(T other);
+        T Multiply(T right);
 
         #endregion
     }

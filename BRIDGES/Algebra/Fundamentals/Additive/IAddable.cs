@@ -37,9 +37,9 @@ namespace BRIDGES.Algebra.Fundamentals
         /// <summary>
         /// Adds the current element with another element.
         /// </summary>
-        /// <param name="other"> Element to add with. </param>
+        /// <param name="right"> Element to add with on the right. </param>
         /// <returns> The new element resulting from the addition. </returns>
-        T Add(T other);
+        T Add(T right);
 
         #endregion
     }
