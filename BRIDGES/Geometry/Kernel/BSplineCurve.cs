@@ -117,7 +117,7 @@ namespace BRIDGES.Geometry.Kernel
             // Initialise fields
             SetControlPoints(controlPoints);
             
-            SetUniformKnotVector(0.0, 1.0, degree, degree + _controlPoints.Count);
+            SetUniformKnotVector(0.0, 1.0, degree, degree + _controlPoints.Count + 1);
         }
 
         /// <summary>
@@ -148,6 +148,16 @@ namespace BRIDGES.Geometry.Kernel
 
         #region Public Methods
 
+        /// <summary>
+        /// Returns the knot at the given index.
+        /// </summary>
+        /// <param name="index"> Index of the knot to look for. </param>
+        /// <returns> The knot at the given index. </returns>
+        public double GetKnot(int index)
+        {
+            return _knotVector[index];
+        }
+
         /// <inheritdoc/>
         public double Length()
         {
@@ -157,17 +167,22 @@ namespace BRIDGES.Geometry.Kernel
         /// <inheritdoc cref="ICurve{TVector}.Flip"/> 
         public void Flip()
         {
-            List<double> knotVector = new List<double>(KnotCount);
-            double startKnot = _knotVector[0], endKnot = _knotVector[KnotCount - 1];
+            int knotCount = _knotVector.Count;
+            List<double> knotVector = new List<double>(knotCount);
+
+            double startKnot = _knotVector[0];
+            double endKnot = _knotVector[knotCount - 1];
+
             for (int i_K = 0; i_K < KnotCount; i_K++)
             {
-                knotVector[i_K] = endKnot + (startKnot - _knotVector[KnotCount - 1 - i_K]);
+                knotVector.Add(endKnot + (startKnot - _knotVector[KnotCount - 1 - i_K]));
             }
 
-            List<TPoint> controlPoints = new List<TPoint>(PointCount);
-            for (int i_P = 0; i_P < PointCount; i_P++)
+            int pointCount = _controlPoints.Count;
+            List<TPoint> controlPoints = new List<TPoint>(pointCount);
+            for (int i_P = 0; i_P < pointCount; i_P++)
             {
-                controlPoints[i_P] = _controlPoints[PointCount - 1 - i_P];
+                controlPoints.Add(_controlPoints[PointCount - 1 - i_P]);
             }
 
             _knotVector = knotVector;
@@ -180,6 +195,11 @@ namespace BRIDGES.Geometry.Kernel
         {
             if (format == CurveParameterFormat.Normalised)
             {
+                if (parameter < DomainStart || DomainEnd < parameter)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(parameter), "The parameter in not within the curve's domain.");
+                }
+
                 int i_KnotSpan = Arith_Spe.BSpline.FindKnotSpanIndex(parameter, Degree, _knotVector);
 
                 double[] bSplines = Arith_Spe.BSpline.EvaluateBasisAt(parameter, i_KnotSpan, Degree, _knotVector);
@@ -285,16 +305,16 @@ namespace BRIDGES.Geometry.Kernel
             _knotVector = new List<double>(knotCount);
             for (int i = 0; i < (degree + 1); i++) // Constant knots at the start
             {
-                _knotVector[i] = domainStart;
+                _knotVector.Add(domainStart);
             }
             for (int i = (degree + 1); i < (i_LastKnot - degree); i++) // Varying knots in the middle
             {
                 var ratio = (double)(i - degree) / ((double)(i_LastKnot - 2 * degree));
-                _knotVector[i] = domainStart + (domainEnd - domainStart) * ratio;
+                _knotVector.Add(domainStart + (domainEnd - domainStart) * ratio);
             }
-            for (int i = (i_LastKnot - degree); i < (i_LastKnot + 1); i++) // Constant knots at the end
+            for (int i = i_LastKnot - degree; i < knotCount; i++) // Constant knots at the end
             {
-                _knotVector[i] = domainEnd;
+                _knotVector.Add(domainEnd);
             }
         }
 

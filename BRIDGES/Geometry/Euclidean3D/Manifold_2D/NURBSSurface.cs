@@ -10,7 +10,7 @@ namespace BRIDGES.Geometry.Euclidean3D
     /// <summary>
     /// Class defining a NURBS surface in three-dimensional euclidean space.
     /// </summary>
-    public class NURBSSurface : Kernel.BSplineSurface<Projective3D.Point>
+    public class NurbsSurface : Kernel.BSplineSurface<Projective3D.Point>
     {
         #region Constructors
 
@@ -21,7 +21,7 @@ namespace BRIDGES.Geometry.Euclidean3D
         /// <param name="degreeV"> Degree of the interpolating polynomials in the <see cref="Arith_Spe.BSpline"/> basis in v-direction. </param>
         /// <param name="controlPoints"> Control points of the <see cref="BSplineSurface"/>. </param>
         /// <exception cref="ArgumentException"> The degree of the surface in u-direction and v-direction should be positive. </exception>
-        public NURBSSurface(int degreeU, int degreeV, Point[,] controlPoints)
+        public NurbsSurface(int degreeU, int degreeV, Point[,] controlPoints)
             :base()
         {
             if (degreeU < 0) { throw new ArgumentException("The degree of the surface in u-direction should be positive.", nameof(degreeU)); }
@@ -34,7 +34,7 @@ namespace BRIDGES.Geometry.Euclidean3D
             // Initialise fields
             SetControlPoints(controlPoints);
 
-            SetUniformKnotVectors((0.0, 1.0), (0.0, 1.0), (degreeU, degreeV), (degreeU + controlPoints.GetLength(0), degreeV + controlPoints.GetLength(1)));
+            SetUniformKnotVectors((0.0, 1.0), (0.0, 1.0), (degreeU, degreeV), (degreeU + controlPoints.GetLength(0) + 1, degreeV + controlPoints.GetLength(1) + 1));
 
         }
 
@@ -55,11 +55,10 @@ namespace BRIDGES.Geometry.Euclidean3D
 
         #endregion
 
-
         #region Other Methods
 
         /// <summary>
-        /// Converts the control points for the current <see cref="NURBSSurface"/>.
+        /// Converts the control points for the current <see cref="NurbsSurface"/>.
         /// </summary>
         /// <param name="controlPoints"> <see cref="Point"/> to convert. </param>
         /// <returns> The <see cref="Projective3D.Point"/> resulting from the conversion. </returns>

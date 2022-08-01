@@ -9,7 +9,7 @@ namespace BRIDGES.Geometry.Euclidean3D
     /// <summary>
     /// Class defining a NURBS curve in three-dimensional euclidean space.
     /// </summary>
-    public class NURBSCurve : Kernel.BSplineCurve<Projective3D.Point>
+    public class NurbsCurve : Kernel.BSplineCurve<Projective3D.Point>
     {
         #region Properties
 
@@ -30,12 +30,12 @@ namespace BRIDGES.Geometry.Euclidean3D
         #region Constructors
 
         /// <summary>
-        /// Initialises a new instance of <see cref="NURBSCurve"/> class.
+        /// Initialises a new instance of <see cref="NurbsCurve"/> class.
         /// </summary>
         /// <param name="degree"> Degree of the interpolating <see cref="Arith_Spe.BSpline"/> polynomial basis. </param>
-        /// <param name="controlPoints"> Control points of the <see cref="NURBSCurve"/>. </param>
+        /// <param name="controlPoints"> Control points of the <see cref="NurbsCurve"/>. </param>
         /// <exception cref="ArgumentException"> The degree of the curve should be positive. </exception>
-        public NURBSCurve(int degree, IEnumerable<Point> controlPoints)
+        public NurbsCurve(int degree, IEnumerable<Point> controlPoints)
             : base()
         {
             if (degree < 0) 
@@ -50,21 +50,21 @@ namespace BRIDGES.Geometry.Euclidean3D
             IEnumerable<Projective3D.Point> projectivePoints =  ConvertControlPoints(controlPoints);
             base.SetControlPoints(projectivePoints);
 
-            SetUniformKnotVector(0.0, 1.0, degree, degree + _controlPoints.Count);
+            SetUniformKnotVector(0.0, 1.0, degree, degree + _controlPoints.Count + 1);
         }
 
         /// <summary>
-        /// Initialises a new instance of <see cref="NURBSCurve"/> class by defining its fields.
+        /// Initialises a new instance of <see cref="NurbsCurve"/> class by defining its fields.
         /// </summary>
         /// <param name="degree"> Degree of the interpolating <see cref="Arith_Spe.BSpline"/> polynomial basis. </param>
         /// <param name="knotVector"> Knot vector of the interpolating <see cref="Arith_Spe.BSpline"/> polynomial basis. </param>
-        /// <param name="controlPoints"> Control points of the <see cref="NURBSCurve"/>. </param>
+        /// <param name="controlPoints"> Control points of the <see cref="NurbsCurve"/>. </param>
         /// <param name="weights"> Weights of the control points. </param>
         /// <exception cref="ArgumentException"> The numbers of weights and control points should be the same. </exception>
         /// <exception cref="ArgumentException"> The knots should be provided in ascending order. </exception>
         /// <exception cref="ArgumentException"> The number of knots provided is not valid. </exception>
         /// <exception cref="ArgumentException"> The degree of the curve should be positive. </exception>
-        public NURBSCurve(int degree, IEnumerable<double> knotVector, IEnumerable<Point> controlPoints, IEnumerable<double> weights)
+        public NurbsCurve(int degree, IEnumerable<double> knotVector, IEnumerable<Point> controlPoints, IEnumerable<double> weights)
             : base()
         {
             if (degree < 0)
@@ -97,7 +97,7 @@ namespace BRIDGES.Geometry.Euclidean3D
         #region Other Methods
 
         /// <summary>
-        /// Converts the control points for the current <see cref="NURBSCurve"/>.
+        /// Converts the control points for the current <see cref="NurbsCurve"/>.
         /// </summary>
         /// <param name="controlPoints"> <see cref="Point"/> to convert. </param>
         /// <returns> The <see cref="Projective3D.Point"/> resulting from the conversion. </returns>
@@ -110,7 +110,7 @@ namespace BRIDGES.Geometry.Euclidean3D
         }
 
         /// <summary>
-        /// Converts the control points for the current <see cref="NURBSCurve"/>.
+        /// Converts the control points for the current <see cref="NurbsCurve"/>.
         /// </summary>
         /// <param name="controlPoints"> <see cref="Point"/> to convert. </param>
         /// <param name="weights"> Weigths to include in the conversion. </param>

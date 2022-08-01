@@ -164,7 +164,7 @@ namespace BRIDGES.Arithmetic.Polynomials.Specials
                 knotVector[i] = 1.0;
             }
 
-            return new BSpline(Index, Degree, knotVector);
+            return new BSpline(Degree, Index, Degree, knotVector);
         }
 
         #endregion

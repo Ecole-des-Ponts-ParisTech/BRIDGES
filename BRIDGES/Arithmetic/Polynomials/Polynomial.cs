@@ -47,12 +47,24 @@ namespace BRIDGES.Arithmetic.Polynomials
         #region Constructors
 
         /// <summary>
+        /// Initialises a new instance of <see cref="Polynomial"/> class.
+        /// </summary>
+        internal Polynomial()
+        {
+
+        }
+
+        /// <summary>
         /// Initialises a new instance of <see cref="Polynomial"/> class by defining its coefficients.
         /// </summary>
         /// <param name="coefficients"> Coefficients of the polynomial, starting from the constant value. </param>
         public Polynomial(params double[] coefficients)
         {
-            _coefficients = coefficients;
+            _coefficients = new double[coefficients.Length];
+            for (int i_C = 0; i_C < coefficients.Length; i_C++)
+            {
+                _coefficients[i_C] = coefficients[i_C];
+            }
 
             if (coefficients[coefficients.Length - 1] == 0.0) { Clean(); }
         }

@@ -100,7 +100,7 @@ namespace BRIDGES.Geometry.Kernel
             // Initialise fields
             SetControlPoints(controlPoints);
 
-            SetUniformKnotVectors((0.0, 1.0), (0.0, 1.0), (degreeU, degreeV), (degreeU + controlPoints.GetLength(0), degreeV + controlPoints.GetLength(1)));
+            SetUniformKnotVectors((0.0, 1.0), (0.0, 1.0), (degreeU, degreeV), (degreeU + controlPoints.GetLength(0) + 1, degreeV + controlPoints.GetLength(1) + 1));
         }
 
         #endregion
@@ -187,7 +187,7 @@ namespace BRIDGES.Geometry.Kernel
                 var ratio = (double)(i - degrees.Item1) / ((double)(i_LastKnotU - 2 * degrees.Item1));
                 _knotVectorU[i] = domainU.Item1 + (domainU.Item2 - domainU.Item1) * ratio;
             }
-            for (int i = (i_LastKnotU - degrees.Item1); i < (i_LastKnotU + 1); i++) // Constant knots at the end
+            for (int i = (i_LastKnotU - degrees.Item1); i < knotCounts.Item1; i++) // Constant knots at the end
             {
                 _knotVectorU[i] = domainU.Item2;
             }
@@ -205,7 +205,7 @@ namespace BRIDGES.Geometry.Kernel
                 var ratio = (double)(i - degrees.Item2) / ((double)(i_LastKnotV - 2 * degrees.Item2));
                 _knotVectorV[i] = domainV.Item1 + (domainV.Item2 - domainV.Item1) * ratio;
             }
-            for (int i = (i_LastKnotV - degrees.Item2); i < (i_LastKnotV + 1); i++) // Constant knots at the end
+            for (int i = (i_LastKnotV - degrees.Item2); i < knotCounts.Item2; i++) // Constant knots at the end
             {
                 _knotVectorV[i] = domainV.Item2;
             }
