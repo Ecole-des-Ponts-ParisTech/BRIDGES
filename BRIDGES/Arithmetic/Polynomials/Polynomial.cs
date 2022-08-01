@@ -47,12 +47,24 @@ namespace BRIDGES.Arithmetic.Polynomials
         #region Constructors
 
         /// <summary>
+        /// Initialises a new instance of <see cref="Polynomial"/> class.
+        /// </summary>
+        internal Polynomial()
+        {
+
+        }
+
+        /// <summary>
         /// Initialises a new instance of <see cref="Polynomial"/> class by defining its coefficients.
         /// </summary>
         /// <param name="coefficients"> Coefficients of the polynomial, starting from the constant value. </param>
         public Polynomial(params double[] coefficients)
         {
-            _coefficients = coefficients;
+            _coefficients = new double[coefficients.Length];
+            for (int i_C = 0; i_C < coefficients.Length; i_C++)
+            {
+                _coefficients[i_C] = coefficients[i_C];
+            }
 
             if (coefficients[coefficients.Length - 1] == 0.0) { Clean(); }
         }
@@ -331,7 +343,39 @@ namespace BRIDGES.Arithmetic.Polynomials
 
         #endregion
 
-        #region Methods
+        #region Public Methods 
+
+        /// <summary>
+        /// Returns the coefficents of the current <see cref="Polynomial"/>, starting from the constant value.
+        /// </summary>
+        /// <returns> The coefficents of the current <see cref="Polynomial"/>. </returns>
+        public double[] GetCoefficients()
+        {
+            return _coefficients.Clone() as double[];
+        }
+
+
+        /// <summary>
+        /// Computes the current <see cref="Polynomial"/> at a given value using Horner's method.
+        /// </summary>
+        /// <param name="val"> Value to evaluate at. </param>
+        /// <returns> The computed value of the current <see cref="Polynomial"/>. </returns>
+        public virtual double EvaluateAt(double val)
+        {
+            /* Horners method could be used */
+
+            double result = _coefficients[Degree];
+            for (int i = Degree - 1; i > -1; i--)
+            {
+                result = (result * val) + _coefficients[i];
+            }
+
+            return result;
+        }
+
+        #endregion
+
+        #region Other Methods
 
         /// <summary>
         /// Cleans the leading zero coefficients.
@@ -339,7 +383,7 @@ namespace BRIDGES.Arithmetic.Polynomials
         private void Clean()
         {
             int actualDegree = 0;
-            for (int i_D = _coefficients.Length - 1; i_D > - 1; i_D--)
+            for (int i_D = _coefficients.Length - 1; i_D > -1; i_D--)
             {
                 if (_coefficients[i_D] != 0.0) { actualDegree = i_D; break; }
             }
@@ -353,42 +397,14 @@ namespace BRIDGES.Arithmetic.Polynomials
             }
 
             _coefficients = coefficients;
-            
+
         }
 
-
-        /// <summary>
-        /// Returns the coefficents of the current <see cref="Polynomial"/>, starting from the constant value.
-        /// </summary>
-        /// <returns> The coefficents of the current <see cref="Polynomial"/>. </returns>
-        public double[] GetCoefficients()
-        {
-            return _coefficients.Clone() as double[];
-        }
-
-
-        /// <summary>
-        /// Computes the current <see cref="Polynomial"/> at a given value.
-        /// </summary>
-        /// <param name="val"> Value to evaluate at. </param>
-        /// <returns> The computed value of the current <see cref="Polynomial"/>. </returns>
-        public virtual double EvaluateAt(double val)
-        {
-            /* Horners method could be used */
-
-            double result = 0.0;
-            for (int i = 0; i < Degree + 1; i++)
-            {
-                result += _coefficients[i] * Math.Pow(val, i);
-            }
-
-            return (result);
-        }
 
         #endregion
 
 
-        #region Explicit : Additive.IAbelianGroup<Point>
+        #region Explicit : Additive.IAbelianGroup<Polynomial>
 
         /******************** Properties ********************/
 
@@ -428,7 +444,7 @@ namespace BRIDGES.Arithmetic.Polynomials
 
         #endregion
 
-        #region Explicit : Multiplicative.IAbelianGroup<Real>
+        #region Explicit : Multiplicative.IAbelianGroup<Polynomial>
 
         /******************** Properties ********************/
 
@@ -449,7 +465,7 @@ namespace BRIDGES.Arithmetic.Polynomials
 
         #endregion
 
-        #region Explicit : IGroupAction<Double,Point>
+        #region Explicit : IGroupAction<Double,Polynomial>
 
         /******************** Methods ********************/
 

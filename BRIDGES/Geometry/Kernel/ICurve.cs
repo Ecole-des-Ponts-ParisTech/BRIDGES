@@ -23,7 +23,7 @@ namespace BRIDGES.Geometry.Kernel
     /// <summary>
     /// Interface defining a curve.
     /// </summary>
-    /// <typeparam name="TPoint"> Point type of geometric space. </typeparam>
+    /// <typeparam name="TPoint"> Type of point in the geometric space. </typeparam>
     internal interface ICurve<TPoint>
     {
         #region Properties
@@ -60,22 +60,22 @@ namespace BRIDGES.Geometry.Kernel
         #region Methods
 
         /// <summary>
-        /// Computes the length of the current <see cref="ICurve{TPoint}"/>.
+        /// Computes the length of the current curve.
         /// </summary>
-        /// <returns> The length of the current <see cref="ICurve{TPoint}"/>. </returns>
+        /// <returns> The length of the current curve. </returns>
         double Length();
 
         /// <summary>
-        /// Flips the direction of the current <see cref="ICurve{TPoint}"/>
+        /// Flips the direction of the current curve.
         /// </summary>
         void Flip();
 
         /// <summary>
-        /// Evaluates the current <see cref="ICurve{TPoint}"/> at the given parameter.
+        /// Evaluates the current curve at the given parameter.
         /// </summary>
         /// <param name="parameter"> Value of the parameter. </param>
         /// <param name="format"> Format of the parameter. </param>
-        /// <returns> The <typeparamref name="TPoint"/> on the <see cref="ICurve{TPoint}"/> at the given parameter. </returns>
+        /// <returns> The point on the curve at the given parameter. </returns>
         TPoint PointAt(double parameter, CurveParameterFormat format);
 
         #endregion

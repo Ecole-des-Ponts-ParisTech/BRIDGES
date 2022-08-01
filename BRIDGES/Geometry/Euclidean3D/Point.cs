@@ -42,8 +42,8 @@ namespace BRIDGES.Geometry.Euclidean3D
         /// <param name="index"> Index of the coordinate to get or set. </param>
         /// <returns> The value of the coordinate at the given index. </returns>
         /// <exception cref="ArgumentOutOfRangeException">
-        /// The given index is lower than zero or exceeds the dimension of the <see cref="Point"/>. 
-        /// For a three-dimensional euclidean <see cref="Point"/>, the index should be between zero and two (both included).
+        /// The given index is lower than zero or exceeds the number of coordinates of the point.
+        /// For a three-dimensional euclidean point, the index can range from zero to two.
         /// </exception>
         public double this[int index]
         {
@@ -54,8 +54,8 @@ namespace BRIDGES.Geometry.Euclidean3D
                 else if (index == 2) { return Z; }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("The given index is lower than zero or exceeds the dimension of the point." +
-                    "For a three-dimensional euclidean point, the index should be between zero and two (both included).");
+                    throw new ArgumentOutOfRangeException("The given index is lower than zero or exceeds the number of coordinates of the point." +
+                        "For a three-dimensional euclidean point, the index can range from zero to two.");
                 }
             }
 
@@ -66,14 +66,14 @@ namespace BRIDGES.Geometry.Euclidean3D
                 else if (index == 2) { Z = value; }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("The given index is lower than zero or exceeds the dimension of the point." +
-                        "For a three-dimensional euclidean point, the index should be between zero and 2 (both included).");
+                    throw new ArgumentOutOfRangeException("The given index is lower than zero or exceeds the number of coordinates of the point." +
+                        "For a three-dimensional euclidean point, the index can range from zero to two.");
                 }
             }
         }
 
         /// <summary>
-        /// Gets the number of coordinates of the current <see cref="Point"/>.
+        /// Gets the dimension of the current <see cref="Point"/>'s euclidean space.
         /// </summary>
         public int Dimension { get { return 3; } }
 
@@ -140,27 +140,27 @@ namespace BRIDGES.Geometry.Euclidean3D
         /// <summary>
         /// Returns the cross product of two <see cref="Point"/>.
         /// </summary>
-        /// <param name="pointA"> Left <see cref="Point"/> for the cross product.</param>
-        /// <param name="pointB"> Right <see cref="Point"/> for the cross product.</param>
+        /// <param name="left"> Left <see cref="Point"/> for the cross product.</param>
+        /// <param name="right"> Right <see cref="Point"/> for the cross product.</param>
         /// <returns> A new <see cref="Point"/> resulting from the cross product of two <see cref="Point"/>.</returns>
-        public static Point CrossProduct(Point pointA, Point pointB) =>
-            new Point((pointA.Y * pointB.Z) - (pointA.Z * pointB.Y),
-            (pointA.Z * pointB.X) - (pointA.X * pointB.Z),
-            (pointA.X * pointB.Y) - (pointA.Y * pointB.X));
+        public static Point CrossProduct(Point left, Point right) =>
+            new Point((left.Y * right.Z) - (left.Z * right.Y),
+            (left.Z * right.X) - (left.X * right.Z),
+            (left.X * right.Y) - (left.Y * right.X));
 
 
         /******************** Algebraic Additive Group ********************/
 
         /// <inheritdoc cref="operator +(Point, Point)"/>
-        public static Point Add(Point pointA, Point pointB)
+        public static Point Add(Point left, Point right)
         {
-            return new Point(pointA.X + pointB.X, pointA.Y + pointB.Y, pointA.Z + pointB.Z);
+            return new Point(left.X + right.X, left.Y + right.Y, left.Z + right.Z);
         }
 
         /// <inheritdoc cref="operator -(Point, Point)"/>
-        public static Point Subtract(Point pointA, Point pointB)
+        public static Point Subtract(Point left, Point right)
         {
-            return new Point(pointA.X - pointB.X, pointA.Y - pointB.Y, pointA.Z - pointB.Z);
+            return new Point(left.X - right.X, left.Y - right.Y, left.Z - right.Z);
         }
 
 
@@ -182,24 +182,24 @@ namespace BRIDGES.Geometry.Euclidean3D
         /******************** Group Action ********************/
 
         /// <inheritdoc cref="Point.operator *(double, Point)"/>
-        public static Point Multiply(double factor, Point point)
+        public static Point Multiply(double factor, Point operand)
         {
-            return new Point(factor * point.X, factor * point.Y, factor * point.Z);
+            return new Point(factor * operand.X, factor * operand.Y, factor * operand.Z);
         }
 
         /// <inheritdoc cref="Point.operator /(Point, double)"/>
-        public static Point Divide(Point point, double divisor)
+        public static Point Divide(Point operand, double divisor)
         {
-            return new Point(point.X / divisor, point.Y / divisor, point.Z / divisor);
+            return new Point(operand.X / divisor, operand.Y / divisor, operand.Z / divisor);
         }
 
 
         /******************** Hilbert Space ********************/
 
         /// <inheritdoc cref="operator *(Point, Point)"/>
-        public static double DotProduct(Point pointA, Point pointB)
+        public static double DotProduct(Point left, Point right)
         {
-            return (pointA.X * pointB.X) + (pointA.Y * pointB.Y) + (pointA.Z * pointB.Z);
+            return (left.X * right.X) + (left.Y * right.Y) + (left.Z * right.Z);
         }
 
         #endregion
@@ -211,33 +211,33 @@ namespace BRIDGES.Geometry.Euclidean3D
         /// <summary>
         /// Computes the addition of two <see cref="Point"/>.
         /// </summary>
-        /// <param name="pointA"> <see cref="Point"/> for the addition. </param>
-        /// <param name="pointB"> <see cref="Point"/> for the addition. </param>
+        /// <param name="left"> <see cref="Point"/> for the addition. </param>
+        /// <param name="right"> <see cref="Point"/> for the addition. </param>
         /// <returns> The new <see cref="Point"/> resulting from the addition. </returns>
-        public static Point operator +(Point pointA, Point pointB)
+        public static Point operator +(Point left, Point right)
         {
-            return new Point(pointA.X + pointB.X, pointA.Y + pointB.Y, pointA.Z + pointB.Z);
+            return new Point(left.X + right.X, left.Y + right.Y, left.Z + right.Z);
         }
 
         /// <summary>
         /// Computes the subtraction of two <see cref="Point"/>.
         /// </summary>
-        /// <param name="pointA"> <see cref="Point"/> to subtract. </param>
-        /// <param name="pointB"> <see cref="Point"/> to subtract with. </param>
+        /// <param name="left"> <see cref="Point"/> to subtract. </param>
+        /// <param name="right"> <see cref="Point"/> to subtract with. </param>
         /// <returns> The new <see cref="Point"/> resulting from the subtraction. </returns>
-        public static Point operator -(Point pointA, Point pointB)
+        public static Point operator -(Point left, Point right)
         {
-            return new Point(pointA.X - pointB.X, pointA.Y - pointB.Y, pointA.Z - pointB.Z);
+            return new Point(left.X - right.X, left.Y - right.Y, left.Z - right.Z);
         }
 
         /// <summary>
         /// Computes the opposite of the given <see cref="Point"/>.
         /// </summary>
-        /// <param name="point"> <see cref="Point"/> to be opposed. </param>
+        /// <param name="operand"> <see cref="Point"/> to be opposed. </param>
         /// <returns> The new <see cref="Point"/>, opposite of the initial one. </returns>
-        public static Point operator -(Point point)
+        public static Point operator -(Point operand)
         {
-            return new Point(-point.X, -point.Y, -point.Z);
+            return new Point(-operand.X, -operand.Y, -operand.Z);
         }
 
 
@@ -272,28 +272,28 @@ namespace BRIDGES.Geometry.Euclidean3D
         /// Computes the scalar multiplication of a <see cref="Point"/> with a <see cref="double"/>-precision real number.
         /// </summary>
         /// <param name="factor"> <see cref="double"/>-precision real number. </param>
-        /// <param name="point"> <see cref="Point"/> to multiply. </param>
+        /// <param name="operand"> <see cref="Point"/> to multiply. </param>
         /// <returns> The new <see cref="Point"/> resulting from the scalar multiplication. </returns>
-        public static Point operator *(double factor, Point point)
+        public static Point operator *(double factor, Point operand)
         {
-            return new Point(factor * point.X, factor * point.Y, factor * point.Z);
+            return new Point(factor * operand.X, factor * operand.Y, factor * operand.Z);
         }
 
         /// <inheritdoc cref="Point.operator *(double, Point)"/>
-        public static Point operator *(Point point, double factor)
+        public static Point operator *(Point operand, double factor)
         {
-            return new Point(point.X * factor, point.Y * factor, point.Z * factor);
+            return new Point(operand.X * factor, operand.Y * factor, operand.Z * factor);
         }
 
         /// <summary>
         /// Computes the scalar division of a <see cref="Point"/> with a <see cref="double"/>-precision real number.
         /// </summary>
-        /// <param name="point"> <see cref="Point"/> to divide. </param>
+        /// <param name="operand"> <see cref="Point"/> to divide. </param>
         /// <param name="divisor"> <see cref="double"/>-precision real number to divide with. </param>
         /// <returns> The new <see cref="Point"/> resulting from the scalar division. </returns>
-        public static Point operator /(Point point, double divisor)
+        public static Point operator /(Point operand, double divisor)
         {
-            return new Point(point.X / divisor, point.Y / divisor, point.Z / divisor);
+            return new Point(operand.X / divisor, operand.Y / divisor, operand.Z / divisor);
         }
 
 
@@ -302,12 +302,12 @@ namespace BRIDGES.Geometry.Euclidean3D
         /// <summary>
         /// Computes the dot product of two <see cref="Point"/>.
         /// </summary>
-        /// <param name="pointA"> <see cref="Point"/> for the dot product. </param>
-        /// <param name="pointB"> <see cref="Point"/> for the dot product. </param>
+        /// <param name="left"> <see cref="Point"/> for the dot product. </param>
+        /// <param name="right"> <see cref="Point"/> for the dot product. </param>
         /// <returns> The new <see cref="Point"/> resulting from the dot product of two <see cref="Point"/>. </returns>
-        public static double operator *(Point pointA, Point pointB)
+        public static double operator *(Point left, Point right)
         {
-            return (pointA.X * pointB.X) + (pointA.Y * pointB.Y) + (pointA.Z * pointB.Z);
+            return (left.X * right.X) + (left.Y * right.Y) + (left.Z * right.Z);
         }
 
         #endregion
@@ -322,6 +322,22 @@ namespace BRIDGES.Geometry.Euclidean3D
         public static implicit operator Point(Vector vector)
         {
             return new Point(vector.X, vector.Y, vector.Z);
+        }
+
+        /// <summary>
+        /// Casts a <see cref="Projective3D.Point"/> into a <see cref="Point"/>.
+        /// </summary>
+        /// <param name="point"> <see cref="Projective3D.Point"/> to cast. </param>
+        /// <returns> The new <see cref="Point"/> resulting from the cast. </returns>
+        /// <exception cref="InvalidCastException"> The projective point cannot be converted. It represents an euclidean point at infinity. </exception>
+        public static explicit operator Point(Projective3D.Point point)
+        {
+            if (point[3] == 0.0)
+            {
+                throw new InvalidCastException("The projective point cannot be converted because. It represents an euclidean point at infinity.");
+            }
+
+            return new Point(point[0] / point[3], point[1] / point[3], point[2] / point[3]);
         }
 
         #endregion
@@ -416,10 +432,10 @@ namespace BRIDGES.Geometry.Euclidean3D
         /******************** Methods ********************/
 
         /// <inheritdoc/>
-        Point Alg_Fund.IAddable<Point>.Add(Point other) { return new Point(X + other.X, Y + other.Y, Z + other.Z); }
+        Point Alg_Fund.IAddable<Point>.Add(Point right) => new Point(X + right.X, Y + right.Y, Z + right.Z);
 
         /// <inheritdoc/>
-        Point Alg_Fund.ISubtractable<Point>.Subtract(Point other) { return new Point(X - other.X, Y - other.Y, Z - other.Z); }
+        Point Alg_Fund.ISubtractable<Point>.Subtract(Point right) { return new Point(X - right.X, Y - right.Y, Z - right.Z); }
 
         /// <inheritdoc/>
         bool Alg_Set.Additive.IGroup<Point>.Opposite() 
@@ -470,9 +486,9 @@ namespace BRIDGES.Geometry.Euclidean3D
 
 
         /// <inheritdoc cref="Alg_Meas.IDotProduct{TValue,T}.DotProduct(T)"/>
-        double Alg_Meas.IDotProduct<double,Point>.DotProduct(Point other)
+        double Alg_Meas.IDotProduct<double,Point>.DotProduct(Point right)
         {
-            return (X * other.X) + (Y * other.Y) + (Z * other.Z);
+            return (X * right.X) + (Y * right.Y) + (Z * right.Z);
         }
 
         /// <inheritdoc cref="Alg_Meas.IDotProduct{TValue,T}.AngleWith(T)"/>

@@ -18,9 +18,9 @@ namespace BRIDGES.Algebra.Fundamentals
         /// <summary>
         /// Subtracts the current element with another element.
         /// </summary>
-        /// <param name="other"> Element to subtract with. </param>
+        /// <param name="right"> Element to subtract with on the right. </param>
         /// <returns> The new element resulting from the subtraction. </returns>
-        T Subtract(T other);
+        T Subtract(T right);
 
         #endregion
     }
