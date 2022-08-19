@@ -25,7 +25,7 @@ namespace BRIDGES.Algebra.Sets.Additive
         #region Methods
 
         /// <summary>
-        /// Gets the opposite element of the current element.
+        /// Replace the current element with its opposite element.
         /// </summary>
         /// <returns> <see langword="true"/> if the current element was opposed, <see langword="false"/> otherwise. </returns>
         bool Opposite();

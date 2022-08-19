@@ -20,5 +20,10 @@
 			<_Parameter1>BRIDGES.Test</_Parameter1>
 		</AssemblyAttribute>
 	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="CSparse" Version="3.7.0" />
+	  <PackageReference Include="MathNet.Numerics" Version="5.0.0" />
+	</ItemGroup>
 	
 </Project>
