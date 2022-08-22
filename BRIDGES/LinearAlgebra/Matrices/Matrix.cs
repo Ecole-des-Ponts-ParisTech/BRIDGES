@@ -31,7 +31,7 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// </summary>
         /// <param name="row"> Row of the value to get. </param>
         /// <param name="column"> Column of the value to get. </param>
-        /// <returns> The value at the given row and index. </returns>
+        /// <returns> The value at the given row and column index. </returns>
         public abstract double this[int row, int column] { get; }
 
         #endregion
@@ -48,6 +48,31 @@ namespace BRIDGES.LinearAlgebra.Matrices
 
         #endregion
 
+        #region Static Properties
+
+        /// <summary>
+        /// Returns the neutral <see cref="Matrix"/> for the addition. 
+        /// </summary>
+        /// <param name="rowCount"> Number of rows of the <see cref="Matrix"/>. </param>
+        /// <param name="columnCount"> Number of columns of the <see cref="Matrix"/>. </param>
+        /// <returns> The <see cref="Sparse.CompressedColumn"/>, as a <see cref="Matrix"/>, of the given size and with zeros on every coordinates. </returns>
+        public static Matrix Zero(int rowCount, int columnCount)
+        {
+            return Sparse.CompressedColumn.Zero(rowCount, columnCount);
+        }
+
+        /// <summary>
+        /// Returns the neutral <see cref="Matrix"/> for the multiplication. 
+        /// </summary>
+        /// <param name="size"> Number of rows and columns of the <see cref="Matrix"/>. </param>
+        /// <returns> The <see cref="Sparse.CompressedColumn"/>, as a <see cref="Matrix"/>, of the given size, with ones on the diagonal and zeros elsewhere. </returns>
+        public static Matrix Identity(int size)
+        {
+            return Sparse.CompressedColumn.Identity(size);
+        }
+
+        #endregion
+
         #region Static Methods
 
         /******************** Algebraic Additive Group ********************/
@@ -55,23 +80,31 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <summary>
         /// Computes the addition of two <see cref="Matrix"/>.
         /// </summary>
-        /// <param name="left"> <see cref="Matrix"/> for the addition. </param>
-        /// <param name="right"> <see cref="Matrix"/> for the addition. </param>
+        /// <param name="left"> Left <see cref="Matrix"/> for the addition. </param>
+        /// <param name="right"> Right <see cref="Matrix"/> for the addition. </param>
         /// <returns> The new <see cref="Matrix"/> resulting from the addition. </returns>
+        /// <exception cref="NotImplementedException"> The addition of these two matrix types as <see cref="Matrix"/> is not implemented. </exception>
         public static Matrix Add(Matrix left, Matrix right)
         {
-            return left.Add(right);
+            if (left is DenseMatrix denseLeft) { return DenseMatrix.Add(denseLeft, right); }
+            else if (right is DenseMatrix denseRight) { return DenseMatrix.Add(left, denseRight); }
+            else if (left is SparseMatrix sparseLeft && right is SparseMatrix sparseRight) { return SparseMatrix.Add(sparseLeft, sparseRight); }
+            else { throw new NotImplementedException($"The addition of a {left.GetType()} and a {right.GetType()} as Matrix is not implemented."); }
         }
 
         /// <summary>
         /// Computes the subtraction of two <see cref="Matrix"/>.
         /// </summary>
-        /// <param name="left"> <see cref="Matrix"/> to subtract. </param>
-        /// <param name="right"> <see cref="Matrix"/> to subtract with. </param>
+        /// <param name="left"> Left <see cref="Matrix"/> to subtract. </param>
+        /// <param name="right"> Right <see cref="Matrix"/> to subtract with. </param>
         /// <returns> The new <see cref="Matrix"/> resulting from the subtraction. </returns>
+        /// <exception cref="NotImplementedException"> The subtraction of these two matrix types as <see cref="Matrix"/> is not implemented. </exception>
         public static Matrix Subtract(Matrix left, Matrix right)
         {
-            return left.Subtract(right);
+            if (left is DenseMatrix denseLeft) { return DenseMatrix.Subtract(denseLeft, right); }
+            else if (right is DenseMatrix denseRight) { return DenseMatrix.Subtract(left, denseRight); }
+            else if (left is SparseMatrix sparseLeft && right is SparseMatrix sparseRight) { return SparseMatrix.Subtract(sparseLeft, sparseRight); }
+            else { throw new NotImplementedException($"The subtraction of a {left.GetType()} and a {right.GetType()} as Matrix is not implemented."); }
         }
 
 
@@ -80,27 +113,49 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <summary>
         /// Computes the multiplication of two <see cref="Matrix"/>.
         /// </summary>
-        /// <param name="left"> <see cref="Matrix"/> for the multiplication. </param>
-        /// <param name="right"> <see cref="Matrix"/> for the multiplication. </param>
+        /// <param name="left"> Left <see cref="Matrix"/> for the multiplication. </param>
+        /// <param name="right"> Right <see cref="Matrix"/> for the multiplication. </param>
         /// <returns> The new <see cref="Matrix"/> resulting from the multiplication. </returns>
+        /// <exception cref="NotImplementedException"> The multiplication of these two matrix types is not implemented. </exception>
         public static Matrix Multiply(Matrix left, Matrix right)
         {
-            return left.Multiply(right);
+            if (left is DenseMatrix denseLeft) { return DenseMatrix.Multiply(denseLeft, right); }
+            else if (right is DenseMatrix denseRight) { return DenseMatrix.Multiply(left, denseRight); }
+            else if (left is SparseMatrix sparseLeft && right is SparseMatrix sparseRight) { return SparseMatrix.Multiply(sparseLeft, sparseRight); }
+            else { throw new NotImplementedException($"The multiplication of a {left.GetType()} and a {right.GetType()} as Matrix is not implemented."); }
         }
 
 
         /******************** Group Action ********************/
 
         /// <summary>
-        /// Computes the scalar multiplication of a <see cref="Matrix"/> with a <see cref="double"/>-precision real number.
+        /// Computes the scalar multiplication of a <see cref="Matrix"/> with a <see cref="double"/>-precision real number on the left.
         /// </summary>
         /// <param name="factor"> <see cref="double"/>-precision real number. </param>
-        /// <param name="operand"> <see cref="Matrix"/> to multiply. </param>
+        /// <param name="operand"> <see cref="Matrix"/> to multiply on the left. </param>
         /// <returns> The new <see cref="Matrix"/> resulting from the scalar multiplication. </returns>
+        /// <exception cref="NotImplementedException"> The scalar multiplication on the left of the operand as a <see cref="Matrix"/> is not implemented. </exception>
         public static Matrix Multiply(double factor, Matrix operand)
         {
-            return operand.Multiply(factor);
+            if (operand is DenseMatrix denseOperand) { return DenseMatrix.Multiply(factor, denseOperand); }
+            else if (operand is SparseMatrix sparseOperand) { return SparseMatrix.Multiply(factor, sparseOperand); }
+            else { throw new NotImplementedException($"The scalar multiplication on the left of {operand.GetType()} as a Matrix is not implemented."); }
         }
+
+        /// <summary>
+        /// Computes the scalar multiplication of a <see cref="Matrix"/> with a <see cref="double"/>-precision real number on the right.
+        /// </summary>
+        /// <param name="operand"> <see cref="Matrix"/> to multiply on the right. </param>
+        /// <param name="factor"> <see cref="double"/>-precision real number. </param>
+        /// <returns> The new <see cref="Matrix"/> resulting from the scalar multiplication. </returns>
+        /// <exception cref="NotImplementedException"> The scalar multiplication on the right of the operand as a <see cref="Matrix"/> is not implemented. </exception>
+        public static Matrix Multiply(Matrix operand, double factor)
+        {
+            if (operand is DenseMatrix denseOperand) { return DenseMatrix.Multiply(denseOperand, factor); }
+            else if (operand is SparseMatrix sparseOperand) { return SparseMatrix.Multiply(sparseOperand, factor); }
+            else { throw new NotImplementedException($"The scalar multiplication on the left of {operand.GetType()} as a Matrix is not implemented."); }
+        }
+
 
         /// <summary>
         /// Computes the scalar division of a <see cref="Matrix"/> with a <see cref="double"/>-precision real number.
@@ -108,9 +163,12 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <param name="operand"> <see cref="Matrix"/> to divide. </param>
         /// <param name="divisor"> <see cref="double"/>-precision real number to divide with. </param>
         /// <returns> The new <see cref="Matrix"/> resulting from the scalar division. </returns>
+        /// <exception cref="NotImplementedException"> The scalar division of the operand as a <see cref="Matrix"/> is not implemented. </exception>
         public static Matrix Divide(Matrix operand, double divisor)
         {
-            return operand.Divide(divisor);
+            if (operand is DenseMatrix denseOperand) { return DenseMatrix.Divide(denseOperand, divisor); }
+            else if (operand is SparseMatrix sparseOperand) { return SparseMatrix.Divide(sparseOperand, divisor); }
+            else { throw new NotImplementedException($"The scalar division of {operand.GetType()} as a Matrix is not implemented."); }
         }
 
         #endregion
@@ -129,57 +187,8 @@ namespace BRIDGES.LinearAlgebra.Matrices
 
         /******************** Algebraic Additive Group ********************/
 
-        /// <summary>
-        /// Computes the addition of the current <see cref="Matrix"/> with another <see cref="Matrix"/>.
-        /// </summary>
-        /// <param name="right"> <see cref="Matrix"/> to add with on the right. </param>
-        /// <returns> The new <see cref="Matrix"/> resulting from the addition. </returns>
-        protected abstract Matrix Add(Matrix right);
-        
-        /// <summary>
-        /// Computes the subtraction of the current <see cref="Matrix"/> with another <see cref="Matrix"/>.
-        /// </summary>
-        /// <param name="right"> <see cref="Matrix"/> to subtract with on the right. </param>
-        /// <returns> The new <see cref="Matrix"/> resulting from the subtraction. </returns>
-        protected abstract Matrix Subtract(Matrix right);
-
-        /// <summary>
-        /// Opposes the current matrix.
-        /// </summary>
+        /// <inheritdoc cref="Alg_Set.Additive.IGroup{T}.Opposite()"/>
         protected abstract void Opposite();
-
-        /// <summary>
-        /// Gets the neutral <see cref="Matrix"/> of the addition.
-        /// </summary>
-        /// <returns> The neutral <see cref="Matrix"/> of the addition. </returns>
-        protected abstract Matrix Zero();
-
-
-        /******************** Algebraic Multiplicative SemiGroup ********************/
-
-        /// <summary>
-        /// Computes the multiplication of the current <see cref="Matrix"/> with another <see cref="Matrix"/>.
-        /// </summary>
-        /// <param name="right"> <see cref="Matrix"/> to multiply with on the right. </param>
-        /// <returns> The new <see cref="Matrix"/> resulting from the addition. </returns>
-        protected abstract Matrix Multiply(Matrix right);
-
-
-        /******************** Group Action ********************/
-
-        /// <summary>
-        /// Computes the scalar multiplication the current <see cref="Matrix"/> with a <see cref="double"/>-precision real number.
-        /// </summary>
-        /// <param name="factor"> <see cref="double"/>-precision real number. </param>
-        /// <returns> The new <see cref="Matrix"/> resulting from the scalar multiplication. </returns>
-        protected abstract Matrix Multiply(double factor);
-
-        /// <summary>
-        /// Computes the scalar division of the current <see cref="Matrix"/> with a <see cref="double"/>-precision real number.
-        /// </summary>
-        /// <param name="divisor"> <see cref="double"/>-precision real number to divide with. </param>
-        /// <returns> The new <see cref="Matrix"/> resulting from the scalar division. </returns>
-        protected abstract Matrix Divide(double divisor);
 
         #endregion
 
@@ -198,10 +207,10 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /******************** Methods ********************/
 
         /// <inheritdoc/>
-        Matrix Alg_Fund.IAddable<Matrix>.Add(Matrix right) { return this.Add(right); }
+        Matrix Alg_Fund.IAddable<Matrix>.Add(Matrix right) { return Matrix.Add(this, right); }
 
         /// <inheritdoc/>
-        Matrix Alg_Fund.ISubtractable<Matrix>.Subtract(Matrix right) { return this.Subtract(right); }
+        Matrix Alg_Fund.ISubtractable<Matrix>.Subtract(Matrix right) { return Matrix.Subtract(this, right); }
 
         /// <inheritdoc/>
         bool Alg_Set.Additive.IGroup<Matrix>.Opposite()
@@ -211,7 +220,7 @@ namespace BRIDGES.LinearAlgebra.Matrices
         }
 
         /// <inheritdoc/>
-        Matrix Alg_Fund.IZeroable<Matrix>.Zero() { return this.Zero(); }
+        Matrix Alg_Fund.IZeroable<Matrix>.Zero() { return Matrix.Zero(RowCount, ColumnCount); }
 
         #endregion
 
@@ -229,7 +238,7 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /******************** Methods ********************/
 
         /// <inheritdoc/>
-        Matrix Alg_Fund.IMultiplicable<Matrix>.Multiply(Matrix right) { return this.Multiply(right); }
+        Matrix Alg_Fund.IMultiplicable<Matrix>.Multiply(Matrix right) { return Matrix.Multiply(this, right); }
 
         #endregion
 
@@ -238,10 +247,10 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /******************** Methods ********************/
 
         /// <inheritdoc/>
-        Matrix Alg_Set.IGroupAction<double, Matrix>.Multiply(double factor) { return this.Multiply(factor); }
+        Matrix Alg_Set.IGroupAction<double, Matrix>.Multiply(double factor) { return Matrix.Multiply(this, factor); }
 
         /// <inheritdoc/>
-        Matrix Alg_Set.IGroupAction<double, Matrix>.Divide(double divisor) { return this.Divide(divisor); }
+        Matrix Alg_Set.IGroupAction<double, Matrix>.Divide(double divisor) { return Matrix.Divide(this, divisor); }
 
         #endregion
     }

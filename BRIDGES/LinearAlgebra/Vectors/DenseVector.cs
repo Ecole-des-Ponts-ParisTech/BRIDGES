@@ -21,7 +21,7 @@ namespace BRIDGES.LinearAlgebra.Vectors
         /// <summary>
         /// Components of the current <see cref="DenseVector"/>.
         /// </summary>
-        double[] _components;
+        private double[] _components;
 
         #endregion
 
@@ -120,8 +120,8 @@ namespace BRIDGES.LinearAlgebra.Vectors
         /// <summary>
         /// Returns the neutral <see cref="DenseVector"/> for the addition.
         /// </summary>
-        /// <param name="size"> Size of the new <see cref="DenseVector"/>. </param>
-        /// <returns> The new zero <see cref="DenseVector"/> of the given size. </returns>
+        /// <param name="size"> Number of component of the current <see cref="DenseVector"/>. </param>
+        /// <returns> The <see cref="DenseVector"/> of the given size and with zeros on every coordinates. </returns>
         public static new DenseVector Zero(int size)
         {
             return new DenseVector(size);
@@ -404,6 +404,7 @@ namespace BRIDGES.LinearAlgebra.Vectors
 
             return new DenseVector(components);
         }
+
 
         /// <summary>
         /// Computes the scalar division of a <see cref="DenseVector"/> with a <see cref="double"/>-precision real number.

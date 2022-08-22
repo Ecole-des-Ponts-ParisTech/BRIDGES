@@ -21,7 +21,7 @@ namespace BRIDGES.LinearAlgebra.Vectors
         /// <summary>
         /// Size of the current <see cref="SparseVector"/>.
         /// </summary>
-        int _size;
+        private int _size;
 
         /// <summary>
         /// Non-zero components of the current <see cref="SparseVector"/>.
@@ -129,8 +129,8 @@ namespace BRIDGES.LinearAlgebra.Vectors
         /// <summary>
         /// Returns the neutral <see cref="SparseVector"/> for the addition.
         /// </summary>
-        /// <param name="size"> Size of the new <see cref="SparseVector"/>. </param>
-        /// <returns> The new zero <see cref="SparseVector"/> of the given size. </returns>
+        /// <param name="size"> Number of component of the current <see cref="SparseVector"/>. </param>
+        /// <returns> The <see cref="SparseVector"/> of the given size and with zeros on every coordinates. </returns>
         public static new SparseVector Zero(int size)
         {
             return new SparseVector(size);
@@ -251,6 +251,7 @@ namespace BRIDGES.LinearAlgebra.Vectors
 
             return result;
         }
+
 
         /// <summary>
         /// Computes the scalar division of a <see cref="SparseVector"/> with a <see cref="double"/>-precision real number.

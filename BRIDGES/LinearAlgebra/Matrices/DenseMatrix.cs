@@ -8,7 +8,7 @@ namespace BRIDGES.LinearAlgebra.Matrices
     /// <summary>
     /// Class defining a dense matrix.
     /// </summary>
-    public class DenseMatrix : Matrix
+    public sealed class DenseMatrix : Matrix
     {
         #region Fields
 
@@ -44,15 +44,6 @@ namespace BRIDGES.LinearAlgebra.Matrices
         #region Constructors
 
         /// <summary>
-        /// Initialises a new instance of the <see cref="DenseMatrix"/> class.
-        /// </summary>
-        private DenseMatrix() 
-            : base()
-        {
-            /* Do nothing */
-        }
-
-        /// <summary>
         /// Initialises a new instance of the <see cref="DenseMatrix"/> class by defining its number of row and column.
         /// </summary>
         /// <param name="rowCount"> Number of rows of the <see cref="DenseMatrix"/>. </param>
@@ -64,6 +55,48 @@ namespace BRIDGES.LinearAlgebra.Matrices
             MNet_LinAlg.Double.DenseMatrix.Create(rowCount, columnCount, 0.0);
         }
 
+
+        /// <summary>
+        /// Initialises a new instance of the <see cref="DenseMatrix"/> class.
+        /// </summary>
+        private DenseMatrix()
+            : base()
+        {
+            /* Do nothing */
+        }
+
+        #endregion
+
+        #region Static Properties
+
+        /// <summary>
+        /// Returns the neutral <see cref="DenseMatrix"/> for the addition. 
+        /// </summary>
+        /// <param name="rowCount"> Number of rows of the <see cref="DenseMatrix"/>. </param>
+        /// <param name="columnCount"> Number of columns of the <see cref="DenseMatrix"/>. </param>
+        /// <returns> The <see cref="DenseMatrix"/> of the given size and with zeros on every coordinates. </returns>
+        public static new DenseMatrix Zero(int rowCount, int columnCount)
+        {
+            return new DenseMatrix(rowCount, columnCount);
+        }
+
+        /// <summary>
+        /// Returns the neutral <see cref="Matrix"/> for the multiplication. 
+        /// </summary>
+        /// <param name="size"> Number of rows and columns of the <see cref="Matrix"/>. </param>
+        /// <returns> The <see cref="DenseMatrix"/> of the given size, with ones on the diagonal and zeros elsewhere. </returns>
+        public static new DenseMatrix Identity(int size)
+        {
+            DenseMatrix result = new DenseMatrix(size, size);
+
+            for (int i = 0; i < size; i++)
+            {
+                result._storedMatrix[i, i] = 1.0;
+            }
+
+            return result;
+        }
+
         #endregion
 
         #region Static Methods
@@ -73,8 +106,8 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <summary>
         /// Computes the addition of two <see cref="DenseMatrix"/>.
         /// </summary>
-        /// <param name="left"> <see cref="DenseMatrix"/> for the addition. </param>
-        /// <param name="right"> <see cref="DenseMatrix"/> for the addition. </param>
+        /// <param name="left"> Left <see cref="DenseMatrix"/> for the addition. </param>
+        /// <param name="right"> Right <see cref="DenseMatrix"/> for the addition. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the addition. </returns>
         public static DenseMatrix Add(DenseMatrix left, DenseMatrix right)
         {
@@ -88,8 +121,8 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <summary>
         /// Computes the subtraction of two <see cref="DenseMatrix"/>.
         /// </summary>
-        /// <param name="left"> <see cref="DenseMatrix"/> to subtract. </param>
-        /// <param name="right"> <see cref="DenseMatrix"/> to subtract with. </param>
+        /// <param name="left"> Left <see cref="DenseMatrix"/> to subtract. </param>
+        /// <param name="right"> Right <see cref="DenseMatrix"/> to subtract with. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the subtraction. </returns>
         public static DenseMatrix Subtract(DenseMatrix left, DenseMatrix right)
         {
@@ -104,8 +137,8 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <summary>
         /// Computes the multiplication of two <see cref="DenseMatrix"/>.
         /// </summary>
-        /// <param name="left"> <see cref="DenseMatrix"/> for the multiplication. </param>
-        /// <param name="right"> <see cref="DenseMatrix"/> for the multiplication. </param>
+        /// <param name="left"> Left <see cref="DenseMatrix"/> for the multiplication. </param>
+        /// <param name="right"> Right <see cref="DenseMatrix"/> for the multiplication. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the multiplication. </returns>
         public static DenseMatrix Multiply(DenseMatrix left, DenseMatrix right)
         {
@@ -117,86 +150,205 @@ namespace BRIDGES.LinearAlgebra.Matrices
         }
 
 
+        /******************** Matrix Embedding ********************/
+
+        /// <summary>
+        /// Computes the addition of a <see cref="DenseMatrix"/> with a <see cref="Matrix"/> on the right.
+        /// </summary>
+        /// <param name="left"> Left <see cref="DenseMatrix"/> for the addition. </param>
+        /// <param name="right"> Right <see cref="Matrix"/> for the addition. </param>
+        /// <returns> The new <see cref="DenseMatrix"/> resulting from the addition. </returns>
+        /// <exception cref="NotImplementedException"> 
+        /// The addition of a <see cref="DenseMatrix"/> with the right matrix type as a <see cref="Matrix"/> is not implemented.
+        /// </exception>
+        public static DenseMatrix Add(DenseMatrix left, Matrix right)
+        {
+            if (right is DenseMatrix denseRight) { return DenseMatrix.Add(left, denseRight); }
+            else if (right is SparseMatrix sparseRight) { return DenseMatrix.Add(left, sparseRight); }
+            else { throw new NotImplementedException($"The addition of a {left.GetType()} and a {right.GetType()} as a Matrix is not implemented."); }
+        }
+
+        /// <summary>
+        /// Computes the addition of a <see cref="Matrix"/> with a <see cref="DenseMatrix"/>.
+        /// </summary>
+        /// <param name="left"> Left <see cref="Matrix"/> for the addition. </param>
+        /// <param name="right"> Right <see cref="DenseMatrix"/> for the addition. </param>
+        /// <returns> The new <see cref="DenseMatrix"/> resulting from the addition. </returns>
+        /// <exception cref="NotImplementedException"> 
+        /// The addition of the left matrix type as a <see cref="Matrix"/> with a <see cref="DenseMatrix"/> is not implemented.
+        /// </exception>
+        public static DenseMatrix Add(Matrix left, DenseMatrix right)
+        {
+            if (left is DenseMatrix denseLeft) { return DenseMatrix.Add(denseLeft, right); }
+            else if (left is SparseMatrix sparseLeft) { return DenseMatrix.Add(sparseLeft, right); }
+            else { throw new NotImplementedException($"The addition of a {left.GetType()} as a Matrix and a {right.GetType()} is not implemented."); }
+        }
+
+
+        /// <summary>
+        /// Computes the subtraction of a <see cref="DenseMatrix"/> with a <see cref="Matrix"/>.
+        /// </summary>
+        /// <param name="left"> Left <see cref="DenseMatrix"/> to subtract. </param>
+        /// <param name="right"> Right <see cref="Matrix"/> to subtract with. </param>
+        /// <returns> The new <see cref="DenseMatrix"/> resulting from the subtraction. </returns>
+        /// <exception cref="NotImplementedException"> 
+        /// The subtraction of a <see cref="DenseMatrix"/> with the right matrix type as a <see cref="Matrix"/> is not implemented.
+        /// </exception>
+        public static DenseMatrix Subtract(DenseMatrix left, Matrix right)
+        {
+            if (right is DenseMatrix denseRight) { return DenseMatrix.Subtract(left, denseRight); }
+            else if (right is SparseMatrix sparseRight) { return DenseMatrix.Subtract(left, sparseRight); }
+            else { throw new NotImplementedException($"The subtraction of a {left.GetType()} and a {right.GetType()} as a Matrix is not implemented."); }
+        }
+
+        /// <summary>
+        /// Computes the subtraction of a <see cref="Matrix"/> with a <see cref="DenseMatrix"/>.
+        /// </summary>
+        /// <param name="left"> Left <see cref="Matrix"/> to subtract. </param>
+        /// <param name="right"> Right <see cref="DenseMatrix"/> to subtract with. </param>
+        /// <returns> The new <see cref="DenseMatrix"/> resulting from the subtraction. </returns>
+        /// <exception cref="NotImplementedException"> 
+        /// The subtraction of the left matrix type as a <see cref="Matrix"/> with a <see cref="DenseMatrix"/> is not implemented.
+        /// </exception>
+        public static DenseMatrix Subtract(Matrix left, DenseMatrix right)
+        {
+            if (left is DenseMatrix denseLeft) { return DenseMatrix.Subtract(denseLeft, right); }
+            else if (left is SparseMatrix sparseLeft) { return DenseMatrix.Subtract(sparseLeft, right); }
+            else { throw new NotImplementedException($"The subtraction of a {left.GetType()} as a Matrix and a {right.GetType()} is not implemented."); }
+        }
+
+
+        /// <summary>
+        /// Computes the multiplication of a <see cref="DenseMatrix"/> with a <see cref="Matrix"/>.
+        /// </summary>
+        /// <param name="left"> Left <see cref="DenseMatrix"/> for the multiplication. </param>
+        /// <param name="right"> Right <see cref="Matrix"/> for the multiplication. </param>
+        /// <returns> The new <see cref="DenseMatrix"/> resulting from the multiplication. </returns>
+        /// <exception cref="NotImplementedException"> 
+        /// The multiplication of a <see cref="DenseMatrix"/> with the right matrix type as a <see cref="Matrix"/> is not implemented.
+        /// </exception>
+        public static DenseMatrix Multiply(DenseMatrix left, Matrix right)
+        {
+            if (right is DenseMatrix denseRight) { return DenseMatrix.Multiply(left, denseRight); }
+            else if (right is SparseMatrix sparseRight) { return DenseMatrix.Multiply(left, sparseRight); }
+            else { throw new NotImplementedException($"The multiplication of a {left.GetType()} and a {right.GetType()} as a Matrix is not implemented."); }
+        }
+
+        /// <summary>
+        /// Computes the multiplication of a <see cref="Matrix"/> with a <see cref="DenseMatrix"/>.
+        /// </summary>
+        /// <param name="left"> Left <see cref="Matrix"/> for the multiplication. </param>
+        /// <param name="right"> Right <see cref="DenseMatrix"/> for the multiplication. </param>
+        /// <returns> The new <see cref="DenseMatrix"/> resulting from the multiplication. </returns>
+        /// <exception cref="NotImplementedException"> 
+        /// The multiplication of the left matrix type as a <see cref="Matrix"/> with a <see cref="DenseMatrix"/> is not implemented.
+        /// </exception>
+        public static DenseMatrix Multiply(Matrix left, DenseMatrix right)
+        {
+            if (left is DenseMatrix denseLeft) { return DenseMatrix.Multiply(denseLeft, right); }
+            else if (left is SparseMatrix sparseLeft) { return DenseMatrix.Multiply(sparseLeft, right); }
+            else { throw new NotImplementedException($"The multiplication of a {left.GetType()} as a Matrix and a {right.GetType()} is not implemented."); }
+        }
+
+
         /******************** Sparse Matrix Embedding ********************/
 
         /// <summary>
         /// Computes the addition of a <see cref="DenseMatrix"/> with a <see cref="SparseMatrix"/>.
         /// </summary>
-        /// <param name="left"> <see cref="DenseMatrix"/> for the addition. </param>
-        /// <param name="right"> <see cref="SparseMatrix"/> for the addition. </param>
+        /// <param name="left"> Left <see cref="DenseMatrix"/> for the addition. </param>
+        /// <param name="right"> Right <see cref="SparseMatrix"/> for the addition. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the addition. </returns>
+        /// <exception cref="NotImplementedException"> 
+        /// The addition of a <see cref="DenseMatrix"/> with the right matrix type as a <see cref="SparseMatrix"/> is not implemented. 
+        /// </exception>
         public static DenseMatrix Add(DenseMatrix left, SparseMatrix right)
         {
             if (right is Sparse.CompressedColumn ccsRight) { return DenseMatrix.Add(left, ccsRight); }
             else if (right is Sparse.CompressedRow crsRight) { return DenseMatrix.Add(left, crsRight); }
-            else { throw new NotImplementedException(); }
+            else { throw new NotImplementedException($"The addition of a {left.GetType()} and a {right.GetType()} as a SparseMatrix is not implemented."); }
         }
 
         /// <summary>
         /// Computes the addition of a <see cref="SparseMatrix"/> with a <see cref="DenseMatrix"/>.
         /// </summary>
-        /// <param name="left"> <see cref="SparseMatrix"/> for the addition. </param>
-        /// <param name="right"> <see cref="DenseMatrix"/> for the addition. </param>
+        /// <param name="left"> Left <see cref="SparseMatrix"/> for the addition. </param>
+        /// <param name="right"> Right <see cref="DenseMatrix"/> for the addition. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the addition. </returns>
+        /// <exception cref="NotImplementedException"> 
+        /// The addition of the left matrix type as a <see cref="SparseMatrix"/> with a <see cref="DenseMatrix"/> is not implemented.
+        /// </exception>
         public static DenseMatrix Add(SparseMatrix left, DenseMatrix right)
         {
             if (left is Sparse.CompressedColumn ccsLeft) { return DenseMatrix.Add(ccsLeft, right); }
             else if (left is Sparse.CompressedRow crsLeft) { return DenseMatrix.Add(crsLeft, right); }
-            else { throw new NotImplementedException(); }
+            else { throw new NotImplementedException($"The addition of a {left.GetType()} as a SparseMatrix and a {right.GetType()} is not implemented."); }
         }
 
 
         /// <summary>
         /// Computes the subtraction of a <see cref="DenseMatrix"/> with a <see cref="SparseMatrix"/>.
         /// </summary>
-        /// <param name="left"> <see cref="DenseMatrix"/> to subtract. </param>
-        /// <param name="right"> <see cref="SparseMatrix"/> to subtract with. </param>
+        /// <param name="left"> Left <see cref="DenseMatrix"/> to subtract. </param>
+        /// <param name="right"> Right <see cref="SparseMatrix"/> to subtract with. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the subtraction. </returns>
+        /// <exception cref="NotImplementedException"> 
+        /// The subtraction of a <see cref="DenseMatrix"/> with the right matrix type as a <see cref="SparseMatrix"/> is not implemented. 
+        /// </exception>
         public static DenseMatrix Subtract(DenseMatrix left, SparseMatrix right)
         {
             if (right is Sparse.CompressedColumn ccsRight) { return DenseMatrix.Subtract(left, ccsRight); }
             else if (right is Sparse.CompressedRow crsRight) { return DenseMatrix.Subtract(left, crsRight); }
-            else { throw new NotImplementedException(); }
+            else { throw new NotImplementedException($"The subtraction of a {left.GetType()} and a {right.GetType()} as a SparseMatrix is not implemented."); }
         }
 
         /// <summary>
         /// Computes the subtraction of a <see cref="SparseMatrix"/> with a <see cref="DenseMatrix"/>.
         /// </summary>
-        /// <param name="left"> <see cref="SparseMatrix"/> to subtract. </param>
-        /// <param name="right"> <see cref="DenseMatrix"/> to subtract with. </param>
+        /// <param name="left"> Left <see cref="SparseMatrix"/> to subtract. </param>
+        /// <param name="right"> Right <see cref="DenseMatrix"/> to subtract with. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the subtraction. </returns>
+        /// <exception cref="NotImplementedException"> 
+        /// The subtraction of the left matrix type as a <see cref="SparseMatrix"/> with a <see cref="DenseMatrix"/> is not implemented.
+        /// </exception>
         public static DenseMatrix Subtract(SparseMatrix left, DenseMatrix right)
         {
             if (left is Sparse.CompressedColumn ccsLeft) { return DenseMatrix.Subtract(ccsLeft, right); }
             else if (left is Sparse.CompressedRow crsLeft) { return DenseMatrix.Subtract(crsLeft, right); }
-            else { throw new NotImplementedException(); }
+            else { throw new NotImplementedException($"The subtraction of a {left.GetType()} as a SparseMatrix and a {right.GetType()} is not implemented."); }
         }
 
 
         /// <summary>
         /// Computes the multiplication of a <see cref="DenseMatrix"/> with a <see cref="SparseMatrix"/>.
         /// </summary>
-        /// <param name="left"> <see cref="DenseMatrix"/> for the multiplication. </param>
-        /// <param name="right"> <see cref="SparseMatrix"/> for the multiplication. </param>
+        /// <param name="left"> Left <see cref="DenseMatrix"/> for the multiplication. </param>
+        /// <param name="right"> Right <see cref="SparseMatrix"/> for the multiplication. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the multiplication. </returns>
+        /// <exception cref="NotImplementedException"> 
+        /// The subtraction of a <see cref="DenseMatrix"/> with the right matrix type as a <see cref="SparseMatrix"/> is not implemented. 
+        /// </exception>
         public static DenseMatrix Multiply(DenseMatrix left, SparseMatrix right)
         {
             if (right is Sparse.CompressedColumn ccsRight) { return DenseMatrix.Multiply(left, ccsRight); }
             else if (right is Sparse.CompressedRow crsRight) { return DenseMatrix.Multiply(left, crsRight); }
-            else { throw new NotImplementedException(); }
+            else { throw new NotImplementedException($"The multiplication of a {left.GetType()} and a {right.GetType()} as a SparseMatrix is not implemented."); }
         }
 
         /// <summary>
         /// Computes the multiplication of a <see cref="SparseMatrix"/> with a <see cref="DenseMatrix"/>.
         /// </summary>
-        /// <param name="left"> <see cref="SparseMatrix"/> for the multiplication. </param>
-        /// <param name="right"> <see cref="DenseMatrix"/> for the multiplication. </param>
+        /// <param name="left"> Left <see cref="SparseMatrix"/> for the multiplication. </param>
+        /// <param name="right"> Right <see cref="DenseMatrix"/> for the multiplication. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the multiplication. </returns>
+        /// <exception cref="NotImplementedException"> 
+        /// The multiplication of the left matrix type as a <see cref="SparseMatrix"/> with a <see cref="DenseMatrix"/> is not implemented.
+        /// </exception>
         public static DenseMatrix Multiply(SparseMatrix left, DenseMatrix right)
         {
             if (left is Sparse.CompressedColumn ccsLeft) { return DenseMatrix.Multiply(ccsLeft, right); }
             else if (left is Sparse.CompressedRow crsLeft) { return DenseMatrix.Multiply(crsLeft, right); }
-            else { throw new NotImplementedException(); }
+            else { throw new NotImplementedException($"The multiplication of a {left.GetType()} as a SparseMatrix and a {right.GetType()} is not implemented."); }
         }
 
 
@@ -205,8 +357,8 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <summary>
         /// Computes the addition of a <see cref="DenseMatrix"/> with a <see cref="Sparse.CompressedColumn"/>.
         /// </summary>
-        /// <param name="left"> <see cref="DenseMatrix"/> for the addition. </param>
-        /// <param name="right"> <see cref="Sparse.CompressedColumn"/> for the addition. </param>
+        /// <param name="left"> Left <see cref="DenseMatrix"/> for the addition. </param>
+        /// <param name="right"> Right <see cref="Sparse.CompressedColumn"/> for the addition. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the addition. </returns>
         public static DenseMatrix Add(DenseMatrix left, Sparse.CompressedColumn right)
         {
@@ -240,8 +392,8 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <summary>
         /// Computes the addition of a <see cref="Sparse.CompressedColumn"/> with a <see cref="DenseMatrix"/>.
         /// </summary>
-        /// <param name="left"> <see cref="Sparse.CompressedColumn"/> for the addition. </param>
-        /// <param name="right"> <see cref="DenseMatrix"/> for the addition. </param>
+        /// <param name="left"> Left <see cref="Sparse.CompressedColumn"/> for the addition. </param>
+        /// <param name="right"> Right <see cref="DenseMatrix"/> for the addition. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the addition. </returns>
         public static DenseMatrix Add(Sparse.CompressedColumn left, DenseMatrix right)
         {
@@ -276,8 +428,8 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <summary>
         /// Computes the subtraction of a <see cref="DenseMatrix"/> with a <see cref="Sparse.CompressedColumn"/>.
         /// </summary>
-        /// <param name="left"> <see cref="DenseMatrix"/> to subtract. </param>
-        /// <param name="right"> <see cref="Sparse.CompressedColumn"/> to subtract with. </param>
+        /// <param name="left"> Left <see cref="DenseMatrix"/> to subtract. </param>
+        /// <param name="right"> Right <see cref="Sparse.CompressedColumn"/> to subtract with. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the subtraction. </returns>
         public static DenseMatrix Subtract(DenseMatrix left, Sparse.CompressedColumn right)
         {
@@ -311,8 +463,8 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <summary>
         /// Computes the subtraction of a <see cref="Sparse.CompressedColumn"/> with a <see cref="DenseMatrix"/>.
         /// </summary>
-        /// <param name="left"> <see cref="Sparse.CompressedColumn"/> to subtract. </param>
-        /// <param name="right"> <see cref="DenseMatrix"/> to subtract with. </param>
+        /// <param name="left"> Left <see cref="Sparse.CompressedColumn"/> to subtract. </param>
+        /// <param name="right"> Right <see cref="DenseMatrix"/> to subtract with. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the subtraction. </returns>
         public static DenseMatrix Subtract(Sparse.CompressedColumn left, DenseMatrix right)
         {
@@ -347,8 +499,8 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <summary>
         /// Computes the multiplication of a <see cref="DenseMatrix"/> with a <see cref="Sparse.CompressedColumn"/>.
         /// </summary>
-        /// <param name="left"> <see cref="DenseMatrix"/> for the multiplication. </param>
-        /// <param name="right"> <see cref="Sparse.CompressedColumn"/> for the multiplication. </param>
+        /// <param name="left"> Left <see cref="DenseMatrix"/> for the multiplication. </param>
+        /// <param name="right"> Right <see cref="Sparse.CompressedColumn"/> for the multiplication. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the multiplication. </returns>
         public static DenseMatrix Multiply(DenseMatrix left, Sparse.CompressedColumn right)
         {
@@ -388,8 +540,8 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <summary>
         /// Computes the multiplication of a <see cref="Sparse.CompressedColumn"/> with a <see cref="DenseMatrix"/>.
         /// </summary>
-        /// <param name="left"> <see cref="Sparse.CompressedColumn"/> for the multiplication. </param>
-        /// <param name="right"> <see cref="DenseMatrix"/> for the multiplication. </param>
+        /// <param name="left"> Left <see cref="Sparse.CompressedColumn"/> for the multiplication. </param>
+        /// <param name="right"> Right <see cref="DenseMatrix"/> for the multiplication. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the multiplication. </returns>
         public static DenseMatrix Multiply(Sparse.CompressedColumn left, DenseMatrix right)
         {
@@ -428,8 +580,8 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <summary>
         /// Computes the addition of a <see cref="DenseMatrix"/> with a <see cref="Sparse.CompressedRow"/>.
         /// </summary>
-        /// <param name="left"> <see cref="DenseMatrix"/> for the addition. </param>
-        /// <param name="right"> <see cref="Sparse.CompressedRow"/> for the addition. </param>
+        /// <param name="left"> Left <see cref="DenseMatrix"/> for the addition. </param>
+        /// <param name="right"> Right <see cref="Sparse.CompressedRow"/> for the addition. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the addition. </returns>
         public static DenseMatrix Add(DenseMatrix left, Sparse.CompressedRow right)
         {
@@ -463,8 +615,8 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <summary>
         /// Computes the addition of a <see cref="Sparse.CompressedRow"/> with a <see cref="DenseMatrix"/>.
         /// </summary>
-        /// <param name="left"> <see cref="Sparse.CompressedRow"/> for the addition. </param>
-        /// <param name="right"> <see cref="DenseMatrix"/> for the addition. </param>
+        /// <param name="left"> Left <see cref="Sparse.CompressedRow"/> for the addition. </param>
+        /// <param name="right"> Right <see cref="DenseMatrix"/> for the addition. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the addition. </returns>
         public static DenseMatrix Add(Sparse.CompressedRow left, DenseMatrix right)
         {
@@ -499,8 +651,8 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <summary>
         /// Computes the subtraction of a <see cref="DenseMatrix"/> with a <see cref="Sparse.CompressedRow"/>.
         /// </summary>
-        /// <param name="left"> <see cref="DenseMatrix"/> to subtract. </param>
-        /// <param name="right"> <see cref="Sparse.CompressedRow"/> to subtract with. </param>
+        /// <param name="left"> Left <see cref="DenseMatrix"/> to subtract. </param>
+        /// <param name="right"> Right <see cref="Sparse.CompressedRow"/> to subtract with. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the subtraction. </returns>
         public static DenseMatrix Subtract(DenseMatrix left, Sparse.CompressedRow right)
         {
@@ -534,8 +686,8 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <summary>
         /// Computes the subtraction of a <see cref="Sparse.CompressedRow"/> with a <see cref="DenseMatrix"/>.
         /// </summary>
-        /// <param name="left"> <see cref="Sparse.CompressedRow"/> to subtract. </param>
-        /// <param name="right"> <see cref="DenseMatrix"/> to subtract with. </param>
+        /// <param name="left"> Left <see cref="Sparse.CompressedRow"/> to subtract. </param>
+        /// <param name="right"> Right <see cref="DenseMatrix"/> to subtract with. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the subtraction. </returns>
         public static DenseMatrix Subtract(Sparse.CompressedRow left, DenseMatrix right)
         {
@@ -570,8 +722,8 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <summary>
         /// Computes the multiplication of a <see cref="DenseMatrix"/> with a <see cref="Sparse.CompressedRow"/>.
         /// </summary>
-        /// <param name="left"> <see cref="DenseMatrix"/> for the multiplication. </param>
-        /// <param name="right"> <see cref="Sparse.CompressedRow"/> for the multiplication. </param>
+        /// <param name="left"> Left <see cref="DenseMatrix"/> for the multiplication. </param>
+        /// <param name="right"> Right <see cref="Sparse.CompressedRow"/> for the multiplication. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the multiplication. </returns>
         public static DenseMatrix Multiply(DenseMatrix left, Sparse.CompressedRow right)
         {
@@ -610,8 +762,8 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <summary>
         /// Computes the multiplication of a <see cref="Sparse.CompressedRow"/> with a <see cref="DenseMatrix"/>.
         /// </summary>
-        /// <param name="left"> <see cref="Sparse.CompressedRow"/> for the multiplication. </param>
-        /// <param name="right"> <see cref="DenseMatrix"/> for the multiplication. </param>
+        /// <param name="left"> Left <see cref="Sparse.CompressedRow"/> for the multiplication. </param>
+        /// <param name="right"> Right <see cref="DenseMatrix"/> for the multiplication. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the multiplication. </returns>
         public static DenseMatrix Multiply(Sparse.CompressedRow left, DenseMatrix right)
         {
@@ -709,85 +861,13 @@ namespace BRIDGES.LinearAlgebra.Matrices
 
         #endregion
 
-        #region Other Methods
 
-        /******************** Algebraic Additive Group ********************/
-
-        /// <summary>
-        /// Computes the addition of the current <see cref="DenseMatrix"/> with another <see cref="Matrix"/>.
-        /// </summary>
-        /// <param name="right"> <see cref="Matrix"/> to add with on the right. </param>
-        /// <returns> The new <see cref="DenseMatrix"/> as a <see cref="Matrix"/> resulting from the addition. </returns>
-        protected override Matrix Add(Matrix right)
-        {
-            if (right is DenseMatrix denseRight) { return DenseMatrix.Add(this, denseRight); }
-            else if (right is SparseMatrix sparseRight) { return DenseMatrix.Add(this, sparseRight); }
-            else { throw new NotImplementedException(); }
-        }
-
-        /// <summary>
-        /// Computes the subtraction of the current <see cref="DenseMatrix"/> with another <see cref="Matrix"/>.
-        /// </summary>
-        /// <param name="right"> <see cref="Matrix"/> to subtract with on the right. </param>
-        /// <returns> The new <see cref="DenseMatrix"/> as a <see cref="Matrix"/> resulting from the subtraction. </returns>
-        protected override Matrix Subtract(Matrix right)
-        {
-            if (right is DenseMatrix denseRight) { return DenseMatrix.Subtract(this, denseRight); }
-            else if (right is SparseMatrix sparseRight) { return DenseMatrix.Subtract(this, sparseRight); }
-            else { throw new NotImplementedException(); }
-        }
+        #region Override : Matrix
 
         /// <inheritdoc/>
         protected override void Opposite()
         {
             _storedMatrix = _storedMatrix.Multiply(-1.0) as MNet_LinAlg.Double.DenseMatrix;
-        }
-
-        /// <summary>
-        /// Gets the neutral <see cref="DenseMatrix"/> of the addition.
-        /// </summary>
-        /// <returns> The neutral <see cref="DenseMatrix"/> of the addition. </returns>
-        protected override Matrix Zero()
-        {
-            return new DenseMatrix(RowCount, ColumnCount);
-        }
-
-
-        /******************** Algebraic Multiplicative SemiGroup ********************/
-
-        /// <summary>
-        /// Computes the multiplication of the current <see cref="DenseMatrix"/> with another <see cref="Matrix"/>.
-        /// </summary>
-        /// <param name="right"> <see cref="Matrix"/> to multiply with on the right. </param>
-        /// <returns> The new <see cref="DenseMatrix"/> as a <see cref="Matrix"/> resulting from the addition. </returns>
-        protected override Matrix Multiply(Matrix right)
-        {
-            if (right is DenseMatrix denseRight) { return DenseMatrix.Multiply(this, denseRight); }
-            else if (right is SparseMatrix sparseRight) { return DenseMatrix.Multiply(this, sparseRight); }
-            else { throw new NotImplementedException(); }
-        }
-
-
-        /******************** Group Action ********************/
-
-        /// <summary>
-        /// Computes the scalar multiplication the current <see cref="DenseMatrix"/> with a <see cref="double"/>-precision real number.
-        /// </summary>
-        /// <param name="factor"> <see cref="double"/>-precision real number. </param>
-        /// <returns> The new <see cref="DenseMatrix"/> as a <see cref="Matrix"/> resulting from the scalar multiplication. </returns>
-        protected override Matrix Multiply(double factor)
-        {
-            return DenseMatrix.Multiply(this, factor);
-        }
-
-        /// <summary>
-        /// Computes the scalar division of the current <see cref="DenseMatrix"/> with a <see cref="double"/>-precision real number.
-        /// </summary>
-        /// <param name="divisor"> <see cref="double"/>-precision real number to divide with. </param>
-        /// <returns> The new <see cref="DenseMatrix"/> as a <see cref="Matrix"/> resulting from the scalar division. </returns>
-        protected override Matrix Divide(double divisor)
-        {
-            return DenseMatrix.Divide(this, divisor);
         }
 
         #endregion

@@ -49,7 +49,7 @@ namespace BRIDGES.LinearAlgebra.Vectors
         /// Returns the neutral <see cref="Vector"/> for the addition. 
         /// </summary>
         /// <param name="size"> Number of component of the current vector. </param>
-        /// <returns> The <see cref="Vector"/> of the given size, with 0.0 on each coordinate. </returns>
+        /// <returns> The <see cref="SparseVector"/>, as a <see cref="Vector"/>, of the given size and with zeros on every coordinates. </returns>
         public static Vector Zero(int size)
         {
             return SparseVector.Zero(size);
@@ -62,7 +62,7 @@ namespace BRIDGES.LinearAlgebra.Vectors
         /// <param name="size"> Size of the new <see cref="Vector"/>. </param>
         /// <param name="index"> Index of the standard vector, i.e of the component equal to one. </param>
         /// <returns> The new <see cref="Vector"/> representing the standard vector. </returns>
-        public static SparseVector StandardVector(int size, int index)
+        public static Vector StandardVector(int size, int index)
         {
             return SparseVector.StandardVector(size, index);
         }
@@ -133,6 +133,7 @@ namespace BRIDGES.LinearAlgebra.Vectors
             else if (operand is SparseVector sparseOperand) { return DenseVector.Multiply(sparseOperand, factor); }
             else { throw new NotImplementedException($"The scalar multiplication on the right of {operand.GetType()} as a Vector is not implemented."); }
         }
+
 
         /// <summary>
         /// Computes the scalar division of a <see cref="Vector"/> with a <see cref="double"/>-precision real number.
