@@ -79,13 +79,13 @@ namespace BRIDGES.LinearAlgebra.Vectors
         /// <param name="left"> Left <see cref="Vector"/> for the addition. </param>
         /// <param name="right"> Right <see cref="Vector"/> for the addition. </param>
         /// <returns> The new <see cref="Vector"/> resulting from the addition. </returns>
-        /// <exception cref="NotImplementedException"> The addition of these two vector types is not implemented. </exception>
+        /// <exception cref="NotImplementedException"> The addition of these two vectors as <see cref="Vector"/> is not implemented. </exception>
         public static Vector Add(Vector left, Vector right)
         {
             if (left is DenseVector denseLeft) { return DenseVector.Add(denseLeft, right); }
             else if (right is DenseVector denseRight) { return DenseVector.Add(left, denseRight); }
             else if (left is SparseVector sparseLeft && right is SparseVector sparseRight) { return SparseVector.Add(sparseLeft, sparseRight); }
-            else { throw new NotImplementedException($"The addition of a {left.GetType()} and a {right.GetType()} as Vector is not implemented."); }
+            else { throw new NotImplementedException($"The addition of a {left.GetType()} and a {right.GetType()} as {nameof(Vector)} is not implemented."); }
         }
 
         /// <summary>
@@ -94,13 +94,13 @@ namespace BRIDGES.LinearAlgebra.Vectors
         /// <param name="left"> Left <see cref="Vector"/> to subtract. </param>
         /// <param name="right"> Right <see cref="Vector"/> to subtract with. </param>
         /// <returns> The new <see cref="Vector"/> resulting from the subtraction. </returns>
-        /// <exception cref="NotImplementedException"> The subtraction of these two types as vector is not implemented. </exception>
+        /// <exception cref="NotImplementedException"> The subtraction of these two vectors as <see cref="Vector"/> is not implemented. </exception>
         public static Vector Subtract(Vector left, Vector right)
         {
             if (left is DenseVector denseLeft) { return DenseVector.Subtract(denseLeft, right); }
             else if (right is DenseVector denseRight) { return DenseVector.Subtract(left, denseRight); }
             else if (left is SparseVector sparseLeft && right is SparseVector sparseRight) { return SparseVector.Subtract(sparseLeft, sparseRight); }
-            else { throw new NotImplementedException($"The subtraction of a {left.GetType()} and a {right.GetType()} as Vector is not implemented."); }
+            else { throw new NotImplementedException($"The subtraction of a {left.GetType()} and a {right.GetType()} as {nameof(Vector)} is not implemented."); }
         }
 
 
@@ -112,12 +112,12 @@ namespace BRIDGES.LinearAlgebra.Vectors
         /// <param name="factor"> <see cref="double"/>-precision real number. </param>
         /// <param name="operand"> <see cref="Vector"/> to multiply on the left. </param>
         /// <returns> The new <see cref="Vector"/> resulting from the scalar multiplication. </returns>
-        /// <exception cref="NotImplementedException"> The scalar multiplication on the left of the operand as a <see cref="Vector"/> is not implemented. </exception>
+        /// <exception cref="NotImplementedException"> The scalar multiplication on the left of the vector as a <see cref="Vector"/> is not implemented. </exception>
         public static Vector Multiply(double factor, Vector operand)
         {
             if (operand is DenseVector denseOperand) { return DenseVector.Multiply(factor, denseOperand); }
             else if (operand is SparseVector sparseOperand) { return DenseVector.Multiply(factor, sparseOperand); }
-            else { throw new NotImplementedException($"The scalar multiplication on the left of {operand.GetType()} as a Vector is not implemented."); }
+            else { throw new NotImplementedException($"The scalar multiplication on the left of {operand.GetType()} as a {nameof(Vector)} is not implemented."); }
         }
 
         /// <summary>
@@ -126,12 +126,12 @@ namespace BRIDGES.LinearAlgebra.Vectors
         /// <param name="operand"> <see cref="Vector"/> to multiply on the right. </param>
         /// <param name="factor"> <see cref="double"/>-precision real number. </param>
         /// <returns> The new <see cref="Vector"/> resulting from the scalar multiplication. </returns>
-        /// <exception cref="NotImplementedException"> The scalar multiplication on the right of the operand as a <see cref="Vector"/> is not implemented. </exception>
+        /// <exception cref="NotImplementedException"> The scalar multiplication on the right of the vector as a <see cref="Vector"/> is not implemented. </exception>
         public static Vector Multiply(Vector operand, double factor)
         {
             if (operand is DenseVector denseOperand) { return DenseVector.Multiply(denseOperand, factor); }
             else if (operand is SparseVector sparseOperand) { return DenseVector.Multiply(sparseOperand, factor); }
-            else { throw new NotImplementedException($"The scalar multiplication on the right of {operand.GetType()} as a Vector is not implemented."); }
+            else { throw new NotImplementedException($"The scalar multiplication on the right of {operand.GetType()} as a {nameof(Vector)} is not implemented."); }
         }
 
 
@@ -141,12 +141,12 @@ namespace BRIDGES.LinearAlgebra.Vectors
         /// <param name="operand"> <see cref="Vector"/> to divide. </param>
         /// <param name="divisor"> <see cref="double"/>-precision real number to divide with. </param>
         /// <returns> The new <see cref="Vector"/> resulting from the scalar division. </returns>
-        /// <exception cref="NotImplementedException"> The scalar division of the operand as a <see cref="Vector"/> is not implemented. </exception>
+        /// <exception cref="NotImplementedException"> The scalar division of the vector as a <see cref="Vector"/> is not implemented. </exception>
         public static Vector Divide(Vector operand, double divisor)
         {
             if (operand is DenseVector denseOperand) { return DenseVector.Divide(denseOperand, divisor); }
             else if (operand is SparseVector sparseOperand) { return DenseVector.Divide(sparseOperand, divisor); }
-            else { throw new NotImplementedException($"The scalar division of {operand.GetType()} as a Vector is not implemented."); }
+            else { throw new NotImplementedException($"The scalar division of {operand.GetType()} as a {nameof(Vector)} is not implemented."); }
         }
 
 
@@ -158,22 +158,22 @@ namespace BRIDGES.LinearAlgebra.Vectors
         /// <param name="left"> Left <see cref="Vector"/> to transpose, then multiply. </param>
         /// <param name="right"> Right <see cref="Vector"/> to multiply. </param>
         /// <returns> The <see cref="double"/>-precision scalar resulting from the multiplication. </returns>
-        /// <exception cref="ArgumentException"> This transpose-multiply operation of these two types as vector is not implemented. </exception>
+        /// <exception cref="ArgumentException"> This transpose-multiply operation of these two vector as <see cref="Vector"/> is not implemented. </exception>
         public static double TransposeMultiply(Vector left, Vector right)
         {
             if(left is DenseVector denseLeft)
             {
                 if (right is DenseVector denseRight) { return DenseVector.TransposeMultiply(denseLeft, denseRight); }
                 else if (right is SparseVector sparseRight) { return SparseVector.TransposeMultiply(denseLeft, sparseRight); }
-                else { throw new NotImplementedException($"This operation between a {left.GetType()} and a {right.GetType()} as Vector is not implemented."); }
+                else { throw new NotImplementedException($"This operation between a {left.GetType()} and a {right.GetType()} as {nameof(Vector)} is not implemented."); }
             }
             else if (left is DenseVector sparseLeft)
             {
                 if (right is DenseVector denseRight) { return SparseVector.TransposeMultiply(sparseLeft, denseRight); }
                 else if (right is SparseVector sparseRight) { return SparseVector.TransposeMultiply(sparseLeft, sparseRight); }
-                else { throw new NotImplementedException($"This operation between a {left.GetType()} and a {right.GetType()} as Vector is not implemented."); }
+                else { throw new NotImplementedException($"This operation between a {left.GetType()} and a {right.GetType()} as {nameof(Vector)} is not implemented."); }
             }
-            else { throw new NotImplementedException($"This operation between a {left.GetType()} and a {right.GetType()} as Vector is not implemented."); }
+            else { throw new NotImplementedException($"This operation between a {left.GetType()} and a {right.GetType()} as {nameof(Vector)} is not implemented."); }
         }
 
         #endregion

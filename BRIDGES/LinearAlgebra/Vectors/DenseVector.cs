@@ -108,7 +108,7 @@ namespace BRIDGES.LinearAlgebra.Vectors
         /// Initialises a new instance of the <see cref="DenseVector"/> class from its components.
         /// </summary>
         /// <param name="components"> Components of the new <see cref="DenseVector"/>. </param>
-        private DenseVector(double[] components)
+        internal DenseVector(double[] components)
         {
             _components = components;
         }

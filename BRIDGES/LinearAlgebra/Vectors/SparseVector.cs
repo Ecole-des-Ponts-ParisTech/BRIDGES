@@ -348,6 +348,18 @@ namespace BRIDGES.LinearAlgebra.Vectors
         #region Public Methods
 
         /// <summary>
+        /// Gets the components at the given index.
+        /// </summary>
+        /// <param name="index"> The index of the component to get. </param>
+        /// <param name="val"> Value containing the component at the given index if it was found, zero otherwise. </param>
+        /// <returns> <see langword="true"/> if the component was found, <see langword="false"/> otherwise. </returns>
+        public bool TryGetComponent(int index, out double val)
+        {
+            return _components.TryGetValue(index, out val);
+        }
+
+
+        /// <summary>
         /// Returns an enumerator which reads through the non-zero components of the current <see cref="SparseVector"/>. <br/>
         /// The <see cref="KeyValuePair{TKey, TValue}"/> represents is composed of the row index and thr component value.
         /// </summary>

@@ -1,6 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using MNet_LinAlg = MathNet.Numerics.LinearAlgebra;
+
+using Alg_Fund = BRIDGES.Algebra.Fundamentals;
+using Alg_Set = BRIDGES.Algebra.Sets;
+
+using BRIDGES.LinearAlgebra.Vectors;
 
 
 namespace BRIDGES.LinearAlgebra.Matrices
@@ -8,7 +14,8 @@ namespace BRIDGES.LinearAlgebra.Matrices
     /// <summary>
     /// Class defining a dense matrix.
     /// </summary>
-    public sealed class DenseMatrix : Matrix
+    public sealed class DenseMatrix : Matrix,
+          Alg_Set.Additive.IAbelianGroup<DenseMatrix>, Alg_Set.Multiplicative.ISemiGroup<DenseMatrix>, Alg_Set.IGroupAction<double, DenseMatrix>
     {
         #region Fields
 
@@ -49,10 +56,28 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <param name="rowCount"> Number of rows of the <see cref="DenseMatrix"/>. </param>
         /// <param name="columnCount"> Number of columns of the <see cref="DenseMatrix"/>. </param>
         public DenseMatrix(int rowCount, int columnCount)
-            : base()
         {
             // Instanciate fields
-            MNet_LinAlg.Double.DenseMatrix.Create(rowCount, columnCount, 0.0);
+            _storedMatrix = MNet_LinAlg.Double.DenseMatrix.Create(rowCount, columnCount, 0.0);
+        }
+
+        /// <summary>
+        /// Initialises a new instance of the <see cref="DenseMatrix"/> class by defining its size and values row by row.
+        /// </summary>
+        /// <param name="rowCount"> Number of rows of the <see cref="DenseMatrix"/>. </param>
+        /// <param name="columnCount"> Number of columns of the <see cref="DenseMatrix"/>. </param>
+        /// <param name="components"> Component values given row by row. </param>
+        /// <exception cref="ArgumentException"> The number of components provided doesn't match the given number of rows and columns. </exception>
+        public DenseMatrix(int rowCount, int columnCount, double[] components)
+        {
+            // Verifications
+            if (components.Length != rowCount * columnCount)
+            {
+                throw new ArgumentException("The number of values provided doesn't match the given number of rows and columns.");
+            }
+
+            // Instanciate fields
+            _storedMatrix =  MNet_LinAlg.Double.DenseMatrix.Create(rowCount, columnCount, (int i_R, int i_C) => components[(i_R * columnCount) + i_C]);
         }
 
 
@@ -60,7 +85,6 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// Initialises a new instance of the <see cref="DenseMatrix"/> class.
         /// </summary>
         private DenseMatrix()
-            : base()
         {
             /* Do nothing */
         }
@@ -159,13 +183,13 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <param name="right"> Right <see cref="Matrix"/> for the addition. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the addition. </returns>
         /// <exception cref="NotImplementedException"> 
-        /// The addition of a <see cref="DenseMatrix"/> with the right matrix type as a <see cref="Matrix"/> is not implemented.
+        /// The addition of a <see cref="DenseMatrix"/> with the right matrix as a <see cref="Matrix"/> is not implemented.
         /// </exception>
         public static DenseMatrix Add(DenseMatrix left, Matrix right)
         {
             if (right is DenseMatrix denseRight) { return DenseMatrix.Add(left, denseRight); }
             else if (right is SparseMatrix sparseRight) { return DenseMatrix.Add(left, sparseRight); }
-            else { throw new NotImplementedException($"The addition of a {left.GetType()} and a {right.GetType()} as a Matrix is not implemented."); }
+            else { throw new NotImplementedException($"The addition of a {left.GetType()} and a {right.GetType()} as a {nameof(Matrix)} is not implemented."); }
         }
 
         /// <summary>
@@ -175,13 +199,13 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <param name="right"> Right <see cref="DenseMatrix"/> for the addition. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the addition. </returns>
         /// <exception cref="NotImplementedException"> 
-        /// The addition of the left matrix type as a <see cref="Matrix"/> with a <see cref="DenseMatrix"/> is not implemented.
+        /// The addition of the left matrix as a <see cref="Matrix"/> with a <see cref="DenseMatrix"/> is not implemented.
         /// </exception>
         public static DenseMatrix Add(Matrix left, DenseMatrix right)
         {
             if (left is DenseMatrix denseLeft) { return DenseMatrix.Add(denseLeft, right); }
             else if (left is SparseMatrix sparseLeft) { return DenseMatrix.Add(sparseLeft, right); }
-            else { throw new NotImplementedException($"The addition of a {left.GetType()} as a Matrix and a {right.GetType()} is not implemented."); }
+            else { throw new NotImplementedException($"The addition of a {left.GetType()} as a {nameof(Matrix)} and a {right.GetType()} is not implemented."); }
         }
 
 
@@ -192,13 +216,13 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <param name="right"> Right <see cref="Matrix"/> to subtract with. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the subtraction. </returns>
         /// <exception cref="NotImplementedException"> 
-        /// The subtraction of a <see cref="DenseMatrix"/> with the right matrix type as a <see cref="Matrix"/> is not implemented.
+        /// The subtraction of a <see cref="DenseMatrix"/> with the right matrix as a <see cref="Matrix"/> is not implemented.
         /// </exception>
         public static DenseMatrix Subtract(DenseMatrix left, Matrix right)
         {
             if (right is DenseMatrix denseRight) { return DenseMatrix.Subtract(left, denseRight); }
             else if (right is SparseMatrix sparseRight) { return DenseMatrix.Subtract(left, sparseRight); }
-            else { throw new NotImplementedException($"The subtraction of a {left.GetType()} and a {right.GetType()} as a Matrix is not implemented."); }
+            else { throw new NotImplementedException($"The subtraction of a {left.GetType()} and a {right.GetType()} as a {nameof(Matrix)} is not implemented."); }
         }
 
         /// <summary>
@@ -208,13 +232,13 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <param name="right"> Right <see cref="DenseMatrix"/> to subtract with. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the subtraction. </returns>
         /// <exception cref="NotImplementedException"> 
-        /// The subtraction of the left matrix type as a <see cref="Matrix"/> with a <see cref="DenseMatrix"/> is not implemented.
+        /// The subtraction of the left matrix as a <see cref="Matrix"/> with a <see cref="DenseMatrix"/> is not implemented.
         /// </exception>
         public static DenseMatrix Subtract(Matrix left, DenseMatrix right)
         {
             if (left is DenseMatrix denseLeft) { return DenseMatrix.Subtract(denseLeft, right); }
             else if (left is SparseMatrix sparseLeft) { return DenseMatrix.Subtract(sparseLeft, right); }
-            else { throw new NotImplementedException($"The subtraction of a {left.GetType()} as a Matrix and a {right.GetType()} is not implemented."); }
+            else { throw new NotImplementedException($"The subtraction of a {left.GetType()} as a {nameof(Matrix)} and a {right.GetType()} is not implemented."); }
         }
 
 
@@ -225,13 +249,13 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <param name="right"> Right <see cref="Matrix"/> for the multiplication. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the multiplication. </returns>
         /// <exception cref="NotImplementedException"> 
-        /// The multiplication of a <see cref="DenseMatrix"/> with the right matrix type as a <see cref="Matrix"/> is not implemented.
+        /// The multiplication of a <see cref="DenseMatrix"/> with the right matrix as a <see cref="Matrix"/> is not implemented.
         /// </exception>
         public static DenseMatrix Multiply(DenseMatrix left, Matrix right)
         {
             if (right is DenseMatrix denseRight) { return DenseMatrix.Multiply(left, denseRight); }
             else if (right is SparseMatrix sparseRight) { return DenseMatrix.Multiply(left, sparseRight); }
-            else { throw new NotImplementedException($"The multiplication of a {left.GetType()} and a {right.GetType()} as a Matrix is not implemented."); }
+            else { throw new NotImplementedException($"The multiplication of a {left.GetType()} and a {right.GetType()} as a {nameof(Matrix)} is not implemented."); }
         }
 
         /// <summary>
@@ -241,13 +265,13 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <param name="right"> Right <see cref="DenseMatrix"/> for the multiplication. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the multiplication. </returns>
         /// <exception cref="NotImplementedException"> 
-        /// The multiplication of the left matrix type as a <see cref="Matrix"/> with a <see cref="DenseMatrix"/> is not implemented.
+        /// The multiplication of the left matrix as a <see cref="Matrix"/> with a <see cref="DenseMatrix"/> is not implemented.
         /// </exception>
         public static DenseMatrix Multiply(Matrix left, DenseMatrix right)
         {
             if (left is DenseMatrix denseLeft) { return DenseMatrix.Multiply(denseLeft, right); }
             else if (left is SparseMatrix sparseLeft) { return DenseMatrix.Multiply(sparseLeft, right); }
-            else { throw new NotImplementedException($"The multiplication of a {left.GetType()} as a Matrix and a {right.GetType()} is not implemented."); }
+            else { throw new NotImplementedException($"The multiplication of a {left.GetType()} as a {nameof(Matrix)} and a {right.GetType()} is not implemented."); }
         }
 
 
@@ -260,13 +284,13 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <param name="right"> Right <see cref="SparseMatrix"/> for the addition. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the addition. </returns>
         /// <exception cref="NotImplementedException"> 
-        /// The addition of a <see cref="DenseMatrix"/> with the right matrix type as a <see cref="SparseMatrix"/> is not implemented. 
+        /// The addition of a <see cref="DenseMatrix"/> with the right matrix as a <see cref="SparseMatrix"/> is not implemented. 
         /// </exception>
         public static DenseMatrix Add(DenseMatrix left, SparseMatrix right)
         {
             if (right is Sparse.CompressedColumn ccsRight) { return DenseMatrix.Add(left, ccsRight); }
             else if (right is Sparse.CompressedRow crsRight) { return DenseMatrix.Add(left, crsRight); }
-            else { throw new NotImplementedException($"The addition of a {left.GetType()} and a {right.GetType()} as a SparseMatrix is not implemented."); }
+            else { throw new NotImplementedException($"The addition of a {left.GetType()} and a {right.GetType()} as a {nameof(SparseMatrix)} is not implemented."); }
         }
 
         /// <summary>
@@ -276,13 +300,13 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <param name="right"> Right <see cref="DenseMatrix"/> for the addition. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the addition. </returns>
         /// <exception cref="NotImplementedException"> 
-        /// The addition of the left matrix type as a <see cref="SparseMatrix"/> with a <see cref="DenseMatrix"/> is not implemented.
+        /// The addition of the left matrix as a <see cref="SparseMatrix"/> with a <see cref="DenseMatrix"/> is not implemented.
         /// </exception>
         public static DenseMatrix Add(SparseMatrix left, DenseMatrix right)
         {
             if (left is Sparse.CompressedColumn ccsLeft) { return DenseMatrix.Add(ccsLeft, right); }
             else if (left is Sparse.CompressedRow crsLeft) { return DenseMatrix.Add(crsLeft, right); }
-            else { throw new NotImplementedException($"The addition of a {left.GetType()} as a SparseMatrix and a {right.GetType()} is not implemented."); }
+            else { throw new NotImplementedException($"The addition of a {left.GetType()} as a {nameof(SparseMatrix)} and a {right.GetType()} is not implemented."); }
         }
 
 
@@ -293,13 +317,13 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <param name="right"> Right <see cref="SparseMatrix"/> to subtract with. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the subtraction. </returns>
         /// <exception cref="NotImplementedException"> 
-        /// The subtraction of a <see cref="DenseMatrix"/> with the right matrix type as a <see cref="SparseMatrix"/> is not implemented. 
+        /// The subtraction of a <see cref="DenseMatrix"/> with the right matrix as a <see cref="SparseMatrix"/> is not implemented. 
         /// </exception>
         public static DenseMatrix Subtract(DenseMatrix left, SparseMatrix right)
         {
             if (right is Sparse.CompressedColumn ccsRight) { return DenseMatrix.Subtract(left, ccsRight); }
             else if (right is Sparse.CompressedRow crsRight) { return DenseMatrix.Subtract(left, crsRight); }
-            else { throw new NotImplementedException($"The subtraction of a {left.GetType()} and a {right.GetType()} as a SparseMatrix is not implemented."); }
+            else { throw new NotImplementedException($"The subtraction of a {left.GetType()} and a {right.GetType()} as a {nameof(SparseMatrix)} is not implemented."); }
         }
 
         /// <summary>
@@ -309,13 +333,13 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <param name="right"> Right <see cref="DenseMatrix"/> to subtract with. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the subtraction. </returns>
         /// <exception cref="NotImplementedException"> 
-        /// The subtraction of the left matrix type as a <see cref="SparseMatrix"/> with a <see cref="DenseMatrix"/> is not implemented.
+        /// The subtraction of the left matrix as a <see cref="SparseMatrix"/> with a <see cref="DenseMatrix"/> is not implemented.
         /// </exception>
         public static DenseMatrix Subtract(SparseMatrix left, DenseMatrix right)
         {
             if (left is Sparse.CompressedColumn ccsLeft) { return DenseMatrix.Subtract(ccsLeft, right); }
             else if (left is Sparse.CompressedRow crsLeft) { return DenseMatrix.Subtract(crsLeft, right); }
-            else { throw new NotImplementedException($"The subtraction of a {left.GetType()} as a SparseMatrix and a {right.GetType()} is not implemented."); }
+            else { throw new NotImplementedException($"The subtraction of a {left.GetType()} as a {nameof(SparseMatrix)} and a {right.GetType()} is not implemented."); }
         }
 
 
@@ -326,13 +350,13 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <param name="right"> Right <see cref="SparseMatrix"/> for the multiplication. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the multiplication. </returns>
         /// <exception cref="NotImplementedException"> 
-        /// The subtraction of a <see cref="DenseMatrix"/> with the right matrix type as a <see cref="SparseMatrix"/> is not implemented. 
+        /// The subtraction of a <see cref="DenseMatrix"/> with the right matrix as a <see cref="SparseMatrix"/> is not implemented. 
         /// </exception>
         public static DenseMatrix Multiply(DenseMatrix left, SparseMatrix right)
         {
             if (right is Sparse.CompressedColumn ccsRight) { return DenseMatrix.Multiply(left, ccsRight); }
             else if (right is Sparse.CompressedRow crsRight) { return DenseMatrix.Multiply(left, crsRight); }
-            else { throw new NotImplementedException($"The multiplication of a {left.GetType()} and a {right.GetType()} as a SparseMatrix is not implemented."); }
+            else { throw new NotImplementedException($"The multiplication of a {left.GetType()} and a {right.GetType()} as a {nameof(SparseMatrix)} is not implemented."); }
         }
 
         /// <summary>
@@ -342,13 +366,13 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <param name="right"> Right <see cref="DenseMatrix"/> for the multiplication. </param>
         /// <returns> The new <see cref="DenseMatrix"/> resulting from the multiplication. </returns>
         /// <exception cref="NotImplementedException"> 
-        /// The multiplication of the left matrix type as a <see cref="SparseMatrix"/> with a <see cref="DenseMatrix"/> is not implemented.
+        /// The multiplication of the left matrix as a <see cref="SparseMatrix"/> with a <see cref="DenseMatrix"/> is not implemented.
         /// </exception>
         public static DenseMatrix Multiply(SparseMatrix left, DenseMatrix right)
         {
             if (left is Sparse.CompressedColumn ccsLeft) { return DenseMatrix.Multiply(ccsLeft, right); }
             else if (left is Sparse.CompressedRow crsLeft) { return DenseMatrix.Multiply(crsLeft, right); }
-            else { throw new NotImplementedException($"The multiplication of a {left.GetType()} as a SparseMatrix and a {right.GetType()} is not implemented."); }
+            else { throw new NotImplementedException($"The multiplication of a {left.GetType()} as a {nameof(SparseMatrix)} and a {right.GetType()} is not implemented."); }
         }
 
 
@@ -849,6 +873,144 @@ namespace BRIDGES.LinearAlgebra.Matrices
             return matrix;
         }
 
+
+        /******************** Other Operations ********************/
+
+        /// <summary>
+        /// Computes the right multiplication of a <see cref="DenseMatrix"/> with a <see cref="Vector"/> : <c>A*V</c>.
+        /// </summary>
+        /// <param name="matrix"> <see cref="DenseMatrix"/> to multiply on the right. </param>
+        /// <param name="vector"> <see cref="Vector"/> to multiply with. </param>
+        /// <returns> The new <see cref="DenseVector"/> as a <see cref="Vector"/> resulting from the multiplication. </returns>
+        /// <exception cref="NotImplementedException"> 
+        /// The right multiplication of a <see cref="DenseMatrix"/> with a the vector as a <see cref="Vector"/> is not implemented.
+        /// </exception>
+        public static Vector Multiply(DenseMatrix matrix, Vector vector)
+        {
+            if (vector is DenseVector denseVector) { return DenseMatrix.Multiply(matrix, denseVector); }
+            else if (vector is SparseVector sparseVector) { return DenseMatrix.Multiply(matrix, sparseVector); }
+            else { throw new NotImplementedException($"The right multiplication of a {matrix.GetType()} and a {vector.GetType()} as a {nameof(Vector)} is not implemented."); }
+        }
+
+        /// <summary>
+        /// Computes the right multiplication of a <see cref="DenseMatrix"/> with a <see cref="DenseVector"/> : <c>A*V</c>.
+        /// </summary>
+        /// <param name="matrix"> <see cref="DenseMatrix"/> to multiply on the right. </param>
+        /// <param name="vector"> <see cref="DenseVector"/> to multiply with. </param>
+        /// <returns> The new <see cref="DenseVector"/> resulting from the multiplication. </returns>
+        public static DenseVector Multiply(DenseMatrix matrix, DenseVector vector)
+        {
+            double[] components = new double[matrix.RowCount];
+
+            for (int i_R = 0; i_R < components.Length; i_R++)
+            {
+                double component = 0.0;
+                for (int i = 0; i < matrix.ColumnCount; i++)
+                {
+                    component += matrix._storedMatrix[i_R, i] * vector[i];
+                }
+                components[i_R] = component;
+            }
+
+            return new DenseVector(components);
+        }
+
+        /// <summary>
+        /// Computes the right multiplication of a <see cref="DenseMatrix"/> with a <see cref="SparseVector"/> : <c>A*V</c>.
+        /// </summary>
+        /// <param name="matrix"> <see cref="DenseMatrix"/> to multiply on the right. </param>
+        /// <param name="vector"> <see cref="SparseVector"/> to multiply with. </param>
+        /// <returns> The new <see cref="DenseVector"/> resulting from the multiplication. </returns>
+        public static DenseVector Multiply(DenseMatrix matrix, SparseVector vector)
+        {
+            double[] components = new double[matrix.RowCount];
+
+            IEnumerator<KeyValuePair<int, double>> kvpEnumerator = vector.GetNonZeros();
+            try
+            {
+                while (kvpEnumerator.MoveNext())
+                {
+                    KeyValuePair<int, double> kvp = kvpEnumerator.Current;
+
+                    for (int i_R = 0; i_R < components.Length; i_R++)
+                    {
+                        components[i_R] += matrix._storedMatrix[i_R, kvp.Key] * kvp.Value;
+                    }
+                }
+            }
+            finally { kvpEnumerator.Dispose(); }
+
+            return new DenseVector(components);
+        }
+
+
+        /// <summary>
+        /// Computes the right multiplication of a transposed <see cref="DenseMatrix"/> with a <see cref="Vector"/> : <c>At*V</c>.
+        /// </summary>
+        /// <param name="matrix"> <see cref="DenseMatrix"/> to transpose then multiply on the right. </param>
+        /// <param name="vector"> <see cref="Vector"/> to multiply with. </param>
+        /// <returns> The new <see cref="DenseVector"/> as a <see cref="Vector"/> resulting from the multiplication. </returns>
+        /// <exception cref="NotImplementedException"> 
+        /// The right multiplication of a transposed <see cref="DenseMatrix"/> with a the vector as a <see cref="Vector"/> is not implemented.
+        /// </exception>
+        public static Vector TransposeMultiply(DenseMatrix matrix, Vector vector)
+        {
+            if (vector is DenseVector denseVector) { return DenseMatrix.TransposeMultiply(matrix, denseVector); }
+            else if (vector is SparseVector sparseVector) { return DenseMatrix.TransposeMultiply(matrix, sparseVector); }
+            else { throw new NotImplementedException($"The right multiplication of a transposed {matrix.GetType()} and a {vector.GetType()} as a {nameof(Vector)} is not implemented."); }
+        }
+
+        /// <summary>
+        /// Computes the right multiplication of a transposed <see cref="DenseMatrix"/> with a <see cref="DenseVector"/> : <c>At*V</c>.
+        /// </summary>
+        /// <param name="matrix"> <see cref="DenseMatrix"/> to transpose then multiply on the right. </param>
+        /// <param name="vector"> <see cref="DenseVector"/> to multiply with. </param>
+        /// <returns> The new <see cref="DenseVector"/> resulting from the multiplication. </returns>
+        public static DenseVector TransposeMultiply(DenseMatrix matrix, DenseVector vector)
+        {
+            double[] components = new double[matrix.ColumnCount];
+
+            for (int i_R = 0; i_R < components.Length; i_R++)
+            {
+                double component = 0.0;
+                for (int i = 0; i < matrix.RowCount; i++)
+                {
+                    component += matrix._storedMatrix[i, i_R] * vector[i];
+                }
+                components[i_R] = component;
+            }
+
+            return new DenseVector(components);
+        }
+
+        /// <summary>
+        /// Computes the right multiplication of a transposed <see cref="DenseMatrix"/> with a <see cref="SparseVector"/> : <c>At*V</c>.
+        /// </summary>
+        /// <param name="matrix"> <see cref="DenseMatrix"/> to transpose then multiply on the right. </param>
+        /// <param name="vector"> <see cref="SparseVector"/> to multiply with. </param>
+        /// <returns> The new <see cref="DenseVector"/> resulting from the multiplication. </returns>
+        public static DenseVector TransposeMultiply(DenseMatrix matrix, SparseVector vector)
+        {
+            double[] components = new double[matrix.ColumnCount];
+
+            IEnumerator<KeyValuePair<int, double>> kvpEnumerator = vector.GetNonZeros();
+            try
+            {
+                while (kvpEnumerator.MoveNext())
+                {
+                    KeyValuePair<int, double> kvp = kvpEnumerator.Current;
+
+                    for (int i_R = 0; i_R < components.Length; i_R++)
+                    {
+                        components[i_R] += matrix._storedMatrix[kvp.Key, i_R] * kvp.Value;
+                    }
+                }
+            }
+            finally { kvpEnumerator.Dispose(); }
+
+            return new DenseVector(components);
+        }
+
         #endregion
 
         #region Public Methods
@@ -872,5 +1034,66 @@ namespace BRIDGES.LinearAlgebra.Matrices
 
         #endregion
 
+
+        #region Explicit : Additive.IAbelianGroup<DenseMatrix>
+
+        /******************** Properties ********************/
+
+        /// <inheritdoc/>
+        bool Alg_Fund.IAddable<DenseMatrix>.IsAssociative => true;
+
+        /// <inheritdoc/>
+        bool Alg_Fund.IAddable<DenseMatrix>.IsCommutative => true;
+
+
+        /******************** Methods ********************/
+
+        /// <inheritdoc/>
+        DenseMatrix Alg_Fund.IAddable<DenseMatrix>.Add(DenseMatrix right) { return DenseMatrix.Add(this, right); }
+
+        /// <inheritdoc/>
+        DenseMatrix Alg_Fund.ISubtractable<DenseMatrix>.Subtract(DenseMatrix right) { return DenseMatrix.Subtract(this, right); }
+
+        /// <inheritdoc/>
+        bool Alg_Set.Additive.IGroup<DenseMatrix>.Opposite()
+        {
+            this.Opposite();
+            return true;
+        }
+
+        /// <inheritdoc/>
+        DenseMatrix Alg_Fund.IZeroable<DenseMatrix>.Zero() { return DenseMatrix.Zero(RowCount, ColumnCount); }
+
+        #endregion
+
+        #region Explicit : Multiplicative.SemiGroup<DenseMatrix>
+
+        /******************** Properties ********************/
+
+        /// <inheritdoc/>
+        bool Alg_Fund.IMultiplicable<DenseMatrix>.IsAssociative => true;
+
+        /// <inheritdoc/>
+        bool Alg_Fund.IMultiplicable<DenseMatrix>.IsCommutative => false;
+
+
+        /******************** Methods ********************/
+
+        /// <inheritdoc/>
+        DenseMatrix Alg_Fund.IMultiplicable<DenseMatrix>.Multiply(DenseMatrix right) { return DenseMatrix.Multiply(this, right); }
+
+        #endregion
+
+        #region Explicit : IGroupAction<Double,DenseMatrix>
+
+        /******************** Methods ********************/
+
+        /// <inheritdoc/>
+        DenseMatrix Alg_Set.IGroupAction<double, DenseMatrix>.Multiply(double factor) { return DenseMatrix.Multiply(this, factor); }
+
+        /// <inheritdoc/>
+        DenseMatrix Alg_Set.IGroupAction<double, DenseMatrix>.Divide(double divisor) { return DenseMatrix.Divide(this, divisor); }
+
+        #endregion
     }
 }

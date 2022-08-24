@@ -1,13 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using Alg_Fund = BRIDGES.Algebra.Fundamentals;
+using Alg_Set = BRIDGES.Algebra.Sets;
+
+using BRIDGES.LinearAlgebra.Vectors;
+
 
 namespace BRIDGES.LinearAlgebra.Matrices.Sparse
 {
     /// <summary>
     /// Class defining a sparse matrix with a compressed row storage.
     /// </summary>
-    public class CompressedRow : SparseMatrix
+    public class CompressedRow : SparseMatrix,
+          Alg_Set.Additive.IAbelianGroup<CompressedRow>, Alg_Set.Multiplicative.ISemiGroup<CompressedRow>, Alg_Set.IGroupAction<double, CompressedRow>
     {
         #region Fields
 
@@ -110,8 +116,8 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
 
             // Creates the new column pointer, the row index list and value lists
             _rowPointers = new int[rowCount + 1];
-            _columnIndices = new List<int>(NonZeroCount);
-            _values = new List<double>(NonZeroCount);
+            _columnIndices = new List<int>(dok.Count);
+            _values = new List<double>(dok.Count);
 
             _rowPointers[0] = 0;
             for (int i_R = 0; i_R < rowCount; i_R++)
@@ -140,6 +146,10 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <param name="rowPointers"> Row pointers of the <see cref="CompressedRow"/>. </param>
         internal CompressedRow(int rowCount, int columnCount, int[] rowPointers, List<int> columnIndices, List<double> values)
         {
+            _rowCount = rowCount;
+            _columnCount = columnCount;
+
+
             // Verifications
             if (rowPointers.Length != rowCount + 1)
             {
@@ -193,7 +203,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
             for (int i = 0; i < size; i++)
             {
                 rowPointers[i] = i;
-                columnIndices[i] = i;
+                columnIndices.Add(i);
                 values.Add(1.0);
             }
             rowPointers[size] = size;
@@ -224,7 +234,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
             List<double> values = new List<double>(left.NonZeroCount + right.NonZeroCount);
             List<int> columnIndices = new List<int>(left.NonZeroCount + right.NonZeroCount);
 
-            int[] rowPointers = new int[left.ColumnCount + 1];
+            int[] rowPointers = new int[left.RowCount + 1];
             rowPointers[0] = 0;
 
             int i_RightNZ = 0;
@@ -293,7 +303,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
             List<double> values = new List<double>(left.NonZeroCount + right.NonZeroCount);
             List<int> columnIndices = new List<int>(left.NonZeroCount + right.NonZeroCount);
 
-            int[] rowPointers = new int[left.ColumnCount + 1];
+            int[] rowPointers = new int[left.RowCount + 1];
             rowPointers[0] = 0;
 
             int i_RightNZ = 0;
@@ -352,6 +362,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <param name="left"> Left <see cref="CompressedRow"/> for the multiplication. </param>
         /// <param name="right"> Right <see cref="CompressedRow"/> for the multiplication. </param>
         /// <returns> The new <see cref="CompressedRow"/> resulting from the multiplication. </returns>
+        /// <exception cref="ArgumentException"> The matrices size does not allow their multiplication. </exception>
         public static CompressedRow Multiply(CompressedRow left, CompressedRow right)
         {
             // Verifications
@@ -360,51 +371,64 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
                 throw new ArgumentException("The matrices size does not allow their multiplication.");
             }
 
+            int[] rowPointers = new int[left.RowCount + 1];
             List<double> values = new List<double>(left.NonZeroCount * right.NonZeroCount);
             List<int> columnIndices = new List<int>(left.NonZeroCount * right.NonZeroCount);
 
-            int[] rowPointers = new int[left.ColumnCount + 1];
             rowPointers[0] = 0;
 
+            int i_LeftNZ = left._rowPointers[0];
             // Iterate on the row of left
             for (int i_R = 0; i_R < left.RowCount; i_R++)
             {
-                // Initialisation on the first non-zero values of the current left row
-                {
-                    int i_LeftNZ = left._rowPointers[i_R];
+                int i_LeftNZ_RowBound = left._rowPointers[i_R + 1];
 
+                // For the initialisation of rowIndices[i_C] and values[i_C]
+                while (columnIndices.Count == rowPointers[i_R] & i_LeftNZ < i_LeftNZ_RowBound)
+                {
                     int i_LC = left._columnIndices[i_LeftNZ];
+                    double leftVal = left._values[i_LeftNZ];
+
                     for (int i_RightNZ = right._rowPointers[i_LC]; i_RightNZ < right._rowPointers[i_LC + 1]; i_RightNZ++)
                     {
-                        values.Add(left._values[i_LeftNZ] * right._values[i_RightNZ]);
-                        columnIndices.Add(right._columnIndices[i_RightNZ]);
+                        int i_C = right._columnIndices[i_RightNZ];
+                        double rightVal = right._values[i_RightNZ];
+
+                        columnIndices.Add(i_C);
+                        values.Add(leftVal * rightVal);
                     }
+
+                    i_LeftNZ++;
                 }
 
-                for (int i_LeftNZ = left._rowPointers[i_R] + 1; i_LeftNZ < left._rowPointers[i_R + 1]; i_LeftNZ++)
+                for (; i_LeftNZ < i_LeftNZ_RowBound; i_LeftNZ++)
                 {
                     int i_LC = left._columnIndices[i_LeftNZ];
+                    double leftVal = left._values[i_LeftNZ];
 
-                    int i_Pointer = rowPointers[i_R]; // To place the potential new value in the list of values and column indices
+                    int i_Pointer = rowPointers[i_R];
+                    int i_RightNZ_RowBound = right._rowPointers[i_LC + 1];
 
                     // Insert or add the values whose column is below or equal to the last row column
                     int i_RightNZ = right._rowPointers[i_LC];
-                    for (; i_RightNZ < right._rowPointers[i_LC + 1]; i_RightNZ++)
+                    for (; i_RightNZ < i_RightNZ_RowBound; i_RightNZ++)
                     {
                         int i_C = right._columnIndices[i_RightNZ];
+                        double rightVal = right._values[i_RightNZ];
+
                         if (i_C < columnIndices[i_Pointer])
                         {
-                            values.Insert(i_Pointer, left._values[i_LeftNZ] * right._values[i_RightNZ]);
-                            columnIndices.Insert(i_Pointer, right._columnIndices[i_RightNZ]);
+                            columnIndices.Insert(i_Pointer, i_C);
+                            values.Insert(i_Pointer, leftVal * rightVal);
 
                             i_Pointer++;
                         }
                         else if (i_C == columnIndices[i_Pointer])
                         {
-                            values[i_Pointer] += left._values[i_LeftNZ] * right._values[i_RightNZ];
+                            values[i_Pointer] += leftVal * rightVal;
 
                             i_Pointer++;
-                            if (i_Pointer == values.Count) { break; }
+                            if (i_Pointer == values.Count) { i_RightNZ++; break; }
                         }
                         else
                         {
@@ -415,18 +439,21 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
                         }
                     }
 
-                    // Add the values whose column is strictly after the last row column
-                    for (; i_RightNZ < right._rowPointers[i_LC + 1]; i_RightNZ++)
+                    for (; i_RightNZ < i_RightNZ_RowBound; i_RightNZ++)
                     {
-                        values.Add(left._values[i_LeftNZ] * right._values[i_RightNZ]);
-                        columnIndices.Add(right._columnIndices[i_RightNZ]);
+                        int i_C = right._columnIndices[i_RightNZ];
+                        double rightVal = right._values[i_RightNZ];
+
+                        columnIndices.Add(i_C);
+                        values.Add(leftVal * rightVal);
                     }
+
                 }
 
                 rowPointers[i_R + 1] = values.Count;
             }
 
-            return new CompressedRow(left.RowCount, left.ColumnCount, rowPointers, columnIndices, values);
+            return new CompressedRow(left.RowCount, right.ColumnCount, rowPointers, columnIndices, values);
         }
 
 
@@ -439,13 +466,13 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <param name="right"> Right <see cref="SparseMatrix"/> for the addition. </param>
         /// <returns> The new <see cref="CompressedRow"/> resulting from the addition. </returns>
         /// <exception cref="NotImplementedException"> 
-        /// The addition of a <see cref="CompressedRow"/> with the right matrix type as a <see cref="SparseMatrix"/> is not implemented.
+        /// The addition of a <see cref="CompressedRow"/> with the right matrix as a <see cref="SparseMatrix"/> is not implemented.
         /// </exception>
         public static CompressedRow Add(CompressedRow left, SparseMatrix right)
         {
             if (right is CompressedRow crsRight) { return CompressedRow.Add(left, crsRight); }
             else if(right is CompressedColumn ccsRight) { return CompressedRow.Add(left, ccsRight); }
-            else { throw new NotImplementedException($"The addition of a {left.GetType()} and a {right.GetType()} as a SparseMatrix is not implemented."); }
+            else { throw new NotImplementedException($"The addition of a {left.GetType()} and a {right.GetType()} as a {nameof(SparseMatrix)} is not implemented."); }
         }
 
         /// <summary>
@@ -455,13 +482,13 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <param name="right"> Right <see cref="CompressedRow"/> for the addition. </param>
         /// <returns> The new <see cref="CompressedRow"/> resulting from the addition. </returns>
         /// <exception cref="NotImplementedException"> 
-        /// The addition of the left matrix type as a <see cref="SparseMatrix"/> with a <see cref="CompressedRow"/> is not implemented.
+        /// The addition of the left matrix as a <see cref="SparseMatrix"/> with a <see cref="CompressedRow"/> is not implemented.
         /// </exception>
         public static CompressedRow Add(SparseMatrix left, CompressedRow right)
         {
             if (left is CompressedRow crsLeft) { return CompressedRow.Add(crsLeft, right); }
             else if(left is CompressedRow ccsLeft) { return CompressedRow.Add(ccsLeft, right); }
-            else { throw new NotImplementedException($"The addition of a {left.GetType()} as a SparseMatrix and a {right.GetType()} is not implemented."); }
+            else { throw new NotImplementedException($"The addition of a {left.GetType()} as a {nameof(SparseMatrix)} and a {right.GetType()} is not implemented."); }
         }
 
 
@@ -472,13 +499,13 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <param name="right"> Right <see cref="SparseMatrix"/> to subtract with. </param>
         /// <returns> The new <see cref="CompressedRow"/> resulting from the subtraction. </returns>
         /// <exception cref="NotImplementedException"> 
-        /// The subtracation of a <see cref="CompressedRow"/> with the right matrix type as a <see cref="SparseMatrix"/> is not implemented.
+        /// The subtraction of a <see cref="CompressedRow"/> with the right matrix as a <see cref="SparseMatrix"/> is not implemented.
         /// </exception>
         public static CompressedRow Subtract(CompressedRow left, SparseMatrix right)
         {
             if (right is CompressedRow crsRight) { return CompressedRow.Subtract(left, crsRight); }
             else if (right is CompressedColumn ccsRight) { return CompressedRow.Subtract(left, ccsRight); }
-            else { throw new NotImplementedException($"The subtraction of a {left.GetType()} and a {right.GetType()} as a SparseMatrix is not implemented."); }
+            else { throw new NotImplementedException($"The subtraction of a {left.GetType()} and a {right.GetType()} as a {nameof(SparseMatrix)} is not implemented."); }
         }
 
         /// <summary>
@@ -488,13 +515,13 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <param name="right"> Right <see cref="CompressedRow"/> to subtract with. </param>
         /// <returns> The new <see cref="CompressedRow"/> resulting from the subtraction. </returns>
         /// <exception cref="NotImplementedException"> 
-        /// The subtraction of the left matrix type as a <see cref="SparseMatrix"/> with a <see cref="CompressedRow"/> is not implemented.
+        /// The subtraction of the left matrix as a <see cref="SparseMatrix"/> with a <see cref="CompressedRow"/> is not implemented.
         /// </exception>
         public static CompressedRow Subtract(SparseMatrix left, CompressedRow right)
         {
             if (left is CompressedRow crsLeft) { return CompressedRow.Subtract(crsLeft, right); }
             else if (left is CompressedRow ccsLeft) { return CompressedRow.Subtract(ccsLeft, right); }
-            else { throw new NotImplementedException($"The subtraction of a {left.GetType()} as a SparseMatrix and a {right.GetType()} is not implemented."); }
+            else { throw new NotImplementedException($"The subtraction of a {left.GetType()} as a {nameof(SparseMatrix)} and a {right.GetType()} is not implemented."); }
         }
 
 
@@ -505,13 +532,13 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <param name="right"> Right <see cref="SparseMatrix"/> for the multiplication. </param>
         /// <returns> The new <see cref="CompressedRow"/> resulting from the multiplication. </returns>
         /// <exception cref="NotImplementedException"> 
-        /// The multiplication of a <see cref="CompressedRow"/> with the right matrix type as a <see cref="SparseMatrix"/> is not implemented.
+        /// The multiplication of a <see cref="CompressedRow"/> with the right matrix as a <see cref="SparseMatrix"/> is not implemented.
         /// </exception>
         public static CompressedRow Multiply(CompressedRow left, SparseMatrix right)
         {
             if (right is CompressedRow crsRight) { return CompressedRow.Multiply(left, crsRight); }
             else if (right is CompressedColumn ccsRight) { return CompressedRow.Multiply(left, ccsRight); }
-            else { throw new NotImplementedException($"The multiplication of a {left.GetType()} and a {right.GetType()} as a SparseMatrix is not implemented."); }
+            else { throw new NotImplementedException($"The multiplication of a {left.GetType()} and a {right.GetType()} as a {nameof(SparseMatrix)} is not implemented."); }
         }
 
         /// <summary>
@@ -521,13 +548,13 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <param name="right"> Right <see cref="CompressedRow"/> for the multiplication. </param>
         /// <returns> The new <see cref="CompressedRow"/> resulting from the multiplication. </returns>
         /// <exception cref="NotImplementedException"> 
-        /// The multiplication of the left matrix type as a <see cref="SparseMatrix"/> with a <see cref="CompressedRow"/> is not implemented.
+        /// The multiplication of the left matrix as a <see cref="SparseMatrix"/> with a <see cref="CompressedRow"/> is not implemented.
         /// </exception>
         public static CompressedRow Multiply(SparseMatrix left, CompressedRow right)
         {
             if (left is CompressedRow crsLeft) { return CompressedRow.Multiply(crsLeft, right); }
             else if (left is CompressedRow ccsLeft) { return CompressedRow.Multiply(ccsLeft, right); }
-            else { throw new NotImplementedException($"The multiplication of a {left.GetType()} as a SparseMatrix and a {right.GetType()} is not implemented."); }
+            else { throw new NotImplementedException($"The multiplication of a {left.GetType()} as a {nameof(SparseMatrix)} and a {right.GetType()} is not implemented."); }
         }
 
 
@@ -690,6 +717,145 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
             }
 
             return new CompressedRow(operand.RowCount, operand.ColumnCount, rowPointers, columnIndices, values);
+        }
+
+
+        /******************** Other Operations ********************/
+
+        /// <summary>
+        /// Computes the right multiplication of a <see cref="CompressedRow"/> with a <see cref="Vector"/> : <c>A*V</c>.
+        /// </summary>
+        /// <param name="matrix"> <see cref="CompressedRow"/> to multiply on the right. </param>
+        /// <param name="vector"> <see cref="Vector"/> to multiply with. </param>
+        /// <returns> The new <see cref="Vector"/> resulting from the multiplication. </returns>
+        /// <exception cref="NotImplementedException"> 
+        /// The right multiplication of a <see cref="CompressedRow"/> with a vector as a <see cref="Vector"/> is not implemented.
+        /// </exception>
+        public static Vector Multiply(CompressedRow matrix, Vector vector)
+        {
+            if (vector is DenseVector denseVector) { return CompressedRow.Multiply(matrix, denseVector); }
+            else if (vector is SparseVector sparseVector) { return CompressedRow.Multiply(matrix, sparseVector); }
+            else { throw new NotImplementedException($"The right multiplication of a {matrix.GetType()} and a {vector.GetType()} as a {nameof(Vector)} is not implemented."); }
+        }
+
+        /// <summary>
+        /// Computes the right multiplication of a <see cref="CompressedRow"/> with a <see cref="DenseVector"/> : <c>A*V</c>.
+        /// </summary>
+        /// <param name="matrix"> <see cref="CompressedRow"/> to multiply on the right. </param>
+        /// <param name="vector"> <see cref="DenseVector"/> to multiply with. </param>
+        /// <returns> The new <see cref="DenseVector"/> resulting from the multiplication. </returns>
+        public static DenseVector Multiply(CompressedRow matrix, DenseVector vector)
+        {
+            double[] components = new double[matrix.RowCount];
+
+            int i_NZ = matrix._rowPointers[0];
+            for (int i_R = 0; i_R < components.Length; i_R++)
+            {
+                double component = 0.0;
+
+                for (; i_NZ < matrix._rowPointers[i_R + 1]; i_NZ++)
+                {
+                    component += matrix._values[i_NZ] * vector[matrix._columnIndices[i_NZ]];
+                }
+
+                components[i_R] = component;
+            }
+
+            return new DenseVector(components);
+        }
+
+        /// <summary>
+        /// Computes the right multiplication of a <see cref="CompressedRow"/> with a <see cref="SparseVector"/> : <c>A*V</c>.
+        /// </summary>
+        /// <param name="matrix"> <see cref="CompressedRow"/> to multiply on the right. </param>
+        /// <param name="vector"> <see cref="SparseVector"/> to multiply with. </param>
+        /// <returns> The new <see cref="DenseVector"/> resulting from the multiplication. </returns>
+        public static SparseVector Multiply(CompressedRow matrix, SparseVector vector)
+        {
+            int size = matrix.RowCount;
+            List<int> rowIndices = new List<int>();
+            List<double> values = new List<double>();
+
+            int i_NZ = matrix._rowPointers[0];
+            for (int i_R = 0; i_R < size; i_R++)
+            {
+                double component = 0.0;
+
+                for (; i_NZ < matrix._rowPointers[i_R + 1]; i_NZ++)
+                {
+                    if (vector.TryGetComponent(matrix._columnIndices[i_NZ], out double val)) { component += matrix._values[i_NZ] * val; }
+                }
+                if (component != 0.0) { rowIndices.Add(i_R); values.Add(component); }
+            }
+
+            return new SparseVector(size, rowIndices, values) ;
+        }
+
+
+        /// <summary>
+        /// Computes the right multiplication of a transposed <see cref="CompressedRow"/> with a <see cref="Vector"/> : <c>At*V</c>.
+        /// </summary>
+        /// <param name="matrix"> <see cref="CompressedRow"/> to transpose then multiply on the right. </param>
+        /// <param name="vector"> <see cref="Vector"/> to multiply with. </param>
+        /// <returns> The new <see cref="Vector"/> resulting from the multiplication. </returns>
+        /// <exception cref="NotImplementedException"> 
+        /// The right multiplication of a transposed <see cref="CompressedRow"/> with a the vector as a <see cref="Vector"/> is not implemented.
+        /// </exception>
+        public static Vector TransposeMultiply(CompressedRow matrix, Vector vector)
+        {
+            if (vector is DenseVector denseVector) { return CompressedRow.TransposeMultiply(matrix, denseVector); }
+            else if (vector is SparseVector sparseVector) { return CompressedRow.TransposeMultiply(matrix, sparseVector); }
+            else { throw new NotImplementedException($"The multiplication of a transposed {matrix.GetType()} and a {vector.GetType()} as a {nameof(Vector)} is not implemented."); }
+        }
+
+        /// <summary>
+        /// Computes the right multiplication of a transposed <see cref="CompressedRow"/> with a <see cref="DenseVector"/> : <c>At*V</c>.
+        /// </summary>
+        /// <param name="matrix"> <see cref="CompressedRow"/> to transpose then multiply on the right. </param>
+        /// <param name="vector"> <see cref="DenseVector"/> to multiply with. </param>
+        /// <returns> The new <see cref="DenseVector"/> resulting from the multiplication. </returns>
+        public static DenseVector TransposeMultiply(CompressedRow matrix, DenseVector vector)
+        {
+            double[] components = new double[matrix.RowCount];
+
+            int i_NZ = matrix._rowPointers[0];
+            for (int i = 0; i < matrix.RowCount; i++)
+            {
+                for (; i_NZ < matrix._rowPointers[i + 1]; i_NZ++)
+                {
+                    int i_R = matrix._columnIndices[i_NZ];
+                    components[i_R] += matrix._values[i_NZ] * vector[i];
+                }
+            }
+
+            return new DenseVector(components);
+        }
+
+        /// <summary>
+        /// Computes the right multiplication of a transposed <see cref="CompressedRow"/> with a <see cref="SparseVector"/> : <c>At*V</c>.
+        /// </summary>
+        /// <param name="matrix"> <see cref="CompressedRow"/> to transpose then multiply on the right. </param>
+        /// <param name="vector"> <see cref="SparseVector"/> to multiply with. </param>
+        /// <returns> The new <see cref="DenseVector"/> resulting from the multiplication. </returns>
+        public static SparseVector TransposeMultiply(CompressedRow matrix, SparseVector vector)
+        {
+            SparseVector result = new SparseVector(matrix.ColumnCount);
+
+            for (int i = 0; i < matrix.RowCount; i++)
+            {
+                bool isZero = !vector.TryGetComponent(i, out double val);
+                if (!isZero) { continue; }
+
+                for (int i_NZ = matrix._rowPointers[i]; i_NZ < matrix._rowPointers[i + 1]; i_NZ++)
+                {
+                    int i_R = matrix._columnIndices[i_NZ];
+
+                    if(result.TryGetComponent(i_R, out double existing)) { result[i_R] = existing + (matrix._values[i_NZ] * val); }
+                    else { result[i_R] = matrix._values[i_NZ] * val; } 
+                }
+            }
+
+            return result;
         }
 
         #endregion
@@ -865,6 +1031,68 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
 
             _values = values;
         }
+
+        #endregion
+
+
+        #region Explicit : Additive.IAbelianGroup<CompressedColumn>
+
+        /******************** Properties ********************/
+
+        /// <inheritdoc/>
+        bool Alg_Fund.IAddable<CompressedRow>.IsAssociative => true;
+
+        /// <inheritdoc/>
+        bool Alg_Fund.IAddable<CompressedRow>.IsCommutative => true;
+
+
+        /******************** Methods ********************/
+
+        /// <inheritdoc/>
+        CompressedRow Alg_Fund.IAddable<CompressedRow>.Add(CompressedRow right) { return CompressedRow.Add(this, right); }
+
+        /// <inheritdoc/>
+        CompressedRow Alg_Fund.ISubtractable<CompressedRow>.Subtract(CompressedRow right) { return CompressedRow.Subtract(this, right); }
+
+        /// <inheritdoc/>
+        bool Alg_Set.Additive.IGroup<CompressedRow>.Opposite()
+        {
+            this.Opposite();
+            return true;
+        }
+
+        /// <inheritdoc/>
+        CompressedRow Alg_Fund.IZeroable<CompressedRow>.Zero() { return CompressedRow.Zero(RowCount, ColumnCount); }
+
+        #endregion
+
+        #region Explicit : Multiplicative.SemiGroup<CompressedRow>
+
+        /******************** Properties ********************/
+
+        /// <inheritdoc/>
+        bool Alg_Fund.IMultiplicable<CompressedRow>.IsAssociative => true;
+
+        /// <inheritdoc/>
+        bool Alg_Fund.IMultiplicable<CompressedRow>.IsCommutative => false;
+
+
+        /******************** Methods ********************/
+
+        /// <inheritdoc/>
+        CompressedRow Alg_Fund.IMultiplicable<CompressedRow>.Multiply(CompressedRow right) { return CompressedRow.Multiply(this, right); }
+
+        #endregion
+
+        #region Explicit : IGroupAction<Double,CompressedRow>
+
+        /******************** Methods ********************/
+
+        /// <inheritdoc/>
+        CompressedRow Alg_Set.IGroupAction<double, CompressedRow>.Multiply(double factor) { return CompressedRow.Multiply(this, factor); }
+
+        /// <inheritdoc/>
+        CompressedRow Alg_Set.IGroupAction<double, CompressedRow>.Divide(double divisor) { return CompressedRow.Divide(this, divisor); }
 
         #endregion
     }

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Alg_Fund = BRIDGES.Algebra.Fundamentals;
 using Alg_Set = BRIDGES.Algebra.Sets;
 
+using BRIDGES.LinearAlgebra.Vectors;
+
 
 namespace BRIDGES.LinearAlgebra.Matrices
 {
@@ -89,7 +91,7 @@ namespace BRIDGES.LinearAlgebra.Matrices
             if (left is DenseMatrix denseLeft) { return DenseMatrix.Add(denseLeft, right); }
             else if (right is DenseMatrix denseRight) { return DenseMatrix.Add(left, denseRight); }
             else if (left is SparseMatrix sparseLeft && right is SparseMatrix sparseRight) { return SparseMatrix.Add(sparseLeft, sparseRight); }
-            else { throw new NotImplementedException($"The addition of a {left.GetType()} and a {right.GetType()} as Matrix is not implemented."); }
+            else { throw new NotImplementedException($"The addition of a {left.GetType()} and a {right.GetType()} as a {nameof(Matrix)} is not implemented."); }
         }
 
         /// <summary>
@@ -104,7 +106,7 @@ namespace BRIDGES.LinearAlgebra.Matrices
             if (left is DenseMatrix denseLeft) { return DenseMatrix.Subtract(denseLeft, right); }
             else if (right is DenseMatrix denseRight) { return DenseMatrix.Subtract(left, denseRight); }
             else if (left is SparseMatrix sparseLeft && right is SparseMatrix sparseRight) { return SparseMatrix.Subtract(sparseLeft, sparseRight); }
-            else { throw new NotImplementedException($"The subtraction of a {left.GetType()} and a {right.GetType()} as Matrix is not implemented."); }
+            else { throw new NotImplementedException($"The subtraction of a {left.GetType()} and a {right.GetType()} as {nameof(Matrix)} is not implemented."); }
         }
 
 
@@ -122,7 +124,7 @@ namespace BRIDGES.LinearAlgebra.Matrices
             if (left is DenseMatrix denseLeft) { return DenseMatrix.Multiply(denseLeft, right); }
             else if (right is DenseMatrix denseRight) { return DenseMatrix.Multiply(left, denseRight); }
             else if (left is SparseMatrix sparseLeft && right is SparseMatrix sparseRight) { return SparseMatrix.Multiply(sparseLeft, sparseRight); }
-            else { throw new NotImplementedException($"The multiplication of a {left.GetType()} and a {right.GetType()} as Matrix is not implemented."); }
+            else { throw new NotImplementedException($"The multiplication of a {left.GetType()} and a {right.GetType()} as {nameof(Matrix)} is not implemented."); }
         }
 
 
@@ -139,7 +141,7 @@ namespace BRIDGES.LinearAlgebra.Matrices
         {
             if (operand is DenseMatrix denseOperand) { return DenseMatrix.Multiply(factor, denseOperand); }
             else if (operand is SparseMatrix sparseOperand) { return SparseMatrix.Multiply(factor, sparseOperand); }
-            else { throw new NotImplementedException($"The scalar multiplication on the left of {operand.GetType()} as a Matrix is not implemented."); }
+            else { throw new NotImplementedException($"The scalar multiplication on the left of {operand.GetType()} as a {nameof(Matrix)} is not implemented."); }
         }
 
         /// <summary>
@@ -153,7 +155,7 @@ namespace BRIDGES.LinearAlgebra.Matrices
         {
             if (operand is DenseMatrix denseOperand) { return DenseMatrix.Multiply(denseOperand, factor); }
             else if (operand is SparseMatrix sparseOperand) { return SparseMatrix.Multiply(sparseOperand, factor); }
-            else { throw new NotImplementedException($"The scalar multiplication on the left of {operand.GetType()} as a Matrix is not implemented."); }
+            else { throw new NotImplementedException($"The scalar multiplication on the left of {operand.GetType()} as a {nameof(Matrix)} is not implemented."); }
         }
 
 
@@ -168,9 +170,44 @@ namespace BRIDGES.LinearAlgebra.Matrices
         {
             if (operand is DenseMatrix denseOperand) { return DenseMatrix.Divide(denseOperand, divisor); }
             else if (operand is SparseMatrix sparseOperand) { return SparseMatrix.Divide(sparseOperand, divisor); }
-            else { throw new NotImplementedException($"The scalar division of {operand.GetType()} as a Matrix is not implemented."); }
+            else { throw new NotImplementedException($"The scalar division of {operand.GetType()} as a {nameof(Matrix)} is not implemented."); }
         }
 
+
+        /******************** Other Operations ********************/
+
+        /// <summary>
+        /// Computes the right multiplication of a <see cref="Matrix"/> with a <see cref="Vector"/> : <c>A*V</c>.
+        /// </summary>
+        /// <param name="matrix"> <see cref="Matrix"/> to multiply on the right. </param>
+        /// <param name="vector"> <see cref="Vector"/> to multiply with. </param>
+        /// <returns> The new <see cref="Vector"/> resulting from the multiplication. </returns>
+        /// <exception cref="NotImplementedException"> 
+        /// The right multiplication of the matrix as a <see cref="Matrix"/> with a <see cref="Vector"/> is not implemented.
+        /// </exception>
+        public static Vector Multiply(Matrix matrix, Vector vector)
+        {
+            if (matrix is DenseMatrix denseMatrix) { return DenseMatrix.Multiply(denseMatrix, vector); }
+            else if (matrix is SparseMatrix sparseMatrix) { return SparseMatrix.Multiply(sparseMatrix, vector); }
+            else { throw new NotImplementedException($"The right multiplication of a {matrix.GetType()} as a {nameof(Matrix)} and a {vector.GetType()} is not implemented."); }
+        }
+
+        /// <summary>
+        /// Computes the right multiplication of a transposed <see cref="Matrix"/> with a <see cref="Vector"/> : <c>At*V</c>.
+        /// </summary>
+        /// <param name="matrix"> <see cref="Matrix"/> to transpose then multiply on the right. </param>
+        /// <param name="vector"> <see cref="Vector"/> to multiply with. </param>
+        /// <returns> The new <see cref="Vector"/> resulting from the multiplication. </returns>
+        /// <exception cref="NotImplementedException"> 
+        /// The right multiplication of the transposed matrix as a <see cref="Matrix"/> with a <see cref="Vector"/> is not implemented.
+        /// </exception>
+        public static Vector TransposeMultiply(Matrix matrix, Vector vector)
+        {
+            if (matrix is DenseMatrix denseMatrix) { return DenseMatrix.TransposeMultiply(denseMatrix, vector); }
+            else if (matrix is SparseMatrix sparseMatrix) { return SparseMatrix.TransposeMultiply(sparseMatrix, vector); }
+            else { throw new NotImplementedException($"The right multiplication of a transposed {matrix.GetType()} as a {nameof(Matrix)} and a {vector.GetType()} is not implemented."); }
+
+        }
         #endregion
 
         #region Public Methods

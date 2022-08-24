@@ -1,12 +1,18 @@
 ﻿using System;
 
+using Alg_Fund = BRIDGES.Algebra.Fundamentals;
+using Alg_Set = BRIDGES.Algebra.Sets;
+
+using BRIDGES.LinearAlgebra.Vectors;
+
 
 namespace BRIDGES.LinearAlgebra.Matrices
 {
     /// <summary>
     /// Class defining a sparse matrix.
     /// </summary>
-    public abstract class SparseMatrix : Matrix
+    public abstract class SparseMatrix : Matrix,
+          Alg_Set.Additive.IAbelianGroup<SparseMatrix>, Alg_Set.Multiplicative.ISemiGroup<SparseMatrix>, Alg_Set.IGroupAction<double, SparseMatrix>
     {
         #region Properties
 
@@ -64,12 +70,12 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <param name="left"> Left <see cref="SparseMatrix"/> for the addition. </param>
         /// <param name="right"> Right <see cref="SparseMatrix"/> for the addition. </param>
         /// <returns> The new <see cref="SparseMatrix"/> resulting from the addition. </returns>
-        /// <exception cref="NotImplementedException"> The addition of these two matrix types as <see cref="SparseMatrix"/> is not implemented. </exception>
+        /// <exception cref="NotImplementedException"> The addition of these two matrix as <see cref="SparseMatrix"/> is not implemented. </exception>
         public static SparseMatrix Add(SparseMatrix left, SparseMatrix right)
         {
             if (left is Sparse.CompressedColumn ccsLeft) { return Sparse.CompressedColumn.Add(ccsLeft, right); }
             else if (left is Sparse.CompressedRow crsLeft) { return Sparse.CompressedRow.Add(crsLeft, right); }
-            else { throw new NotImplementedException($"The addition of a {left.GetType()} and a {right.GetType()} as SparseMatrix is not implemented."); }
+            else { throw new NotImplementedException($"The addition of a {left.GetType()} and a {right.GetType()} as {nameof(SparseMatrix)} is not implemented."); }
         }
 
         /// <summary>
@@ -78,12 +84,12 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <param name="left"> Left <see cref="SparseMatrix"/> to subtract. </param>
         /// <param name="right"> Right <see cref="SparseMatrix"/> to subtract with. </param>
         /// <returns> The new <see cref="SparseMatrix"/> resulting from the subtraction. </returns>
-        /// <exception cref="NotImplementedException"> The subtraction of these two matrix types as <see cref="SparseMatrix"/> is not implemented. </exception>
+        /// <exception cref="NotImplementedException"> The subtraction of these two matrix as <see cref="SparseMatrix"/> is not implemented. </exception>
         public static SparseMatrix Subtract(SparseMatrix left, SparseMatrix right)
         {
             if (left is Sparse.CompressedColumn ccsLeft) { return Sparse.CompressedColumn.Subtract(ccsLeft, right); }
             else if (left is Sparse.CompressedRow crsLeft) { return Sparse.CompressedRow.Subtract(crsLeft, right); }
-            else { throw new NotImplementedException($"The subtraction of a {left.GetType()} and a {right.GetType()} as SparseMatrix is not implemented."); }
+            else { throw new NotImplementedException($"The subtraction of a {left.GetType()} and a {right.GetType()} as {nameof(SparseMatrix)} is not implemented."); }
         }
 
 
@@ -95,12 +101,12 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <param name="left"> Left <see cref="SparseMatrix"/> for the multiplication. </param>
         /// <param name="right"> Right <see cref="SparseMatrix"/> for the multiplication. </param>
         /// <returns> The new <see cref="SparseMatrix"/> resulting from the multiplication. </returns>
-        /// <exception cref="NotImplementedException"> The multiplication of these two matrix types as <see cref="SparseMatrix"/> is not implemented. </exception>
+        /// <exception cref="NotImplementedException"> The multiplication of these two matrix as <see cref="SparseMatrix"/> is not implemented. </exception>
         public static SparseMatrix Multiply(SparseMatrix left, SparseMatrix right)
         {
             if (left is Sparse.CompressedColumn ccsLeft) { return Sparse.CompressedColumn.Multiply(ccsLeft, right); }
             else if (left is Sparse.CompressedRow crsLeft) { return Sparse.CompressedRow.Multiply(crsLeft, right); }
-            else { throw new NotImplementedException($"The multiplication of a {left.GetType()} and a {right.GetType()} as SparseMatrix is not implemented."); }
+            else { throw new NotImplementedException($"The multiplication of a {left.GetType()} and a {right.GetType()} as {nameof(SparseMatrix)} is not implemented."); }
         }
 
 
@@ -117,7 +123,7 @@ namespace BRIDGES.LinearAlgebra.Matrices
         {
             if (operand is Sparse.CompressedColumn ccsOperand) { return Sparse.CompressedColumn.Multiply(factor, ccsOperand); }
             else if (operand is Sparse.CompressedRow crsOperand) { return Sparse.CompressedRow.Multiply(factor, crsOperand); }
-            else { throw new NotImplementedException($"The scalar multiplication on the left of {operand.GetType()} as a SparseMatrix is not implemented."); }
+            else { throw new NotImplementedException($"The scalar multiplication on the left of {operand.GetType()} as a {nameof(SparseMatrix)} is not implemented."); }
         }
 
         /// <summary>
@@ -131,7 +137,7 @@ namespace BRIDGES.LinearAlgebra.Matrices
         {
             if (operand is Sparse.CompressedColumn ccsOperand) { return Sparse.CompressedColumn.Multiply(ccsOperand, factor); }
             else if (operand is Sparse.CompressedRow crsOperand) { return Sparse.CompressedRow.Multiply(crsOperand, factor); }
-            else { throw new NotImplementedException($"The scalar multiplication on the right of {operand.GetType()} as a SparseMatrix is not implemented."); }
+            else { throw new NotImplementedException($"The scalar multiplication on the right of {operand.GetType()} as a {nameof(SparseMatrix)} is not implemented."); }
         }
 
 
@@ -146,8 +152,106 @@ namespace BRIDGES.LinearAlgebra.Matrices
         {
             if (operand is Sparse.CompressedColumn ccsOperand) { return Sparse.CompressedColumn.Divide(ccsOperand, divisor); }
             else if (operand is Sparse.CompressedRow crsOperand) { return Sparse.CompressedRow.Divide(crsOperand, divisor); }
-            else { throw new NotImplementedException($"The scalar division of {operand.GetType()} as a SparseMatrix is not implemented."); }
+            else { throw new NotImplementedException($"The scalar division of {operand.GetType()} as a {nameof(SparseMatrix)} is not implemented."); }
         }
+
+
+        /******************** Other Operations ********************/
+
+        /// <summary>
+        /// Computes the right multiplication of a <see cref="SparseMatrix"/> with a <see cref="Vector"/> : <c>A*V</c>.
+        /// </summary>
+        /// <param name="matrix"> <see cref="SparseMatrix"/> to multiply on the right. </param>
+        /// <param name="vector"> <see cref="Vector"/> to multiply with. </param>
+        /// <returns> The new <see cref="Vector"/> resulting from the multiplication. </returns>
+        /// <exception cref="NotImplementedException"> 
+        /// The right multiplication of the matrix as a <see cref="SparseMatrix"/> with a <see cref="Vector"/> is not implemented.
+        /// </exception>
+        public static Vector Multiply(SparseMatrix matrix, Vector vector)
+        {
+            if (matrix is Sparse.CompressedColumn ccsMatrix) { return Sparse.CompressedColumn.Multiply(ccsMatrix, vector); }
+            else if (matrix is Sparse.CompressedRow crsMatrix) { return Sparse.CompressedRow.Multiply(crsMatrix, vector); }
+            else { throw new NotImplementedException($"The right multiplication of a {matrix.GetType()} as a {nameof(SparseMatrix)} and a {vector.GetType()} is not implemented."); }
+        }
+
+        /// <summary>
+        /// Computes the right multiplication of a transposed <see cref="SparseMatrix"/> with a <see cref="Vector"/> : <c>At*V</c>.
+        /// </summary>
+        /// <param name="matrix"> <see cref="SparseMatrix"/> to transpose then multiply on the right. </param>
+        /// <param name="vector"> <see cref="Vector"/> to multiply with. </param>
+        /// <returns> The new <see cref="Vector"/> resulting from the multiplication. </returns>
+        /// <exception cref="NotImplementedException"> 
+        /// The right multiplication of the transposed matrix as a <see cref="SparseMatrix"/> with a <see cref="Vector"/> is not implemented.
+        /// </exception>
+        public static Vector TransposeMultiply(SparseMatrix matrix, Vector vector)
+        {
+            if (matrix is Sparse.CompressedColumn ccsMatrix) { return Sparse.CompressedColumn.TransposeMultiply(ccsMatrix, vector); }
+            else if (matrix is Sparse.CompressedRow crsMatrix) { return Sparse.CompressedRow.TransposeMultiply(crsMatrix, vector); }
+            else { throw new NotImplementedException($"The right multiplication of a transposed {matrix.GetType()} as a {nameof(SparseMatrix)} and a {vector.GetType()} is not implemented."); }
+
+        }
+
+        #endregion
+
+
+        #region Explicit : Additive.IAbelianGroup<SparseMatrix>
+
+        /******************** Properties ********************/
+
+        /// <inheritdoc/>
+        bool Alg_Fund.IAddable<SparseMatrix>.IsAssociative => true;
+
+        /// <inheritdoc/>
+        bool Alg_Fund.IAddable<SparseMatrix>.IsCommutative => true;
+
+
+        /******************** Methods ********************/
+
+        /// <inheritdoc/>
+        SparseMatrix Alg_Fund.IAddable<SparseMatrix>.Add(SparseMatrix right) { return SparseMatrix.Add(this, right); }
+
+        /// <inheritdoc/>
+        SparseMatrix Alg_Fund.ISubtractable<SparseMatrix>.Subtract(SparseMatrix right) { return SparseMatrix.Subtract(this, right); }
+
+        /// <inheritdoc/>
+        bool Alg_Set.Additive.IGroup<SparseMatrix>.Opposite()
+        {
+            this.Opposite();
+            return true;
+        }
+
+        /// <inheritdoc/>
+        SparseMatrix Alg_Fund.IZeroable<SparseMatrix>.Zero() { return SparseMatrix.Zero(RowCount, ColumnCount); }
+
+        #endregion
+
+        #region Explicit : Multiplicative.SemiGroup<SparseMatrix>
+
+        /******************** Properties ********************/
+
+        /// <inheritdoc/>
+        bool Alg_Fund.IMultiplicable<SparseMatrix>.IsAssociative => true;
+
+        /// <inheritdoc/>
+        bool Alg_Fund.IMultiplicable<SparseMatrix>.IsCommutative => false;
+
+
+        /******************** Methods ********************/
+
+        /// <inheritdoc/>
+        SparseMatrix Alg_Fund.IMultiplicable<SparseMatrix>.Multiply(SparseMatrix right) { return SparseMatrix.Multiply(this, right); }
+
+        #endregion
+
+        #region Explicit : IGroupAction<Double,SparseMatrix>
+
+        /******************** Methods ********************/
+
+        /// <inheritdoc/>
+        SparseMatrix Alg_Set.IGroupAction<double, SparseMatrix>.Multiply(double factor) { return SparseMatrix.Multiply(this, factor); }
+
+        /// <inheritdoc/>
+        SparseMatrix Alg_Set.IGroupAction<double, SparseMatrix>.Divide(double divisor) { return SparseMatrix.Divide(this, divisor); }
 
         #endregion
     }
