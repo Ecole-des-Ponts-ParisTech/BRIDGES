@@ -757,30 +757,33 @@ namespace BRIDGES.LinearAlgebra.Matrices
                 throw new ArgumentException("The matrices size does not allow their multiplication.");
             }
 
-            DenseMatrix result = new DenseMatrix(left.RowCount, right.ColumnCount);
+            int rowCount = left.RowCount;
+            int columnCount = right.ColumnCount;
+            double[] components = new double[rowCount * columnCount];
 
-            int[] columnIndices = right.GetColumnIndices();
             int[] rowPointers = right.GetRowPointers();
+            int[] columnIndices = right.GetColumnIndices();
             double[] values = right.GetValues();
 
             // Iterate on the rows of right
+            int i_NZ = rowPointers[0];
             for (int i_RR = 0; i_RR < right.RowCount; i_RR++)
             {
                 // Iterate on the non-zero values of current right row
-                for (int i_NZ = rowPointers[i_RR]; i_NZ < rowPointers[i_RR + 1]; i_NZ++)
+                for (; i_NZ < rowPointers[i_RR + 1]; i_NZ++)
                 {
                     int i_C = columnIndices[i_NZ];
                     double val = values[i_NZ];
 
                     // Iterate on the rows of left
-                    for (int i_R = 0; i_R < left.RowCount; i_R++)
+                    for (int i_R = 0; i_R < rowCount; i_R++)
                     {
-                        result._storedMatrix[i_R, i_C] = left[i_R, i_RR] * val;
+                        components[(i_R * columnCount) + i_C] += left[i_R, i_RR] * val;
                     }
                 }
             }
 
-            return result;
+            return new DenseMatrix(rowCount, columnCount, components);
         }
 
         /// <summary>

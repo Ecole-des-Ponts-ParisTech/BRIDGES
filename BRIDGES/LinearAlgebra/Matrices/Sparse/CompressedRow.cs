@@ -487,7 +487,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         public static CompressedRow Add(SparseMatrix left, CompressedRow right)
         {
             if (left is CompressedRow crsLeft) { return CompressedRow.Add(crsLeft, right); }
-            else if(left is CompressedRow ccsLeft) { return CompressedRow.Add(ccsLeft, right); }
+            else if(left is CompressedColumn ccsLeft) { return CompressedRow.Add(ccsLeft, right); }
             else { throw new NotImplementedException($"The addition of a {left.GetType()} as a {nameof(SparseMatrix)} and a {right.GetType()} is not implemented."); }
         }
 
@@ -520,7 +520,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         public static CompressedRow Subtract(SparseMatrix left, CompressedRow right)
         {
             if (left is CompressedRow crsLeft) { return CompressedRow.Subtract(crsLeft, right); }
-            else if (left is CompressedRow ccsLeft) { return CompressedRow.Subtract(ccsLeft, right); }
+            else if (left is CompressedColumn ccsLeft) { return CompressedRow.Subtract(ccsLeft, right); }
             else { throw new NotImplementedException($"The subtraction of a {left.GetType()} as a {nameof(SparseMatrix)} and a {right.GetType()} is not implemented."); }
         }
 
@@ -553,7 +553,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         public static CompressedRow Multiply(SparseMatrix left, CompressedRow right)
         {
             if (left is CompressedRow crsLeft) { return CompressedRow.Multiply(crsLeft, right); }
-            else if (left is CompressedRow ccsLeft) { return CompressedRow.Multiply(ccsLeft, right); }
+            else if (left is CompressedColumn ccsLeft) { return CompressedRow.Multiply(ccsLeft, right); }
             else { throw new NotImplementedException($"The multiplication of a {left.GetType()} as a {nameof(SparseMatrix)} and a {right.GetType()} is not implemented."); }
         }
 
@@ -816,7 +816,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <returns> The new <see cref="DenseVector"/> resulting from the multiplication. </returns>
         public static DenseVector TransposeMultiply(CompressedRow matrix, DenseVector vector)
         {
-            double[] components = new double[matrix.RowCount];
+            double[] components = new double[matrix.ColumnCount];
 
             int i_NZ = matrix._rowPointers[0];
             for (int i = 0; i < matrix.RowCount; i++)
@@ -844,7 +844,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
             for (int i = 0; i < matrix.RowCount; i++)
             {
                 bool isZero = !vector.TryGetComponent(i, out double val);
-                if (!isZero) { continue; }
+                if (isZero) { continue; }
 
                 for (int i_NZ = matrix._rowPointers[i]; i_NZ < matrix._rowPointers[i + 1]; i_NZ++)
                 {
@@ -983,7 +983,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
             int[] columnPointers = new int[ColumnCount + 1];
 
             columnPointers[0] = 0;
-            for (int i_C = 0; i_C < columnPointers.Length; i_C++)
+            for (int i_C = 0; i_C < ColumnCount; i_C++)
             {
                 columnPointers[i_C + 1] = columnPointers[i_C] + columnHelper[i_C];
                 columnHelper[i_C] = 0;

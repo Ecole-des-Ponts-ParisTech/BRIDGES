@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+using BRIDGES.LinearAlgebra.Vectors;
 using BRIDGES.LinearAlgebra.Matrices;
+using BRIDGES.LinearAlgebra.Matrices.Sparse;
+using Stor = BRIDGES.LinearAlgebra.Matrices.Storage;
 
 
 namespace BRIDGES.Test.LinearAlgebra.Matrices
@@ -254,6 +258,846 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
         }
 
 
+        /******************** Matrix Embedding ********************/
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.Add(DenseMatrix, BRIDGES.LinearAlgebra.Matrices.Matrix)"/>.
+        /// </summary>
+        [TestMethod("Static Add(DenseMatrix,Matrix)")]
+        public void Static_Add_DenseMatrix_Matrix()
+        {
+            // Arrange
+            DenseMatrix left = new DenseMatrix(2, 3, new double[] { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
+            BRIDGES.LinearAlgebra.Matrices.Matrix crsRight = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+            BRIDGES.LinearAlgebra.Matrices.Matrix ccsright = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+            BRIDGES.LinearAlgebra.Matrices.Matrix denseRight = new DenseMatrix(2, 3, new double[] { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { 5.0, 5.0, 5.0, 10.0, 10.0, 10.0 });
+
+            //Act
+            DenseMatrix otherCrsMatrix = DenseMatrix.Add(left, crsRight);
+            DenseMatrix otherCcsMatrix = DenseMatrix.Add(left, ccsright);
+            DenseMatrix otherDenseMatrix = DenseMatrix.Add(left, denseRight);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCrsMatrix.RowCount);
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+            Assert.AreEqual(matrix.RowCount, otherDenseMatrix.RowCount);
+
+            Assert.AreEqual(matrix.ColumnCount, otherCrsMatrix.ColumnCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+            Assert.AreEqual(matrix.ColumnCount, otherDenseMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCrsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherDenseMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.Add(BRIDGES.LinearAlgebra.Matrices.Matrix, DenseMatrix)"/>.
+        /// </summary>
+        [TestMethod("Static Add(Matrix,DenseMatrix)")]
+        public void Static_Add_Matrix_DenseMatrix()
+        {
+            // Arrange
+            BRIDGES.LinearAlgebra.Matrices.Matrix crsLeft = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
+            BRIDGES.LinearAlgebra.Matrices.Matrix ccsLeft = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
+            BRIDGES.LinearAlgebra.Matrices.Matrix denseLeft = new DenseMatrix(2, 3, new double[] { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
+            DenseMatrix right = new DenseMatrix(2, 3, new double[] { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { 5.0, 5.0, 5.0, 10.0, 10.0, 10.0 });
+
+            //Act
+            DenseMatrix otherCrsMatrix = DenseMatrix.Add(crsLeft, right);
+            DenseMatrix otherCcsMatrix = DenseMatrix.Add(ccsLeft, right);
+            DenseMatrix otherDenseMatrix = DenseMatrix.Add(denseLeft, right);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCrsMatrix.RowCount);
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+            Assert.AreEqual(matrix.RowCount, otherDenseMatrix.RowCount);
+
+            Assert.AreEqual(matrix.ColumnCount, otherCrsMatrix.ColumnCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+            Assert.AreEqual(matrix.ColumnCount, otherDenseMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCrsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherDenseMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+
+        }
+
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.Subtract(DenseMatrix, BRIDGES.LinearAlgebra.Matrices.Matrix)"/>.
+        /// </summary>
+        [TestMethod("Static Subtract(DenseMatrix,Matrix)")]
+        public void Static_Subtract_DenseMatrix_Matrix()
+        {
+            // Arrange
+            DenseMatrix left = new DenseMatrix(2, 3, new double[] { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
+            BRIDGES.LinearAlgebra.Matrices.Matrix crsRight = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+            BRIDGES.LinearAlgebra.Matrices.Matrix ccsright = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+            BRIDGES.LinearAlgebra.Matrices.Matrix denseRight = new DenseMatrix(2, 3, new double[] { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { -3.0, -1.0, 1.0, 0.0, 2.0, 4.0 });
+
+            //Act
+            DenseMatrix otherCrsMatrix = DenseMatrix.Subtract(left, crsRight);
+            DenseMatrix otherCcsMatrix = DenseMatrix.Subtract(left, ccsright);
+            DenseMatrix otherDenseMatrix = DenseMatrix.Subtract(left, denseRight);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCrsMatrix.RowCount);
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+            Assert.AreEqual(matrix.RowCount, otherDenseMatrix.RowCount);
+
+            Assert.AreEqual(matrix.ColumnCount, otherCrsMatrix.ColumnCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+            Assert.AreEqual(matrix.ColumnCount, otherDenseMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCrsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherDenseMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.Subtract(BRIDGES.LinearAlgebra.Matrices.Matrix, DenseMatrix)"/>.
+        /// </summary>
+        [TestMethod("Static Subtract(Matrix,DenseMatrix)")]
+        public void Static_Subtract_Matrix_DenseMatrix()
+        {
+            // Arrange
+            BRIDGES.LinearAlgebra.Matrices.Matrix crsLeft = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
+            BRIDGES.LinearAlgebra.Matrices.Matrix ccsLeft = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
+            BRIDGES.LinearAlgebra.Matrices.Matrix denseLeft = new DenseMatrix(2, 3, new double[] { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
+            DenseMatrix right = new DenseMatrix(2, 3, new double[] { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { -3.0, -1.0, 1.0, 0.0, 2.0, 4.0 });
+
+            //Act
+            DenseMatrix otherCrsMatrix = DenseMatrix.Subtract(crsLeft, right);
+            DenseMatrix otherCcsMatrix = DenseMatrix.Subtract(ccsLeft, right);
+            DenseMatrix otherDenseMatrix = DenseMatrix.Subtract(denseLeft, right);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCrsMatrix.RowCount);
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+            Assert.AreEqual(matrix.RowCount, otherDenseMatrix.RowCount);
+
+            Assert.AreEqual(matrix.ColumnCount, otherCrsMatrix.ColumnCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+            Assert.AreEqual(matrix.ColumnCount, otherDenseMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCrsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherDenseMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+
+        }
+
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.Multiply(DenseMatrix, BRIDGES.LinearAlgebra.Matrices.Matrix)"/>.
+        /// </summary>
+        [TestMethod("Static Multiply(DenseMatrix,Matrix)")]
+        public void Static_Multiply_DenseMatrix_Matrix()
+        {
+            // Arrange
+            DenseMatrix left = new DenseMatrix(4, 2, new double[] { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0, 9.0, 8.0 });
+            BRIDGES.LinearAlgebra.Matrices.Matrix crsRight = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+            BRIDGES.LinearAlgebra.Matrices.Matrix ccsRight = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+            BRIDGES.LinearAlgebra.Matrices.Matrix denseRight = new DenseMatrix(2, 3, new double[] { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(4, 3, new double[] { 14.0, 11.0, 8.0, 37.0, 29.0, 21.0, 59.0, 46.0, 33.0, 76.0, 59.0, 42.0 });
+
+            //Act
+            DenseMatrix otherCrsMatrix = DenseMatrix.Multiply(left, crsRight);
+            DenseMatrix otherCcsMatrix = DenseMatrix.Multiply(left, ccsRight);
+            DenseMatrix otherDenseMatrix = DenseMatrix.Multiply(left, denseRight);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCrsMatrix.RowCount);
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+            Assert.AreEqual(matrix.RowCount, otherDenseMatrix.RowCount);
+
+            Assert.AreEqual(matrix.ColumnCount, otherCrsMatrix.ColumnCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+            Assert.AreEqual(matrix.ColumnCount, otherDenseMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCrsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherDenseMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.Multiply(BRIDGES.LinearAlgebra.Matrices.Matrix, DenseMatrix)"/>.
+        /// </summary>
+        [TestMethod("Static Multiply(Matrix,DenseMatrix)")]
+        public void Static_Multiply_Matrix_DenseMatrix()
+        {
+            // Arrange
+            BRIDGES.LinearAlgebra.Matrices.Matrix crsLeft = new CompressedRow(4, 2, new int[5] { 0, 2, 4, 6, 8 },
+                new List<int> { 0, 1, 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0, 9.0, 8.0 });
+            BRIDGES.LinearAlgebra.Matrices.Matrix ccsLeft = new CompressedColumn(4, 2, new int[3] { 0, 4, 8 },
+                new List<int> { 0, 1, 2, 3, 0, 1, 2, 3 }, new List<double> { 1.0, 3.0, 6.0, 9.0, 2.0, 5.0, 7.0, 8.0 });
+            BRIDGES.LinearAlgebra.Matrices.Matrix denseLeft = new DenseMatrix(4, 2, new double[] { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0, 9.0, 8.0 });
+            DenseMatrix right = new DenseMatrix(2, 3, new double[] { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(4, 3, new double[] { 14.0, 11.0, 8.0, 37.0, 29.0, 21.0, 59.0, 46.0, 33.0, 76.0, 59.0, 42.0 });
+
+            //Act
+            DenseMatrix otherCrsMatrix = DenseMatrix.Multiply(crsLeft, right);
+            DenseMatrix otherCcsMatrix = DenseMatrix.Multiply(ccsLeft, right);
+            DenseMatrix otherDenseMatrix = DenseMatrix.Multiply(denseLeft, right);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCrsMatrix.RowCount);
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+            Assert.AreEqual(matrix.RowCount, otherDenseMatrix.RowCount);
+
+            Assert.AreEqual(matrix.ColumnCount, otherCrsMatrix.ColumnCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+            Assert.AreEqual(matrix.ColumnCount, otherDenseMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCrsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherDenseMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+        }
+
+
+
+        /******************** Sparse Matrix Embedding ********************/
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.Add(DenseMatrix, Matrix)"/>.
+        /// </summary>
+        [TestMethod("Static Add(DenseMatrix,SparseMatrix)")]
+        public void Static_Add_DenseMatrix_SparseMatrix()
+        {
+            // Arrange
+            DenseMatrix left = new DenseMatrix(2, 3, new double[] { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
+            Matrix crsRight = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+            Matrix ccsright = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { 5.0, 5.0, 5.0, 10.0, 10.0, 10.0 });
+
+            //Act
+            DenseMatrix otherCrsMatrix = DenseMatrix.Add(left, crsRight);
+            DenseMatrix otherCcsMatrix = DenseMatrix.Add(left, ccsright);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCrsMatrix.RowCount);
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+
+            Assert.AreEqual(matrix.ColumnCount, otherCrsMatrix.ColumnCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCrsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.Add(Matrix, DenseMatrix)"/>.
+        /// </summary>
+        [TestMethod("Static Add(SparseMatrix,DenseMatrix)")]
+        public void Static_Add_SparseMatrix_DenseMatrix()
+        {
+            // Arrange
+            Matrix crsLeft = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
+            Matrix ccsLeft = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
+            DenseMatrix right = new DenseMatrix(2, 3, new double[] { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { 5.0, 5.0, 5.0, 10.0, 10.0, 10.0 });
+
+            //Act
+            DenseMatrix otherCrsMatrix = DenseMatrix.Add(crsLeft, right);
+            DenseMatrix otherCcsMatrix = DenseMatrix.Add(ccsLeft, right);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCrsMatrix.RowCount);
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+
+            Assert.AreEqual(matrix.ColumnCount, otherCrsMatrix.ColumnCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCrsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+
+        }
+
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.Subtract(DenseMatrix, Matrix)"/>.
+        /// </summary>
+        [TestMethod("Static Subtract(DenseMatrix,SparseMatrix)")]
+        public void Static_Subtract_DenseMatrix_SparseMatrix()
+        {
+            // Arrange
+            DenseMatrix left = new DenseMatrix(2, 3, new double[] { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
+            Matrix crsRight = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+            Matrix ccsright = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { -3.0, -1.0, 1.0, 0.0, 2.0, 4.0 });
+
+            //Act
+            DenseMatrix otherCrsMatrix = DenseMatrix.Subtract(left, crsRight);
+            DenseMatrix otherCcsMatrix = DenseMatrix.Subtract(left, ccsright);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCrsMatrix.RowCount);
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+
+            Assert.AreEqual(matrix.ColumnCount, otherCrsMatrix.ColumnCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCrsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.Subtract(Matrix, DenseMatrix)"/>.
+        /// </summary>
+        [TestMethod("Static Subtract(SparseMatrix,DenseMatrix)")]
+        public void Static_Subtract_SparseMatrix_DenseMatrix()
+        {
+            // Arrange
+            Matrix crsLeft = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
+            Matrix ccsLeft = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
+            DenseMatrix right = new DenseMatrix(2, 3, new double[] { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { -3.0, -1.0, 1.0, 0.0, 2.0, 4.0 });
+
+            //Act
+            DenseMatrix otherCrsMatrix = DenseMatrix.Subtract(crsLeft, right);
+            DenseMatrix otherCcsMatrix = DenseMatrix.Subtract(ccsLeft, right);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCrsMatrix.RowCount);
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+
+            Assert.AreEqual(matrix.ColumnCount, otherCrsMatrix.ColumnCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCrsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+
+        }
+
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.Multiply(DenseMatrix, Matrix)"/>.
+        /// </summary>
+        [TestMethod("Static Multiply(DenseMatrix,SparseMatrix)")]
+        public void Static_Multiply_DenseMatrix_SparseMatrix()
+        {
+            // Arrange
+            DenseMatrix left = new DenseMatrix(4, 2, new double[] { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0, 9.0, 8.0 });
+            Matrix crsRight = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+            Matrix ccsRight = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(4, 3, new double[] { 14.0, 11.0, 8.0, 37.0, 29.0, 21.0, 59.0, 46.0, 33.0, 76.0, 59.0, 42.0 });
+
+            //Act
+            DenseMatrix otherCrsMatrix = DenseMatrix.Multiply(left, crsRight);
+            DenseMatrix otherCcsMatrix = DenseMatrix.Multiply(left, ccsRight);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCrsMatrix.RowCount);
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+
+            Assert.AreEqual(matrix.ColumnCount, otherCrsMatrix.ColumnCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCrsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.Multiply(Matrix, DenseMatrix)"/>.
+        /// </summary>
+        [TestMethod("Static Multiply(SparseMatrix,DenseMatrix)")]
+        public void Static_Multiply_SparseMatrix_DenseMatrix()
+        {
+            // Arrange
+            Matrix crsLeft = new CompressedRow(4, 2, new int[5] { 0, 2, 4, 6, 8 },
+                new List<int> { 0, 1, 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0, 9.0, 8.0 });
+            Matrix ccsLeft = new CompressedColumn(4, 2, new int[3] { 0, 4, 8 },
+                new List<int> { 0, 1, 2, 3, 0, 1, 2, 3 }, new List<double> { 1.0, 3.0, 6.0, 9.0, 2.0, 5.0, 7.0, 8.0 });
+            DenseMatrix right = new DenseMatrix(2, 3, new double[] { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(4, 3, new double[] { 14.0, 11.0, 8.0, 37.0, 29.0, 21.0, 59.0, 46.0, 33.0, 76.0, 59.0, 42.0 });
+
+            //Act
+            DenseMatrix otherCrsMatrix = DenseMatrix.Multiply(crsLeft, right);
+            DenseMatrix otherCcsMatrix = DenseMatrix.Multiply(ccsLeft, right);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCrsMatrix.RowCount);
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+
+            Assert.AreEqual(matrix.ColumnCount, otherCrsMatrix.ColumnCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCrsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+        }
+
+
+        /******************** CompressedColumn Embedding ********************/
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.Add(DenseMatrix, CompressedColumn)"/>.
+        /// </summary>
+        [TestMethod("Static Add(DenseMatrix,CompressedColumn)")]
+        public void Static_Add_DenseMatrix_CompressedColumn()
+        {
+            // Arrange
+            DenseMatrix left = new DenseMatrix(2, 3, new double[] { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
+            CompressedColumn ccsright = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { 5.0, 5.0, 5.0, 10.0, 10.0, 10.0 });
+
+            //Act
+            DenseMatrix otherCcsMatrix = DenseMatrix.Add(left, ccsright);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.Add(CompressedColumn, DenseMatrix)"/>.
+        /// </summary>
+        [TestMethod("Static Add(CompressedColumn,DenseMatrix)")]
+        public void Static_Add_CompressedColumn_DenseMatrix()
+        {
+            // Arrange
+            CompressedColumn ccsLeft = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
+            DenseMatrix right = new DenseMatrix(2, 3, new double[] { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { 5.0, 5.0, 5.0, 10.0, 10.0, 10.0 });
+
+            //Act
+            DenseMatrix otherCcsMatrix = DenseMatrix.Add(ccsLeft, right);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+
+        }
+
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.Subtract(DenseMatrix, CompressedColumn)"/>.
+        /// </summary>
+        [TestMethod("Static Subtract(DenseMatrix,CompressedColumn)")]
+        public void Static_Subtract_DenseMatrix_CompressedColumn()
+        {
+            // Arrange
+            DenseMatrix left = new DenseMatrix(2, 3, new double[] { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
+            CompressedColumn ccsright = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { -3.0, -1.0, 1.0, 0.0, 2.0, 4.0 });
+
+            //Act
+            DenseMatrix otherCcsMatrix = DenseMatrix.Subtract(left, ccsright);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.Subtract(CompressedColumn, DenseMatrix)"/>.
+        /// </summary>
+        [TestMethod("Static Subtract(CompressedColumn,DenseMatrix)")]
+        public void Static_Subtract_CompressedColumn_DenseMatrix()
+        {
+            // Arrange
+            CompressedColumn ccsLeft = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
+            DenseMatrix right = new DenseMatrix(2, 3, new double[] { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { -3.0, -1.0, 1.0, 0.0, 2.0, 4.0 });
+
+            //Act
+            DenseMatrix otherCcsMatrix = DenseMatrix.Subtract(ccsLeft, right);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+
+        }
+
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.Multiply(DenseMatrix, CompressedColumn)"/>.
+        /// </summary>
+        [TestMethod("Static Multiply(DenseMatrix,CompressedColumn)")]
+        public void Static_Multiply_DenseMatrix_CompressedColumn()
+        {
+            // Arrange
+            DenseMatrix left = new DenseMatrix(4, 2, new double[] { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0, 9.0, 8.0 });
+            CompressedColumn ccsRight = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(4, 3, new double[] { 14.0, 11.0, 8.0, 37.0, 29.0, 21.0, 59.0, 46.0, 33.0, 76.0, 59.0, 42.0 });
+
+            //Act
+            DenseMatrix otherCcsMatrix = DenseMatrix.Multiply(left, ccsRight);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.Multiply(CompressedColumn, DenseMatrix)"/>.
+        /// </summary>
+        [TestMethod("Static Multiply(CompressedColumn,DenseMatrix)")]
+        public void Static_Multiply_CompressedColumn_DenseMatrix()
+        {
+            // Arrange
+
+            CompressedColumn ccsLeft = new CompressedColumn(4, 2, new int[3] { 0, 4, 8 },
+                new List<int> { 0, 1, 2, 3, 0, 1, 2, 3 }, new List<double> { 1.0, 3.0, 6.0, 9.0, 2.0, 5.0, 7.0, 8.0 });
+            DenseMatrix right = new DenseMatrix(2, 3, new double[] { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(4, 3, new double[] { 14.0, 11.0, 8.0, 37.0, 29.0, 21.0, 59.0, 46.0, 33.0, 76.0, 59.0, 42.0 });
+
+            //Act
+            DenseMatrix otherCcsMatrix = DenseMatrix.Multiply(ccsLeft, right);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+        }
+
+
+        /******************** CompressedRow Embedding ********************/
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.Add(DenseMatrix, CompressedRow)"/>.
+        /// </summary>
+        [TestMethod("Static Add(DenseMatrix,CompressedRow)")]
+        public void Static_Add_DenseMatrix_CompressedRow()
+        {
+            // Arrange
+            DenseMatrix left = new DenseMatrix(2, 3, new double[] { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
+            CompressedRow crsRight = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { 5.0, 5.0, 5.0, 10.0, 10.0, 10.0 });
+
+            //Act
+            DenseMatrix otherCrsMatrix = DenseMatrix.Add(left, crsRight);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCrsMatrix.RowCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCrsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCrsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.Add(CompressedRow, DenseMatrix)"/>.
+        /// </summary>
+        [TestMethod("Static Add(CompressedRow,DenseMatrix)")]
+        public void Static_Add_CompressedRow_DenseMatrix()
+        {
+            // Arrange
+            CompressedRow crsLeft = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
+            DenseMatrix right = new DenseMatrix(2, 3, new double[] { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { 5.0, 5.0, 5.0, 10.0, 10.0, 10.0 });
+
+            //Act
+            DenseMatrix otherCrsMatrix = DenseMatrix.Add(crsLeft, right);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCrsMatrix.RowCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCrsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCrsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+
+        }
+
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.Subtract(DenseMatrix, CompressedRow)"/>.
+        /// </summary>
+        [TestMethod("Static Subtract(DenseMatrix,CompressedRow)")]
+        public void Static_Subtract_DenseMatrix_CompressedRow()
+        {
+            // Arrange
+            DenseMatrix left = new DenseMatrix(2, 3, new double[] { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
+            CompressedRow crsRight = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { -3.0, -1.0, 1.0, 0.0, 2.0, 4.0 });
+
+            //Act
+            DenseMatrix otherCrsMatrix = DenseMatrix.Subtract(left, crsRight);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCrsMatrix.RowCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCrsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCrsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.Subtract(CompressedRow, DenseMatrix)"/>.
+        /// </summary>
+        [TestMethod("Static Subtract(CompressedRow,DenseMatrix)")]
+        public void Static_Subtract_CompressedRow_DenseMatrix()
+        {
+            // Arrange
+            CompressedRow crsLeft = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
+            DenseMatrix right = new DenseMatrix(2, 3, new double[] { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { -3.0, -1.0, 1.0, 0.0, 2.0, 4.0 });
+
+            //Act
+            DenseMatrix otherCrsMatrix = DenseMatrix.Subtract(crsLeft, right);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCrsMatrix.RowCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCrsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCrsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+
+        }
+
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.Multiply(DenseMatrix, CompressedRow)"/>.
+        /// </summary>
+        [TestMethod("Static Multiply(DenseMatrix,CompressedRow)")]
+        public void Static_Multiply_DenseMatrix_CompressedRow()
+        {
+            // Arrange
+            DenseMatrix left = new DenseMatrix(4, 2, new double[] { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0, 9.0, 8.0 });
+            CompressedRow crsRight = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+            
+            DenseMatrix matrix = new DenseMatrix(4, 3, new double[] { 14.0, 11.0, 8.0, 37.0, 29.0, 21.0, 59.0, 46.0, 33.0, 76.0, 59.0, 42.0 });
+
+            //Act
+            DenseMatrix otherCrsMatrix = DenseMatrix.Multiply(left, crsRight);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCrsMatrix.RowCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCrsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCrsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.Multiply(CompressedRow, DenseMatrix)"/>.
+        /// </summary>
+        [TestMethod("Static Multiply(CompressedRow,DenseMatrix)")]
+        public void Static_Multiply_CompressedRow_DenseMatrix()
+        {
+            // Arrange
+            CompressedRow crsLeft = new CompressedRow(4, 2, new int[5] { 0, 2, 4, 6, 8 },
+                new List<int> { 0, 1, 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0, 9.0, 8.0 });
+            DenseMatrix right = new DenseMatrix(2, 3, new double[] { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(4, 3, new double[] { 14.0, 11.0, 8.0, 37.0, 29.0, 21.0, 59.0, 46.0, 33.0, 76.0, 59.0, 42.0 });
+
+            //Act
+            DenseMatrix otherCrsMatrix = DenseMatrix.Multiply(crsLeft, right);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCrsMatrix.RowCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCrsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCrsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+        }
+
+
         /******************** Group Action ********************/
 
         /// <summary>
@@ -338,6 +1182,162 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
                 {
                     Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
                 }
+            }
+        }
+
+
+        /******************** Other Operations ********************/
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.Multiply(DenseMatrix, Vector)"/>.
+        /// </summary>
+        [TestMethod("Static Multiply(DenseMatrix,Vector)")]
+        public void Static_Multiply_DenseMatrix_Vector()
+        {
+            // Arrange
+            DenseMatrix matrix = new DenseMatrix(3, 2, new double[] { 4.0, 3.0, 2.0, -5.0, -4.0, 1.0 });
+            Vector denseVector = new DenseVector(new double[2] { -2.0, 6.0 });
+            Vector sparseVector = new SparseVector(2, new int[2] { 0, 1 }, new double[2] { -2.0, 6.0 });
+
+            Vector result = new DenseVector(new double[3] { 10.0, -34.0, 14.0 });
+
+            //Act
+            Vector otherDenseVector = DenseMatrix.Multiply(matrix, denseVector);
+            Vector otherSparseVector = DenseMatrix.Multiply(matrix, sparseVector);
+
+            // Assert
+            Assert.AreEqual(result.Size, otherDenseVector.Size);
+            Assert.AreEqual(result.Size, otherSparseVector.Size);
+
+            for (int i_R = 0; i_R < result.Size; i_R++)
+            {
+                Assert.IsTrue(Math.Abs(result[i_R] - otherDenseVector[i_R]) < Settings.AbsolutePrecision);
+                Assert.IsTrue(Math.Abs(result[i_R] - otherSparseVector[i_R]) < Settings.AbsolutePrecision);
+            }
+        }
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.Multiply(DenseMatrix, DenseVector)"/>.
+        /// </summary>
+        [TestMethod("Static Multiply(DenseMatrix,DenseVector)")]
+        public void Static_Multiply_DenseMatrix_DenseVector()
+        {
+            // Arrange
+            DenseMatrix matrix = new DenseMatrix(3, 2, new double[] { 4.0, 3.0, 2.0, -5.0, -4.0, 1.0 });
+            DenseVector denseVector = new DenseVector(new double[2] { -2.0, 6.0 });
+
+            DenseVector result = new DenseVector(new double[3] { 10.0, -34.0, 14.0 });
+
+            //Act
+            DenseVector otherDenseVector = DenseMatrix.Multiply(matrix, denseVector);
+
+            // Assert
+            Assert.AreEqual(result.Size, otherDenseVector.Size);
+
+            for (int i_R = 0; i_R < result.Size; i_R++)
+            {
+                Assert.IsTrue(Math.Abs(result[i_R] - otherDenseVector[i_R]) < Settings.AbsolutePrecision);
+            }
+        }
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.Multiply(DenseMatrix, SparseVector)"/>.
+        /// </summary>
+        [TestMethod("Static Multiply(DenseMatrix,SparseVector)")]
+        public void Static_Multiply_DenseMatrix_SparseVector()
+        {
+            // Arrange
+            DenseMatrix matrix = new DenseMatrix(3, 2, new double[] { 4.0, 3.0, 2.0, -5.0, -4.0, 1.0 });
+            SparseVector sparseVector = new SparseVector(2, new int[2] { 0, 1 }, new double[2] { -2.0, 6.0 });
+
+            SparseVector result = new SparseVector(3, new int[3] { 0, 1, 2 }, new double[3] { 10.0, -34.0, 14.0 });
+
+            // Act
+            DenseVector otherSparseVector = DenseMatrix.Multiply(matrix, sparseVector);
+
+            // Assert
+            Assert.AreEqual(result.Size, otherSparseVector.Size);
+
+            for (int i_R = 0; i_R < result.Size; i_R++)
+            {
+                Assert.IsTrue(Math.Abs(result[i_R] - otherSparseVector[i_R]) < Settings.AbsolutePrecision);
+            }
+        }
+
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.TransposeMultiply(DenseMatrix, Vector)"/>.
+        /// </summary>
+        [TestMethod("Static TransposeMultiply(DenseMatrix,Vector)")]
+        public void Static_TransposeMultiply_DenseMatrix_Vector()
+        {
+            // Arrange
+            DenseMatrix matrix = new DenseMatrix(3, 2, new double[] { 4.0, 3.0, 2.0, -5.0, -4.0, 1.0 });
+            DenseVector denseVector = new DenseVector(new double[3] { -2.0, 0.0, 6.0 });
+            SparseVector sparseVector = new SparseVector(3, new int[2] { 0, 2 }, new double[2] { -2.0, 6.0 });
+
+            DenseVector result = new DenseVector(new double[2] { -32.0, 0.0 });
+
+            //Act
+            DenseVector otherDenseVector = DenseMatrix.TransposeMultiply(matrix, denseVector);
+            DenseVector otherSparseVector = DenseMatrix.TransposeMultiply(matrix, sparseVector);
+
+            // Assert
+            Assert.AreEqual(result.Size, otherDenseVector.Size);
+            Assert.AreEqual(result.Size, otherSparseVector.Size);
+
+            for (int i_R = 0; i_R < result.Size; i_R++)
+            {
+                Assert.IsTrue(Math.Abs(result[i_R] - otherDenseVector[i_R]) < Settings.AbsolutePrecision);
+                Assert.IsTrue(Math.Abs(result[i_R] - otherSparseVector[i_R]) < Settings.AbsolutePrecision);
+            }
+        }
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.TransposeMultiply(DenseMatrix, DenseVector)"/>.
+        /// </summary>
+        [TestMethod("Static TransposeMultiply(DenseMatrix,DenseVector)")]
+        public void Static_TransposeMultiply_DenseMatrix_DenseVector()
+        {
+            // Arrange
+            DenseMatrix matrix = new DenseMatrix(3, 2, new double[] { 4.0, 3.0, 2.0, -5.0, -4.0, 1.0 });
+            DenseVector denseVector = new DenseVector(new double[3] { -2.0, 0.0, 6.0 });
+
+            DenseVector result = new DenseVector(new double[2] { -32.0, 0.0 });
+
+            //Act
+            DenseVector otherDenseVector = DenseMatrix.TransposeMultiply(matrix, denseVector);
+
+            // Assert
+            Assert.AreEqual(result.Size, otherDenseVector.Size);
+
+            for (int i_R = 0; i_R < result.Size; i_R++)
+            {
+                Assert.IsTrue(Math.Abs(result[i_R] - otherDenseVector[i_R]) < Settings.AbsolutePrecision);
+            }
+        }
+
+        /// <summary>
+        /// Tests the static method <see cref="DenseMatrix.TransposeMultiply(DenseMatrix, SparseVector)"/>.
+        /// </summary>
+        [TestMethod("Static TransposeMultiply(DenseMatrix,SparseVector)")]
+        public void Static_TransposeMultiply_DenseMatrix_SparseVector()
+        {
+            // Arrange
+            DenseMatrix matrix = new DenseMatrix(3, 2, new double[] { 4.0, 3.0, 2.0, -5.0, -4.0, 1.0 });
+            SparseVector sparseVector = new SparseVector(3, new int[2] { 0, 2 }, new double[2] { -2.0, 6.0 });
+
+            DenseVector result = new DenseVector(new double[2] { -32.0, 0.0 });
+
+            //Act
+            DenseVector otherSparseVector = DenseMatrix.TransposeMultiply(matrix, sparseVector);
+
+            // Assert
+            Assert.AreEqual(result.Size, otherSparseVector.Size);
+
+            for (int i_R = 0; i_R < result.Size; i_R++)
+            {
+                Assert.IsTrue(Math.Abs(result[i_R] - otherSparseVector[i_R]) < Settings.AbsolutePrecision);
             }
         }
 

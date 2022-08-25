@@ -208,6 +208,7 @@ namespace BRIDGES.LinearAlgebra.Matrices
             else { throw new NotImplementedException($"The right multiplication of a transposed {matrix.GetType()} as a {nameof(Matrix)} and a {vector.GetType()} is not implemented."); }
 
         }
+
         #endregion
 
         #region Public Methods

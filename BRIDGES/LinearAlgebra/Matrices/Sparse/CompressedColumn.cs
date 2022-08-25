@@ -770,7 +770,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
             for (int i = 0; i < matrix.ColumnCount; i++)
             {
                 bool isZero = !vector.TryGetComponent(i, out double val);
-                if (!isZero) { continue; }
+                if (isZero) { continue; }
 
                 for (int i_NZ = matrix._columnPointers[i]; i_NZ < matrix._columnPointers[i + 1]; i_NZ++)
                 {
@@ -987,10 +987,10 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
             int[] rowPointers = new int[RowCount + 1];
 
             rowPointers[0] = 0;
-            for (int i_C = 0; i_C < rowPointers.Length; i_C++)
+            for (int i_R = 0; i_R < RowCount; i_R++)
             {
-                rowPointers[i_C + 1] = rowPointers[i_C] + rowHelper[i_C];
-                rowHelper[i_C] = 0;
+                rowPointers[i_R + 1] = rowPointers[i_R] + rowHelper[i_R];
+                rowHelper[i_R] = 0;
             }
 
 
@@ -1006,8 +1006,8 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
                     int i_R = _rowIndices[i_ColumnNZ];
                     int i_Pointer = rowPointers[i_R] + rowHelper[i_R];
 
-                    values[i_Pointer] = _values[i_ColumnNZ];
                     columnIndices[i_Pointer] = i_C;
+                    values[i_Pointer] = _values[i_ColumnNZ];
                     rowHelper[i_R]++;
                 }
             }
@@ -1102,120 +1102,3 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         #endregion
     }
 }
-
-/*
-
-        /// <summary>
-        /// Computes the multiplication of two <see cref="CompressedColumn"/>.
-        /// </summary>
-        /// <param name="left"> Left <see cref="CompressedColumn"/> for the multiplication. </param>
-        /// <param name="right"> Right <see cref="CompressedColumn"/> for the multiplication. </param>
-        /// <returns> The new <see cref="CompressedColumn"/> resulting from the multiplication. </returns>
-        /// <exception cref="ArgumentException"> The matrices size does not allow their multiplication. </exception>
-        public static CompressedColumn Multiply(CompressedColumn left, CompressedColumn right)
-        {
-            // Verifications
-            if (left.ColumnCount != right.RowCount)
-            {
-                throw new ArgumentException("The matrices size does not allow their multiplication.");
-            }
-
-            // Row indices and values per columns.
-            List<int>[] tmp_RowIndices = new List<int>[right.ColumnCount];
-            List<double>[] tmp_Values = new List<double>[right.ColumnCount];
-
-            int i_RightNZ = right._columnPointers[0];
-            // Iterate on the columns of right
-            for (int i_C = 0; i_C < right.ColumnCount; i_C++)
-            {
-                tmp_RowIndices[i_C] = new List<int>();
-                tmp_Values[i_C] = new List<double>();
-
-                int i_RightNZ_ColumnBound = right._columnPointers[i_C + 1];
-
-                // For the initialisation of rowIndices[i_C] and values[i_C]
-                while (tmp_RowIndices[i_C].Count == 0 & i_RightNZ < i_RightNZ_ColumnBound)
-                {
-                    int i_RR = right._rowIndices[i_RightNZ];
-                    double rightVal = right._values[i_RightNZ];
-
-                    for (int i_LeftNZ = left._columnPointers[i_RR]; i_LeftNZ < left._columnPointers[i_RR + 1]; i_LeftNZ++)
-                    {
-                        int i_R = left._rowIndices[i_LeftNZ];
-                        double leftVal = left._values[i_LeftNZ];
-
-                        tmp_RowIndices[i_C].Add(i_R);
-                        tmp_Values[i_C].Add(leftVal * rightVal);
-                    }
-
-                    i_RightNZ++;
-                }
-
-                for (; i_RightNZ < i_RightNZ_ColumnBound; i_RightNZ++)
-                {
-                    int i_RR = right._rowIndices[i_RightNZ];
-                    double rightVal = right._values[i_RightNZ];
-
-                    int i_Point = 0;
-                    int i_LeftNZ_ColumnBound = left._columnPointers[i_RR + 1];
-
-                    int i_LeftNZ = left._columnPointers[i_RR];
-                    for (; i_LeftNZ < i_LeftNZ_ColumnBound; i_LeftNZ++)
-                    {
-                        int i_R = left._rowIndices[i_LeftNZ];
-                        double leftVal = left._values[i_LeftNZ];
-
-                        if(i_R < tmp_RowIndices[i_C][i_Point])
-                        {
-                            tmp_RowIndices[i_C].Insert(i_Point, i_R);
-                            tmp_Values[i_C].Insert(i_Point, leftVal * rightVal);
-
-                            i_Point++;
-                        }
-                        else if(i_R == tmp_RowIndices[i_C][i_Point])
-                        {
-                            tmp_Values[i_C][i_Point] += leftVal * rightVal;
-
-                            i_Point++;
-                            if (i_Point == tmp_Values[i_C].Count) { i_LeftNZ++; break; }
-                        }
-                        else
-                        {
-                            i_Point++;
-                            if (i_Point == tmp_Values[i_C].Count) { break; }
-
-                            i_LeftNZ--;
-                        }
-                    }
-
-                    for (; i_LeftNZ < i_LeftNZ_ColumnBound; i_LeftNZ++)
-                    {
-                        int i_R = left._rowIndices[i_LeftNZ];
-                        double leftVal = left._values[i_LeftNZ];
-
-                        tmp_RowIndices[i_C].Add(i_R);
-                        tmp_Values[i_C].Add(leftVal * rightVal);
-                    }
-                }
-            }
-
-
-            int[] columnPointers = new int[right.ColumnCount + 1];
-            columnPointers[0] = 0;
-            for (int i_C = 0; i_C < right.ColumnCount; i_C++)
-            {
-                columnPointers[i_C + 1] = columnPointers[i_C] + tmp_Values[i_C].Count;
-            }
-
-            List<int> rowIndices = new List<int>(columnPointers[columnPointers.Length - 1]);
-            List<double> values = new List<double>(columnPointers[columnPointers.Length - 1]);
-            for (int i_C = 0; i_C < right.ColumnCount; i_C++)
-            {
-                rowIndices.AddRange(tmp_RowIndices[i_C]);
-                values.AddRange(tmp_Values[i_C]);
-            }
-
-            return new CompressedColumn(left.RowCount, right.ColumnCount, columnPointers, rowIndices, values);
-        }
-
-*/

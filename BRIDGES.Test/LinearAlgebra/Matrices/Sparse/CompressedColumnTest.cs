@@ -3,11 +3,12 @@ using System.Collections.Generic;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+using BRIDGES.LinearAlgebra.Vectors;
 using BRIDGES.LinearAlgebra.Matrices.Sparse;
 using Stor = BRIDGES.LinearAlgebra.Matrices.Storage;
 
 
-namespace BRIDGES.Test.LinearAlgebra.Matrices
+namespace BRIDGES.Test.LinearAlgebra.Matrices.Sparse
 {
     /// <summary>
     /// Class testing the members of the <see cref="CompressedColumn"/> class.
@@ -45,7 +46,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
         public void RowAndColumnCount()
         {
             // Arrange
-            CompressedColumn matrix = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6}, 
+            CompressedColumn matrix = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
                 new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 4.0, 2.0, 5.0, 3.0, 6.0 });
 
             // Act
@@ -216,7 +217,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
                     Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
                 }
             }
-            
+
         }
 
         /// <summary>
@@ -250,6 +251,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
             }
         }
 
+
         /// <summary>
         /// Tests the static method <see cref="CompressedColumn.Multiply(CompressedColumn, CompressedColumn)"/>.
         /// </summary>
@@ -282,6 +284,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
                 }
             }
         }
+
 
         /******************** Group Action ********************/
 
@@ -372,6 +375,201 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
                 for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
                 {
                     Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+        }
+
+
+        /******************** Other Operations ********************/
+
+        /// <summary>
+        /// Tests the static method <see cref="CompressedColumn.Multiply(CompressedColumn, Vector)"/>.
+        /// </summary>
+        [TestMethod("Static Multiply(CompressedColumn,Vector)")]
+        public void Static_Multiply_CompressedColumn_Vector()
+        {
+            // Arrange
+            CompressedColumn matrix = new CompressedColumn(3, 2, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 2.0, -4.0, 3.0, -5.0, 1.0 });
+            Vector denseVector = new DenseVector(new double[2] { -2.0, 6.0 });
+            Vector sparseVector = new SparseVector(2, new int[2] { 0, 1 }, new double[2] { -2.0, 6.0 });
+
+            Vector result = new DenseVector(new double[3] { 10.0, -34.0, 14.0 });
+
+            //Act
+            Vector otherDenseVector = CompressedColumn.Multiply(matrix, denseVector);
+            Vector otherSparseVector = CompressedColumn.Multiply(matrix, sparseVector);
+
+            // Assert
+            Assert.AreEqual(result.Size, otherDenseVector.Size);
+            Assert.AreEqual(result.Size, otherSparseVector.Size);
+
+            for (int i_R = 0; i_R < result.Size; i_R++)
+            {
+                Assert.IsTrue(Math.Abs(result[i_R] - otherDenseVector[i_R]) < Settings.AbsolutePrecision);
+                Assert.IsTrue(Math.Abs(result[i_R] - otherSparseVector[i_R]) < Settings.AbsolutePrecision);
+            }
+        }
+
+        /// <summary>
+        /// Tests the static method <see cref="CompressedColumn.Multiply(CompressedColumn, DenseVector)"/>.
+        /// </summary>
+        [TestMethod("Static Multiply(CompressedColumn,DenseVector)")]
+        public void Static_Multiply_CompressedColumn_DenseVector()
+        {
+            // Arrange
+            CompressedColumn matrix = new CompressedColumn(3, 2, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 2.0, -4.0, 3.0, -5.0, 1.0 });
+            DenseVector denseVector = new DenseVector(new double[2] { -2.0, 6.0 });
+
+            DenseVector result = new DenseVector(new double[3] { 10.0, -34.0, 14.0 });
+
+            //Act
+            DenseVector otherDenseVector = CompressedColumn.Multiply(matrix, denseVector);
+
+            // Assert
+            Assert.AreEqual(result.Size, otherDenseVector.Size);
+
+            for (int i_R = 0; i_R < result.Size; i_R++)
+            {
+                Assert.IsTrue(Math.Abs(result[i_R] - otherDenseVector[i_R]) < Settings.AbsolutePrecision);
+            }
+        }
+
+        /// <summary>
+        /// Tests the static method <see cref="CompressedColumn.Multiply(CompressedColumn, SparseVector)"/>.
+        /// </summary>
+        [TestMethod("Static Multiply(CompressedColumn,SparseVector)")]
+        public void Static_Multiply_CompressedColumn_SparseVector()
+        {
+            // Arrange
+            CompressedColumn matrix = new CompressedColumn(3, 2, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 2.0, -4.0, 3.0, -5.0, 1.0 });
+            SparseVector sparseVector = new SparseVector(2, new int[2] { 0, 1 }, new double[2] { -2.0, 6.0 });
+
+            SparseVector result = new SparseVector(3, new int[3] { 0, 1, 2 }, new double[3] { 10.0, -34.0, 14.0 });
+
+            // Act
+            SparseVector otherSparseVector = CompressedColumn.Multiply(matrix, sparseVector);
+
+            // Assert
+            Assert.AreEqual(result.Size, otherSparseVector.Size);
+
+            for (int i_R = 0; i_R < result.Size; i_R++)
+            {
+                Assert.IsTrue(Math.Abs(result[i_R] - otherSparseVector[i_R]) < Settings.AbsolutePrecision);
+            }
+        }
+
+
+        /// <summary>
+        /// Tests the static method <see cref="CompressedColumn.TransposeMultiply(CompressedColumn, Vector)"/>.
+        /// </summary>
+        [TestMethod("Static TransposeMultiply(CompressedColumn,Vector)")]
+        public void Static_TransposeMultiply_CompressedColumn_Vector()
+        {
+            // Arrange
+            CompressedColumn matrix = new CompressedColumn(3, 2, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 2.0, -4.0, 3.0, -5.0, 1.0 });
+            DenseVector denseVector = new DenseVector(new double[3] { -2.0, 0.0, 6.0 });
+            SparseVector sparseVector = new SparseVector(3, new int[2] { 0, 2 }, new double[2] { -2.0, 6.0 });
+
+            DenseVector result = new DenseVector(new double[2] { -32.0, 0.0 });
+
+            //Act
+            DenseVector otherDenseVector = CompressedColumn.TransposeMultiply(matrix, denseVector);
+            SparseVector otherSparseVector = CompressedColumn.TransposeMultiply(matrix, sparseVector);
+
+            // Assert
+            Assert.AreEqual(result.Size, otherDenseVector.Size);
+            Assert.AreEqual(result.Size, otherSparseVector.Size);
+
+            for (int i_R = 0; i_R < result.Size; i_R++)
+            {
+                Assert.IsTrue(Math.Abs(result[i_R] - otherDenseVector[i_R]) < Settings.AbsolutePrecision);
+                Assert.IsTrue(Math.Abs(result[i_R] - otherSparseVector[i_R]) < Settings.AbsolutePrecision);
+            }
+        }
+
+        /// <summary>
+        /// Tests the static method <see cref="CompressedColumn.TransposeMultiply(CompressedColumn, DenseVector)"/>.
+        /// </summary>
+        [TestMethod("Static TransposeMultiply(CompressedColumn,DenseVector)")]
+        public void Static_TransposeMultiply_CompressedColumn_DenseVector()
+        {
+            // Arrange
+            CompressedColumn matrix = new CompressedColumn(3, 2, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 2.0, -4.0, 3.0, -5.0, 1.0 });
+            DenseVector denseVector = new DenseVector(new double[3] { -2.0, 0.0, 6.0 });
+
+            DenseVector result = new DenseVector(new double[2] { -32.0, 0.0 });
+
+            //Act
+            DenseVector otherDenseVector = CompressedColumn.TransposeMultiply(matrix, denseVector);
+
+            // Assert
+            Assert.AreEqual(result.Size, otherDenseVector.Size);
+
+            for (int i_R = 0; i_R < result.Size; i_R++)
+            {
+                Assert.IsTrue(Math.Abs(result[i_R] - otherDenseVector[i_R]) < Settings.AbsolutePrecision);
+            }
+        }
+
+        /// <summary>
+        /// Tests the static method <see cref="CompressedColumn.TransposeMultiply(CompressedColumn, SparseVector)"/>.
+        /// </summary>
+        [TestMethod("Static TransposeMultiply(CompressedColumn,SparseVector)")]
+        public void Static_TransposeMultiply_CompressedColumn_SparseVector()
+        {
+            // Arrange
+            CompressedColumn matrix = new CompressedColumn(3, 2, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 2.0, -4.0, 3.0, -5.0, 1.0 });
+            SparseVector sparseVector = new SparseVector(3, new int[2] { 0, 2 }, new double[2] { -2.0, 6.0 });
+
+            DenseVector result = new DenseVector(new double[2] { -32.0, 0.0 });
+
+            //Act
+            SparseVector otherSparseVector = CompressedColumn.TransposeMultiply(matrix, sparseVector);
+
+            // Assert
+            Assert.AreEqual(result.Size, otherSparseVector.Size);
+
+            for (int i_R = 0; i_R < result.Size; i_R++)
+            {
+                Assert.IsTrue(Math.Abs(result[i_R] - otherSparseVector[i_R]) < Settings.AbsolutePrecision);
+            }
+        }
+
+        #endregion
+
+        #region Public Methods
+
+        /// <summary>
+        /// Tests the method <see cref="CompressedColumn.ToCompressedRow()"/>.
+        /// </summary>
+        [TestMethod("Method ToCompressedRow()")]
+        public void ToCompressedRow()
+        {
+            // Arrange
+            CompressedColumn ccs = new CompressedColumn(6, 5, new int[6] { 0, 0, 2, 4, 8, 9 },
+                new List<int> { 0, 4, 2, 4, 0, 1, 3, 4, 5 }, new List<double> { 1.5, 4.0, 2.0, 3.5, 1.25, 6.75, 5.5, 2.25, 7.25 });
+
+            CompressedRow result = new CompressedRow(6, 5, new int[7] { 0, 2, 3, 4, 5, 8, 9 },
+                new List<int> { 1, 3, 3, 2, 3, 1, 2, 3, 4 }, new List<double> { 1.5, 1.25, 6.75, 2.0, 5.5, 4.0, 3.5, 2.25, 7.25 });
+
+            // Act
+            CompressedRow crs = ccs.ToCompressedRow();
+
+            // Assert
+            Assert.AreEqual(result.RowCount, crs.RowCount);
+            Assert.AreEqual(result.ColumnCount, crs.ColumnCount);
+
+            for (int i_R = 0; i_R < result.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < result.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(result[i_R, i_C] - crs[i_R, i_C]) < Settings.AbsolutePrecision);
                 }
             }
         }
