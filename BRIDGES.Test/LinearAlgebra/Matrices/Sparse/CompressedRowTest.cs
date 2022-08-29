@@ -533,17 +533,17 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices.Sparse
             DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { 5.0, 5.0, 5.0, 10.0, 10.0, 10.0 });
 
             //Act
-            CompressedRow otherCcsMatrix = CompressedRow.Add(left, ccsright);
+            CompressedRow otherCrsMatrix = CompressedRow.Add(left, ccsright);
 
             // Assert
-            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
-            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+            Assert.AreEqual(matrix.RowCount, otherCrsMatrix.RowCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCrsMatrix.ColumnCount);
 
             for (int i_R = 0; i_R < matrix.RowCount; i_R++)
             {
                 for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
                 {
-                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCrsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
                 }
             }
         }
@@ -563,17 +563,17 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices.Sparse
             DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { 5.0, 5.0, 5.0, 10.0, 10.0, 10.0 });
 
             //Act
-            CompressedRow otherCcsMatrix = CompressedRow.Add(ccsLeft, right);
+            CompressedRow otherCrsMatrix = CompressedRow.Add(ccsLeft, right);
 
             // Assert
-            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
-            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+            Assert.AreEqual(matrix.RowCount, otherCrsMatrix.RowCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCrsMatrix.ColumnCount);
 
             for (int i_R = 0; i_R < matrix.RowCount; i_R++)
             {
                 for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
                 {
-                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCrsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
                 }
             }
 
@@ -589,23 +589,23 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices.Sparse
             // Arrange
             CompressedRow left = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
                 new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
-            CompressedColumn ccsright = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+            CompressedColumn ccsRight = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
                 new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
 
             DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { -3.0, -1.0, 1.0, 0.0, 2.0, 4.0 });
 
             //Act
-            CompressedRow otherCcsMatrix = CompressedRow.Subtract(left, ccsright);
+            CompressedRow otherCrsMatrix = CompressedRow.Subtract(left, ccsRight);
 
             // Assert
-            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
-            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+            Assert.AreEqual(matrix.RowCount, otherCrsMatrix.RowCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCrsMatrix.ColumnCount);
 
             for (int i_R = 0; i_R < matrix.RowCount; i_R++)
             {
                 for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
                 {
-                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCrsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
                 }
             }
         }
@@ -625,17 +625,17 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices.Sparse
             DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { -3.0, -1.0, 1.0, 0.0, 2.0, 4.0 });
 
             //Act
-            CompressedRow otherCcsMatrix = CompressedRow.Subtract(ccsLeft, right);
+            CompressedRow otherCrsMatrix = CompressedRow.Subtract(ccsLeft, right);
 
             // Assert
-            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
-            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+            Assert.AreEqual(matrix.RowCount, otherCrsMatrix.RowCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCrsMatrix.ColumnCount);
 
             for (int i_R = 0; i_R < matrix.RowCount; i_R++)
             {
                 for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
                 {
-                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCrsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
                 }
             }
 

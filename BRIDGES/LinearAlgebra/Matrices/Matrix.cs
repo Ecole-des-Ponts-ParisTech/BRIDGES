@@ -193,6 +193,39 @@ namespace BRIDGES.LinearAlgebra.Matrices
         }
 
         /// <summary>
+        /// Computes the right multiplication of a <see cref="Matrix"/> with a <see cref="DenseVector"/> : <c>A*V</c>.
+        /// </summary>
+        /// <param name="matrix"> <see cref="Matrix"/> to multiply on the right. </param>
+        /// <param name="vector"> <see cref="DenseVector"/> to multiply with. </param>
+        /// <returns> The new <see cref="DenseVector"/> resulting from the multiplication. </returns>
+        /// <exception cref="NotImplementedException"> 
+        /// The right multiplication of the matrix as a <see cref="Matrix"/> with a <see cref="Vector"/> is not implemented.
+        /// </exception>
+        public static DenseVector Multiply(Matrix matrix, DenseVector vector)
+        {
+            if (matrix is DenseMatrix denseMatrix) { return DenseMatrix.Multiply(denseMatrix, vector); }
+            else if (matrix is SparseMatrix sparseMatrix) { return SparseMatrix.Multiply(sparseMatrix, vector); }
+            else { throw new NotImplementedException($"The right multiplication of a {matrix.GetType()} as a {nameof(Matrix)} and a {vector.GetType()} is not implemented."); }
+        }
+
+        /// <summary>
+        /// Computes the right multiplication of a <see cref="Matrix"/> with a <see cref="SparseVector"/> : <c>A*V</c>.
+        /// </summary>
+        /// <param name="matrix"> <see cref="Matrix"/> to multiply on the right. </param>
+        /// <param name="vector"> <see cref="SparseVector"/> to multiply with. </param>
+        /// <returns> The new <see cref="Vector"/> resulting from the multiplication. </returns>
+        /// <exception cref="NotImplementedException"> 
+        /// The right multiplication of the matrix as a <see cref="Matrix"/> with a <see cref="SparseVector"/> is not implemented.
+        /// </exception>
+        public static Vector Multiply(Matrix matrix, SparseVector vector)
+        {
+            if (matrix is DenseMatrix denseMatrix) { return DenseMatrix.Multiply(denseMatrix, vector); }
+            else if (matrix is SparseMatrix sparseMatrix) { return SparseMatrix.Multiply(sparseMatrix, vector); }
+            else { throw new NotImplementedException($"The right multiplication of a {matrix.GetType()} as a {nameof(Matrix)} and a {vector.GetType()} is not implemented."); }
+        }
+
+
+        /// <summary>
         /// Computes the right multiplication of a transposed <see cref="Matrix"/> with a <see cref="Vector"/> : <c>At*V</c>.
         /// </summary>
         /// <param name="matrix"> <see cref="Matrix"/> to transpose then multiply on the right. </param>
@@ -202,6 +235,40 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// The right multiplication of the transposed matrix as a <see cref="Matrix"/> with a <see cref="Vector"/> is not implemented.
         /// </exception>
         public static Vector TransposeMultiply(Matrix matrix, Vector vector)
+        {
+            if (matrix is DenseMatrix denseMatrix) { return DenseMatrix.TransposeMultiply(denseMatrix, vector); }
+            else if (matrix is SparseMatrix sparseMatrix) { return SparseMatrix.TransposeMultiply(sparseMatrix, vector); }
+            else { throw new NotImplementedException($"The right multiplication of a transposed {matrix.GetType()} as a {nameof(Matrix)} and a {vector.GetType()} is not implemented."); }
+
+        }
+
+        /// <summary>
+        /// Computes the right multiplication of a transposed <see cref="Matrix"/> with a <see cref="DenseVector"/> : <c>At*V</c>.
+        /// </summary>
+        /// <param name="matrix"> <see cref="Matrix"/> to transpose then multiply on the right. </param>
+        /// <param name="vector"> <see cref="DenseVector"/> to multiply with. </param>
+        /// <returns> The new <see cref="DenseVector"/> resulting from the multiplication. </returns>
+        /// <exception cref="NotImplementedException"> 
+        /// The right multiplication of the transposed matrix as a <see cref="Matrix"/> with a <see cref="DenseVector"/> is not implemented.
+        /// </exception>
+        public static DenseVector TransposeMultiply(Matrix matrix, DenseVector vector)
+        {
+            if (matrix is DenseMatrix denseMatrix) { return DenseMatrix.TransposeMultiply(denseMatrix, vector); }
+            else if (matrix is SparseMatrix sparseMatrix) { return SparseMatrix.TransposeMultiply(sparseMatrix, vector); }
+            else { throw new NotImplementedException($"The right multiplication of a transposed {matrix.GetType()} as a {nameof(Matrix)} and a {vector.GetType()} is not implemented."); }
+
+        }
+
+        /// <summary>
+        /// Computes the right multiplication of a transposed <see cref="Matrix"/> with a <see cref="SparseVector"/> : <c>At*V</c>.
+        /// </summary>
+        /// <param name="matrix"> <see cref="Matrix"/> to transpose then multiply on the right. </param>
+        /// <param name="vector"> <see cref="SparseVector"/> to multiply with. </param>
+        /// <returns> The new <see cref="Vector"/> resulting from the multiplication. </returns>
+        /// <exception cref="NotImplementedException"> 
+        /// The right multiplication of the transposed matrix as a <see cref="Matrix"/> with a <see cref="SparseVector"/> is not implemented.
+        /// </exception>
+        public static Vector TransposeMultiply(Matrix matrix, SparseVector vector)
         {
             if (matrix is DenseMatrix denseMatrix) { return DenseMatrix.TransposeMultiply(denseMatrix, vector); }
             else if (matrix is SparseMatrix sparseMatrix) { return SparseMatrix.TransposeMultiply(sparseMatrix, vector); }

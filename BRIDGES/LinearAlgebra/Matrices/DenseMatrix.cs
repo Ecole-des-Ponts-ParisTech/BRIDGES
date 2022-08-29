@@ -396,9 +396,9 @@ namespace BRIDGES.LinearAlgebra.Matrices
 
             result._storedMatrix = left._storedMatrix.Clone() as MNet_LinAlg.Double.DenseMatrix;
 
-            int[] columnPointers = right.GetColumnPointers();
-            int[] rowIndices = right.GetRowIndices();
-            double[] values = right.GetValues();
+            int[] columnPointers = right.ColumnPointers();
+            int[] rowIndices = right.RowIndices();
+            double[] values = right.Values();
 
             // Iterate on the columns of right
             for (int i_C = 0; i_C < right.ColumnCount; i_C++)
@@ -431,9 +431,9 @@ namespace BRIDGES.LinearAlgebra.Matrices
 
             result._storedMatrix = right._storedMatrix.Clone() as MNet_LinAlg.Double.DenseMatrix;
 
-            int[] columnPointers = left.GetColumnPointers();
-            int[] rowIndices = left.GetRowIndices();
-            double[] values = left.GetValues();
+            int[] columnPointers = left.ColumnPointers();
+            int[] rowIndices = left.RowIndices();
+            double[] values = left.Values();
 
             // Iterate on the columns of left
             for (int i_C = 0; i_C < left.ColumnCount; i_C++)
@@ -467,9 +467,9 @@ namespace BRIDGES.LinearAlgebra.Matrices
 
             result._storedMatrix = left._storedMatrix.Clone() as MNet_LinAlg.Double.DenseMatrix;
 
-            int[] columnPointers = right.GetColumnPointers();
-            int[] rowIndices = right.GetRowIndices();
-            double[] values = right.GetValues();
+            int[] columnPointers = right.ColumnPointers();
+            int[] rowIndices = right.RowIndices();
+            double[] values = right.Values();
 
             // Iterate on the columns of right
             for (int i_C = 0; i_C < right.ColumnCount; i_C++)
@@ -502,9 +502,9 @@ namespace BRIDGES.LinearAlgebra.Matrices
 
             result._storedMatrix = right._storedMatrix.Multiply(-1.0) as MNet_LinAlg.Double.DenseMatrix;
 
-            int[] columnPointers = left.GetColumnPointers();
-            int[] rowIndices = left.GetRowIndices();
-            double[] values = left.GetValues();
+            int[] columnPointers = left.ColumnPointers();
+            int[] rowIndices = left.RowIndices();
+            double[] values = left.Values();
 
             // Iterate on the columns of left
             for (int i_C = 0; i_C < left.ColumnCount; i_C++)
@@ -536,9 +536,9 @@ namespace BRIDGES.LinearAlgebra.Matrices
  
             DenseMatrix result = new DenseMatrix(left.RowCount, right.ColumnCount);
 
-            int[] columnPointers = right.GetColumnPointers();
-            int[] rowIndices = right.GetRowIndices();
-            double[] values = right.GetValues();
+            int[] columnPointers = right.ColumnPointers();
+            int[] rowIndices = right.RowIndices();
+            double[] values = right.Values();
            
             // Iterate on the columns of right 
             for (int i_C = 0; i_C < right.ColumnCount; i_C++)
@@ -577,9 +577,9 @@ namespace BRIDGES.LinearAlgebra.Matrices
 
             DenseMatrix result = new DenseMatrix(left.RowCount, right.ColumnCount);
 
-            int[] columnPointers = left.GetColumnPointers();
-            int[] rowIndices = left.GetRowIndices();
-            double[] values = left.GetValues();
+            int[] columnPointers = left.ColumnPointers();
+            int[] rowIndices = left.RowIndices();
+            double[] values = left.Values();
 
             // Iterate on the columns of left
             for (int i_LC = 0; i_LC < left.ColumnCount; i_LC++)

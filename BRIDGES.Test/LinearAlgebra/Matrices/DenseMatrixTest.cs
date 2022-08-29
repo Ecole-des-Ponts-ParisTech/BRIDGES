@@ -1103,7 +1103,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
         /// <summary>
         /// Tests the static method <see cref="DenseMatrix.Multiply(double, DenseMatrix)"/>.
         /// </summary>
-        [TestMethod("Static Add(double,DenseMatrix)")]
+        [TestMethod("Static Multiply(double,DenseMatrix)")]
         public void Static_Multiply_Double_DenseMatrix()
         {
             // Arrange
@@ -1131,7 +1131,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
         /// <summary>
         /// Tests the static method <see cref="DenseMatrix.Multiply(DenseMatrix, double)"/>.
         /// </summary>
-        [TestMethod("Static Add(DenseMatrix,double)")]
+        [TestMethod("Static Multiply(DenseMatrix,double)")]
         public void Static_Multiply_DenseMatrix_Double()
         {
             // Arrange

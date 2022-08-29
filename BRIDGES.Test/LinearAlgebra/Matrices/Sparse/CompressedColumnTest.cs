@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using BRIDGES.LinearAlgebra.Vectors;
+using BRIDGES.LinearAlgebra.Matrices;
 using BRIDGES.LinearAlgebra.Matrices.Sparse;
 using Stor = BRIDGES.LinearAlgebra.Matrices.Storage;
 
@@ -285,22 +286,439 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices.Sparse
             }
         }
 
+        /******************** Sparse Matrix Embedding ********************/
+
+        /// <summary>
+        /// Tests the static method <see cref="CompressedColumn.Add(CompressedColumn, SparseMatrix)"/>.
+        /// </summary>
+        [TestMethod("Static Add(CompressedColumn,SparseMatrix)")]
+        public void Static_Add_CompressedColumn_SparseMatrix()
+        {
+            // Arrange
+            CompressedColumn left = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
+            SparseMatrix crsRight = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+            SparseMatrix ccsright = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { 5.0, 5.0, 5.0, 10.0, 10.0, 10.0 });
+
+            //Act
+            CompressedColumn otherCrsMatrix = CompressedColumn.Add(left, crsRight);
+            CompressedColumn otherCcsMatrix = CompressedColumn.Add(left, ccsright);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCrsMatrix.RowCount);
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+
+            Assert.AreEqual(matrix.ColumnCount, otherCrsMatrix.ColumnCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCrsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests the static method <see cref="CompressedColumn.Add(SparseMatrix, CompressedColumn)"/>.
+        /// </summary>
+        [TestMethod("Static Add(SparseMatrix,CompressedColumn)")]
+        public void Static_Add_SparseMatrix_CompressedColumn()
+        {
+            // Arrange
+            SparseMatrix crsLeft = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
+            SparseMatrix ccsLeft = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
+            CompressedColumn right = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { 5.0, 5.0, 5.0, 10.0, 10.0, 10.0 });
+
+            //Act
+            CompressedColumn otherCrsMatrix = CompressedColumn.Add(crsLeft, right);
+            CompressedColumn otherCcsMatrix = CompressedColumn.Add(ccsLeft, right);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCrsMatrix.RowCount);
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+
+            Assert.AreEqual(matrix.ColumnCount, otherCrsMatrix.ColumnCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCrsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+
+        }
+
+
+        /// <summary>
+        /// Tests the static method <see cref="CompressedColumn.Subtract(CompressedColumn, SparseMatrix)"/>.
+        /// </summary>
+        [TestMethod("Static Subtract(CompressCompressedColumnedRow,SparseMatrix)")]
+        public void Static_Subtract_CompressedColumn_SparseMatrix()
+        {
+            // Arrange
+            CompressedColumn left = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
+            SparseMatrix crsRight = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+            SparseMatrix ccsright = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { -3.0, -1.0, 1.0, 0.0, 2.0, 4.0 });
+
+            //Act
+            CompressedColumn otherCrsMatrix = CompressedColumn.Subtract(left, crsRight);
+            CompressedColumn otherCcsMatrix = CompressedColumn.Subtract(left, ccsright);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCrsMatrix.RowCount);
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+
+            Assert.AreEqual(matrix.ColumnCount, otherCrsMatrix.ColumnCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCrsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests the static method <see cref="CompressedColumn.Subtract(SparseMatrix, CompressedColumn)"/>.
+        /// </summary>
+        [TestMethod("Static Subtract(SparseMatrix,CompressedColumn)")]
+        public void Static_Subtract_SparseMatrix_CompressedColumn()
+        {
+            // Arrange
+            SparseMatrix crsLeft = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
+            SparseMatrix ccsLeft = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
+            CompressedColumn right = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { -3.0, -1.0, 1.0, 0.0, 2.0, 4.0 });
+
+            //Act
+            CompressedColumn otherCrsMatrix = CompressedColumn.Subtract(crsLeft, right);
+            CompressedColumn otherCcsMatrix = CompressedColumn.Subtract(ccsLeft, right);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCrsMatrix.RowCount);
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+
+            Assert.AreEqual(matrix.ColumnCount, otherCrsMatrix.ColumnCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCrsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+
+        }
+
+
+        /// <summary>
+        /// Tests the static method <see cref="CompressedColumn.Multiply(CompressedColumn, SparseMatrix)"/>.
+        /// </summary>
+        [TestMethod("Static Multiply(CompressedColumn,SparseMatrix)")]
+        public void Static_Multiply_CompressedColumn_SparseMatrix()
+        {
+            // Arrange
+            CompressedColumn left = new CompressedColumn(4, 2, new int[3] { 0, 4, 8 },
+                new List<int> { 0, 1, 2, 3, 0, 1, 2, 3 }, new List<double> { 1.0, 3.0, 6.0, 9.0, 2.0, 5.0, 7.0, 8.0 });
+            SparseMatrix crsRight = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+            SparseMatrix ccsRight = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(4, 3, new double[] { 14.0, 11.0, 8.0, 37.0, 29.0, 21.0, 59.0, 46.0, 33.0, 76.0, 59.0, 42.0 });
+
+            //Act
+            CompressedColumn otherCrsMatrix = CompressedColumn.Multiply(left, crsRight);
+            CompressedColumn otherCcsMatrix = CompressedColumn.Multiply(left, ccsRight);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCrsMatrix.RowCount);
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+
+            Assert.AreEqual(matrix.ColumnCount, otherCrsMatrix.ColumnCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCrsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests the static method <see cref="CompressedColumn.Multiply(SparseMatrix, CompressedColumn)"/>.
+        /// </summary>
+        [TestMethod("Static Multiply(SparseMatrix,CompressedColumn)")]
+        public void Static_Multiply_SparseMatrix_CompressedColumn()
+        {
+            // Arrange
+            SparseMatrix crsLeft = new CompressedRow(4, 2, new int[5] { 0, 2, 4, 6, 8 },
+                new List<int> { 0, 1, 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0, 9.0, 8.0 });
+            SparseMatrix ccsLeft = new CompressedColumn(4, 2, new int[3] { 0, 4, 8 },
+                new List<int> { 0, 1, 2, 3, 0, 1, 2, 3 }, new List<double> { 1.0, 3.0, 6.0, 9.0, 2.0, 5.0, 7.0, 8.0 });
+            CompressedColumn right = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(4, 3, new double[] { 14.0, 11.0, 8.0, 37.0, 29.0, 21.0, 59.0, 46.0, 33.0, 76.0, 59.0, 42.0 });
+
+            //Act
+            CompressedColumn otherCrsMatrix = CompressedColumn.Multiply(crsLeft, right);
+            CompressedColumn otherCcsMatrix = CompressedColumn.Multiply(ccsLeft, right);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCrsMatrix.RowCount);
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+
+            Assert.AreEqual(matrix.ColumnCount, otherCrsMatrix.ColumnCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCrsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+        }
+
+
+        /******************** CompressedColumn Embedding ********************/
+
+        /// <summary>
+        /// Tests the static method <see cref="CompressedColumn.Add(CompressedColumn, CompressedRow)"/>.
+        /// </summary>
+        [TestMethod("Static Add(CompressedColumn,CompressedRow)")]
+        public void Static_Add_CompressedColumn_CompressedRow()
+        {
+            // Arrange
+            CompressedColumn left = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
+            CompressedRow crsRight = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { 5.0, 5.0, 5.0, 10.0, 10.0, 10.0 });
+
+            //Act
+            CompressedColumn otherCcsMatrix = CompressedColumn.Add(left, crsRight);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+
+        }
+
+        /// <summary>
+        /// Tests the static method <see cref="CompressedColumn.Add(CompressedRow, CompressedColumn)"/>.
+        /// </summary>
+        [TestMethod("Static Add(CompressedRow,CompressedColumn)")]
+        public void Static_Add_CompressedRow_CompressedColumn()
+        {
+            // Arrange
+            CompressedRow crsLeft = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
+            CompressedColumn right = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { 5.0, 5.0, 5.0, 10.0, 10.0, 10.0 });
+
+            //Act
+            CompressedColumn otherCcsMatrix = CompressedColumn.Add(crsLeft, right);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// Tests the static method <see cref="CompressedColumn.Subtract(CompressedColumn, CompressedRow)"/>.
+        /// </summary>
+        [TestMethod("Static Subtract(CompressedColumn,CompressedRow)")]
+        public void Static_Subtract_CompressedColumn_CompressedRow()
+        {
+            // Arrange
+            CompressedColumn left = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
+            CompressedRow crsRight = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { -3.0, -1.0, 1.0, 0.0, 2.0, 4.0 });
+
+            //Act
+            CompressedColumn otherCcsMatrix = CompressedColumn.Subtract(left, crsRight);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+
+        }
+
+        /// <summary>
+        /// Tests the static method <see cref="CompressedColumn.Subtract(CompressedRow, CompressedColumn)"/>.
+        /// </summary>
+        [TestMethod("Static Subtract(CompressedRow,CompressedColumn)")]
+        public void Static_Subtract_CompressedRow_CompressedColumn()
+        {
+            // Arrange
+            CompressedRow crsLeft = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
+            CompressedColumn right = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { -3.0, -1.0, 1.0, 0.0, 2.0, 4.0 });
+
+            //Act
+            CompressedColumn otherCcsMatrix = CompressedColumn.Subtract(crsLeft, right);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+        }
+
+
+
+        /// <summary>
+        /// Tests the static method <see cref="CompressedColumn.Multiply(CompressedColumn, CompressedRow)"/>.
+        /// </summary>
+        [TestMethod("Static Multiply(CompressedColumn,CompressedRow)")]
+        public void Static_Multiply_CompressedColumn_CompressedRow()
+        {
+            // Arrange
+            CompressedColumn left = new CompressedColumn(4, 2, new int[3] { 0, 4, 8 },
+                new List<int> { 0, 1, 2, 3, 0, 1, 2, 3 }, new List<double> { 1.0, 3.0, 6.0, 9.0, 2.0, 5.0, 7.0, 8.0 });
+            CompressedRow crsRight = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
+
+
+            DenseMatrix matrix = new DenseMatrix(4, 3, new double[] { 14.0, 11.0, 8.0, 37.0, 29.0, 21.0, 59.0, 46.0, 33.0, 76.0, 59.0, 42.0 });
+
+            //Act
+            CompressedColumn otherCcsMatrix = CompressedColumn.Multiply(left, crsRight);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Tests the static method <see cref="CompressedColumn.Multiply(CompressedRow, CompressedColumn)"/>.
+        /// </summary>
+        [TestMethod("Static Multiply(CompressedRow,CompressedColumn)")]
+        public void Static_Multiply_CompressedRow_CompressedColumn()
+        {
+            // Arrange
+            CompressedRow crsLeft = new CompressedRow(4, 2, new int[5] { 0, 2, 4, 6, 8 },
+                new List<int> { 0, 1, 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0, 9.0, 8.0 });
+            CompressedColumn right = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
+                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+
+            DenseMatrix matrix = new DenseMatrix(4, 3, new double[] { 14.0, 11.0, 8.0, 37.0, 29.0, 21.0, 59.0, 46.0, 33.0, 76.0, 59.0, 42.0 });
+
+            //Act
+            CompressedColumn otherCcsMatrix = CompressedColumn.Multiply(crsLeft, right);
+
+            // Assert
+            Assert.AreEqual(matrix.RowCount, otherCcsMatrix.RowCount);
+            Assert.AreEqual(matrix.ColumnCount, otherCcsMatrix.ColumnCount);
+
+            for (int i_R = 0; i_R < matrix.RowCount; i_R++)
+            {
+                for (int i_C = 0; i_C < matrix.ColumnCount; i_C++)
+                {
+                    Assert.IsTrue(Math.Abs(matrix[i_R, i_C] - otherCcsMatrix[i_R, i_C]) < Settings.AbsolutePrecision);
+                }
+            }
+        }
+
 
         /******************** Group Action ********************/
 
         /// <summary>
         /// Tests the static method <see cref="CompressedColumn.Multiply(double, CompressedColumn)"/>.
         /// </summary>
-        [TestMethod("Static Add(double,CompressedColumn)")]
+        [TestMethod("Static Multiply(double,CompressedColumn)")]
         public void Static_Multiply_Double_CompressedColumn()
         {
             // Arrange
             double factor = -2.5;
             CompressedColumn operand = new CompressedColumn(3, 2, new int[3] { 0, 3, 6 },
-                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, -5.0, 3.0, -4.0, 2.0, 1.0 });
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 2.0, -4.0, 3.0, -5.0, 1.0 });
 
             CompressedColumn matrix = new CompressedColumn(3, 2, new int[3] { 0, 3, 6 },
-                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { -10.0, 12.5, -7.5, 10.0, -5.0, -2.5 });
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { -10.0, -5.0, 10.0, -7.5, 12.5, -2.5 });
 
             //Act
             CompressedColumn otherMatrix = CompressedColumn.Multiply(factor, operand);
@@ -321,16 +739,16 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices.Sparse
         /// <summary>
         /// Tests the static method <see cref="CompressedColumn.Multiply(CompressedColumn, double)"/>.
         /// </summary>
-        [TestMethod("Static Add(CompressedColumn,double)")]
+        [TestMethod("Static Multiply(CompressedColumn,double)")]
         public void Static_Multiply_CompressedColumn_Double()
         {
             // Arrange
             CompressedColumn operand = new CompressedColumn(3, 2, new int[3] { 0, 3, 6 },
-                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, -5.0, 3.0, -4.0, 2.0, 1.0 });
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 2.0, -4.0, 3.0, -5.0, 1.0 });
             double factor = -2.5;
 
             CompressedColumn matrix = new CompressedColumn(3, 2, new int[3] { 0, 3, 6 },
-                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { -10.0, 12.5, -7.5, 10.0, -5.0, -2.5 });
+                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { -10.0, -5.0, 10.0, -7.5, 12.5, -2.5 });
 
             //Act
             CompressedColumn otherMatrix = CompressedColumn.Multiply(operand, factor);

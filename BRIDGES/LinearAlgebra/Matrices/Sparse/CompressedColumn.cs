@@ -865,7 +865,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// Returns the non-zero values of the current <see cref="CompressedColumn"/> sparse matrix.
         /// </summary>
         /// <returns> The non-zero values of the current <see cref="CompressedColumn"/> sparse matrix. </returns>
-        public double[] GetValues()
+        public double[] Values()
         {
             return _values.ToArray();
         }
@@ -885,7 +885,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// Returns the row indices of the current <see cref="CompressedColumn"/> sparse matrix.
         /// </summary>
         /// <returns> The row indices of the current <see cref="CompressedColumn"/> sparse matrix. </returns>
-        public int[] GetRowIndices()
+        public int[] RowIndices()
         {
             return _rowIndices.ToArray();
         }
@@ -905,7 +905,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// Returns the column pointers of the current <see cref="CompressedColumn"/> sparse matrix.
         /// </summary>
         /// <returns> The column pointers of the current <see cref="CompressedColumn"/> sparse matrix. </returns>
-        public int[] GetColumnPointers()
+        public int[] ColumnPointers()
         {
             return _columnPointers.Clone() as int[];
         }
