@@ -450,7 +450,6 @@ namespace BRIDGES.LinearAlgebra.Vectors
             return result;
         }
 
-
         /// <summary>
         /// Computes the multiplication between the transposed left <see cref="DenseVector"/> and the right <see cref="SparseVector"/>.
         /// </summary>
@@ -507,6 +506,46 @@ namespace BRIDGES.LinearAlgebra.Vectors
             return result;
         }
 
+
+        /******************** On DenseVector Sets ********************/
+
+        /// <summary>
+        /// Ortho-normalise the set of <see cref="DenseVector"/> using a Gram-Schimdt process. 
+        /// </summary>
+        /// <remarks> If the vectors are not linearly independent the number of vectors will change. </remarks>
+        /// <param name="vectors"> Set of <see cref="DenseVector"/> to operate on. </param>
+        /// <returns> The ortho-normal set of <see cref="DenseVector"/>. </returns>
+        public static DenseVector[] GramSchmidt(IEnumerable<DenseVector> vectors)
+        {
+            List<DenseVector> results = new List<DenseVector>();
+
+            foreach(DenseVector denseVector in vectors)
+            {
+                DenseVector vector = new DenseVector(denseVector);
+
+                for (int i_R = 0; i_R < results.Count; i_R++)
+                {
+                    DenseVector result = new DenseVector(results[i_R]);
+
+                    double numerator = DenseVector.TransposeMultiply(vector, result);
+                    double denominator = result.SquaredLength();
+
+                    result = DenseVector.Multiply(numerator / denominator, result);
+
+                    vector = DenseVector.Subtract(vector, result);
+                }
+
+                double length = vector.Length();
+                if (length > Settings.AbsolutePrecision)
+                {
+                    vector = DenseVector.Divide(vector, length);
+                    results.Add(vector);
+                }
+            }
+
+            return results.ToArray();
+        }
+
         #endregion
 
         #region Public Methods
@@ -529,6 +568,8 @@ namespace BRIDGES.LinearAlgebra.Vectors
 
 
         #region Override : Vector
+
+        /******************** Public Methods ********************/
 
         /// <inheritdoc/>
         public override void Unitise()
@@ -577,6 +618,15 @@ namespace BRIDGES.LinearAlgebra.Vectors
             return other is DenseVector denseVector ? this.Equals(denseVector) : false;
         }
 
+
+        /// <inheritdoc/>
+        public override double[] ToArray()
+        {
+            return _components.Clone() as double[];
+        }
+
+
+        /******************** Other Methods ********************/
 
         /// <inheritdoc/>
         protected override void Opposite()

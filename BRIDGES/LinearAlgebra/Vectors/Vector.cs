@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using Alg_Fund = BRIDGES.Algebra.Fundamentals;
 using Alg_Meas = BRIDGES.Algebra.Measure;
@@ -176,6 +177,22 @@ namespace BRIDGES.LinearAlgebra.Vectors
             else { throw new NotImplementedException($"This operation between a {left.GetType()} and a {right.GetType()} as {nameof(Vector)} is not implemented."); }
         }
 
+
+        /******************** On Vector Sets ********************/
+
+        /// <summary>
+        /// Ortho-normalise the set of <see cref="Vector"/> using a Gram-Schimdt process. 
+        /// </summary>
+        /// <remarks> If the vectors are not linearly independent the number of vectors will change. </remarks>
+        /// <param name="vectors"> Set of <see cref="Vector"/> to operate on. </param>
+        /// <returns> The ortho-normal set of <see cref="Vector"/>. </returns>
+        public static Vector[] GramSchmidt(IEnumerable<Vector> vectors)
+        {
+            if (vectors is IEnumerable<DenseVector> denseVectors) { return DenseVector.GramSchmidt(denseVectors); }
+            else if (vectors is IEnumerable<SparseVector> sparseVectors) { return SparseVector.GramSchmidt(sparseVectors); }
+            else { throw new NotImplementedException($"The Gram-Schmidt process on a set of {vectors.GetType()} as {nameof(Vector)} is not implemented."); }
+        }
+
         #endregion
 
         #region Public Methods
@@ -198,6 +215,13 @@ namespace BRIDGES.LinearAlgebra.Vectors
 
         /// <inheritdoc cref="IEquatable{T}.Equals(T)"/>
         public abstract bool Equals(Vector other);
+
+
+        /// <summary>
+        /// Translates the current vector into its array representation.
+        /// </summary>
+        /// <returns> The <see cref="double"/>-precision array representing the vector. </returns>
+        public abstract double[] ToArray();
 
         #endregion
 

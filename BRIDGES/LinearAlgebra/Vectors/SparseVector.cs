@@ -343,6 +343,46 @@ namespace BRIDGES.LinearAlgebra.Vectors
             return result;
         }
 
+
+        /******************** On SparseVector Sets ********************/
+
+        /// <summary>
+        /// Ortho-normalise the set of <see cref="SparseVector"/> using a Gram-Schimdt process. 
+        /// </summary>
+        /// <remarks> If the vectors are not linearly independent the number of vectors will change. </remarks>
+        /// <param name="vectors"> Set of <see cref="SparseVector"/> to operate on. </param>
+        /// <returns> The ortho-normal set of <see cref="SparseVector"/>. </returns>
+        public static SparseVector[] GramSchmidt(IEnumerable<SparseVector> vectors)
+        {
+            List<SparseVector> results = new List<SparseVector>();
+
+            foreach (SparseVector sparseVector in vectors)
+            {
+                SparseVector vector = new SparseVector(sparseVector);
+
+                for (int i_R = 0; i_R < results.Count; i_R++)
+                {
+                    SparseVector result = new SparseVector(results[i_R]);
+
+                    double numerator = SparseVector.TransposeMultiply(vector, result);
+                    double denominator = result.SquaredLength();
+
+                    result = SparseVector.Multiply(numerator / denominator, result);
+
+                    vector = SparseVector.Subtract(vector, result);
+                }
+
+                double length = vector.Length();
+                if (length > Settings.AbsolutePrecision)
+                {
+                    vector = SparseVector.Divide(vector, length);
+                    results.Add(vector);
+                }
+            }
+
+            return results.ToArray();
+        }
+
         #endregion
 
         #region Public Methods
@@ -390,6 +430,8 @@ namespace BRIDGES.LinearAlgebra.Vectors
 
         #region Override : Vector
 
+        /******************** Public Methods ********************/
+
         /// <inheritdoc/>
         public override void Unitise()
         {
@@ -434,6 +476,19 @@ namespace BRIDGES.LinearAlgebra.Vectors
             return other is SparseVector sparseVector ? this.Equals(sparseVector) : false;
         }
 
+
+        /// <inheritdoc/>
+        public override double[] ToArray()
+        {
+            double[] components = new double[_size];
+
+            foreach(KeyValuePair<int,double> kvp in _components) { components[kvp.Key] = kvp.Value; }
+
+            return components;
+        }
+
+
+        /******************** Other Methods ********************/
 
         /// <inheritdoc/>
         protected override void Opposite()

@@ -144,7 +144,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <param name="values"> Non-zero values of the <see cref="CompressedColumn"/>. </param>
         /// <param name="rowIndices"> Row indices of the <see cref="CompressedColumn"/>.</param>
         /// <param name="columnPointers"> Column pointers of the <see cref="CompressedColumn"/>. </param>
-        internal CompressedColumn(int rowCount, int columnCount, int[] columnPointers, List<int> rowIndices, List<double> values)
+        public CompressedColumn(int rowCount, int columnCount, int[] columnPointers, List<int> rowIndices, List<double> values)
         {
             _rowCount = rowCount;
             _columnCount = columnCount;
@@ -862,15 +862,6 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         #region Public Methods
 
         /// <summary>
-        /// Returns the non-zero values of the current <see cref="CompressedColumn"/> sparse matrix.
-        /// </summary>
-        /// <returns> The non-zero values of the current <see cref="CompressedColumn"/> sparse matrix. </returns>
-        public double[] Values()
-        {
-            return _values.ToArray();
-        }
-
-        /// <summary>
         /// Returns the non-zero value of the current <see cref="CompressedColumn"/> sparse matrix at a given index.
         /// </summary>
         /// <param name="index"> Index of the non-zero value to get.</param>
@@ -880,15 +871,15 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
             return _values[index];
         }
 
-
         /// <summary>
-        /// Returns the row indices of the current <see cref="CompressedColumn"/> sparse matrix.
+        /// Returns the non-zero values of the current <see cref="CompressedColumn"/> sparse matrix.
         /// </summary>
-        /// <returns> The row indices of the current <see cref="CompressedColumn"/> sparse matrix. </returns>
-        public int[] RowIndices()
+        /// <returns> The non-zero values of the current <see cref="CompressedColumn"/> sparse matrix. </returns>
+        public double[] Values()
         {
-            return _rowIndices.ToArray();
+            return _values.ToArray();
         }
+
 
         /// <summary>
         /// Returns the row index of the current <see cref="CompressedColumn"/> sparse matrix at a given index.
@@ -900,15 +891,15 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
             return _rowIndices[index];
         }
 
-
         /// <summary>
-        /// Returns the column pointers of the current <see cref="CompressedColumn"/> sparse matrix.
+        /// Returns the row indices of the current <see cref="CompressedColumn"/> sparse matrix.
         /// </summary>
-        /// <returns> The column pointers of the current <see cref="CompressedColumn"/> sparse matrix. </returns>
-        public int[] ColumnPointers()
+        /// <returns> The row indices of the current <see cref="CompressedColumn"/> sparse matrix. </returns>
+        public int[] RowIndices()
         {
-            return _columnPointers.Clone() as int[];
+            return _rowIndices.ToArray();
         }
+
 
         /// <summary>
         /// Returns the column pointers of the current <see cref="CompressedColumn"/> sparse matrix.
@@ -918,6 +909,15 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         public int GetColumnPointers(int index)
         {
             return _columnPointers[index];
+        }
+
+        /// <summary>
+        /// Returns the column pointers of the current <see cref="CompressedColumn"/> sparse matrix.
+        /// </summary>
+        /// <returns> The column pointers of the current <see cref="CompressedColumn"/> sparse matrix. </returns>
+        public int[] ColumnPointers()
+        {
+            return _columnPointers.Clone() as int[];
         }
 
 
@@ -936,7 +936,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
             int[] columnPointers = new int[RowCount + 1];
 
             columnPointers[0] = 0;
-            for (int i_C = 0; i_C < columnPointers.Length; i_C++)
+            for (int i_C = 0; i_C < RowCount; i_C++)
             {
                 columnPointers[i_C + 1] = columnPointers[i_C] + rowHelper[i_C];
                 rowHelper[i_C] = 0;
@@ -948,17 +948,17 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
             double[] values = new double[NonZeroCount];
 
             int i_ColumnNZ = _columnPointers[0];
-            for (int i_C = 0; i_C < ColumnCount; i_C++)
+            for (int i_R = 0; i_R < ColumnCount; i_R++)
             {
-                for (; i_ColumnNZ < _columnPointers[i_C + 1]; i_ColumnNZ++)
+                for (; i_ColumnNZ < _columnPointers[i_R + 1]; i_ColumnNZ++)
                 {
 
-                    int i_R = _rowIndices[i_ColumnNZ];
-                    int i_Pointer = columnPointers[i_R] + rowHelper[i_R];
+                    int i_C = _rowIndices[i_ColumnNZ];
+                    int i_Pointer = columnPointers[i_C] + rowHelper[i_C];
 
+                    rowIndices[i_Pointer] = i_R;
                     values[i_Pointer] = _values[i_ColumnNZ];
-                    rowIndices[i_Pointer] = i_C;
-                    rowHelper[i_R]++;
+                    rowHelper[i_C]++;
                 }
             }
 
@@ -966,9 +966,11 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
             _columnPointers = columnPointers;
             _rowIndices = new List<int>(rowIndices);
             _values = new List<double>(values);
+
+            (_rowCount, _columnCount) = (_columnCount, _rowCount);
         }
 
-
+        
         /// <summary>
         /// Converts a the current <see cref="CompressedColumn"/> matrix into an equivalent <see cref="CompressedRow"/> matrix.
         /// </summary>
@@ -1019,9 +1021,325 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
             return new CompressedRow(RowCount, ColumnCount, rowPointers, list_ColumnsIndices, list_Values);
         }
 
-
         #endregion
 
+
+        /// <summary>
+        /// Computes the kernel (or null-space) of the current <see cref="SparseMatrix"/> using the QR decomposition.
+        /// </summary>
+        /// <remarks> The method is adapted for rectangular matrix. </remarks>
+        /// <returns> The vectors forming a basis of the null-space. </returns>
+        public DenseVector[] Kernel()
+        {
+            // Verification
+            if (NonZeroCount == 0) { throw new Exception("The kernel of a zero matrix cannot be computed."); }
+
+            CompressedColumn squareCcs = CompleteToSquare();
+
+            DenseVector[] kernel = ComputeKernel(ref squareCcs);
+
+            if (RowCount != ColumnCount) { kernel = FilterKernelVectors(kernel); }
+
+            return kernel;
+        }
+
+        #region Other Methods
+
+        /// <summary>
+        /// Completes the current <see cref="CompressedColumn"/> to be as square matrix by duplicating the non-zero column with the least component.
+        /// </summary>
+        /// <returns> The new suqare <see cref="CompressedColumn"/>. </returns>
+        private CompressedColumn CompleteToSquare()
+        {
+            // If the matrix is rectangular with more columns
+            if (_rowCount < _columnCount)
+            {
+                // Complete the current matrix to be a square matrix.
+                // In order to keep the null space unchanged, the non-zero row with the least component is duplicated.
+                CompressedRow crs = ToCompressedRow();
+
+                int i_SparseRow = 0;
+                int sparseRowCount = NonZeroCount;
+
+                int[] rowPointers = new int[_columnCount + 1];
+                rowPointers[0] = 0;
+                for (int i_R = 0; i_R < _rowCount; i_R++)
+                {
+                    rowPointers[i_R + 1] = crs.GetRowPointer(i_R + 1);
+
+                    int count = rowPointers[i_R + 1] - rowPointers[i_R];
+                    if (count != 0 & count < sparseRowCount) { sparseRowCount = count; i_SparseRow = i_R; }
+                }
+                for (int i_R = _rowCount; i_R < _columnCount; i_R++)
+                {
+                    rowPointers[i_R + 1] = rowPointers[i_R] + sparseRowCount;
+                }
+
+                List<int> columnIndices = new List<int>(NonZeroCount + (sparseRowCount * (_columnCount - _rowCount)));
+                List<double> values = new List<double>(NonZeroCount + (sparseRowCount * (_columnCount - _rowCount)));
+                for (int i_R = 0; i_R < _rowCount; i_R++)
+                {
+                    for (int i_NZ = rowPointers[i_R]; i_NZ < rowPointers[i_R + 1]; i_NZ++)
+                    {
+                        columnIndices.Add(crs.GetColumnIndex(i_NZ));
+                        values.Add(crs.GetValues(i_NZ));
+                    }
+                }
+                for (int i_R = 0; i_R < _columnCount - _rowCount; i_R++)
+                {
+                    for (int i_NZ = rowPointers[i_SparseRow]; i_NZ < rowPointers[i_SparseRow + 1]; i_NZ++)
+                    {
+                        columnIndices.Add(crs.GetColumnIndex(i_NZ));
+                        values.Add(crs.GetValues(i_NZ));
+                    }
+                }
+
+                CompressedRow result = new CompressedRow(_columnCount, _columnCount, rowPointers, columnIndices, values);
+                return result.ToCompressedColumn();
+            }
+            // If the matrix is rectangular with more rows
+            else if (_columnCount < _rowCount)
+            {
+                // Complete the current matrix to be a square matrix.
+                // In order to keep the null space unchanged, the non-zero column with the least component is duplicated.
+                int i_SparseColumn = 0;
+                int sparseColumnCount = NonZeroCount;
+
+                int[] columnPointers = new int[_rowCount + 1];
+                columnPointers[0] = 0;
+                for (int i_C = 0; i_C < _columnCount; i_C++)
+                {
+                    columnPointers[i_C + 1] = _columnPointers[i_C + 1];
+
+                    int count = columnPointers[i_C + 1] - columnPointers[i_C];
+                    if (count != 0 & count < sparseColumnCount) { sparseColumnCount = count; i_SparseColumn = i_C; }
+                }
+                for (int i_C = _columnCount; i_C < _rowCount; i_C++)
+                {
+                    columnPointers[i_C + 1] = columnPointers[i_C] + sparseColumnCount;
+                }
+
+                List<int> rowIndices = new List<int>(NonZeroCount + (sparseColumnCount * (_rowCount - _columnCount)));
+                List<double> values = new List<double>(NonZeroCount + (sparseColumnCount * (_rowCount - _columnCount)));
+                for (int i_C = 0; i_C < _columnCount; i_C++)
+                {
+                    for (int i_NZ = columnPointers[i_C]; i_NZ < columnPointers[i_C + 1]; i_NZ++)
+                    {
+                        rowIndices.Add(_rowIndices[i_NZ]);
+                        values.Add(_values[i_NZ]);
+                    }
+                }
+                for (int i_C = 0; i_C < _rowCount - _columnCount; i_C++)
+                {
+                    for (int i_NZ = columnPointers[i_SparseColumn]; i_NZ < columnPointers[i_SparseColumn + 1]; i_NZ++)
+                    {
+                        rowIndices.Add(_rowIndices[i_NZ]);
+                        values.Add(_values[i_NZ]);
+                    }
+                }
+
+                return new CompressedColumn(_rowCount, _rowCount, columnPointers, rowIndices, values);
+            }
+            // If the matrix is a square matrix
+            else
+            {
+                int[] columnPointers = new int[_columnPointers.Length];
+                for (int i = 0; i < _columnPointers.Length; i++)
+                {
+                    columnPointers[i] = _columnPointers[i];
+                }
+                List<int> rowIndices = new List<int>(_rowIndices.Count);
+                for (int i = 0; i < _rowIndices.Count; i++)
+                {
+                    rowIndices.Add(_rowIndices[i]);
+                }
+                List<double> values = new List<double>(_values.Count);
+                for (int i = 0; i < _values.Count; i++)
+                {
+                    values.Add(_values[i]);
+                }
+
+                return new CompressedColumn(_rowCount, _columnCount, columnPointers, rowIndices, values);
+            }
+        }
+
+        /// <summary>
+        /// Compute the kernel of a square matrix.
+        /// </summary>
+        /// <param name="ccs"> The square matrix to operate on.  </param>
+        /// <returns> The vectors forming a basis of the null-space. If the kernel is reduced to { 0 }, an empty array is returned. </returns>
+        private DenseVector[] ComputeKernel(ref CompressedColumn ccs)
+        {
+            double tolerance = 1e-8;
+
+            ccs.Transpose();
+
+            #region QR Factorization
+
+            Factorisation.SparseQR qr = new Factorisation.SparseQR(ccs);
+
+            CSparse.Double.SparseMatrix R = qr.GetR();
+            CSparse.Double.SparseMatrix Q = qr.ComputeQ();
+
+            int[] pInv = qr.GetInverseRowPermutation();
+
+            #endregion
+
+            // Dimension of the null-space of the matrix.
+            int dimension = 0;
+            for (int i_C = 0; i_C < R.ColumnCount; i_C++)
+            {
+                if(Math.Abs(R.At(i_C,i_C)) < tolerance) { dimension += 1; }
+            }
+
+            // (Inverse) Row Permutation
+            int[] rowPermutation = new int[pInv.Length];
+            for (int i = 0; i < pInv.Length; i++)
+            {
+                rowPermutation[pInv[i]] = i;
+            }
+
+            /***** Add non-zero vectors whose diagonal comonent is zero *****/
+
+            DenseVector[] result = new DenseVector[dimension];
+            if (dimension == 0) { return result; }
+
+            // Check every single null vector in the left-hand
+            int counter = 0;
+            for (int i_C = 0; i_C < R.ColumnCount; i_C++)
+            {
+                // If the diagonal component is not null.
+                if (Math.Abs(R.At(i_C, i_C)) > tolerance) { continue; }
+
+                double[] column = Q.Column(i_C);
+                double[] temp = new double[column.Length];
+                bool isZero = true;
+
+                // We perform the row permutation
+                for (int j = 0; j < column.Length; j++)
+                {
+                    temp[rowPermutation[j]] = column[j];
+                }
+
+                // We resize the array to fit the number of columns
+                Array.Resize(ref temp, ccs.ColumnCount); 
+
+                for (int j = 0; j < ccs.ColumnCount; j++)
+                {
+                    isZero &= (temp[j] == 0);
+                }
+                if (!isZero)
+                {
+                    // We add the new vector if it's not zero
+                    // The null vector can be applied to the fictitious rows...
+                    result[counter] = new DenseVector(temp);
+                    counter += 1;
+                }
+            }
+
+            /***** Add non-zero vectors which ar not on the diagonal *****/
+
+            for (int i_C = R.ColumnCount; i_C < Q.ColumnCount; i_C++)
+            {
+                var column = Q.Column(i_C);
+                var temp = new double[column.Length];
+                bool isZero = true;
+
+                //We perform the permutation
+                for (int j = 0; j < column.Length; j++)
+                {
+                    temp[rowPermutation[j]] = column[j];
+                }
+
+                System.Array.Resize(ref temp, ccs.ColumnCount);
+
+                for (int j = 0; j < ccs.ColumnCount; j++)
+                {
+                    isZero &= (temp[j] == 0);
+                }
+
+                if (!isZero)
+                {
+                    //We add the new vector if it's not zero
+                    //The null vector can be applied to the fictitious rows...
+                    result[counter] = new DenseVector(temp);
+                    counter += 1;
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Filters the kernel vectors to fit the initial rectangular matrix (and not the completed square matrix).
+        /// </summary>
+        /// <param name="kernel"> Kernel vectors of the completed square matrix. </param>
+        /// <returns> The kernel vectors of the current matrix. </returns>
+        private DenseVector[] FilterKernelVectors(DenseVector[] kernel)
+        {
+            // If the matrix is rectangular with more columns
+            if (_rowCount < _columnCount)
+            {
+                // In this case, the initial rectangular matrix was completed with linearly-dependent row.
+                // Fortunately, the kernel of the initial matrix and the completed matrix are the same.
+                return kernel;
+            }
+            // If the matrix is rectangular with more rows
+            else if (_columnCount < _rowCount)
+            {
+                // In this case, the initial rectangular matrix was completed with linearly-dependent columns.
+                // Fortunately, we know that the vectors of the actual null-space should be orthogonal to
+
+                // This array contains the vectors to which our null space should be orthogonal
+                DenseVector[] orthogonalVectors = new DenseVector[_rowCount - _columnCount]; 
+                for (int i = 0; i < (_rowCount - _columnCount); i++)
+                {
+                    orthogonalVectors[i] = new DenseVector(_rowCount);
+                    orthogonalVectors[i][_columnCount + i] = 1;
+                }
+
+                Storage.DictionaryOfKeys dok = new Storage.DictionaryOfKeys();
+                for (int i_R = 0; i_R < (_rowCount - _columnCount); i_R++)
+                {
+                    for (int i_C = 0; i_C < kernel.Length; i_C++)
+                    {
+                        double val = DenseVector.TransposeMultiply(kernel[i_C], orthogonalVectors[i_R]);
+                        if (val != 0.0) { dok.Add(val, i_R, i_C); }
+                    }
+                }
+
+                CompressedColumn ccs = new CompressedColumn((_rowCount - _columnCount), kernel.Length, dok);
+
+                DenseVector[] intermediateresult = ccs.Kernel();
+
+                // Create the solution
+                DenseVector[] finalResults = new DenseVector[intermediateresult.Length];
+
+                int counter = 0;
+                foreach (DenseVector combination in intermediateresult)
+                {
+                    DenseVector finalResult = new DenseVector(_rowCount);
+                    for (int i = 0; i < kernel.Length; i++)
+                    {
+                        DenseVector vec = DenseVector.Multiply(combination[i], kernel[i]);
+                        finalResult = DenseVector.Add(finalResult,vec);
+                    }
+                    //This part can be improved
+                    var array = finalResult.ToArray();
+
+                    Array.Resize(ref array, _columnCount);
+
+                    finalResults[counter] = (new DenseVector(array));
+                    counter += 1;
+                }
+
+                //En fait finalResults contient les vecteurs orthogonaux à notre solution? on peut tenter un gram-schmidt
+                return finalResults;
+            }
+            else { throw new InvalidOperationException("The filtering of the kernel vectors is not necessary for square matrices."); }
+        }
+
+        #endregion
 
         #region Override : Matrix
 
