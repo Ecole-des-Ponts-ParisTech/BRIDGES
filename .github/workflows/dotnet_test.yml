@@ -1,0 +1,33 @@
+# This workflow runs the test project.
+name: .Net Test
+
+# Controls the event triggering the workflow
+on:
+  # Triggers the workflow whenever changes are pushed on one of the specified branch.
+  push:
+    branches:
+      - master
+      - develop
+      - 'feature/**'
+  # Gives the possibility to trigger the workflow from another workflow.
+  workflow_call:
+
+jobs:
+  build-and-test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check-out Branch
+      uses: actions/checkout@v3
+
+    - name: Setup .Net
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
+
+    - name : Build Solution
+      run: dotnet build --configuration Release
+
+    - name : Test Project
+      run: dotnet test --verbosity normal
