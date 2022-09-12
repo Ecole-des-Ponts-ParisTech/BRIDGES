@@ -5,25 +5,25 @@ using System.Text;
 namespace BRIDGES.Algebra.Measure
 {
     /// <summary>
-    /// Interface defining the dot product of two <typeparamref name="T"/>.
+    /// Interface defining a method computing the dot product of two elements.
     /// </summary>
     /// <typeparam name="TValue"> Type of the elements in the field. </typeparam>
-    /// <typeparam name="T"> Type of the elements in the set. </typeparam>
+    /// <typeparam name="T"> Type of the elements in the pre-hilbertian set. </typeparam>
     public interface IDotProduct<TValue, T> : INorm<T>
     {
         #region Methods
 
         /// <summary>
-        /// Computes the dot product of the current <typeparamref name="T"/> with another <typeparamref name="T"/>.
+        /// Computes the dot product of the current element with another element.
         /// </summary>
-        /// <param name="other"> Right <typeparamref name="T"/> of the dot product. </param>
-        /// <returns> The value of the dot product of the two <typeparamref name="T"/>. </returns>
-        TValue DotProduct(T other);
+        /// <param name="operand"> Right element of the dot product. </param>
+        /// <returns> The value of the dot product of the two elements. </returns>
+        TValue DotProduct(T operand);
 
         /// <summary>
-        /// Computes the angle between the current <typeparamref name="T"/> and another <typeparamref name="T"/>.
+        /// Computes the angle between the current element and another element.
         /// </summary>
-        /// <param name="other"> <typeparamref name="T"/> to compare with. </param>
+        /// <param name="other"> Element to compare with. </param>
         /// <returns> The value of the angle (in radians). </returns>
         double AngleWith(T other);
 

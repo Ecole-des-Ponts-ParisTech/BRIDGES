@@ -446,28 +446,28 @@ namespace BRIDGES.Arithmetic.Numbers
         #endregion
 
         #region Casts
-        /*
-                /// <summary>
-                /// Casts a <see cref="Real"/> number into a <see cref="Complex"/> number.
-                /// </summary>
-                /// <param name="real"> <see cref="Real"/> number to cast. </param>
-                /// <returns> The new <see cref="Complex"/> number resulting from the cast. </returns>
-                public static implicit operator Complex(Real real) { return new Complex(real.Value, 0.0); }
 
-                /// <summary>
-                /// Casts a <see cref="double"/>-precision real number into a <see cref="Complex"/> number.
-                /// </summary>
-                /// <param name="number"> <see cref="double"/>-precision real number to cast. </param>
-                /// <returns> The new <see cref="Complex"/> number resulting from the cast. </returns>
-                public static implicit operator Complex(double number) { return new Complex(number, 0.0); }
+        /// <summary>
+        /// Casts a <see cref="Real"/> number into a <see cref="Complex"/> number.
+        /// </summary>
+        /// <param name="real"> <see cref="Real"/> number to cast. </param>
+        /// <returns> The new <see cref="Complex"/> number resulting from the cast. </returns>
+        public static explicit operator Complex(Real real) { return new Complex(real.Value, 0.0); }
 
-                /// <summary>
-                /// Casts a <see cref="ValueTuple{T1, T2}"/> into a <see cref="Complex"/> number.
-                /// </summary>
-                /// <param name="pair"> <see cref="ValueTuple{T1, T2}"/> to cast. </param>
-                /// <returns> The new <see cref="Complex"/> number resulting from the cast. </returns>
-                public static implicit operator Complex(ValueTuple<double, double> pair) { return new Complex(pair.Item1, pair.Item2); }
-        */
+        /// <summary>
+        /// Casts a <see cref="double"/>-precision real number into a <see cref="Complex"/> number.
+        /// </summary>
+        /// <param name="number"> <see cref="double"/>-precision real number to cast. </param>
+        /// <returns> The new <see cref="Complex"/> number resulting from the cast. </returns>
+        public static explicit operator Complex(double number) { return new Complex(number, 0.0); }
+
+        /// <summary>
+        /// Casts a <see cref="ValueTuple{T1, T2}"/> into a <see cref="Complex"/> number.
+        /// </summary>
+        /// <param name="pair"> <see cref="ValueTuple{T1, T2}"/> to cast. </param>
+        /// <returns> The new <see cref="Complex"/> number resulting from the cast. </returns>
+        public static explicit operator Complex(ValueTuple<double, double> pair) { return new Complex(pair.Item1, pair.Item2); }
+
         #endregion
 
         #region Methods

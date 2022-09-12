@@ -5,7 +5,7 @@ using System.Text;
 namespace BRIDGES.Algebra.Measure
 {
     /// <summary>
-    /// Interface defining the norm of a <typeparamref name="T"/>.
+    /// Interface defining a method to compute the norm of an element.
     /// </summary>
     /// <typeparam name="T"> Type of the elements in the normed set. </typeparam>
     public interface INorm<T> : IMetric<T>

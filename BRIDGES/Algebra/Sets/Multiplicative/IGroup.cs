@@ -4,9 +4,9 @@
 namespace BRIDGES.Algebra.Sets.Multiplicative
 {
     /// <summary>
-    /// Interface defining a multiplicative group.
+    /// Interface defining methods to manipulate elements in a multiplicative group.
     /// </summary>
-    /// <typeparam name="T"> Type of the elements in the multiplicative set. </typeparam>
+    /// <typeparam name="T"> Type of the elements in the multiplicative group. </typeparam>
     public interface IGroup<T> : IMonoid<T>, ILoop<T>
         where T : IGroup<T>
     {
@@ -25,7 +25,7 @@ namespace BRIDGES.Algebra.Sets.Multiplicative
         #region Methods
 
         /// <summary>
-        /// Gets the inverse element of the current element.
+        /// Replaces the current element with its inverse.
         /// </summary>
         /// <returns> <see langword="true"/> if the current element was inversed, <see langword="false"/> otherwise. </returns>
         bool Inverse();

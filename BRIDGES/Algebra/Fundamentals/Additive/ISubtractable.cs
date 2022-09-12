@@ -4,9 +4,9 @@
 namespace BRIDGES.Algebra.Fundamentals
 {
     /// <summary>
-    /// Interface defining the subtraction, i.e. the addition with an element's opposite value (or additive inverse).
+    /// Interface defining a method for the subtraction of two operands (i.e. the addition with an element's opposite value).
     /// </summary>
-    /// <typeparam name="T"> Type of the elements in the additive set. </typeparam>
+    /// <typeparam name="T"> Type of the elements of the additive set. </typeparam>
     /// <remarks>
     /// The existence of an opposite is assumed but not its unicity. The left and right opposite can differ from one another.
     /// </remarks>
@@ -16,7 +16,7 @@ namespace BRIDGES.Algebra.Fundamentals
         #region Methods
 
         /// <summary>
-        /// Subtracts the current element with another element.
+        /// Computes the subtraction of the current element with another element on the right.
         /// </summary>
         /// <param name="right"> Element to subtract with on the right. </param>
         /// <returns> The new element resulting from the subtraction. </returns>

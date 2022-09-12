@@ -418,10 +418,10 @@ namespace BRIDGES.Arithmetic.Polynomials
         /******************** Methods ********************/
 
         /// <inheritdoc/>
-        Polynomial Alg_Fund.IAddable<Polynomial>.Add(Polynomial other) { return this + other; }
+        Polynomial Alg_Fund.IAddable<Polynomial>.Add(Polynomial right) { return this + right; }
 
         /// <inheritdoc/>
-        Polynomial Alg_Fund.ISubtractable<Polynomial>.Subtract(Polynomial other) { return this - other; }
+        Polynomial Alg_Fund.ISubtractable<Polynomial>.Subtract(Polynomial right) { return this - right; }
 
         /// <inheritdoc/>
         bool Alg_Set.Additive.IGroup<Polynomial>.Opposite() 
@@ -444,7 +444,7 @@ namespace BRIDGES.Arithmetic.Polynomials
 
         #endregion
 
-        #region Explicit : Multiplicative.IAbelianGroup<Polynomial>
+        #region Explicit : Multiplicative.IMonoid<Polynomial>
 
         /******************** Properties ********************/
 
@@ -458,7 +458,7 @@ namespace BRIDGES.Arithmetic.Polynomials
         /******************** Methods ********************/
 
         /// <inheritdoc/>
-        Polynomial Alg_Fund.IMultiplicable<Polynomial>.Multiply(Polynomial other) { return this * other; }
+        Polynomial Alg_Fund.IMultiplicable<Polynomial>.Multiply(Polynomial right) { return this * right; }
 
         /// <inheritdoc/>
         Polynomial Alg_Fund.IOneable<Polynomial>.One() { return Polynomial.One; }

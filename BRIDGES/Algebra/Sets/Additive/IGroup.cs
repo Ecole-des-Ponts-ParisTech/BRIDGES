@@ -4,9 +4,9 @@
 namespace BRIDGES.Algebra.Sets.Additive
 {
     /// <summary>
-    /// Interface defining an additive group.
+    /// Interface defining methods to manipulate elements in an additive group.
     /// </summary>
-    /// <typeparam name="T"> Type of the elements in the additive set. </typeparam>
+    /// <typeparam name="T"> Type of the elements in the additive group. </typeparam>
     public interface IGroup<T> : IMonoid<T>, ILoop<T>
         where T : IGroup<T>
     {
@@ -25,7 +25,7 @@ namespace BRIDGES.Algebra.Sets.Additive
         #region Methods
 
         /// <summary>
-        /// Gets the opposite element of the current element.
+        /// Replaces the current element with its opposite.
         /// </summary>
         /// <returns> <see langword="true"/> if the current element was opposed, <see langword="false"/> otherwise. </returns>
         bool Opposite();
