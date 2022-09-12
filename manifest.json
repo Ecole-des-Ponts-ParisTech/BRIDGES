@@ -1,0 +1,1358 @@
+{
+  "homepages": [],
+  "source_base_path": "/home/runner/work/BRIDGES/BRIDGES",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Conceptual",
+      "source_relative_path": "README.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.html",
+          "hash": "xIvb/irU/N74a2GITPO6rQf7H4E7KPGuNsBo1HlIY5o="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Algebra.Fundamentals.IAddable-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Algebra.Fundamentals.IAddable-1.html",
+          "hash": "iwRa5StRsmR0yEpXji46ZnbGtuCRyMiVPJtrhbkyizc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Algebra.Fundamentals.IDivisible-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Algebra.Fundamentals.IDivisible-1.html",
+          "hash": "S7lWEVAGBI/FSrMVL83MEDmZSwbjPaCvcE1ORZDTvr0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Algebra.Fundamentals.IMultiplicable-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Algebra.Fundamentals.IMultiplicable-1.html",
+          "hash": "omLLqQGo6POm4W7ZNARLXfe+V26n/RBlG8oCRGMEgCc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Algebra.Fundamentals.IOneable-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Algebra.Fundamentals.IOneable-1.html",
+          "hash": "tPazJEt7poTmTxz+f8px3epR2wiYyIOJt+WbgDzjKwk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Algebra.Fundamentals.ISubtractable-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Algebra.Fundamentals.ISubtractable-1.html",
+          "hash": "gG3tPZWiKAF2cOFBqLa8PB3mNwOtApZGMwcrOs4hAkM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Algebra.Fundamentals.IZeroable-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Algebra.Fundamentals.IZeroable-1.html",
+          "hash": "BO8gDeCFxt9vtAnFgqk1L3s/gcNKd4nm5Tr8hbNJhJs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Algebra.Fundamentals.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Algebra.Fundamentals.html",
+          "hash": "xYn38oGJepP6dpKJ/Omr2ChovL0EC63uwuwNv1TGhEE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Algebra.Measure.IDotProduct-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Algebra.Measure.IDotProduct-2.html",
+          "hash": "B2UHE6E20wVAoX/IxA+eCulf+cey+ucIDiD6qd15ZDQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Algebra.Measure.IMetric-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Algebra.Measure.IMetric-1.html",
+          "hash": "kezTm9izTblOwlbXZ21GdLJbYNnq1XHv3WyftSg3xXA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Algebra.Measure.INorm-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Algebra.Measure.INorm-1.html",
+          "hash": "QGsOHrbbbAQEdV2rkdExmfBXd94pUhT0loEjJnHnag8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Algebra.Measure.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Algebra.Measure.html",
+          "hash": "ClpflnGhiqML05n1eNS/MnIUWFRGJu5lOpLu3rPSKPc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Algebra.Sets.Additive.IAbelianGroup-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Algebra.Sets.Additive.IAbelianGroup-1.html",
+          "hash": "rkb180WX15vg641DcpAD56Gr7TWCvVCSEvPXP3j0Bj4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Algebra.Sets.Additive.IGroup-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Algebra.Sets.Additive.IGroup-1.html",
+          "hash": "71iAD8WspgQE3wbbreJ0JVKyjn6DYOaHkqmVHc9OV9I="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Algebra.Sets.Additive.ILoop-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Algebra.Sets.Additive.ILoop-1.html",
+          "hash": "FnHWv2A7G0xR5k04zxv2W+q4VylFxZdHDpDxsjJA+Is="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Algebra.Sets.Additive.IMagma-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Algebra.Sets.Additive.IMagma-1.html",
+          "hash": "LXw3dF+Fv9qPQHfPtNQGZS1wQ7tI8frHWIuKcjKj+QU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Algebra.Sets.Additive.IMonoid-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Algebra.Sets.Additive.IMonoid-1.html",
+          "hash": "OGBVp1AljcxYKSyo31vPn1YeCY5dWjTYvQswOulpscI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Algebra.Sets.Additive.IQuasiGroup-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Algebra.Sets.Additive.IQuasiGroup-1.html",
+          "hash": "kAnamSUuuB8blsFhIT/WxeLs/gJaKQTXT4cSEsESGpc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Algebra.Sets.Additive.ISemiGroup-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Algebra.Sets.Additive.ISemiGroup-1.html",
+          "hash": "aDeNXgbvJkLZ2A/SWKsHJ5eOaYV8Xyb8ggUsI/PxTcE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Algebra.Sets.Additive.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Algebra.Sets.Additive.html",
+          "hash": "6cwpsyfiYB4G5qTI9b+fw+rdU2prUtlDkv0QC7JPj90="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Algebra.Sets.IGroupAction-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Algebra.Sets.IGroupAction-2.html",
+          "hash": "EX5mrxZoPrdGirYhZXpSWLrah8LAdwHokMu6xF8z/nk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Algebra.Sets.Multiplicative.IAbelianGroup-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Algebra.Sets.Multiplicative.IAbelianGroup-1.html",
+          "hash": "PxM6f9ucNynhZBsQXbT8i1UGwbIXXDVBYtTn4easx6w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Algebra.Sets.Multiplicative.IGroup-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Algebra.Sets.Multiplicative.IGroup-1.html",
+          "hash": "MJ2GiKJ8Zm1Pg4zYvbceyDpIDnT11d+aZ3K7ZxnOVGc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Algebra.Sets.Multiplicative.ILoop-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Algebra.Sets.Multiplicative.ILoop-1.html",
+          "hash": "Hi/ihDKdcNshCuFg1/MIogTjqqxLZrxtqc2RGkVfBJM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Algebra.Sets.Multiplicative.IMagma-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Algebra.Sets.Multiplicative.IMagma-1.html",
+          "hash": "Et8Jz4t0/d1HRn1BoOo3M+5aXad/z5sVdGffcA/p06M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Algebra.Sets.Multiplicative.IMonoid-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Algebra.Sets.Multiplicative.IMonoid-1.html",
+          "hash": "iv2ZMNOMR9M5SJbmrzexsqjxyPgU11T+n/o6DoWz3B8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Algebra.Sets.Multiplicative.IQuasiGroup-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Algebra.Sets.Multiplicative.IQuasiGroup-1.html",
+          "hash": "bJ2PG6dVT40vTiOOZzHF54tqFhgaHZyG9Q0ccSPYbwM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Algebra.Sets.Multiplicative.ISemiGroup-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Algebra.Sets.Multiplicative.ISemiGroup-1.html",
+          "hash": "IDzNkkD9xVS4U4Uh8PgSjFMyPhdZYPAlmhwarNaTaLg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Algebra.Sets.Multiplicative.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Algebra.Sets.Multiplicative.html",
+          "hash": "iWTS5lIhjoz32sRnWvXq11BBmPYmsXmkHJFlRnipjcs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Algebra.Sets.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Algebra.Sets.html",
+          "hash": "1JsrtLjA465YGFrwwt4M9wZ6XaPgf8MH8SrXTF09CCA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Arithmetic.Numbers.Complex.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Arithmetic.Numbers.Complex.html",
+          "hash": "GpsD/QPKfSz5Yoh5/BL96Sajf6XcmgtcQ26WhsSdlUU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Arithmetic.Numbers.Quaternion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Arithmetic.Numbers.Quaternion.html",
+          "hash": "uBIvpIJmChdkXy4134Bq4Y93LKT0VhfLRO1x122lrzQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Arithmetic.Numbers.Real.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Arithmetic.Numbers.Real.html",
+          "hash": "/5bYnTknbDpx96e3qTG5+L9u9q11+zFcPm6aw6Bj02U="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Arithmetic.Numbers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Arithmetic.Numbers.html",
+          "hash": "5U8d7pGNWZARQ/Kesh5NeSc7l84thDWc/+AZYydXIAM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Arithmetic.Polynomials.Monomial.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Arithmetic.Polynomials.Monomial.html",
+          "hash": "DLksAp6xxiJ7FXJd/dFjnrn40MynjFsAZYkveNfMqKU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Arithmetic.Polynomials.MultivariatePolynomial.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Arithmetic.Polynomials.MultivariatePolynomial.html",
+          "hash": "C0fdDsmuRXjmEAGtDblEDUTDtzLnzCxsSkf9FaIQXVs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Arithmetic.Polynomials.Polynomial.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Arithmetic.Polynomials.Polynomial.html",
+          "hash": "RWiAOisWuZx9Xkg7YVksrUzATbLXsrn250dwZqAaiDk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Arithmetic.Polynomials.Specials.BSpline.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html",
+          "hash": "X+UPxB/QlW+zu1zeFMEObULYfOieB5B9XvEVsppsKgA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Arithmetic.Polynomials.Specials.Bernstein.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Arithmetic.Polynomials.Specials.Bernstein.html",
+          "hash": "ejWoSQyslKHiLKZ9VTotD1lYbUc98LiBVhxDQNh2xRw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Arithmetic.Polynomials.Specials.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Arithmetic.Polynomials.Specials.html",
+          "hash": "GfDfvFqdOb0Y/MdABSAJq76QRwkaNSfAq18iUDUHxik="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Arithmetic.Polynomials.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Arithmetic.Polynomials.html",
+          "hash": "VZE7pVPQU8s7PBb/kPDr5HHfGZ8e0QROxcnrRTifCZc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Edge-4.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Edge-4.html",
+          "hash": "7cPGKr34qjs4zxMtqSXvkaT68Q58cyc1V/Rz0PkJOsM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Face-4.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Face-4.html",
+          "hash": "qqCKdo7dxb9cYsrTvJS3JC/oGGZC79cY9easJu+KEE0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html",
+          "hash": "leTWlEecF4uhXt/cm9LDbbVn/xgrIYnTCQp3PBVoqjE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Vertex-4.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Vertex-4.html",
+          "hash": "PHqhnnq8O91Tj86MJF6NbFpDiUeVffntuudsQdMj/iE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.Abstract.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.Abstract.html",
+          "hash": "IsObiaanfzNStX3e1egGTeiVs1EIJGdNp0ucwbOGAI4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.FaceVertexMesh.FvEdge-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.FaceVertexMesh.FvEdge-1.html",
+          "hash": "S7BZaxE2w92j8krqfPafBMrsIR2MN/zFQOetDKQeU1E="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.FaceVertexMesh.FvFace-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.FaceVertexMesh.FvFace-1.html",
+          "hash": "vLwXv09ffr/O+UEnuCVmecnF5GNs8zUu1JWoGfnGy2w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.FaceVertexMesh.FvMesh-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.FaceVertexMesh.FvMesh-1.html",
+          "hash": "0Kw+VvyiFYVBYg4dTQTmnmnCsLRlI08L4pT80vpMm38="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.FaceVertexMesh.FvVertex-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.FaceVertexMesh.FvVertex-1.html",
+          "hash": "wMd8rZ8gvvfrVAyYTWNTBLBf2Yzt47w8zOcwjiinpK4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.FaceVertexMesh.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.FaceVertexMesh.html",
+          "hash": "QmF5OhAVy8GjD/E30M5ZXu8Zt4r42Aa6iPZ/NkdGMzw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge-1.html",
+          "hash": "vYyKZYuE9rCMaVXfZidjc5pCm+2QZQMgh4aMlJ404FI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace-1.html",
+          "hash": "24JsgbS9C6mYXLMd/2fblgTWC14jp27OzwRHBeszVBI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeHalfedge-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeHalfedge-1.html",
+          "hash": "FvypKi0t+gaSxb6SR0gWkSRGMMQuS3fNc90ShS63k9E="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh-1.html",
+          "hash": "6J4Lj+FwAL++nwlEWVuLBAOVaQuQrPieHDAJi2MLKTA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex-1.html",
+          "hash": "RknoH+qmbdsyeMgTGpdcc0zpmR98rPuswealn3fNFMg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.html",
+          "hash": "ZXJj0Ia8DSnQ/TsGFuVyrCpc1jO0OqNKYmRd9m/Qt2k="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.IEdge-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.IEdge-1.html",
+          "hash": "sM3UkK6qZUpnCkIFz6qf8vUt/ml5L1NCWg0QDL9Q45w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.IFace-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.IFace-1.html",
+          "hash": "HZJhb0D5vbFQwz+wDMH5T5Mr2GIu3G5qU/ZxF/nGTQ4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.IMesh-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.IMesh-1.html",
+          "hash": "FF6vf0rcIVg4qdqIfixbxCNZBPVTKFj+rEQeGXnO0rA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.IVertex-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.IVertex-1.html",
+          "hash": "z9vCGzRA0m+Y3gZR3kp4gfNR/eu78Dw1uFH1MI0bKtI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.html",
+          "hash": "SZbaC5zleKyAZSuNHk2ASlWihc2A+5m+/dlLssJVNbQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Geometry.Euclidean3D.BSplineCurve.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Geometry.Euclidean3D.BSplineCurve.html",
+          "hash": "RaurFw+z2O67tNOO2faTpj5cGkplSacOm4pbouzUbXY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Geometry.Euclidean3D.BSplineSurface.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Geometry.Euclidean3D.BSplineSurface.html",
+          "hash": "Ak43E2GvwSM/dlI3bGP//5qju6Fx8NIriRWmQZxrfPw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Geometry.Euclidean3D.Basis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Geometry.Euclidean3D.Basis.html",
+          "hash": "N4w/qE8LUkEmLy1YymN+ZyCTtS59agytvZJtwxOseTE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Geometry.Euclidean3D.Circle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Geometry.Euclidean3D.Circle.html",
+          "hash": "uXpu2F4Evx4b4aNf5hzVdg0WDNf/g4ya1khhSD09QaI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Geometry.Euclidean3D.Frame.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Geometry.Euclidean3D.Frame.html",
+          "hash": "Hb+4hSYzUGMK4+gjFS5MKifBNjag6VBvzXcBdd5sK9k="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Geometry.Euclidean3D.Line.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Geometry.Euclidean3D.Line.html",
+          "hash": "W8/aRvs4i+sgQKHB9M/LaWQ3+wRsdRAHi9zAwi3v0FQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Geometry.Euclidean3D.NurbsCurve.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Geometry.Euclidean3D.NurbsCurve.html",
+          "hash": "5M/5i9JQFTPzeJG3CoVSQzqRvUl+HnJ5uwRTY85As8w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Geometry.Euclidean3D.NurbsSurface.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Geometry.Euclidean3D.NurbsSurface.html",
+          "hash": "dxiiq2SJRGoUTJ4CGbJWj1rzfYICRxjE0LGvRN8Xxeg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Geometry.Euclidean3D.Plane.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Geometry.Euclidean3D.Plane.html",
+          "hash": "W3cpblS+vfKni361x9IaCh3O3EzaI8EWRicHQU/cz3I="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Geometry.Euclidean3D.Point.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Geometry.Euclidean3D.Point.html",
+          "hash": "WbVUpXPKGq8A5zDdTM/th6drd9pHDAuoMYKAJHulDGY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Geometry.Euclidean3D.Polyline.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Geometry.Euclidean3D.Polyline.html",
+          "hash": "tskwwUyFpB8Luhz8WhmjnDZxPzYlOOvsOoWbbcDgs1k="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Geometry.Euclidean3D.Ray.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Geometry.Euclidean3D.Ray.html",
+          "hash": "TegXRC2Y5MAZ9d+Ybu6aE6yE4L3GKVpAZK8rkvI1FyI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Geometry.Euclidean3D.Segment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Geometry.Euclidean3D.Segment.html",
+          "hash": "a0MGVp56UgS8asPQk5dPiYH2nv72HWlGMmizCyt7gew="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Geometry.Euclidean3D.Sphere.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Geometry.Euclidean3D.Sphere.html",
+          "hash": "HjqxyIcJNooa1rXbDpc54KF1zsNasDmLRoTVQfJgJ0w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Geometry.Euclidean3D.Vector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Geometry.Euclidean3D.Vector.html",
+          "hash": "h70PoFfd+l+eeKe1nByTC/9puR6UitG189I/Ved4U3U="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Geometry.Euclidean3D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Geometry.Euclidean3D.html",
+          "hash": "SOEu4zjiTaTD51Q7mg+ExcM+aqdsD3f+rBd3Ttz/Msk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Geometry.Kernel.BSplineCurve-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Geometry.Kernel.BSplineCurve-1.html",
+          "hash": "iAAmdF0mWDOEmPJysvr/CP8iO2wC40bNNg8+BsnPr5E="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Geometry.Kernel.BSplineSurface-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Geometry.Kernel.BSplineSurface-1.html",
+          "hash": "RWR2D/AlGp1S5CU6PwuePc3P3Uo5RX4bgxvhnpF0fCs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Geometry.Kernel.CurveParameterFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Geometry.Kernel.CurveParameterFormat.html",
+          "hash": "/g//LifMSMOOYIrMT0IyWbLycSc59+saj9ESfBvRbNU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Geometry.Kernel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Geometry.Kernel.html",
+          "hash": "Ob/+qvEGTXmpF5oY2D85pr/GVxg8bsC+BBsZYkNbg6k="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Geometry.Projective3D.Point.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Geometry.Projective3D.Point.html",
+          "hash": "mcEtlQyhX6knx8bHxWkWsjxEJpW9WY8WH9OCwQx2rFQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Geometry.Projective3D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Geometry.Projective3D.html",
+          "hash": "qJiEh/lAzQT/sR1ICUjdvBnPVgVaSZOO4m5Zgkgj14k="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.LinearAlgebra.Factorisation.SparseQR.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.LinearAlgebra.Factorisation.SparseQR.html",
+          "hash": "HpN/V/nC3M0NPWmoX45KUWRapaARawM8U/W6/P60RTQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.LinearAlgebra.Factorisation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.LinearAlgebra.Factorisation.html",
+          "hash": "djFWWeib+lpM8tk0EfLPOdd0WcnO3+RVKFn2RdMlyBM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.LinearAlgebra.Matrices.DenseMatrix.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.LinearAlgebra.Matrices.DenseMatrix.html",
+          "hash": "7WW2n7f6zmPwWGIWB6TeAeT1Gh+qn0QmkOiN5q6NCkE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.LinearAlgebra.Matrices.Matrix.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.LinearAlgebra.Matrices.Matrix.html",
+          "hash": "CLvi2adgt+ClUGs1KgT0zxA3tWFQNyLK7Asnk6Lq54o="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.html",
+          "hash": "oWsWkGw/bqOgkWWU4DVpT09c7paAb5l681O6GJaC3lY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html",
+          "hash": "/GqytGqKQ4bX6tUcYGSFzI/2iS93yD8p6S+ZuF88I9M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.LinearAlgebra.Matrices.Sparse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.LinearAlgebra.Matrices.Sparse.html",
+          "hash": "eXXjv/dQpz0NmxGI5oITiiI+ZaKBWoqkPZbWhSfR8xw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.LinearAlgebra.Matrices.SparseMatrix.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html",
+          "hash": "+kBeesGgzAOgTUKz+7MmFh474BMsOo614PeW3FOZTRY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.LinearAlgebra.Matrices.Storage.DictionaryOfKeys.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.LinearAlgebra.Matrices.Storage.DictionaryOfKeys.html",
+          "hash": "j//1xjHTNba6HirvsK4lRcuLbA1KuOgCOTVX6KprySA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.LinearAlgebra.Matrices.Storage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.LinearAlgebra.Matrices.Storage.html",
+          "hash": "POynXtEI66DtnLmqD9CC+PCQa/CrcApH+nNfdSUznro="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.LinearAlgebra.Matrices.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.LinearAlgebra.Matrices.html",
+          "hash": "S6o6kTGyFPZRaAnRPwqXQtQUgexYI03v+uDUMQi4YQM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.LinearAlgebra.Vectors.DenseVector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.LinearAlgebra.Vectors.DenseVector.html",
+          "hash": "TPKmmU877uuUa36XZ+YgA7xynCb0QxOgEehyVLj1ohU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.LinearAlgebra.Vectors.SparseVector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.LinearAlgebra.Vectors.SparseVector.html",
+          "hash": "YvFw1bg8ZIKx0YDmxDM5ung2Kg1Koxg1NKXtRzTXTis="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.LinearAlgebra.Vectors.Vector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.LinearAlgebra.Vectors.Vector.html",
+          "hash": "rRynYOQe5McKZ2c7rqX62NO+zA4F6Zc/5gtZRXvlv/8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.LinearAlgebra.Vectors.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.LinearAlgebra.Vectors.html",
+          "hash": "zu58dNCEA3L0MTAE8fz/tGBhvAk+m49EfqjnbBfMlpc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Settings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Settings.html",
+          "hash": "ZUHUVddTf0nrd/Ge57Yc99dneP8O9vzHWkL/BqB0qWU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.html",
+          "hash": "ZVj9ug97U3p0gbV3Ouu62aQsGkz0JzJuwPIkyvUqDu4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "Polj8cZW103DLGCy3vf0+zT6ErodIMKJBEohBQU2p/M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "6G8/i7E86XF4OHA/b/VenQEOymqi6Aq7SJ1bekQWVa0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "T2X7BBZjxLR6V4FRm44SqtZe6uw2vAGFhDD+KsnKuxs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "BlPxk5mtl2kgfcZUgkEguqiSAR/EUyUTT4EdebwkQvs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/logo_enpc.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/logo_enpc.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "eEwuWGUYuiYN01OZ7h2jKbaGFLrUv9+QI9XIgnSUMas="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "1B8iS6+vHwlRwX8Ee2BJNjn0oh0eMiqTzA0F5eK+MMU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 4,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 100,
+          "skipped_file_count": 0
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

@@ -1,0 +1,872 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class Polyline
+   | BRIDGES </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class Polyline
+   | BRIDGES ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/logo_enpc.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline">
+  
+  
+  <h1 id="BRIDGES_Geometry_Euclidean3D_Polyline" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline" class="text-break">Class Polyline
+  </h1>
+  <div class="markdown level0 summary"><p>Class defining a polyline curve in three-dimensional euclidean space.<br>
+It is defined by an ordered list of vertices.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Polyline</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BRIDGES.Geometry.Euclidean3D.html">BRIDGES.Geometry.Euclidean3D</a></h6>
+  <h6><strong>Assembly</strong>: BRIDGES.dll</h6>
+  <h5 id="BRIDGES_Geometry_Euclidean3D_Polyline_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Polyline : object</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Polyline__ctor_BRIDGES_Geometry_Euclidean3D_Point___System_Boolean_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Polyline.%23ctor(BRIDGES.Geometry.Euclidean3D.Point%5B%5D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Polyline.cs/#L87">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Polyline__ctor_" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.#ctor*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Polyline__ctor_BRIDGES_Geometry_Euclidean3D_Point___System_Boolean_" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.#ctor(BRIDGES.Geometry.Euclidean3D.Point[],System.Boolean)">Polyline(Point[], Boolean)</h4>
+  <div class="markdown level1 summary"><p>Initialises a new instance of the <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Polyline.html">Polyline</a> class by defining its vertices.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Polyline(Point[] vertices, bool isClosed = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>[]</td>
+        <td><span class="parametername">vertices</span></td>
+        <td><p>Position of the vertices.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">isClosed</span></td>
+        <td><p>Determines whether the new <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Polyline.html">Polyline</a> is closed or not.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Polyline__ctor_BRIDGES_Geometry_Euclidean3D_Polyline_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Polyline.%23ctor(BRIDGES.Geometry.Euclidean3D.Polyline)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Polyline.cs/#L98">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Polyline__ctor_" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.#ctor*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Polyline__ctor_BRIDGES_Geometry_Euclidean3D_Polyline_" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.#ctor(BRIDGES.Geometry.Euclidean3D.Polyline)">Polyline(Polyline)</h4>
+  <div class="markdown level1 summary"><p>Initialises a new instance of the <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Polyline.html">Polyline</a> class from another <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Polyline.html">Polyline</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Polyline(Polyline polyline)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Polyline.html">Polyline</a></td>
+        <td><span class="parametername">polyline</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Polyline.html">Polyline</a> to copy.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Polyline_DomainEnd.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Polyline.DomainEnd%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Polyline.cs/#L54">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Polyline_DomainEnd_" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.DomainEnd*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Polyline_DomainEnd" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.DomainEnd">DomainEnd</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DomainEnd { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Polyline_DomainStart.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Polyline.DomainStart%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Polyline.cs/#L48">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Polyline_DomainStart_" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.DomainStart*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Polyline_DomainStart" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.DomainStart">DomainStart</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DomainStart { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Polyline_EndPoint.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Polyline.EndPoint%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Polyline.cs/#L41">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Polyline_EndPoint_" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.EndPoint*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Polyline_EndPoint" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.EndPoint">EndPoint</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Point EndPoint { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Polyline_IsClosed.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Polyline.IsClosed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Polyline.cs/#L31">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Polyline_IsClosed_" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.IsClosed*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Polyline_IsClosed" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.IsClosed">IsClosed</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsClosed { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Polyline_Item_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Polyline.Item(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Polyline.cs/#L65">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Polyline_Item_" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.Item*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Polyline_Item_System_Int32_" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.Item(System.Int32)">Item[Int32]</h4>
+  <div class="markdown level1 summary"><p>Gets the vertex of the <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Polyline.html">Polyline</a> at the given index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Point this[int index] { get; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Index of the vertex to retrieve.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><p>The <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> representing the position of the vertex.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Polyline_StartPoint.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Polyline.StartPoint%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Polyline.cs/#L35">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Polyline_StartPoint_" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.StartPoint*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Polyline_StartPoint" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.StartPoint">StartPoint</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Point StartPoint { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Polyline_VertexCount.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Polyline.VertexCount%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Polyline.cs/#L73">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Polyline_VertexCount_" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.VertexCount*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Polyline_VertexCount" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.VertexCount">VertexCount</h4>
+  <div class="markdown level1 summary"><p>Gets the number of vertices of the current <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Polyline.html">Polyline</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int VertexCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Polyline_AddVertex_BRIDGES_Geometry_Euclidean3D_Point_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Polyline.AddVertex(BRIDGES.Geometry.Euclidean3D.Point)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Polyline.cs/#L113">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Polyline_AddVertex_" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.AddVertex*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Polyline_AddVertex_BRIDGES_Geometry_Euclidean3D_Point_" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.AddVertex(BRIDGES.Geometry.Euclidean3D.Point)">AddVertex(Point)</h4>
+  <div class="markdown level1 summary"><p>Adds a vertex at the end of the polyline.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddVertex(Point vertex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">vertex</span></td>
+        <td><p>Position of the new vertex.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Polyline_AddVertices_List_BRIDGES_Geometry_Euclidean3D_Point__.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Polyline.AddVertices(List%7BBRIDGES.Geometry.Euclidean3D.Point%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Polyline.cs/#L122">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Polyline_AddVertices_" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.AddVertices*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Polyline_AddVertices_List_BRIDGES_Geometry_Euclidean3D_Point__" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.AddVertices(List{BRIDGES.Geometry.Euclidean3D.Point})">AddVertices(List&lt;Point&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds a list of vertices at the end of the polyline.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddVertices(List&lt;Point&gt; vertices)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">List</span>&lt;<a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>&gt;</td>
+        <td><span class="parametername">vertices</span></td>
+        <td><p>Position of the new vertices.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Polyline_ClosestPoint_BRIDGES_Geometry_Euclidean3D_Point_System_Double__.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Polyline.ClosestPoint(BRIDGES.Geometry.Euclidean3D.Point%2CSystem.Double%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Polyline.cs/#L193">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Polyline_ClosestPoint_" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.ClosestPoint*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Polyline_ClosestPoint_BRIDGES_Geometry_Euclidean3D_Point_System_Double__" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.ClosestPoint(BRIDGES.Geometry.Euclidean3D.Point,System.Double@)">ClosestPoint(Point, out Double)</h4>
+  <div class="markdown level1 summary"><p>Retrieves the closest point on a polyline to a given point, and the distance from the point to the polyline.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Point ClosestPoint(Point point, out double t)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>Point to find the closest point from.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">t</span></td>
+        <td><p>Distance from the given point and the point on the polyline.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><p>The closest point on the polyline.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Polyline_Equals_BRIDGES_Geometry_Euclidean3D_Polyline_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Polyline.Equals(BRIDGES.Geometry.Euclidean3D.Polyline)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Polyline.cs/#L255">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Polyline_Equals_" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.Equals*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Polyline_Equals_BRIDGES_Geometry_Euclidean3D_Polyline_" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.Equals(BRIDGES.Geometry.Euclidean3D.Polyline)">Equals(Polyline)</h4>
+  <div class="markdown level1 summary"><p>Evaluates whether the current <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Polyline.html">Polyline</a> is equal to another <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Polyline.html">Polyline</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(Polyline other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Polyline.html">Polyline</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Polyline.html">Polyline</a> to compare with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the two <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Polyline.html">Polyline</a> are equal, <span class="xref">false</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_Geometry_Euclidean3D_Polyline_Equals_BRIDGES_Geometry_Euclidean3D_Polyline__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Two <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Polyline.html">Polyline</a> are equal if they have the same topology and their corresponding vertices are equal.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Polyline_Equals_System_Object_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Polyline.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Polyline.cs/#L348">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Polyline_Equals_" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.Equals*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Polyline_Equals_System_Object_" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Polyline_Flip.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Polyline.Flip%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Polyline.cs/#L141">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Polyline_Flip_" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.Flip*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Polyline_Flip" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.Flip">Flip()</h4>
+  <div class="markdown level1 summary"><p>Flips the current <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Polyline.html">Polyline</a> by reversing the list of vertices.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Flip()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Polyline_GetHashCode.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Polyline.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Polyline.cs/#L354">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Polyline_GetHashCode_" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.GetHashCode*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Polyline_GetHashCode" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Polyline_InsertVertex_System_Int32_BRIDGES_Geometry_Euclidean3D_Point_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Polyline.InsertVertex(System.Int32%2CBRIDGES.Geometry.Euclidean3D.Point)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Polyline.cs/#L132">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Polyline_InsertVertex_" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.InsertVertex*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Polyline_InsertVertex_System_Int32_BRIDGES_Geometry_Euclidean3D_Point_" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.InsertVertex(System.Int32,BRIDGES.Geometry.Euclidean3D.Point)">InsertVertex(Int32, Point)</h4>
+  <div class="markdown level1 summary"><p>Inserts a vertex in the polyline at the given index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void InsertVertex(int index, Point vertex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Zero-based index at which the vertex should be inserted.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">vertex</span></td>
+        <td><p>Position of the new vertex.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Polyline_Length.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Polyline.Length%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Polyline.cs/#L151">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Polyline_Length_" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.Length*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Polyline_Length" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.Length">Length()</h4>
+  <div class="markdown level1 summary"><p>Computes the length of the current <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Polyline.html">Polyline</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Length()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The value corresponding to the <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Polyline.html">Polyline</a>'s length.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Polyline_PointAt_System_Double_BRIDGES_Geometry_Kernel_CurveParameterFormat_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Polyline.PointAt(System.Double%2CBRIDGES.Geometry.Kernel.CurveParameterFormat)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Polyline.cs/#L178">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Polyline_PointAt_" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.PointAt*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Polyline_PointAt_System_Double_BRIDGES_Geometry_Kernel_CurveParameterFormat_" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.PointAt(System.Double,BRIDGES.Geometry.Kernel.CurveParameterFormat)">PointAt(Double, CurveParameterFormat)</h4>
+  <div class="markdown level1 summary"><p>Evaluates the current <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Polyline.html">Polyline</a> at the given parameter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Point PointAt(double parameter, CurveParameterFormat format)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">parameter</span></td>
+        <td><p>Value of the parameter.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Kernel.CurveParameterFormat.html">CurveParameterFormat</a></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>Format of the parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><p>The <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> on the <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Polyline.html">Polyline</a> at the given parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Polyline_ToString.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Polyline.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Polyline.cs/#L360">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Polyline_ToString_" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.ToString*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Polyline_ToString" data-uid="BRIDGES.Geometry.Euclidean3D.Polyline.ToString">ToString()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Polyline.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Polyline%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Polyline.cs/#L13" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            By ENPC and the Build'in Platform
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

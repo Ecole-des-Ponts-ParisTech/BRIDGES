@@ -1,0 +1,830 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class BSplineCurve&lt;TPoint&gt;
+   | BRIDGES </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class BSplineCurve&lt;TPoint&gt;
+   | BRIDGES ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/logo_enpc.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1">
+  
+  
+  <h1 id="BRIDGES_Geometry_Kernel_BSplineCurve_1" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1" class="text-break">Class BSplineCurve&lt;TPoint&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>Class defining a generic B-Spline curve.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">BSplineCurve&lt;TPoint&gt;</span></div>
+      <div class="level2"><a class="xref" href="BRIDGES.Geometry.Euclidean3D.BSplineCurve.html">BSplineCurve</a></div>
+      <div class="level2"><a class="xref" href="BRIDGES.Geometry.Euclidean3D.NurbsCurve.html">NurbsCurve</a></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BRIDGES.Geometry.Kernel.html">BRIDGES.Geometry.Kernel</a></h6>
+  <h6><strong>Assembly</strong>: BRIDGES.dll</h6>
+  <h5 id="BRIDGES_Geometry_Kernel_BSplineCurve_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class BSplineCurve&lt;TPoint&gt; : object where TPoint : IMagma&lt;TPoint&gt;, IGroupAction&lt;double, TPoint&gt;</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TPoint</span></td>
+        <td><p>Type of point in the geometric space.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Kernel_BSplineCurve_1__ctor.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Kernel.BSplineCurve%601.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Kernel/BSplineCurve.cs/#L96">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Kernel_BSplineCurve_1__ctor_" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.#ctor*"></a>
+  <h4 id="BRIDGES_Geometry_Kernel_BSplineCurve_1__ctor" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.#ctor">BSplineCurve()</h4>
+  <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="BRIDGES.Geometry.Kernel.BSplineCurve-1.html">BSplineCurve&lt;TPoint&gt;</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected BSplineCurve()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Kernel_BSplineCurve_1__ctor_System_Int32_IEnumerable__0__.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Kernel.BSplineCurve%601.%23ctor(System.Int32%2CIEnumerable%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Kernel/BSplineCurve.cs/#L107">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Kernel_BSplineCurve_1__ctor_" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.#ctor*"></a>
+  <h4 id="BRIDGES_Geometry_Kernel_BSplineCurve_1__ctor_System_Int32_IEnumerable__0__" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.#ctor(System.Int32,IEnumerable{`0})">BSplineCurve(Int32, IEnumerable&lt;TPoint&gt;)</h4>
+  <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="BRIDGES.Geometry.Kernel.BSplineCurve-1.html">BSplineCurve&lt;TPoint&gt;</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BSplineCurve(int degree, IEnumerable&lt;TPoint&gt; controlPoints)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">degree</span></td>
+        <td><p>Degree of the interpolating polynomials in the <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> basis.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;TPoint&gt;</td>
+        <td><span class="parametername">controlPoints</span></td>
+        <td><p>Control points of the <a class="xref" href="BRIDGES.Geometry.Kernel.BSplineCurve-1.html">BSplineCurve&lt;TPoint&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Kernel_BSplineCurve_1__ctor_System_Int32_IEnumerable_System_Double__IEnumerable__0__.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Kernel.BSplineCurve%601.%23ctor(System.Int32%2CIEnumerable%7BSystem.Double%7D%2CIEnumerable%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Kernel/BSplineCurve.cs/#L130">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Kernel_BSplineCurve_1__ctor_" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.#ctor*"></a>
+  <h4 id="BRIDGES_Geometry_Kernel_BSplineCurve_1__ctor_System_Int32_IEnumerable_System_Double__IEnumerable__0__" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.#ctor(System.Int32,IEnumerable{System.Double},IEnumerable{`0})">BSplineCurve(Int32, IEnumerable&lt;Double&gt;, IEnumerable&lt;TPoint&gt;)</h4>
+  <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="BRIDGES.Geometry.Kernel.BSplineCurve-1.html">BSplineCurve&lt;TPoint&gt;</a> class by defining its fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BSplineCurve(int degree, IEnumerable&lt;double&gt; knotVector, IEnumerable&lt;TPoint&gt; controlPoints)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">degree</span></td>
+        <td><p>Degree of the interpolating polynomials in the <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> basis.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">knotVector</span></td>
+        <td><p>Knot vector of the interpolating <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> polynomial basis.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;TPoint&gt;</td>
+        <td><span class="parametername">controlPoints</span></td>
+        <td><p>Control points of the <a class="xref" href="BRIDGES.Geometry.Kernel.BSplineCurve-1.html">BSplineCurve&lt;TPoint&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Kernel_BSplineCurve_1__controlPoints.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Kernel.BSplineCurve%601._controlPoints%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Kernel/BSplineCurve.cs/#L29">View Source</a>
+  </span>
+  <h4 id="BRIDGES_Geometry_Kernel_BSplineCurve_1__controlPoints" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1._controlPoints">_controlPoints</h4>
+  <div class="markdown level1 summary"><p>Control points.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected List&lt;TPoint&gt; _controlPoints</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">List</span>&lt;TPoint&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Kernel_BSplineCurve_1__knotVector.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Kernel.BSplineCurve%601._knotVector%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Kernel/BSplineCurve.cs/#L24">View Source</a>
+  </span>
+  <h4 id="BRIDGES_Geometry_Kernel_BSplineCurve_1__knotVector" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1._knotVector">_knotVector</h4>
+  <div class="markdown level1 summary"><p>Knot vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected List&lt;double&gt; _knotVector</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">List</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Kernel_BSplineCurve_1_Degree.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Kernel.BSplineCurve%601.Degree%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Kernel/BSplineCurve.cs/#L71">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Kernel_BSplineCurve_1_Degree_" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.Degree*"></a>
+  <h4 id="BRIDGES_Geometry_Kernel_BSplineCurve_1_Degree" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.Degree">Degree</h4>
+  <div class="markdown level1 summary"><p>Gets the degree of the interpolating polynomials in the <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> basis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Degree { get; protected set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Kernel_BSplineCurve_1_DomainEnd.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Kernel.BSplineCurve%601.DomainEnd%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Kernel/BSplineCurve.cs/#L62">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Kernel_BSplineCurve_1_DomainEnd_" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.DomainEnd*"></a>
+  <h4 id="BRIDGES_Geometry_Kernel_BSplineCurve_1_DomainEnd" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.DomainEnd">DomainEnd</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DomainEnd { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Kernel_BSplineCurve_1_DomainStart.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Kernel.BSplineCurve%601.DomainStart%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Kernel/BSplineCurve.cs/#L56">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Kernel_BSplineCurve_1_DomainStart_" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.DomainStart*"></a>
+  <h4 id="BRIDGES_Geometry_Kernel_BSplineCurve_1_DomainStart" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.DomainStart">DomainStart</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DomainStart { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Kernel_BSplineCurve_1_EndPoint.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Kernel.BSplineCurve%601.EndPoint%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Kernel/BSplineCurve.cs/#L49">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Kernel_BSplineCurve_1_EndPoint_" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.EndPoint*"></a>
+  <h4 id="BRIDGES_Geometry_Kernel_BSplineCurve_1_EndPoint" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.EndPoint">EndPoint</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TPoint EndPoint { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TPoint</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Kernel_BSplineCurve_1_IsClosed.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Kernel.BSplineCurve%601.IsClosed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Kernel/BSplineCurve.cs/#L36">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Kernel_BSplineCurve_1_IsClosed_" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.IsClosed*"></a>
+  <h4 id="BRIDGES_Geometry_Kernel_BSplineCurve_1_IsClosed" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.IsClosed">IsClosed</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsClosed { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Kernel_BSplineCurve_1_KnotCount.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Kernel.BSplineCurve%601.KnotCount%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Kernel/BSplineCurve.cs/#L76">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Kernel_BSplineCurve_1_KnotCount_" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.KnotCount*"></a>
+  <h4 id="BRIDGES_Geometry_Kernel_BSplineCurve_1_KnotCount" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.KnotCount">KnotCount</h4>
+  <div class="markdown level1 summary"><p>Number of knots of the interpolating <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> polynomial basis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int KnotCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Kernel_BSplineCurve_1_PointCount.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Kernel.BSplineCurve%601.PointCount%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Kernel/BSplineCurve.cs/#L84">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Kernel_BSplineCurve_1_PointCount_" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.PointCount*"></a>
+  <h4 id="BRIDGES_Geometry_Kernel_BSplineCurve_1_PointCount" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.PointCount">PointCount</h4>
+  <div class="markdown level1 summary"><p>Gets the number of control points of the curve.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int PointCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Kernel_BSplineCurve_1_StartPoint.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Kernel.BSplineCurve%601.StartPoint%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Kernel/BSplineCurve.cs/#L43">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Kernel_BSplineCurve_1_StartPoint_" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.StartPoint*"></a>
+  <h4 id="BRIDGES_Geometry_Kernel_BSplineCurve_1_StartPoint" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.StartPoint">StartPoint</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TPoint StartPoint { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TPoint</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Kernel_BSplineCurve_1_Flip.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Kernel.BSplineCurve%601.Flip%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Kernel/BSplineCurve.cs/#L168">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Kernel_BSplineCurve_1_Flip_" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.Flip*"></a>
+  <h4 id="BRIDGES_Geometry_Kernel_BSplineCurve_1_Flip" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.Flip">Flip()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Flip()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Kernel_BSplineCurve_1_GetKnot_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Kernel.BSplineCurve%601.GetKnot(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Kernel/BSplineCurve.cs/#L156">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Kernel_BSplineCurve_1_GetKnot_" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.GetKnot*"></a>
+  <h4 id="BRIDGES_Geometry_Kernel_BSplineCurve_1_GetKnot_System_Int32_" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.GetKnot(System.Int32)">GetKnot(Int32)</h4>
+  <div class="markdown level1 summary"><p>Returns the knot at the given index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double GetKnot(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Index of the knot to look for.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The knot at the given index.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Kernel_BSplineCurve_1_Length.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Kernel.BSplineCurve%601.Length%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Kernel/BSplineCurve.cs/#L162">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Kernel_BSplineCurve_1_Length_" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.Length*"></a>
+  <h4 id="BRIDGES_Geometry_Kernel_BSplineCurve_1_Length" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.Length">Length()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Length()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Kernel_BSplineCurve_1_PointAt_System_Double_BRIDGES_Geometry_Kernel_CurveParameterFormat_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Kernel.BSplineCurve%601.PointAt(System.Double%2CBRIDGES.Geometry.Kernel.CurveParameterFormat)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Kernel/BSplineCurve.cs/#L194">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Kernel_BSplineCurve_1_PointAt_" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.PointAt*"></a>
+  <h4 id="BRIDGES_Geometry_Kernel_BSplineCurve_1_PointAt_System_Double_BRIDGES_Geometry_Kernel_CurveParameterFormat_" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.PointAt(System.Double,BRIDGES.Geometry.Kernel.CurveParameterFormat)">PointAt(Double, CurveParameterFormat)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TPoint PointAt(double parameter, CurveParameterFormat format)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">parameter</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Kernel.CurveParameterFormat.html">CurveParameterFormat</a></td>
+        <td><span class="parametername">format</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TPoint</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Kernel_BSplineCurve_1_SetControlPoints_IEnumerable__0__.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Kernel.BSplineCurve%601.SetControlPoints(IEnumerable%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Kernel/BSplineCurve.cs/#L238">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Kernel_BSplineCurve_1_SetControlPoints_" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.SetControlPoints*"></a>
+  <h4 id="BRIDGES_Geometry_Kernel_BSplineCurve_1_SetControlPoints_IEnumerable__0__" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.SetControlPoints(IEnumerable{`0})">SetControlPoints(IEnumerable&lt;TPoint&gt;)</h4>
+  <div class="markdown level1 summary"><p>Sets the control points of the current <a class="xref" href="BRIDGES.Geometry.Kernel.BSplineCurve-1.html">BSplineCurve&lt;TPoint&gt;</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetControlPoints(IEnumerable&lt;TPoint&gt; controlPoints)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;TPoint&gt;</td>
+        <td><span class="parametername">controlPoints</span></td>
+        <td><p>Control points of the <a class="xref" href="BRIDGES.Geometry.Kernel.BSplineCurve-1.html">BSplineCurve&lt;TPoint&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Kernel_BSplineCurve_1_SetKnotVector_IEnumerable_System_Double__.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Kernel.BSplineCurve%601.SetKnotVector(IEnumerable%7BSystem.Double%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Kernel/BSplineCurve.cs/#L259">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Kernel_BSplineCurve_1_SetKnotVector_" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.SetKnotVector*"></a>
+  <h4 id="BRIDGES_Geometry_Kernel_BSplineCurve_1_SetKnotVector_IEnumerable_System_Double__" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.SetKnotVector(IEnumerable{System.Double})">SetKnotVector(IEnumerable&lt;Double&gt;)</h4>
+  <div class="markdown level1 summary"><p>Sets the knot vector of the current <a class="xref" href="BRIDGES.Geometry.Kernel.BSplineCurve-1.html">BSplineCurve&lt;TPoint&gt;</a> while ensuring its validity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetKnotVector(IEnumerable&lt;double&gt; knotVector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">knotVector</span></td>
+        <td><p>Knot vector to set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Kernel_BSplineCurve_1_SetUniformKnotVector_System_Double_System_Double_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Kernel.BSplineCurve%601.SetUniformKnotVector(System.Double%2CSystem.Double%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Kernel/BSplineCurve.cs/#L301">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Kernel_BSplineCurve_1_SetUniformKnotVector_" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.SetUniformKnotVector*"></a>
+  <h4 id="BRIDGES_Geometry_Kernel_BSplineCurve_1_SetUniformKnotVector_System_Double_System_Double_System_Int32_System_Int32_" data-uid="BRIDGES.Geometry.Kernel.BSplineCurve`1.SetUniformKnotVector(System.Double,System.Double,System.Int32,System.Int32)">SetUniformKnotVector(Double, Double, Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Creates and sets the knot vector for the current <a class="xref" href="BRIDGES.Geometry.Kernel.BSplineCurve-1.html">BSplineCurve&lt;TPoint&gt;</a> with a uniform middle part.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetUniformKnotVector(double domainStart, double domainEnd, int degree, int knotCount)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">domainStart</span></td>
+        <td><p>Start value of the curve domain.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">domainEnd</span></td>
+        <td><p>End value of the curve domain.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">degree</span></td>
+        <td><p>Degree of the interpolating polynomials in the <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> basis.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">knotCount</span></td>
+        <td><p>Number of knots of the interpolating <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> polynomial basis.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Kernel_BSplineCurve_1.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Kernel.BSplineCurve%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Kernel/BSplineCurve.cs/#L15" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            By ENPC and the Build'in Platform
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

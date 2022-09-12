@@ -1,0 +1,1673 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class Polynomial
+   | BRIDGES </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class Polynomial
+   | BRIDGES ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/logo_enpc.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial">
+  
+  
+  <h1 id="BRIDGES_Arithmetic_Polynomials_Polynomial" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial" class="text-break">Class Polynomial
+  </h1>
+  <div class="markdown level0 summary"><p>Class defining a univarite polynomial.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Polynomial</span></div>
+      <div class="level2"><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.Bernstein.html">Bernstein</a></div>
+      <div class="level2"><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IAbelianGroup-1.html">IAbelianGroup</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IGroup-1.html">IGroup</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMonoid-1.html">IMonoid</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.ISemiGroup-1.html">ISemiGroup</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.ILoop-1.html">ILoop</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IQuasiGroup-1.html">IQuasiGroup</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMagma-1.html">IMagma</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.IAddable-1.html">IAddable</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.ISubtractable-1.html">ISubtractable</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.IZeroable-1.html">IZeroable</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.IMonoid-1.html">IMonoid</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.ISemiGroup-1.html">ISemiGroup</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.IMagma-1.html">IMagma</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.IOneable-1.html">IOneable</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.IMultiplicable-1.html">IMultiplicable</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.IGroupAction-2.html">IGroupAction</a>&lt;<span class="xref">System.Double</span>, <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BRIDGES.Arithmetic.Polynomials.html">BRIDGES.Arithmetic.Polynomials</a></h6>
+  <h6><strong>Assembly</strong>: BRIDGES.dll</h6>
+  <h5 id="BRIDGES_Arithmetic_Polynomials_Polynomial_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Polynomial : object, IAbelianGroup&lt;Polynomial&gt;, IGroup&lt;Polynomial&gt;, IMonoid&lt;Polynomial&gt;, ISemiGroup&lt;Polynomial&gt;, ILoop&lt;Polynomial&gt;, IQuasiGroup&lt;Polynomial&gt;, IMagma&lt;Polynomial&gt;, IAddable&lt;Polynomial&gt;, ISubtractable&lt;Polynomial&gt;, IZeroable&lt;Polynomial&gt;, IMonoid&lt;Polynomial&gt;, ISemiGroup&lt;Polynomial&gt;, IMagma&lt;Polynomial&gt;, IOneable&lt;Polynomial&gt;, IMultiplicable&lt;Polynomial&gt;, IGroupAction&lt;double, Polynomial&gt;</code></pre>
+  </div>
+  <h5 id="BRIDGES_Arithmetic_Polynomials_Polynomial_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>For a multivariate polynomial, refer to <a class="xref" href="BRIDGES.Arithmetic.Polynomials.MultivariatePolynomial.html">MultivariatePolynomial</a>.</p>
+</div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial__ctor_System_Double___.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.%23ctor(System.Double%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L61">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial__ctor_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.#ctor*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial__ctor_System_Double___" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.#ctor(System.Double[])">Polynomial(Double[])</h4>
+  <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> class by defining its coefficients.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Polynomial(params double[] coefficients)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span>[]</td>
+        <td><span class="parametername">coefficients</span></td>
+        <td><p>Coefficients of the polynomial, starting from the constant value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_Degree.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.Degree%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L30">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_Degree_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.Degree*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_Degree" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.Degree">Degree</h4>
+  <div class="markdown level1 summary"><p>Gets the degree of the current <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Degree { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_Item_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.Item(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L40">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_Item_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.Item*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_Item_System_Int32_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.Item(System.Int32)">Item[Int32]</h4>
+  <div class="markdown level1 summary"><p>Gets the value of the coefficient at a given index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double this[int index] { get; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Index of the coefficient to get.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The value of the coefficient at the given index.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_One.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.One%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L87">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_One_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.One*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_One" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.One">One</h4>
+  <div class="markdown level1 summary"><p>Gets a new <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>, constant equal to one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Polynomial One { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_Zero.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.Zero%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L79">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_Zero_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.Zero*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_Zero" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.Zero">Zero</h4>
+  <div class="markdown level1 summary"><p>Gets a new <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>, constant equal to zero.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Polynomial Zero { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_Add_BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Arithmetic_Polynomials_Polynomial_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.Add(BRIDGES.Arithmetic.Polynomials.Polynomial%2CBRIDGES.Arithmetic.Polynomials.Polynomial)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L125">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_Add_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.Add*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_Add_BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Arithmetic_Polynomials_Polynomial_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.Add(BRIDGES.Arithmetic.Polynomials.Polynomial,BRIDGES.Arithmetic.Polynomials.Polynomial)">Add(Polynomial, Polynomial)</h4>
+  <div class="markdown level1 summary"><p>Computes the addition of two <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Polynomial Add(Polynomial left, Polynomial right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> for the addition.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> for the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> resulting from the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_Derive_BRIDGES_Arithmetic_Polynomials_Polynomial_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.Derive(BRIDGES.Arithmetic.Polynomials.Polynomial%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L102">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_Derive_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.Derive*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_Derive_BRIDGES_Arithmetic_Polynomials_Polynomial_System_Int32_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.Derive(BRIDGES.Arithmetic.Polynomials.Polynomial,System.Int32)">Derive(Polynomial, Int32)</h4>
+  <div class="markdown level1 summary"><p>Computes the <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> which is the derivative of the given <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> at the given order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Polynomial Derive(Polynomial polynomial, int order = 1)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><span class="parametername">polynomial</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> to derive.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">order</span></td>
+        <td><p>Order of the derivative to compute.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> resulting from the derivation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_Divide_BRIDGES_Arithmetic_Polynomials_Polynomial_System_Double_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.Divide(BRIDGES.Arithmetic.Polynomials.Polynomial%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L143">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_Divide_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.Divide*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_Divide_BRIDGES_Arithmetic_Polynomials_Polynomial_System_Double_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.Divide(BRIDGES.Arithmetic.Polynomials.Polynomial,System.Double)">Divide(Polynomial, Double)</h4>
+  <div class="markdown level1 summary"><p>Computes the scalar division of a <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> with a <see cref="!:System.Double"></see>-precision real number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Polynomial Divide(Polynomial polynomial, double divisor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><span class="parametername">polynomial</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> to divide.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">divisor</span></td>
+        <td><p><see cref="!:System.Double"></see>-precision real number to divide with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> resulting from the scalar division.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_EvaluateAt_System_Double_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.EvaluateAt(System.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L363">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_EvaluateAt_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.EvaluateAt*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_EvaluateAt_System_Double_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.EvaluateAt(System.Double)">EvaluateAt(Double)</h4>
+  <div class="markdown level1 summary"><p>Computes the current <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> at a given value using Horner's method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual double EvaluateAt(double val)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">val</span></td>
+        <td><p>Value to evaluate at.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The computed value of the current <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_GetCoefficients.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.GetCoefficients%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L352">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_GetCoefficients_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.GetCoefficients*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_GetCoefficients" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.GetCoefficients">GetCoefficients()</h4>
+  <div class="markdown level1 summary"><p>Returns the coefficents of the current <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>, starting from the constant value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double[] GetCoefficients()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span>[]</td>
+        <td><p>The coefficents of the current <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_Multiply_BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Arithmetic_Polynomials_Polynomial_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.Multiply(BRIDGES.Arithmetic.Polynomials.Polynomial%2CBRIDGES.Arithmetic.Polynomials.Polynomial)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L134">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_Multiply_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.Multiply*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_Multiply_BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Arithmetic_Polynomials_Polynomial_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.Multiply(BRIDGES.Arithmetic.Polynomials.Polynomial,BRIDGES.Arithmetic.Polynomials.Polynomial)">Multiply(Polynomial, Polynomial)</h4>
+  <div class="markdown level1 summary"><p>Computes the multiplication of two <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Polynomial Multiply(Polynomial left, Polynomial right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> for the multiplication.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> for the multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> resulting from the multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_Multiply_System_Double_BRIDGES_Arithmetic_Polynomials_Polynomial_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.Multiply(System.Double%2CBRIDGES.Arithmetic.Polynomials.Polynomial)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L140">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_Multiply_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.Multiply*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_Multiply_System_Double_BRIDGES_Arithmetic_Polynomials_Polynomial_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.Multiply(System.Double,BRIDGES.Arithmetic.Polynomials.Polynomial)">Multiply(Double, Polynomial)</h4>
+  <div class="markdown level1 summary"><p>Computes the scalar multiplication of a <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> with a <see cref="!:System.Double"></see>-precision real number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Polynomial Multiply(double factor, Polynomial polynomial)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">factor</span></td>
+        <td><p><see cref="!:System.Double"></see>-precision real number.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><span class="parametername">polynomial</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> to multiply.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> resulting from the scalar multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_Subtract_BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Arithmetic_Polynomials_Polynomial_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.Subtract(BRIDGES.Arithmetic.Polynomials.Polynomial%2CBRIDGES.Arithmetic.Polynomials.Polynomial)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L128">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_Subtract_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.Subtract*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_Subtract_BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Arithmetic_Polynomials_Polynomial_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.Subtract(BRIDGES.Arithmetic.Polynomials.Polynomial,BRIDGES.Arithmetic.Polynomials.Polynomial)">Subtract(Polynomial, Polynomial)</h4>
+  <div class="markdown level1 summary"><p>Computes the subtraction of two <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Polynomial Subtract(Polynomial left, Polynomial right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> to subtract.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> to subtract with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> resulting from the subtraction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="operators">Operators
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_op_Addition_BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Arithmetic_Polynomials_Polynomial_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.op_Addition(BRIDGES.Arithmetic.Polynomials.Polynomial%2CBRIDGES.Arithmetic.Polynomials.Polynomial)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L158">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_op_Addition_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.op_Addition*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_op_Addition_BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Arithmetic_Polynomials_Polynomial_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.op_Addition(BRIDGES.Arithmetic.Polynomials.Polynomial,BRIDGES.Arithmetic.Polynomials.Polynomial)">Addition(Polynomial, Polynomial)</h4>
+  <div class="markdown level1 summary"><p>Computes the addition of two <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Polynomial operator +(Polynomial left, Polynomial right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> for the addition.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> for the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> resulting from the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_op_Division_BRIDGES_Arithmetic_Polynomials_Polynomial_System_Double_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.op_Division(BRIDGES.Arithmetic.Polynomials.Polynomial%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L330">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_op_Division_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.op_Division*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_op_Division_BRIDGES_Arithmetic_Polynomials_Polynomial_System_Double_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.op_Division(BRIDGES.Arithmetic.Polynomials.Polynomial,System.Double)">Division(Polynomial, Double)</h4>
+  <div class="markdown level1 summary"><p>Computes the scalar division of a <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> with a <see cref="!:System.Double"></see>-precision real number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Polynomial operator /(Polynomial polynomial, double divisor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><span class="parametername">polynomial</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> to divide.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">divisor</span></td>
+        <td><p><see cref="!:System.Double"></see>-precision real number to divide with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> resulting from the scalar division.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_op_Multiply_BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Arithmetic_Polynomials_Polynomial_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.op_Multiply(BRIDGES.Arithmetic.Polynomials.Polynomial%2CBRIDGES.Arithmetic.Polynomials.Polynomial)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L263">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_op_Multiply_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.op_Multiply*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_op_Multiply_BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Arithmetic_Polynomials_Polynomial_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.op_Multiply(BRIDGES.Arithmetic.Polynomials.Polynomial,BRIDGES.Arithmetic.Polynomials.Polynomial)">Multiply(Polynomial, Polynomial)</h4>
+  <div class="markdown level1 summary"><p>Computes the multiplication of two <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Polynomial operator *(Polynomial left, Polynomial right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> for the multiplication.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> for the multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> resulting from the multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_op_Multiply_BRIDGES_Arithmetic_Polynomials_Polynomial_System_Double_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.op_Multiply(BRIDGES.Arithmetic.Polynomials.Polynomial%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L307">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_op_Multiply_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.op_Multiply*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_op_Multiply_BRIDGES_Arithmetic_Polynomials_Polynomial_System_Double_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.op_Multiply(BRIDGES.Arithmetic.Polynomials.Polynomial,System.Double)">Multiply(Polynomial, Double)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Polynomial operator *(Polynomial polynomial, double factor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><span class="parametername">polynomial</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">factor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_op_Multiply_System_Double_BRIDGES_Arithmetic_Polynomials_Polynomial_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.op_Multiply(System.Double%2CBRIDGES.Arithmetic.Polynomials.Polynomial)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L289">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_op_Multiply_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.op_Multiply*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_op_Multiply_System_Double_BRIDGES_Arithmetic_Polynomials_Polynomial_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.op_Multiply(System.Double,BRIDGES.Arithmetic.Polynomials.Polynomial)">Multiply(Double, Polynomial)</h4>
+  <div class="markdown level1 summary"><p>Computes the scalar multiplication of a <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> with a <see cref="!:System.Double"></see>-precision real number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Polynomial operator *(double factor, Polynomial polynomial)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">factor</span></td>
+        <td><p><see cref="!:System.Double"></see>-precision real number.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><span class="parametername">polynomial</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> to multiply.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> resulting from the scalar multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_op_Subtraction_BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Arithmetic_Polynomials_Polynomial_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.op_Subtraction(BRIDGES.Arithmetic.Polynomials.Polynomial%2CBRIDGES.Arithmetic.Polynomials.Polynomial)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L191">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_op_Subtraction_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.op_Subtraction*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_op_Subtraction_BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Arithmetic_Polynomials_Polynomial_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.op_Subtraction(BRIDGES.Arithmetic.Polynomials.Polynomial,BRIDGES.Arithmetic.Polynomials.Polynomial)">Subtraction(Polynomial, Polynomial)</h4>
+  <div class="markdown level1 summary"><p>Computes the subtraction of two <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Polynomial operator -(Polynomial left, Polynomial right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> to subtract.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> to subtract with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> resulting from the subtraction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_op_UnaryNegation_BRIDGES_Arithmetic_Polynomials_Polynomial_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.op_UnaryNegation(BRIDGES.Arithmetic.Polynomials.Polynomial)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L241">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_op_UnaryNegation_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.op_UnaryNegation*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_op_UnaryNegation_BRIDGES_Arithmetic_Polynomials_Polynomial_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.op_UnaryNegation(BRIDGES.Arithmetic.Polynomials.Polynomial)">UnaryNegation(Polynomial)</h4>
+  <div class="markdown level1 summary"><p>Computes the opposite of the given <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Polynomial operator -(Polynomial polynomial)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><span class="parametername">polynomial</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a> to be opposed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>, opposite of the initial one.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Arithmetic_Polynomials_Polynomial__Add_BRIDGES_Arithmetic_Polynomials_Polynomial_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES%23Algebra%23Fundamentals%23IAddable%7BBRIDGES%23Arithmetic%23Polynomials%23Polynomial%7D%23Add(BRIDGES.Arithmetic.Polynomials.Polynomial)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L421">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Arithmetic_Polynomials_Polynomial__Add_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#Arithmetic#Polynomials#Polynomial}#Add*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Arithmetic_Polynomials_Polynomial__Add_BRIDGES_Arithmetic_Polynomials_Polynomial_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#Arithmetic#Polynomials#Polynomial}#Add(BRIDGES.Arithmetic.Polynomials.Polynomial)">IAddable&lt;Polynomial&gt;.Add(Polynomial)</h4>
+  <div class="markdown level1 summary"><p>Computes the addition of the current element with another element on the right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Polynomial IAddable&lt;Polynomial&gt;.Add(Polynomial right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><span class="parametername">right</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><p>The new element resulting from the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Arithmetic_Polynomials_Polynomial__IsAssociative.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES%23Algebra%23Fundamentals%23IAddable%7BBRIDGES%23Arithmetic%23Polynomials%23Polynomial%7D%23IsAssociative%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L412">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Arithmetic_Polynomials_Polynomial__IsAssociative_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#Arithmetic#Polynomials#Polynomial}#IsAssociative*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Arithmetic_Polynomials_Polynomial__IsAssociative" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#Arithmetic#Polynomials#Polynomial}#IsAssociative">IAddable&lt;Polynomial&gt;.IsAssociative</h4>
+  <div class="markdown level1 summary"><p>Evaluates whether the addition is associative : a + (b + c) = (a + b) + c.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IAddable&lt;Polynomial&gt;.IsAssociative { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Arithmetic_Polynomials_Polynomial__IsAssociative_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This property should be implemented explicitely as it is only informative.<br>
+It also helps prevents any confusion with the homonymous property of the multiplication.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Arithmetic_Polynomials_Polynomial__IsCommutative.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES%23Algebra%23Fundamentals%23IAddable%7BBRIDGES%23Arithmetic%23Polynomials%23Polynomial%7D%23IsCommutative%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L415">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Arithmetic_Polynomials_Polynomial__IsCommutative_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#Arithmetic#Polynomials#Polynomial}#IsCommutative*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Arithmetic_Polynomials_Polynomial__IsCommutative" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#Arithmetic#Polynomials#Polynomial}#IsCommutative">IAddable&lt;Polynomial&gt;.IsCommutative</h4>
+  <div class="markdown level1 summary"><p>Evaluates whether the addition is commutative : a + b = b + a.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IAddable&lt;Polynomial&gt;.IsCommutative { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Arithmetic_Polynomials_Polynomial__IsCommutative_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This property should be implemented explicitely as it is only informative.<br>
+It also helps prevents any confusion with the homonymous property of the multiplication.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_Arithmetic_Polynomials_Polynomial__IsAssociative.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES%23Algebra%23Fundamentals%23IMultiplicable%7BBRIDGES%23Arithmetic%23Polynomials%23Polynomial%7D%23IsAssociative%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L452">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_Arithmetic_Polynomials_Polynomial__IsAssociative_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES#Algebra#Fundamentals#IMultiplicable{BRIDGES#Arithmetic#Polynomials#Polynomial}#IsAssociative*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_Arithmetic_Polynomials_Polynomial__IsAssociative" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES#Algebra#Fundamentals#IMultiplicable{BRIDGES#Arithmetic#Polynomials#Polynomial}#IsAssociative">IMultiplicable&lt;Polynomial&gt;.IsAssociative</h4>
+  <div class="markdown level1 summary"><p>Evaluates whether the multiplication is associative : a * (b * c) = (a * b) * c.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IMultiplicable&lt;Polynomial&gt;.IsAssociative { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_Arithmetic_Polynomials_Polynomial__IsAssociative_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This property should be implemented explicitely as it is only informative.<br>
+It also helps prevents any confusion with the homonymous property of the addition.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_Arithmetic_Polynomials_Polynomial__IsCommutative.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES%23Algebra%23Fundamentals%23IMultiplicable%7BBRIDGES%23Arithmetic%23Polynomials%23Polynomial%7D%23IsCommutative%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L455">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_Arithmetic_Polynomials_Polynomial__IsCommutative_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES#Algebra#Fundamentals#IMultiplicable{BRIDGES#Arithmetic#Polynomials#Polynomial}#IsCommutative*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_Arithmetic_Polynomials_Polynomial__IsCommutative" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES#Algebra#Fundamentals#IMultiplicable{BRIDGES#Arithmetic#Polynomials#Polynomial}#IsCommutative">IMultiplicable&lt;Polynomial&gt;.IsCommutative</h4>
+  <div class="markdown level1 summary"><p>Evaluates whether the multiplication is commutative : a * b = b * a.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IMultiplicable&lt;Polynomial&gt;.IsCommutative { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_Arithmetic_Polynomials_Polynomial__IsCommutative_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This property should be implemented explicitely as it is only informative.<br>
+It also helps prevents any confusion with the homonymous property of the addition.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_Arithmetic_Polynomials_Polynomial__Multiply_BRIDGES_Arithmetic_Polynomials_Polynomial_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES%23Algebra%23Fundamentals%23IMultiplicable%7BBRIDGES%23Arithmetic%23Polynomials%23Polynomial%7D%23Multiply(BRIDGES.Arithmetic.Polynomials.Polynomial)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L461">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_Arithmetic_Polynomials_Polynomial__Multiply_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES#Algebra#Fundamentals#IMultiplicable{BRIDGES#Arithmetic#Polynomials#Polynomial}#Multiply*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_Arithmetic_Polynomials_Polynomial__Multiply_BRIDGES_Arithmetic_Polynomials_Polynomial_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES#Algebra#Fundamentals#IMultiplicable{BRIDGES#Arithmetic#Polynomials#Polynomial}#Multiply(BRIDGES.Arithmetic.Polynomials.Polynomial)">IMultiplicable&lt;Polynomial&gt;.Multiply(Polynomial)</h4>
+  <div class="markdown level1 summary"><p>Computes the multiplication of the current element with another element on the right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Polynomial IMultiplicable&lt;Polynomial&gt;.Multiply(Polynomial right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><span class="parametername">right</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><p>The new element resulting from the multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IOneable_BRIDGES_Arithmetic_Polynomials_Polynomial__One.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES%23Algebra%23Fundamentals%23IOneable%7BBRIDGES%23Arithmetic%23Polynomials%23Polynomial%7D%23One%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L464">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IOneable_BRIDGES_Arithmetic_Polynomials_Polynomial__One_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES#Algebra#Fundamentals#IOneable{BRIDGES#Arithmetic#Polynomials#Polynomial}#One*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IOneable_BRIDGES_Arithmetic_Polynomials_Polynomial__One" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES#Algebra#Fundamentals#IOneable{BRIDGES#Arithmetic#Polynomials#Polynomial}#One">IOneable&lt;Polynomial&gt;.One()</h4>
+  <div class="markdown level1 summary"><p>Returns the neutral element of the multiplication.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Polynomial IOneable&lt;Polynomial&gt;.One()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><p>The neutral element of the multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_ISubtractable_BRIDGES_Arithmetic_Polynomials_Polynomial__Subtract_BRIDGES_Arithmetic_Polynomials_Polynomial_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES%23Algebra%23Fundamentals%23ISubtractable%7BBRIDGES%23Arithmetic%23Polynomials%23Polynomial%7D%23Subtract(BRIDGES.Arithmetic.Polynomials.Polynomial)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L424">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_ISubtractable_BRIDGES_Arithmetic_Polynomials_Polynomial__Subtract_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES#Algebra#Fundamentals#ISubtractable{BRIDGES#Arithmetic#Polynomials#Polynomial}#Subtract*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_ISubtractable_BRIDGES_Arithmetic_Polynomials_Polynomial__Subtract_BRIDGES_Arithmetic_Polynomials_Polynomial_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES#Algebra#Fundamentals#ISubtractable{BRIDGES#Arithmetic#Polynomials#Polynomial}#Subtract(BRIDGES.Arithmetic.Polynomials.Polynomial)">ISubtractable&lt;Polynomial&gt;.Subtract(Polynomial)</h4>
+  <div class="markdown level1 summary"><p>Computes the subtraction of the current element with another element on the right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Polynomial ISubtractable&lt;Polynomial&gt;.Subtract(Polynomial right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><span class="parametername">right</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><p>The new element resulting from the subtraction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IZeroable_BRIDGES_Arithmetic_Polynomials_Polynomial__Zero.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES%23Algebra%23Fundamentals%23IZeroable%7BBRIDGES%23Arithmetic%23Polynomials%23Polynomial%7D%23Zero%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L443">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IZeroable_BRIDGES_Arithmetic_Polynomials_Polynomial__Zero_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES#Algebra#Fundamentals#IZeroable{BRIDGES#Arithmetic#Polynomials#Polynomial}#Zero*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IZeroable_BRIDGES_Arithmetic_Polynomials_Polynomial__Zero" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES#Algebra#Fundamentals#IZeroable{BRIDGES#Arithmetic#Polynomials#Polynomial}#Zero">IZeroable&lt;Polynomial&gt;.Zero()</h4>
+  <div class="markdown level1 summary"><p>Returns the neutral element of the addition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Polynomial IZeroable&lt;Polynomial&gt;.Zero()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><p>The neutral element of the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Sets_Additive_IGroup_BRIDGES_Arithmetic_Polynomials_Polynomial__Opposite.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES%23Algebra%23Sets%23Additive%23IGroup%7BBRIDGES%23Arithmetic%23Polynomials%23Polynomial%7D%23Opposite%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L427">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Sets_Additive_IGroup_BRIDGES_Arithmetic_Polynomials_Polynomial__Opposite_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES#Algebra#Sets#Additive#IGroup{BRIDGES#Arithmetic#Polynomials#Polynomial}#Opposite*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Sets_Additive_IGroup_BRIDGES_Arithmetic_Polynomials_Polynomial__Opposite" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES#Algebra#Sets#Additive#IGroup{BRIDGES#Arithmetic#Polynomials#Polynomial}#Opposite">IGroup&lt;Polynomial&gt;.Opposite()</h4>
+  <div class="markdown level1 summary"><p>Replaces the current element with its opposite.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IGroup&lt;Polynomial&gt;.Opposite()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the current element was opposed, <span class="xref">false</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_Arithmetic_Polynomials_Polynomial__Divide_System_Double_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES%23Algebra%23Sets%23IGroupAction%7BSystem%23Double%2CBRIDGES%23Arithmetic%23Polynomials%23Polynomial%7D%23Divide(System.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L476">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_Arithmetic_Polynomials_Polynomial__Divide_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES#Algebra#Sets#IGroupAction{System#Double,BRIDGES#Arithmetic#Polynomials#Polynomial}#Divide*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_Arithmetic_Polynomials_Polynomial__Divide_System_Double_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES#Algebra#Sets#IGroupAction{System#Double,BRIDGES#Arithmetic#Polynomials#Polynomial}#Divide(System.Double)">IGroupAction&lt;Double, Polynomial&gt;.Divide(Double)</h4>
+  <div class="markdown level1 summary"><p>Computes the right scalar division of the current element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Polynomial IGroupAction&lt;double, Polynomial&gt;.Divide(double divisor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">divisor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><p>The new element resulting from the scalar dividion.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_Arithmetic_Polynomials_Polynomial__Multiply_System_Double_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES%23Algebra%23Sets%23IGroupAction%7BSystem%23Double%2CBRIDGES%23Arithmetic%23Polynomials%23Polynomial%7D%23Multiply(System.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L473">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_Arithmetic_Polynomials_Polynomial__Multiply_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES#Algebra#Sets#IGroupAction{System#Double,BRIDGES#Arithmetic#Polynomials#Polynomial}#Multiply*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_Arithmetic_Polynomials_Polynomial__Multiply_System_Double_" data-uid="BRIDGES.Arithmetic.Polynomials.Polynomial.BRIDGES#Algebra#Sets#IGroupAction{System#Double,BRIDGES#Arithmetic#Polynomials#Polynomial}#Multiply(System.Double)">IGroupAction&lt;Double, Polynomial&gt;.Multiply(Double)</h4>
+  <div class="markdown level1 summary"><p>Computes the right scalar multiplication of the current element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Polynomial IGroupAction&lt;double, Polynomial&gt;.Multiply(double factor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">factor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></td>
+        <td><p>The new element resulting from the scalar multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IAbelianGroup-1.html">IAbelianGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IGroup-1.html">IGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMonoid-1.html">IMonoid&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.ISemiGroup-1.html">ISemiGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.ILoop-1.html">ILoop&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IQuasiGroup-1.html">IQuasiGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMagma-1.html">IMagma&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.IAddable-1.html">IAddable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.ISubtractable-1.html">ISubtractable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.IZeroable-1.html">IZeroable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.IMonoid-1.html">IMonoid&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.ISemiGroup-1.html">ISemiGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.IMagma-1.html">IMagma&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.IOneable-1.html">IOneable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.IMultiplicable-1.html">IMultiplicable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.IGroupAction-2.html">IGroupAction&lt;TValue, T&gt;</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Polynomial.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Polynomial%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Polynomial.cs/#L13" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            By ENPC and the Build'in Platform
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

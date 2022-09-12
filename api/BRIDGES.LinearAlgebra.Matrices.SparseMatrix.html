@@ -1,0 +1,1620 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class SparseMatrix
+   | BRIDGES </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class SparseMatrix
+   | BRIDGES ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/logo_enpc.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix">
+  
+  
+  <h1 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix" class="text-break">Class SparseMatrix
+  </h1>
+  <div class="markdown level0 summary"><p>Class defining a sparse matrix.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html">Matrix</a></div>
+    <div class="level2"><span class="xref">SparseMatrix</span></div>
+      <div class="level3"><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.html">CompressedColumn</a></div>
+      <div class="level3"><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html">CompressedRow</a></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IAbelianGroup-1.html">IAbelianGroup</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html">Matrix</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IGroup-1.html">IGroup</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html">Matrix</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMonoid-1.html">IMonoid</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html">Matrix</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.ISemiGroup-1.html">ISemiGroup</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html">Matrix</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.ILoop-1.html">ILoop</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html">Matrix</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IQuasiGroup-1.html">IQuasiGroup</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html">Matrix</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMagma-1.html">IMagma</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html">Matrix</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.IAddable-1.html">IAddable</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html">Matrix</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.ISubtractable-1.html">ISubtractable</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html">Matrix</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.IZeroable-1.html">IZeroable</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html">Matrix</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.ISemiGroup-1.html">ISemiGroup</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html">Matrix</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.IMagma-1.html">IMagma</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html">Matrix</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.IMultiplicable-1.html">IMultiplicable</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html">Matrix</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.IGroupAction-2.html">IGroupAction</a>&lt;<span class="xref">System.Double</span>, <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html">Matrix</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IAbelianGroup-1.html">IAbelianGroup</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IGroup-1.html">IGroup</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMonoid-1.html">IMonoid</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.ISemiGroup-1.html">ISemiGroup</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.ILoop-1.html">ILoop</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IQuasiGroup-1.html">IQuasiGroup</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMagma-1.html">IMagma</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.IAddable-1.html">IAddable</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.ISubtractable-1.html">ISubtractable</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.IZeroable-1.html">IZeroable</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.ISemiGroup-1.html">ISemiGroup</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.IMagma-1.html">IMagma</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.IMultiplicable-1.html">IMultiplicable</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.IGroupAction-2.html">IGroupAction</a>&lt;<span class="xref">System.Double</span>, <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a>&gt;</div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_RowCount">Matrix.RowCount</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_ColumnCount">Matrix.ColumnCount</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_Item_System_Int32_System_Int32_">Matrix.Item[Int32, Int32]</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_Add_BRIDGES_LinearAlgebra_Matrices_Matrix_BRIDGES_LinearAlgebra_Matrices_Matrix_">Matrix.Add(Matrix, Matrix)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_Subtract_BRIDGES_LinearAlgebra_Matrices_Matrix_BRIDGES_LinearAlgebra_Matrices_Matrix_">Matrix.Subtract(Matrix, Matrix)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_Multiply_BRIDGES_LinearAlgebra_Matrices_Matrix_BRIDGES_LinearAlgebra_Matrices_Matrix_">Matrix.Multiply(Matrix, Matrix)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_Multiply_System_Double_BRIDGES_LinearAlgebra_Matrices_Matrix_">Matrix.Multiply(Double, Matrix)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_Multiply_BRIDGES_LinearAlgebra_Matrices_Matrix_System_Double_">Matrix.Multiply(Matrix, Double)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_Divide_BRIDGES_LinearAlgebra_Matrices_Matrix_System_Double_">Matrix.Divide(Matrix, Double)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_Multiply_BRIDGES_LinearAlgebra_Matrices_Matrix_BRIDGES_LinearAlgebra_Vectors_Vector_">Matrix.Multiply(Matrix, Vector)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_Multiply_BRIDGES_LinearAlgebra_Matrices_Matrix_BRIDGES_LinearAlgebra_Vectors_DenseVector_">Matrix.Multiply(Matrix, DenseVector)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_Multiply_BRIDGES_LinearAlgebra_Matrices_Matrix_BRIDGES_LinearAlgebra_Vectors_SparseVector_">Matrix.Multiply(Matrix, SparseVector)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_TransposeMultiply_BRIDGES_LinearAlgebra_Matrices_Matrix_BRIDGES_LinearAlgebra_Vectors_Vector_">Matrix.TransposeMultiply(Matrix, Vector)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_TransposeMultiply_BRIDGES_LinearAlgebra_Matrices_Matrix_BRIDGES_LinearAlgebra_Vectors_DenseVector_">Matrix.TransposeMultiply(Matrix, DenseVector)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_TransposeMultiply_BRIDGES_LinearAlgebra_Matrices_Matrix_BRIDGES_LinearAlgebra_Vectors_SparseVector_">Matrix.TransposeMultiply(Matrix, SparseVector)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_Transpose">Matrix.Transpose()</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_Opposite">Matrix.Opposite()</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_LinearAlgebra_Matrices_Matrix__IsAssociative">Matrix.IAddable&lt;Matrix&gt;.IsAssociative</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_LinearAlgebra_Matrices_Matrix__IsCommutative">Matrix.IAddable&lt;Matrix&gt;.IsCommutative</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_LinearAlgebra_Matrices_Matrix__Add_BRIDGES_LinearAlgebra_Matrices_Matrix_">Matrix.IAddable&lt;Matrix&gt;.Add(Matrix)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_BRIDGES_Algebra_Fundamentals_ISubtractable_BRIDGES_LinearAlgebra_Matrices_Matrix__Subtract_BRIDGES_LinearAlgebra_Matrices_Matrix_">Matrix.ISubtractable&lt;Matrix&gt;.Subtract(Matrix)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_BRIDGES_Algebra_Sets_Additive_IGroup_BRIDGES_LinearAlgebra_Matrices_Matrix__Opposite">Matrix.IGroup&lt;Matrix&gt;.Opposite()</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_BRIDGES_Algebra_Fundamentals_IZeroable_BRIDGES_LinearAlgebra_Matrices_Matrix__Zero">Matrix.IZeroable&lt;Matrix&gt;.Zero()</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_LinearAlgebra_Matrices_Matrix__IsAssociative">Matrix.IMultiplicable&lt;Matrix&gt;.IsAssociative</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_LinearAlgebra_Matrices_Matrix__IsCommutative">Matrix.IMultiplicable&lt;Matrix&gt;.IsCommutative</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_LinearAlgebra_Matrices_Matrix__Multiply_BRIDGES_LinearAlgebra_Matrices_Matrix_">Matrix.IMultiplicable&lt;Matrix&gt;.Multiply(Matrix)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_LinearAlgebra_Matrices_Matrix__Multiply_System_Double_">Matrix.IGroupAction&lt;Double, Matrix&gt;.Multiply(Double)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_LinearAlgebra_Matrices_Matrix__Divide_System_Double_">Matrix.IGroupAction&lt;Double, Matrix&gt;.Divide(Double)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.html">BRIDGES.LinearAlgebra.Matrices</a></h6>
+  <h6><strong>Assembly</strong>: BRIDGES.dll</h6>
+  <h5 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class SparseMatrix : Matrix, IAbelianGroup&lt;Matrix&gt;, IGroup&lt;Matrix&gt;, IMonoid&lt;Matrix&gt;, ISemiGroup&lt;Matrix&gt;, ILoop&lt;Matrix&gt;, IQuasiGroup&lt;Matrix&gt;, IMagma&lt;Matrix&gt;, IAddable&lt;Matrix&gt;, ISubtractable&lt;Matrix&gt;, IZeroable&lt;Matrix&gt;, ISemiGroup&lt;Matrix&gt;, IMagma&lt;Matrix&gt;, IMultiplicable&lt;Matrix&gt;, IGroupAction&lt;double, Matrix&gt;, IAbelianGroup&lt;SparseMatrix&gt;, IGroup&lt;SparseMatrix&gt;, IMonoid&lt;SparseMatrix&gt;, ISemiGroup&lt;SparseMatrix&gt;, ILoop&lt;SparseMatrix&gt;, IQuasiGroup&lt;SparseMatrix&gt;, IMagma&lt;SparseMatrix&gt;, IAddable&lt;SparseMatrix&gt;, ISubtractable&lt;SparseMatrix&gt;, IZeroable&lt;SparseMatrix&gt;, ISemiGroup&lt;SparseMatrix&gt;, IMagma&lt;SparseMatrix&gt;, IMultiplicable&lt;SparseMatrix&gt;, IGroupAction&lt;double, SparseMatrix&gt;</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Matrices_SparseMatrix__ctor.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Matrices.SparseMatrix.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Matrices/SparseMatrix.cs/#L31">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix__ctor_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.#ctor*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix__ctor" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.#ctor">SparseMatrix()</h4>
+  <div class="markdown level1 summary"><p>Initialises a new instance of the <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SparseMatrix()</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Matrices_SparseMatrix_NonZeroCount.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Matrices.SparseMatrix.NonZeroCount%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Matrices/SparseMatrix.cs/#L22">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_NonZeroCount_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.NonZeroCount*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_NonZeroCount" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.NonZeroCount">NonZeroCount</h4>
+  <div class="markdown level1 summary"><p>Gets the number of non-zero values in the current sparse matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract int NonZeroCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Add_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Add(BRIDGES.LinearAlgebra.Matrices.SparseMatrix%2CBRIDGES.LinearAlgebra.Matrices.SparseMatrix)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Matrices/SparseMatrix.cs/#L74">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Add_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Add*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Add_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Add(BRIDGES.LinearAlgebra.Matrices.SparseMatrix,BRIDGES.LinearAlgebra.Matrices.SparseMatrix)">Add(SparseMatrix, SparseMatrix)</h4>
+  <div class="markdown level1 summary"><p>Computes the addition of two <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SparseMatrix Add(SparseMatrix left, SparseMatrix right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>Left <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> for the addition.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>Right <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> for the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> resulting from the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Divide_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_System_Double_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Divide(BRIDGES.LinearAlgebra.Matrices.SparseMatrix%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Matrices/SparseMatrix.cs/#L151">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Divide_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Divide*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Divide_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_System_Double_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Divide(BRIDGES.LinearAlgebra.Matrices.SparseMatrix,System.Double)">Divide(SparseMatrix, Double)</h4>
+  <div class="markdown level1 summary"><p>Computes the scalar division of a <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> with a <see cref="!:System.Double"></see>-precision real number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SparseMatrix Divide(SparseMatrix operand, double divisor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><span class="parametername">operand</span></td>
+        <td><p><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> to divide.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">divisor</span></td>
+        <td><p><see cref="!:System.Double"></see>-precision real number to divide with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> resulting from the scalar division.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Identity_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Identity(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Matrices/SparseMatrix.cs/#L56">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Identity_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Identity*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Identity_System_Int32_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Identity(System.Int32)">Identity(Int32)</h4>
+  <div class="markdown level1 summary"><p>Returns the neutral <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> for the multiplication.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SparseMatrix Identity(int size)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">size</span></td>
+        <td><p>Number of rows and columns of the <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><p>The <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.html">CompressedColumn</a>, as a <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a>, of the given size, with ones on the diagonal and zeros elsewhere.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Multiply_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Multiply(BRIDGES.LinearAlgebra.Matrices.SparseMatrix%2CBRIDGES.LinearAlgebra.Matrices.SparseMatrix)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Matrices/SparseMatrix.cs/#L105">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Multiply_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Multiply*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Multiply_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Multiply(BRIDGES.LinearAlgebra.Matrices.SparseMatrix,BRIDGES.LinearAlgebra.Matrices.SparseMatrix)">Multiply(SparseMatrix, SparseMatrix)</h4>
+  <div class="markdown level1 summary"><p>Computes the multiplication of two <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SparseMatrix Multiply(SparseMatrix left, SparseMatrix right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>Left <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> for the multiplication.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>Right <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> for the multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> resulting from the multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Multiply_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_LinearAlgebra_Vectors_DenseVector_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Multiply(BRIDGES.LinearAlgebra.Matrices.SparseMatrix%2CBRIDGES.LinearAlgebra.Vectors.DenseVector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Matrices/SparseMatrix.cs/#L186">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Multiply_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Multiply*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Multiply_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_LinearAlgebra_Vectors_DenseVector_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Multiply(BRIDGES.LinearAlgebra.Matrices.SparseMatrix,BRIDGES.LinearAlgebra.Vectors.DenseVector)">Multiply(SparseMatrix, DenseVector)</h4>
+  <div class="markdown level1 summary"><p>Computes the right multiplication of a <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> with a <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> : <code>A*V</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DenseVector Multiply(SparseMatrix matrix, DenseVector vector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><span class="parametername">matrix</span></td>
+        <td><p><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> to multiply on the right.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><span class="parametername">vector</span></td>
+        <td><p><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> to multiply with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> resulting from the multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Multiply_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_LinearAlgebra_Vectors_SparseVector_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Multiply(BRIDGES.LinearAlgebra.Matrices.SparseMatrix%2CBRIDGES.LinearAlgebra.Vectors.SparseVector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Matrices/SparseMatrix.cs/#L202">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Multiply_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Multiply*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Multiply_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_LinearAlgebra_Vectors_SparseVector_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Multiply(BRIDGES.LinearAlgebra.Matrices.SparseMatrix,BRIDGES.LinearAlgebra.Vectors.SparseVector)">Multiply(SparseMatrix, SparseVector)</h4>
+  <div class="markdown level1 summary"><p>Computes the right multiplication of a <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> with a <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a> : <code>A*V</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SparseVector Multiply(SparseMatrix matrix, SparseVector vector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><span class="parametername">matrix</span></td>
+        <td><p><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> to multiply on the right.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a></td>
+        <td><span class="parametername">vector</span></td>
+        <td><p><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a> to multiply with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a> resulting from the multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Multiply_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_LinearAlgebra_Vectors_Vector_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Multiply(BRIDGES.LinearAlgebra.Matrices.SparseMatrix%2CBRIDGES.LinearAlgebra.Vectors.Vector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Matrices/SparseMatrix.cs/#L170">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Multiply_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Multiply*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Multiply_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_LinearAlgebra_Vectors_Vector_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Multiply(BRIDGES.LinearAlgebra.Matrices.SparseMatrix,BRIDGES.LinearAlgebra.Vectors.Vector)">Multiply(SparseMatrix, Vector)</h4>
+  <div class="markdown level1 summary"><p>Computes the right multiplication of a <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> with a <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a> : <code>A*V</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector Multiply(SparseMatrix matrix, Vector vector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><span class="parametername">matrix</span></td>
+        <td><p><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> to multiply on the right.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a></td>
+        <td><span class="parametername">vector</span></td>
+        <td><p><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a> to multiply with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a> resulting from the multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Multiply_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_System_Double_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Multiply(BRIDGES.LinearAlgebra.Matrices.SparseMatrix%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Matrices/SparseMatrix.cs/#L136">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Multiply_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Multiply*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Multiply_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_System_Double_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Multiply(BRIDGES.LinearAlgebra.Matrices.SparseMatrix,System.Double)">Multiply(SparseMatrix, Double)</h4>
+  <div class="markdown level1 summary"><p>Computes the scalar multiplication of a <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> with a <see cref="!:System.Double"></see>-precision real number on the right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SparseMatrix Multiply(SparseMatrix operand, double factor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><span class="parametername">operand</span></td>
+        <td><p><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> to multiply on the right.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">factor</span></td>
+        <td><p><see cref="!:System.Double"></see>-precision real number.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> resulting from the scalar multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Multiply_System_Double_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Multiply(System.Double%2CBRIDGES.LinearAlgebra.Matrices.SparseMatrix)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Matrices/SparseMatrix.cs/#L122">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Multiply_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Multiply*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Multiply_System_Double_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Multiply(System.Double,BRIDGES.LinearAlgebra.Matrices.SparseMatrix)">Multiply(Double, SparseMatrix)</h4>
+  <div class="markdown level1 summary"><p>Computes the scalar multiplication of a <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> with a <see cref="!:System.Double"></see>-precision real number on the left.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SparseMatrix Multiply(double factor, SparseMatrix operand)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">factor</span></td>
+        <td><p><see cref="!:System.Double"></see>-precision real number.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><span class="parametername">operand</span></td>
+        <td><p><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> to multiply on the left.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> resulting from the scalar multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Subtract_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Subtract(BRIDGES.LinearAlgebra.Matrices.SparseMatrix%2CBRIDGES.LinearAlgebra.Matrices.SparseMatrix)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Matrices/SparseMatrix.cs/#L88">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Subtract_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Subtract*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Subtract_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Subtract(BRIDGES.LinearAlgebra.Matrices.SparseMatrix,BRIDGES.LinearAlgebra.Matrices.SparseMatrix)">Subtract(SparseMatrix, SparseMatrix)</h4>
+  <div class="markdown level1 summary"><p>Computes the subtraction of two <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SparseMatrix Subtract(SparseMatrix left, SparseMatrix right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>Left <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> to subtract.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>Right <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> to subtract with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> resulting from the subtraction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Matrices_SparseMatrix_TransposeMultiply_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_LinearAlgebra_Vectors_DenseVector_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Matrices.SparseMatrix.TransposeMultiply(BRIDGES.LinearAlgebra.Matrices.SparseMatrix%2CBRIDGES.LinearAlgebra.Vectors.DenseVector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Matrices/SparseMatrix.cs/#L236">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_TransposeMultiply_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.TransposeMultiply*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_TransposeMultiply_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_LinearAlgebra_Vectors_DenseVector_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.TransposeMultiply(BRIDGES.LinearAlgebra.Matrices.SparseMatrix,BRIDGES.LinearAlgebra.Vectors.DenseVector)">TransposeMultiply(SparseMatrix, DenseVector)</h4>
+  <div class="markdown level1 summary"><p>Computes the right multiplication of a transposed <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> with a <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> : <code>At*V</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DenseVector TransposeMultiply(SparseMatrix matrix, DenseVector vector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><span class="parametername">matrix</span></td>
+        <td><p><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> to transpose then multiply on the right.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><span class="parametername">vector</span></td>
+        <td><p><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> to multiply with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> resulting from the multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Matrices_SparseMatrix_TransposeMultiply_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_LinearAlgebra_Vectors_SparseVector_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Matrices.SparseMatrix.TransposeMultiply(BRIDGES.LinearAlgebra.Matrices.SparseMatrix%2CBRIDGES.LinearAlgebra.Vectors.SparseVector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Matrices/SparseMatrix.cs/#L253">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_TransposeMultiply_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.TransposeMultiply*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_TransposeMultiply_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_LinearAlgebra_Vectors_SparseVector_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.TransposeMultiply(BRIDGES.LinearAlgebra.Matrices.SparseMatrix,BRIDGES.LinearAlgebra.Vectors.SparseVector)">TransposeMultiply(SparseMatrix, SparseVector)</h4>
+  <div class="markdown level1 summary"><p>Computes the right multiplication of a transposed <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> with a <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a> : <code>At*V</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SparseVector TransposeMultiply(SparseMatrix matrix, SparseVector vector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><span class="parametername">matrix</span></td>
+        <td><p><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> to transpose then multiply on the right.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a></td>
+        <td><span class="parametername">vector</span></td>
+        <td><p><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a> to multiply with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a> resulting from the multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Matrices_SparseMatrix_TransposeMultiply_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_LinearAlgebra_Vectors_Vector_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Matrices.SparseMatrix.TransposeMultiply(BRIDGES.LinearAlgebra.Matrices.SparseMatrix%2CBRIDGES.LinearAlgebra.Vectors.Vector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Matrices/SparseMatrix.cs/#L219">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_TransposeMultiply_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.TransposeMultiply*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_TransposeMultiply_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_LinearAlgebra_Vectors_Vector_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.TransposeMultiply(BRIDGES.LinearAlgebra.Matrices.SparseMatrix,BRIDGES.LinearAlgebra.Vectors.Vector)">TransposeMultiply(SparseMatrix, Vector)</h4>
+  <div class="markdown level1 summary"><p>Computes the right multiplication of a transposed <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> with a <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a> : <code>At*V</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector TransposeMultiply(SparseMatrix matrix, Vector vector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><span class="parametername">matrix</span></td>
+        <td><p><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> to transpose then multiply on the right.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a></td>
+        <td><span class="parametername">vector</span></td>
+        <td><p><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a> to multiply with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a> resulting from the multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Zero_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Zero(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Matrices/SparseMatrix.cs/#L46">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Zero_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Zero*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Zero_System_Int32_System_Int32_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Zero(System.Int32,System.Int32)">Zero(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Returns the neutral <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a> for the addition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SparseMatrix Zero(int rowCount, int columnCount)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">rowCount</span></td>
+        <td><p>Number of rows of the <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">columnCount</span></td>
+        <td><p>Number of columns of the <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><p>The <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.html">CompressedColumn</a>, as a <a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a>, of the given size and with zeros on every coordinates.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__Add_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES%23Algebra%23Fundamentals%23IAddable%7BBRIDGES%23LinearAlgebra%23Matrices%23SparseMatrix%7D%23Add(BRIDGES.LinearAlgebra.Matrices.SparseMatrix)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Matrices/SparseMatrix.cs/#L278">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__Add_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#LinearAlgebra#Matrices#SparseMatrix}#Add*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__Add_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#LinearAlgebra#Matrices#SparseMatrix}#Add(BRIDGES.LinearAlgebra.Matrices.SparseMatrix)">IAddable&lt;SparseMatrix&gt;.Add(SparseMatrix)</h4>
+  <div class="markdown level1 summary"><p>Computes the addition of the current element with another element on the right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">SparseMatrix IAddable&lt;SparseMatrix&gt;.Add(SparseMatrix right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><span class="parametername">right</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><p>The new element resulting from the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__IsAssociative.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES%23Algebra%23Fundamentals%23IAddable%7BBRIDGES%23LinearAlgebra%23Matrices%23SparseMatrix%7D%23IsAssociative%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Matrices/SparseMatrix.cs/#L269">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__IsAssociative_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#LinearAlgebra#Matrices#SparseMatrix}#IsAssociative*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__IsAssociative" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#LinearAlgebra#Matrices#SparseMatrix}#IsAssociative">IAddable&lt;SparseMatrix&gt;.IsAssociative</h4>
+  <div class="markdown level1 summary"><p>Evaluates whether the addition is associative : a + (b + c) = (a + b) + c.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IAddable&lt;SparseMatrix&gt;.IsAssociative { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__IsAssociative_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This property should be implemented explicitely as it is only informative.<br>
+It also helps prevents any confusion with the homonymous property of the multiplication.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__IsCommutative.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES%23Algebra%23Fundamentals%23IAddable%7BBRIDGES%23LinearAlgebra%23Matrices%23SparseMatrix%7D%23IsCommutative%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Matrices/SparseMatrix.cs/#L272">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__IsCommutative_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#LinearAlgebra#Matrices#SparseMatrix}#IsCommutative*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__IsCommutative" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#LinearAlgebra#Matrices#SparseMatrix}#IsCommutative">IAddable&lt;SparseMatrix&gt;.IsCommutative</h4>
+  <div class="markdown level1 summary"><p>Evaluates whether the addition is commutative : a + b = b + a.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IAddable&lt;SparseMatrix&gt;.IsCommutative { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__IsCommutative_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This property should be implemented explicitely as it is only informative.<br>
+It also helps prevents any confusion with the homonymous property of the multiplication.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__IsAssociative.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES%23Algebra%23Fundamentals%23IMultiplicable%7BBRIDGES%23LinearAlgebra%23Matrices%23SparseMatrix%7D%23IsAssociative%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Matrices/SparseMatrix.cs/#L300">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__IsAssociative_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES#Algebra#Fundamentals#IMultiplicable{BRIDGES#LinearAlgebra#Matrices#SparseMatrix}#IsAssociative*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__IsAssociative" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES#Algebra#Fundamentals#IMultiplicable{BRIDGES#LinearAlgebra#Matrices#SparseMatrix}#IsAssociative">IMultiplicable&lt;SparseMatrix&gt;.IsAssociative</h4>
+  <div class="markdown level1 summary"><p>Evaluates whether the multiplication is associative : a * (b * c) = (a * b) * c.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IMultiplicable&lt;SparseMatrix&gt;.IsAssociative { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__IsAssociative_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This property should be implemented explicitely as it is only informative.<br>
+It also helps prevents any confusion with the homonymous property of the addition.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__IsCommutative.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES%23Algebra%23Fundamentals%23IMultiplicable%7BBRIDGES%23LinearAlgebra%23Matrices%23SparseMatrix%7D%23IsCommutative%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Matrices/SparseMatrix.cs/#L303">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__IsCommutative_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES#Algebra#Fundamentals#IMultiplicable{BRIDGES#LinearAlgebra#Matrices#SparseMatrix}#IsCommutative*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__IsCommutative" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES#Algebra#Fundamentals#IMultiplicable{BRIDGES#LinearAlgebra#Matrices#SparseMatrix}#IsCommutative">IMultiplicable&lt;SparseMatrix&gt;.IsCommutative</h4>
+  <div class="markdown level1 summary"><p>Evaluates whether the multiplication is commutative : a * b = b * a.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IMultiplicable&lt;SparseMatrix&gt;.IsCommutative { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__IsCommutative_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This property should be implemented explicitely as it is only informative.<br>
+It also helps prevents any confusion with the homonymous property of the addition.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__Multiply_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES%23Algebra%23Fundamentals%23IMultiplicable%7BBRIDGES%23LinearAlgebra%23Matrices%23SparseMatrix%7D%23Multiply(BRIDGES.LinearAlgebra.Matrices.SparseMatrix)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Matrices/SparseMatrix.cs/#L309">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__Multiply_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES#Algebra#Fundamentals#IMultiplicable{BRIDGES#LinearAlgebra#Matrices#SparseMatrix}#Multiply*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__Multiply_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES#Algebra#Fundamentals#IMultiplicable{BRIDGES#LinearAlgebra#Matrices#SparseMatrix}#Multiply(BRIDGES.LinearAlgebra.Matrices.SparseMatrix)">IMultiplicable&lt;SparseMatrix&gt;.Multiply(SparseMatrix)</h4>
+  <div class="markdown level1 summary"><p>Computes the multiplication of the current element with another element on the right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">SparseMatrix IMultiplicable&lt;SparseMatrix&gt;.Multiply(SparseMatrix right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><span class="parametername">right</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><p>The new element resulting from the multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Fundamentals_ISubtractable_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__Subtract_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES%23Algebra%23Fundamentals%23ISubtractable%7BBRIDGES%23LinearAlgebra%23Matrices%23SparseMatrix%7D%23Subtract(BRIDGES.LinearAlgebra.Matrices.SparseMatrix)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Matrices/SparseMatrix.cs/#L281">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Fundamentals_ISubtractable_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__Subtract_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES#Algebra#Fundamentals#ISubtractable{BRIDGES#LinearAlgebra#Matrices#SparseMatrix}#Subtract*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Fundamentals_ISubtractable_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__Subtract_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES#Algebra#Fundamentals#ISubtractable{BRIDGES#LinearAlgebra#Matrices#SparseMatrix}#Subtract(BRIDGES.LinearAlgebra.Matrices.SparseMatrix)">ISubtractable&lt;SparseMatrix&gt;.Subtract(SparseMatrix)</h4>
+  <div class="markdown level1 summary"><p>Computes the subtraction of the current element with another element on the right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">SparseMatrix ISubtractable&lt;SparseMatrix&gt;.Subtract(SparseMatrix right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><span class="parametername">right</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><p>The new element resulting from the subtraction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Fundamentals_IZeroable_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__Zero.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES%23Algebra%23Fundamentals%23IZeroable%7BBRIDGES%23LinearAlgebra%23Matrices%23SparseMatrix%7D%23Zero%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Matrices/SparseMatrix.cs/#L291">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Fundamentals_IZeroable_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__Zero_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES#Algebra#Fundamentals#IZeroable{BRIDGES#LinearAlgebra#Matrices#SparseMatrix}#Zero*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Fundamentals_IZeroable_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__Zero" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES#Algebra#Fundamentals#IZeroable{BRIDGES#LinearAlgebra#Matrices#SparseMatrix}#Zero">IZeroable&lt;SparseMatrix&gt;.Zero()</h4>
+  <div class="markdown level1 summary"><p>Returns the neutral element of the addition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">SparseMatrix IZeroable&lt;SparseMatrix&gt;.Zero()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><p>The neutral element of the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Sets_Additive_IGroup_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__Opposite.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES%23Algebra%23Sets%23Additive%23IGroup%7BBRIDGES%23LinearAlgebra%23Matrices%23SparseMatrix%7D%23Opposite%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Matrices/SparseMatrix.cs/#L284">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Sets_Additive_IGroup_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__Opposite_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES#Algebra#Sets#Additive#IGroup{BRIDGES#LinearAlgebra#Matrices#SparseMatrix}#Opposite*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Sets_Additive_IGroup_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__Opposite" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES#Algebra#Sets#Additive#IGroup{BRIDGES#LinearAlgebra#Matrices#SparseMatrix}#Opposite">IGroup&lt;SparseMatrix&gt;.Opposite()</h4>
+  <div class="markdown level1 summary"><p>Replaces the current element with its opposite.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IGroup&lt;SparseMatrix&gt;.Opposite()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the current element was opposed, <span class="xref">false</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__Divide_System_Double_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES%23Algebra%23Sets%23IGroupAction%7BSystem%23Double%2CBRIDGES%23LinearAlgebra%23Matrices%23SparseMatrix%7D%23Divide(System.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Matrices/SparseMatrix.cs/#L321">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__Divide_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES#Algebra#Sets#IGroupAction{System#Double,BRIDGES#LinearAlgebra#Matrices#SparseMatrix}#Divide*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__Divide_System_Double_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES#Algebra#Sets#IGroupAction{System#Double,BRIDGES#LinearAlgebra#Matrices#SparseMatrix}#Divide(System.Double)">IGroupAction&lt;Double, SparseMatrix&gt;.Divide(Double)</h4>
+  <div class="markdown level1 summary"><p>Computes the right scalar division of the current element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">SparseMatrix IGroupAction&lt;double, SparseMatrix&gt;.Divide(double divisor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">divisor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><p>The new element resulting from the scalar dividion.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__Multiply_System_Double_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES%23Algebra%23Sets%23IGroupAction%7BSystem%23Double%2CBRIDGES%23LinearAlgebra%23Matrices%23SparseMatrix%7D%23Multiply(System.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Matrices/SparseMatrix.cs/#L318">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__Multiply_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES#Algebra#Sets#IGroupAction{System#Double,BRIDGES#LinearAlgebra#Matrices#SparseMatrix}#Multiply*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_LinearAlgebra_Matrices_SparseMatrix__Multiply_System_Double_" data-uid="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.BRIDGES#Algebra#Sets#IGroupAction{System#Double,BRIDGES#LinearAlgebra#Matrices#SparseMatrix}#Multiply(System.Double)">IGroupAction&lt;Double, SparseMatrix&gt;.Multiply(Double)</h4>
+  <div class="markdown level1 summary"><p>Computes the right scalar multiplication of the current element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">SparseMatrix IGroupAction&lt;double, SparseMatrix&gt;.Multiply(double factor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">factor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html">SparseMatrix</a></td>
+        <td><p>The new element resulting from the scalar multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IAbelianGroup-1.html">IAbelianGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IGroup-1.html">IGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMonoid-1.html">IMonoid&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.ISemiGroup-1.html">ISemiGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.ILoop-1.html">ILoop&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IQuasiGroup-1.html">IQuasiGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMagma-1.html">IMagma&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.IAddable-1.html">IAddable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.ISubtractable-1.html">ISubtractable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.IZeroable-1.html">IZeroable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.ISemiGroup-1.html">ISemiGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.IMagma-1.html">IMagma&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.IMultiplicable-1.html">IMultiplicable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.IGroupAction-2.html">IGroupAction&lt;TValue, T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IAbelianGroup-1.html">IAbelianGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IGroup-1.html">IGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMonoid-1.html">IMonoid&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.ISemiGroup-1.html">ISemiGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.ILoop-1.html">ILoop&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IQuasiGroup-1.html">IQuasiGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMagma-1.html">IMagma&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.IAddable-1.html">IAddable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.ISubtractable-1.html">ISubtractable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.IZeroable-1.html">IZeroable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.ISemiGroup-1.html">ISemiGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.IMagma-1.html">IMagma&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.IMultiplicable-1.html">IMultiplicable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.IGroupAction-2.html">IGroupAction&lt;TValue, T&gt;</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Matrices_SparseMatrix.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Matrices.SparseMatrix%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Matrices/SparseMatrix.cs/#L14" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            By ENPC and the Build'in Platform
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

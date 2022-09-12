@@ -1,0 +1,494 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class NurbsCurve
+   | BRIDGES </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class NurbsCurve
+   | BRIDGES ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/logo_enpc.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="BRIDGES.Geometry.Euclidean3D.NurbsCurve">
+  
+  
+  <h1 id="BRIDGES_Geometry_Euclidean3D_NurbsCurve" data-uid="BRIDGES.Geometry.Euclidean3D.NurbsCurve" class="text-break">Class NurbsCurve
+  </h1>
+  <div class="markdown level0 summary"><p>Class defining a NURBS curve in three-dimensional euclidean space.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="BRIDGES.Geometry.Kernel.BSplineCurve-1.html">BSplineCurve</a>&lt;<a class="xref" href="BRIDGES.Geometry.Projective3D.Point.html">Point</a>&gt;</div>
+    <div class="level2"><span class="xref">NurbsCurve</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="BRIDGES.Geometry.Kernel.BSplineCurve-1.html#BRIDGES_Geometry_Kernel_BSplineCurve_1__knotVector">BSplineCurve&lt;Point&gt;._knotVector</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Geometry.Kernel.BSplineCurve-1.html#BRIDGES_Geometry_Kernel_BSplineCurve_1__controlPoints">BSplineCurve&lt;Point&gt;._controlPoints</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Geometry.Kernel.BSplineCurve-1.html#BRIDGES_Geometry_Kernel_BSplineCurve_1_IsClosed">BSplineCurve&lt;Point&gt;.IsClosed</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Geometry.Kernel.BSplineCurve-1.html#BRIDGES_Geometry_Kernel_BSplineCurve_1_DomainStart">BSplineCurve&lt;Point&gt;.DomainStart</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Geometry.Kernel.BSplineCurve-1.html#BRIDGES_Geometry_Kernel_BSplineCurve_1_DomainEnd">BSplineCurve&lt;Point&gt;.DomainEnd</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Geometry.Kernel.BSplineCurve-1.html#BRIDGES_Geometry_Kernel_BSplineCurve_1_Degree">BSplineCurve&lt;Point&gt;.Degree</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Geometry.Kernel.BSplineCurve-1.html#BRIDGES_Geometry_Kernel_BSplineCurve_1_KnotCount">BSplineCurve&lt;Point&gt;.KnotCount</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Geometry.Kernel.BSplineCurve-1.html#BRIDGES_Geometry_Kernel_BSplineCurve_1_PointCount">BSplineCurve&lt;Point&gt;.PointCount</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Geometry.Kernel.BSplineCurve-1.html#BRIDGES_Geometry_Kernel_BSplineCurve_1_GetKnot_System_Int32_">BSplineCurve&lt;Point&gt;.GetKnot(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Geometry.Kernel.BSplineCurve-1.html#BRIDGES_Geometry_Kernel_BSplineCurve_1_Length">BSplineCurve&lt;Point&gt;.Length()</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Geometry.Kernel.BSplineCurve-1.html#BRIDGES_Geometry_Kernel_BSplineCurve_1_Flip">BSplineCurve&lt;Point&gt;.Flip()</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Geometry.Kernel.BSplineCurve-1.html#BRIDGES_Geometry_Kernel_BSplineCurve_1_SetControlPoints_IEnumerable__0__">BSplineCurve&lt;Point&gt;.SetControlPoints(IEnumerable&lt;Point&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Geometry.Kernel.BSplineCurve-1.html#BRIDGES_Geometry_Kernel_BSplineCurve_1_SetKnotVector_IEnumerable_System_Double__">BSplineCurve&lt;Point&gt;.SetKnotVector(IEnumerable&lt;Double&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Geometry.Kernel.BSplineCurve-1.html#BRIDGES_Geometry_Kernel_BSplineCurve_1_SetUniformKnotVector_System_Double_System_Double_System_Int32_System_Int32_">BSplineCurve&lt;Point&gt;.SetUniformKnotVector(Double, Double, Int32, Int32)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BRIDGES.Geometry.Euclidean3D.html">BRIDGES.Geometry.Euclidean3D</a></h6>
+  <h6><strong>Assembly</strong>: BRIDGES.dll</h6>
+  <h5 id="BRIDGES_Geometry_Euclidean3D_NurbsCurve_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class NurbsCurve : BSplineCurve&lt;Point&gt;</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_NurbsCurve__ctor_System_Int32_IEnumerable_BRIDGES_Geometry_Euclidean3D_Point__.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.NurbsCurve.%23ctor(System.Int32%2CIEnumerable%7BBRIDGES.Geometry.Euclidean3D.Point%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/NURBSCurve.cs/#L38">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_NurbsCurve__ctor_" data-uid="BRIDGES.Geometry.Euclidean3D.NurbsCurve.#ctor*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_NurbsCurve__ctor_System_Int32_IEnumerable_BRIDGES_Geometry_Euclidean3D_Point__" data-uid="BRIDGES.Geometry.Euclidean3D.NurbsCurve.#ctor(System.Int32,IEnumerable{BRIDGES.Geometry.Euclidean3D.Point})">NurbsCurve(Int32, IEnumerable&lt;Point&gt;)</h4>
+  <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="BRIDGES.Geometry.Euclidean3D.NurbsCurve.html">NurbsCurve</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NurbsCurve(int degree, IEnumerable&lt;Point&gt; controlPoints)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">degree</span></td>
+        <td><p>Degree of the interpolating <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> polynomial basis.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>&gt;</td>
+        <td><span class="parametername">controlPoints</span></td>
+        <td><p>Control points of the <a class="xref" href="BRIDGES.Geometry.Euclidean3D.NurbsCurve.html">NurbsCurve</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_NurbsCurve__ctor_System_Int32_IEnumerable_System_Double__IEnumerable_BRIDGES_Geometry_Euclidean3D_Point__IEnumerable_System_Double__.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.NurbsCurve.%23ctor(System.Int32%2CIEnumerable%7BSystem.Double%7D%2CIEnumerable%7BBRIDGES.Geometry.Euclidean3D.Point%7D%2CIEnumerable%7BSystem.Double%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/NURBSCurve.cs/#L67">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_NurbsCurve__ctor_" data-uid="BRIDGES.Geometry.Euclidean3D.NurbsCurve.#ctor*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_NurbsCurve__ctor_System_Int32_IEnumerable_System_Double__IEnumerable_BRIDGES_Geometry_Euclidean3D_Point__IEnumerable_System_Double__" data-uid="BRIDGES.Geometry.Euclidean3D.NurbsCurve.#ctor(System.Int32,IEnumerable{System.Double},IEnumerable{BRIDGES.Geometry.Euclidean3D.Point},IEnumerable{System.Double})">NurbsCurve(Int32, IEnumerable&lt;Double&gt;, IEnumerable&lt;Point&gt;, IEnumerable&lt;Double&gt;)</h4>
+  <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="BRIDGES.Geometry.Euclidean3D.NurbsCurve.html">NurbsCurve</a> class by defining its fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NurbsCurve(int degree, IEnumerable&lt;double&gt; knotVector, IEnumerable&lt;Point&gt; controlPoints, IEnumerable&lt;double&gt; weights)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">degree</span></td>
+        <td><p>Degree of the interpolating <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> polynomial basis.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">knotVector</span></td>
+        <td><p>Knot vector of the interpolating <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> polynomial basis.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>&gt;</td>
+        <td><span class="parametername">controlPoints</span></td>
+        <td><p>Control points of the <a class="xref" href="BRIDGES.Geometry.Euclidean3D.NurbsCurve.html">NurbsCurve</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">weights</span></td>
+        <td><p>Weights of the control points.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_NurbsCurve_EndPoint.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.NurbsCurve.EndPoint%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/NURBSCurve.cs/#L23">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_NurbsCurve_EndPoint_" data-uid="BRIDGES.Geometry.Euclidean3D.NurbsCurve.EndPoint*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_NurbsCurve_EndPoint" data-uid="BRIDGES.Geometry.Euclidean3D.NurbsCurve.EndPoint">EndPoint</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Point EndPoint { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_NurbsCurve_StartPoint.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.NurbsCurve.StartPoint%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/NURBSCurve.cs/#L17">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_NurbsCurve_StartPoint_" data-uid="BRIDGES.Geometry.Euclidean3D.NurbsCurve.StartPoint*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_NurbsCurve_StartPoint" data-uid="BRIDGES.Geometry.Euclidean3D.NurbsCurve.StartPoint">StartPoint</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Point StartPoint { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_NurbsCurve_ConvertControlPoints_IEnumerable_BRIDGES_Geometry_Euclidean3D_Point__.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.NurbsCurve.ConvertControlPoints(IEnumerable%7BBRIDGES.Geometry.Euclidean3D.Point%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/NURBSCurve.cs/#L104">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_NurbsCurve_ConvertControlPoints_" data-uid="BRIDGES.Geometry.Euclidean3D.NurbsCurve.ConvertControlPoints*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_NurbsCurve_ConvertControlPoints_IEnumerable_BRIDGES_Geometry_Euclidean3D_Point__" data-uid="BRIDGES.Geometry.Euclidean3D.NurbsCurve.ConvertControlPoints(IEnumerable{BRIDGES.Geometry.Euclidean3D.Point})">ConvertControlPoints(IEnumerable&lt;Point&gt;)</h4>
+  <div class="markdown level1 summary"><p>Converts the control points for the current <a class="xref" href="BRIDGES.Geometry.Euclidean3D.NurbsCurve.html">NurbsCurve</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected IEnumerable&lt;Point&gt; ConvertControlPoints(IEnumerable&lt;Point&gt; controlPoints)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>&gt;</td>
+        <td><span class="parametername">controlPoints</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> to convert.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="BRIDGES.Geometry.Projective3D.Point.html">Point</a>&gt;</td>
+        <td><p>The <a class="xref" href="BRIDGES.Geometry.Projective3D.Point.html">Point</a> resulting from the conversion.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_NurbsCurve_ConvertControlPoints_IEnumerable_BRIDGES_Geometry_Euclidean3D_Point__IEnumerable_System_Double__.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.NurbsCurve.ConvertControlPoints(IEnumerable%7BBRIDGES.Geometry.Euclidean3D.Point%7D%2CIEnumerable%7BSystem.Double%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/NURBSCurve.cs/#L118">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_NurbsCurve_ConvertControlPoints_" data-uid="BRIDGES.Geometry.Euclidean3D.NurbsCurve.ConvertControlPoints*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_NurbsCurve_ConvertControlPoints_IEnumerable_BRIDGES_Geometry_Euclidean3D_Point__IEnumerable_System_Double__" data-uid="BRIDGES.Geometry.Euclidean3D.NurbsCurve.ConvertControlPoints(IEnumerable{BRIDGES.Geometry.Euclidean3D.Point},IEnumerable{System.Double})">ConvertControlPoints(IEnumerable&lt;Point&gt;, IEnumerable&lt;Double&gt;)</h4>
+  <div class="markdown level1 summary"><p>Converts the control points for the current <a class="xref" href="BRIDGES.Geometry.Euclidean3D.NurbsCurve.html">NurbsCurve</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected IEnumerable&lt;Point&gt; ConvertControlPoints(IEnumerable&lt;Point&gt; controlPoints, IEnumerable&lt;double&gt; weights)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>&gt;</td>
+        <td><span class="parametername">controlPoints</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> to convert.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">weights</span></td>
+        <td><p>Weigths to include in the conversion.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="BRIDGES.Geometry.Projective3D.Point.html">Point</a>&gt;</td>
+        <td><p>The <a class="xref" href="BRIDGES.Geometry.Projective3D.Point.html">Point</a> resulting from the conversion.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_NurbsCurve_PointAt_System_Double_BRIDGES_Geometry_Kernel_CurveParameterFormat_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.NurbsCurve.PointAt(System.Double%2CBRIDGES.Geometry.Kernel.CurveParameterFormat)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/NURBSCurve.cs/#L90">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_NurbsCurve_PointAt_" data-uid="BRIDGES.Geometry.Euclidean3D.NurbsCurve.PointAt*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_NurbsCurve_PointAt_System_Double_BRIDGES_Geometry_Kernel_CurveParameterFormat_" data-uid="BRIDGES.Geometry.Euclidean3D.NurbsCurve.PointAt(System.Double,BRIDGES.Geometry.Kernel.CurveParameterFormat)">PointAt(Double, CurveParameterFormat)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Point PointAt(double parameter, CurveParameterFormat format)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">parameter</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Kernel.CurveParameterFormat.html">CurveParameterFormat</a></td>
+        <td><span class="parametername">format</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_NurbsCurve.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.NurbsCurve%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/NURBSCurve.cs/#L12" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            By ENPC and the Build'in Platform
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

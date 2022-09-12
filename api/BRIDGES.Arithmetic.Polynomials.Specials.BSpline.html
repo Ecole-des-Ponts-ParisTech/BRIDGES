@@ -1,0 +1,964 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class BSpline
+   | BRIDGES </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class BSpline
+   | BRIDGES ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/logo_enpc.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="BRIDGES.Arithmetic.Polynomials.Specials.BSpline">
+  
+  
+  <h1 id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline" data-uid="BRIDGES.Arithmetic.Polynomials.Specials.BSpline" class="text-break">Class BSpline
+  </h1>
+  <div class="markdown level0 summary"><p>Class defining a B-Spline polynomial.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a></div>
+    <div class="level2"><span class="xref">BSpline</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IAbelianGroup-1.html">IAbelianGroup</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IGroup-1.html">IGroup</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMonoid-1.html">IMonoid</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.ISemiGroup-1.html">ISemiGroup</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.ILoop-1.html">ILoop</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IQuasiGroup-1.html">IQuasiGroup</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMagma-1.html">IMagma</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.IAddable-1.html">IAddable</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.ISubtractable-1.html">ISubtractable</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.IZeroable-1.html">IZeroable</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.IMonoid-1.html">IMonoid</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.ISemiGroup-1.html">ISemiGroup</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.IMagma-1.html">IMagma</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.IOneable-1.html">IOneable</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.IMultiplicable-1.html">IMultiplicable</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.IGroupAction-2.html">IGroupAction</a>&lt;<span class="xref">System.Double</span>, <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html">Polynomial</a>&gt;</div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html#BRIDGES_Arithmetic_Polynomials_Polynomial_Degree">Polynomial.Degree</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html#BRIDGES_Arithmetic_Polynomials_Polynomial_Item_System_Int32_">Polynomial.Item[Int32]</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html#BRIDGES_Arithmetic_Polynomials_Polynomial_Zero">Polynomial.Zero</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html#BRIDGES_Arithmetic_Polynomials_Polynomial_One">Polynomial.One</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html#BRIDGES_Arithmetic_Polynomials_Polynomial_Derive_BRIDGES_Arithmetic_Polynomials_Polynomial_System_Int32_">Polynomial.Derive(Polynomial, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html#BRIDGES_Arithmetic_Polynomials_Polynomial_Add_BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Arithmetic_Polynomials_Polynomial_">Polynomial.Add(Polynomial, Polynomial)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html#BRIDGES_Arithmetic_Polynomials_Polynomial_Subtract_BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Arithmetic_Polynomials_Polynomial_">Polynomial.Subtract(Polynomial, Polynomial)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html#BRIDGES_Arithmetic_Polynomials_Polynomial_Multiply_BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Arithmetic_Polynomials_Polynomial_">Polynomial.Multiply(Polynomial, Polynomial)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html#BRIDGES_Arithmetic_Polynomials_Polynomial_Multiply_System_Double_BRIDGES_Arithmetic_Polynomials_Polynomial_">Polynomial.Multiply(Double, Polynomial)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html#BRIDGES_Arithmetic_Polynomials_Polynomial_Divide_BRIDGES_Arithmetic_Polynomials_Polynomial_System_Double_">Polynomial.Divide(Polynomial, Double)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html#BRIDGES_Arithmetic_Polynomials_Polynomial_GetCoefficients">Polynomial.GetCoefficients()</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html#BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Arithmetic_Polynomials_Polynomial__IsAssociative">Polynomial.IAddable&lt;Polynomial&gt;.IsAssociative</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html#BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Arithmetic_Polynomials_Polynomial__IsCommutative">Polynomial.IAddable&lt;Polynomial&gt;.IsCommutative</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html#BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Arithmetic_Polynomials_Polynomial__Add_BRIDGES_Arithmetic_Polynomials_Polynomial_">Polynomial.IAddable&lt;Polynomial&gt;.Add(Polynomial)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html#BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_ISubtractable_BRIDGES_Arithmetic_Polynomials_Polynomial__Subtract_BRIDGES_Arithmetic_Polynomials_Polynomial_">Polynomial.ISubtractable&lt;Polynomial&gt;.Subtract(Polynomial)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html#BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Sets_Additive_IGroup_BRIDGES_Arithmetic_Polynomials_Polynomial__Opposite">Polynomial.IGroup&lt;Polynomial&gt;.Opposite()</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html#BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IZeroable_BRIDGES_Arithmetic_Polynomials_Polynomial__Zero">Polynomial.IZeroable&lt;Polynomial&gt;.Zero()</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html#BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_Arithmetic_Polynomials_Polynomial__IsAssociative">Polynomial.IMultiplicable&lt;Polynomial&gt;.IsAssociative</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html#BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_Arithmetic_Polynomials_Polynomial__IsCommutative">Polynomial.IMultiplicable&lt;Polynomial&gt;.IsCommutative</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html#BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_Arithmetic_Polynomials_Polynomial__Multiply_BRIDGES_Arithmetic_Polynomials_Polynomial_">Polynomial.IMultiplicable&lt;Polynomial&gt;.Multiply(Polynomial)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html#BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Fundamentals_IOneable_BRIDGES_Arithmetic_Polynomials_Polynomial__One">Polynomial.IOneable&lt;Polynomial&gt;.One()</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html#BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_Arithmetic_Polynomials_Polynomial__Multiply_System_Double_">Polynomial.IGroupAction&lt;Double, Polynomial&gt;.Multiply(Double)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html#BRIDGES_Arithmetic_Polynomials_Polynomial_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_Arithmetic_Polynomials_Polynomial__Divide_System_Double_">Polynomial.IGroupAction&lt;Double, Polynomial&gt;.Divide(Double)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.html">BRIDGES.Arithmetic.Polynomials.Specials</a></h6>
+  <h6><strong>Assembly</strong>: BRIDGES.dll</h6>
+  <h5 id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class BSpline : Polynomial, IAbelianGroup&lt;Polynomial&gt;, IGroup&lt;Polynomial&gt;, IMonoid&lt;Polynomial&gt;, ISemiGroup&lt;Polynomial&gt;, ILoop&lt;Polynomial&gt;, IQuasiGroup&lt;Polynomial&gt;, IMagma&lt;Polynomial&gt;, IAddable&lt;Polynomial&gt;, ISubtractable&lt;Polynomial&gt;, IZeroable&lt;Polynomial&gt;, IMonoid&lt;Polynomial&gt;, ISemiGroup&lt;Polynomial&gt;, IMagma&lt;Polynomial&gt;, IOneable&lt;Polynomial&gt;, IMultiplicable&lt;Polynomial&gt;, IGroupAction&lt;double, Polynomial&gt;</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Specials_BSpline__ctor_System_Int32_System_Int32_System_Int32_IEnumerable_System_Double__.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Specials.BSpline.%23ctor(System.Int32%2CSystem.Int32%2CSystem.Int32%2CIEnumerable%7BSystem.Double%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Specials/BSpline.cs/#L53">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline__ctor_" data-uid="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.#ctor*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline__ctor_System_Int32_System_Int32_System_Int32_IEnumerable_System_Double__" data-uid="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.#ctor(System.Int32,System.Int32,System.Int32,IEnumerable{System.Double})">BSpline(Int32, Int32, Int32, IEnumerable&lt;Double&gt;)</h4>
+  <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> class by defining its index, degree and knot vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BSpline(int spanIndex, int index, int degree, IEnumerable&lt;double&gt; knotVector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">spanIndex</span></td>
+        <td><p>Index of knot span on which the current <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> is defined.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Index of the B-Spline polynomial.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">degree</span></td>
+        <td><p>Degree of the B-Spline polynomial.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">knotVector</span></td>
+        <td><p>Knot vector of the B-Spline polynomial.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Specials_BSpline__knotVector.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Specials.BSpline._knotVector%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Specials/BSpline.cs/#L17">View Source</a>
+  </span>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline__knotVector" data-uid="BRIDGES.Arithmetic.Polynomials.Specials.BSpline._knotVector">_knotVector</h4>
+  <div class="markdown level1 summary"><p>Knot vector associated with the current <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected List&lt;double&gt; _knotVector</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">List</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Specials_BSpline_Index.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Specials.BSpline.Index%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Specials/BSpline.cs/#L26">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline_Index_" data-uid="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.Index*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline_Index" data-uid="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.Index">Index</h4>
+  <div class="markdown level1 summary"><p>Gets the index of the current <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Index { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Specials_BSpline_KnotVector.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Specials.BSpline.KnotVector%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Specials/BSpline.cs/#L32">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline_KnotVector_" data-uid="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.KnotVector*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline_KnotVector" data-uid="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.KnotVector">KnotVector</h4>
+  <div class="markdown level1 summary"><p>Gets the knot vector associated with the current <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double[] KnotVector { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Specials_BSpline_SpanIndex.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Specials.BSpline.SpanIndex%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Specials/BSpline.cs/#L40">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline_SpanIndex_" data-uid="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.SpanIndex*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline_SpanIndex" data-uid="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.SpanIndex">SpanIndex</h4>
+  <div class="markdown level1 summary"><p>Gets the index of knot span on which the current <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> is defined.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int SpanIndex { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Specials_BSpline_EvaluateAt_System_Double_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Specials.BSpline.EvaluateAt(System.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Specials/BSpline.cs/#L464">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline_EvaluateAt_" data-uid="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.EvaluateAt*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline_EvaluateAt_System_Double_" data-uid="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.EvaluateAt(System.Double)">EvaluateAt(Double)</h4>
+  <div class="markdown level1 summary"><p>Computes the current <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> at a given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double EvaluateAt(double val)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">val</span></td>
+        <td><p>Value to evaluate at.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The computed value of the current <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="BRIDGES.Arithmetic.Polynomials.Polynomial.html#BRIDGES_Arithmetic_Polynomials_Polynomial_EvaluateAt_System_Double_">Polynomial.EvaluateAt(Double)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Specials_BSpline_EvaluateAt_System_Double_System_Int32_System_Int32_IList_System_Double__.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Specials.BSpline.EvaluateAt(System.Double%2CSystem.Int32%2CSystem.Int32%2CIList%7BSystem.Double%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Specials/BSpline.cs/#L299">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline_EvaluateAt_" data-uid="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.EvaluateAt*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline_EvaluateAt_System_Double_System_Int32_System_Int32_IList_System_Double__" data-uid="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.EvaluateAt(System.Double,System.Int32,System.Int32,IList{System.Double})">EvaluateAt(Double, Int32, Int32, IList&lt;Double&gt;)</h4>
+  <div class="markdown level1 summary"><p>Evaluates the <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> at a given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double EvaluateAt(double val, int index, int degree, IList&lt;double&gt; knotVector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">val</span></td>
+        <td><p>Value to evaluate at.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Index of the <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> to evaluate.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">degree</span></td>
+        <td><p>Degree of the <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> to evaluate.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IList</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">knotVector</span></td>
+        <td><p>Knot Vector associated with the <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> to evaluate.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The value of the <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> the given value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline_EvaluateAt_System_Double_System_Int32_System_Int32_IList_System_Double___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The code is adapted from algorithm 2.4 described in <a href="https://doi.org/10.1007/978-3-642-59223-2">the NURBS Book</a>, by L. Piegl and  W. Tiller.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Specials_BSpline_EvaluateBasisAt_System_Double_System_Int32_System_Int32_IList_System_Double__.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Specials.BSpline.EvaluateBasisAt(System.Double%2CSystem.Int32%2CSystem.Int32%2CIList%7BSystem.Double%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Specials/BSpline.cs/#L118">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline_EvaluateBasisAt_" data-uid="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.EvaluateBasisAt*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline_EvaluateBasisAt_System_Double_System_Int32_System_Int32_IList_System_Double__" data-uid="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.EvaluateBasisAt(System.Double,System.Int32,System.Int32,IList{System.Double})">EvaluateBasisAt(Double, Int32, Int32, IList&lt;Double&gt;)</h4>
+  <div class="markdown level1 summary"><p>Evaluates a <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> basis at a given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double[] EvaluateBasisAt(double val, int knotSpanIndex, int degree, IList&lt;double&gt; knotVector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">val</span></td>
+        <td><p>Value to evaluate at.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">knotSpanIndex</span></td>
+        <td><p>Index of knot span containing the value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">degree</span></td>
+        <td><p>Degree of the <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> basis.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IList</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">knotVector</span></td>
+        <td><p>Knot vector of the <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> basis.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span>[]</td>
+        <td><p>The values of the non-zero <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> polynomials of the basis, i.e. those ranging from
+N_{<code data-dev-comment-type="paramref" class="paramref">knotSpanIndex</code> - <code data-dev-comment-type="paramref" class="paramref">degree</code>, <code data-dev-comment-type="paramref" class="paramref">degree</code>} to N_{<code data-dev-comment-type="paramref" class="paramref">knotSpanIndex</code>, <code data-dev-comment-type="paramref" class="paramref">degree</code>}.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline_EvaluateBasisAt_System_Double_System_Int32_System_Int32_IList_System_Double___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The code is adapted from algorithm 2.2 described in <a href="https://doi.org/10.1007/978-3-642-59223-2">the NURBS Book</a>, by L. Piegl and  W. Tiller.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Specials_BSpline_EvaluateBasisDerivativesAt_System_Double_System_Int32_System_Int32_IList_System_Double__System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Specials.BSpline.EvaluateBasisDerivativesAt(System.Double%2CSystem.Int32%2CSystem.Int32%2CIList%7BSystem.Double%7D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Specials/BSpline.cs/#L169">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline_EvaluateBasisDerivativesAt_" data-uid="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.EvaluateBasisDerivativesAt*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline_EvaluateBasisDerivativesAt_System_Double_System_Int32_System_Int32_IList_System_Double__System_Int32_" data-uid="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.EvaluateBasisDerivativesAt(System.Double,System.Int32,System.Int32,IList{System.Double},System.Int32)">EvaluateBasisDerivativesAt(Double, Int32, Int32, IList&lt;Double&gt;, Int32)</h4>
+  <div class="markdown level1 summary"><p>Evaluates the <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> basis' derivatives of a given order, at a given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double[][] EvaluateBasisDerivativesAt(double val, int knotSpanIndex, int degree, IList&lt;double&gt; knotVector, int order)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">val</span></td>
+        <td><p>Value to evaluate at.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">knotSpanIndex</span></td>
+        <td><p>Index of knot span containing the value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">degree</span></td>
+        <td><p>Initial degree of the <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> basis.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IList</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">knotVector</span></td>
+        <td><p>Initial knot vector of the <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> basis.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">order</span></td>
+        <td><p>Order of the derivatives.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span>[][]</td>
+        <td><p>The values of successive derivatives of the non-zero <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> polynomial of the basis, i.e. those ranging from
+N_{<code data-dev-comment-type="paramref" class="paramref">knotSpanIndex</code> - <code data-dev-comment-type="paramref" class="paramref">degree</code>, <code data-dev-comment-type="paramref" class="paramref">degree</code>} to N_{<code data-dev-comment-type="paramref" class="paramref">knotSpanIndex</code>, <code data-dev-comment-type="paramref" class="paramref">degree</code>}. <br>
+The first index corresponds to the order of derivation, the second to the index of the <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> polynomial shifted to start from zero.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline_EvaluateBasisDerivativesAt_System_Double_System_Int32_System_Int32_IList_System_Double__System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The code is adapted from algorithm 2.3 described in <a href="https://doi.org/10.1007/978-3-642-59223-2">the NURBS Book</a>, by L. Piegl and  W. Tiller.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Specials_BSpline_EvaluateDerivativesAt_System_Double_System_Int32_System_Int32_IList_System_Double__System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Specials.BSpline.EvaluateDerivativesAt(System.Double%2CSystem.Int32%2CSystem.Int32%2CIList%7BSystem.Double%7D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Specials/BSpline.cs/#L364">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline_EvaluateDerivativesAt_" data-uid="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.EvaluateDerivativesAt*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline_EvaluateDerivativesAt_System_Double_System_Int32_System_Int32_IList_System_Double__System_Int32_" data-uid="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.EvaluateDerivativesAt(System.Double,System.Int32,System.Int32,IList{System.Double},System.Int32)">EvaluateDerivativesAt(Double, Int32, Int32, IList&lt;Double&gt;, Int32)</h4>
+  <div class="markdown level1 summary"><p>Evaluates the <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> derivative of a given order; at a given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double[] EvaluateDerivativesAt(double val, int index, int degree, IList&lt;double&gt; knotVector, int order)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">val</span></td>
+        <td><p>Value to evaluate at.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Index of the <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> to evaluate.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">degree</span></td>
+        <td><p>Initial degree of the <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> to evaluate.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IList</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">knotVector</span></td>
+        <td><p>Initial knot Vector associated with the <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> to evaluate.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">order</span></td>
+        <td><p>Order of the derivative.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span>[]</td>
+        <td><p>The value of the successive <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> derivatives at the given value. The index corresponds to the order of derivation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline_EvaluateDerivativesAt_System_Double_System_Int32_System_Int32_IList_System_Double__System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The code is adapted from algorithm 2.5 described in <a href="https://doi.org/10.1007/978-3-642-59223-2">the NURBS Book</a>, by L. Piegl and  W. Tiller.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Specials_BSpline_FindKnotSpanIndex_System_Double_System_Int32_IList_System_Double__.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Specials.BSpline.FindKnotSpanIndex(System.Double%2CSystem.Int32%2CIList%7BSystem.Double%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Specials/BSpline.cs/#L79">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline_FindKnotSpanIndex_" data-uid="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.FindKnotSpanIndex*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline_FindKnotSpanIndex_System_Double_System_Int32_IList_System_Double__" data-uid="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.FindKnotSpanIndex(System.Double,System.Int32,IList{System.Double})">FindKnotSpanIndex(Double, Int32, IList&lt;Double&gt;)</h4>
+  <div class="markdown level1 summary"><p>Identifies the index of the knot span containing a given value, using a binary search.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int FindKnotSpanIndex(double val, int degree, IList&lt;double&gt; knotVector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">val</span></td>
+        <td><p>Value to locate in the knot vector.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">degree</span></td>
+        <td><p>Degree of the <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> basis.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IList</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">knotVector</span></td>
+        <td><p>Knot vector of the <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> basis.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The (zero-based) index of the knot span containing the value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline_FindKnotSpanIndex_System_Double_System_Int32_IList_System_Double___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The code is adapted from algorithm 2.1 described in <a href="https://doi.org/10.1007/978-3-642-59223-2">the NURBS Book</a>, by L. Piegl and  W. Tiller.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Specials_BSpline_SetCoefficients_System_Int32_System_Int32_System_Int32_IList_System_Double__.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Specials.BSpline.SetCoefficients(System.Int32%2CSystem.Int32%2CSystem.Int32%2CIList%7BSystem.Double%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Specials/BSpline.cs/#L537">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline_SetCoefficients_" data-uid="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.SetCoefficients*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline_SetCoefficients_System_Int32_System_Int32_System_Int32_IList_System_Double__" data-uid="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.SetCoefficients(System.Int32,System.Int32,System.Int32,IList{System.Double})">SetCoefficients(Int32, Int32, Int32, IList&lt;Double&gt;)</h4>
+  <div class="markdown level1 summary"><p>Sets the coefficients of the current <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> polynomial.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetCoefficients(int spanIndex, int index, int degree, IList&lt;double&gt; knotVector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">spanIndex</span></td>
+        <td><p>Index of knot span on which the current <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> is defined.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Index of the <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> polynomial.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">degree</span></td>
+        <td><p>Degree of the <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> polynomial.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IList</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">knotVector</span></td>
+        <td><p>Knot vector of the <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> polynomial.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Specials_BSpline_SetKnotVector_IEnumerable_System_Double__System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Specials.BSpline.SetKnotVector(IEnumerable%7BSystem.Double%7D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Specials/BSpline.cs/#L494">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline_SetKnotVector_" data-uid="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.SetKnotVector*"></a>
+  <h4 id="BRIDGES_Arithmetic_Polynomials_Specials_BSpline_SetKnotVector_IEnumerable_System_Double__System_Int32_" data-uid="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.SetKnotVector(IEnumerable{System.Double},System.Int32)">SetKnotVector(IEnumerable&lt;Double&gt;, Int32)</h4>
+  <div class="markdown level1 summary"><p>Sets the knot vector of the current <a class="xref" href="BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html">BSpline</a> polynomial while ensuring its validity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetKnotVector(IEnumerable&lt;double&gt; knotVector, int degree)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">knotVector</span></td>
+        <td><p>Knot vector to set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">degree</span></td>
+        <td><p>Degree of the B-Spline polynomial.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IAbelianGroup-1.html">IAbelianGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IGroup-1.html">IGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMonoid-1.html">IMonoid&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.ISemiGroup-1.html">ISemiGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.ILoop-1.html">ILoop&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IQuasiGroup-1.html">IQuasiGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMagma-1.html">IMagma&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.IAddable-1.html">IAddable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.ISubtractable-1.html">ISubtractable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.IZeroable-1.html">IZeroable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.IMonoid-1.html">IMonoid&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.ISemiGroup-1.html">ISemiGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.IMagma-1.html">IMagma&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.IOneable-1.html">IOneable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.IMultiplicable-1.html">IMultiplicable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.IGroupAction-2.html">IGroupAction&lt;TValue, T&gt;</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Polynomials_Specials_BSpline.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Polynomials.Specials.BSpline%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Polynomials/Specials/BSpline.cs/#L10" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            By ENPC and the Build'in Platform
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

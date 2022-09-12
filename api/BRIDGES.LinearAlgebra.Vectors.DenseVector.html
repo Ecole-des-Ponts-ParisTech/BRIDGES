@@ -1,0 +1,2230 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class DenseVector
+   | BRIDGES </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class DenseVector
+   | BRIDGES ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/logo_enpc.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector">
+  
+  
+  <h1 id="BRIDGES_LinearAlgebra_Vectors_DenseVector" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector" class="text-break">Class DenseVector
+  </h1>
+  <div class="markdown level0 summary"><p>Class defining a dense vector.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a></div>
+    <div class="level2"><span class="xref">DenseVector</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IAbelianGroup-1.html">IAbelianGroup</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IGroup-1.html">IGroup</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMonoid-1.html">IMonoid</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.ISemiGroup-1.html">ISemiGroup</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.ILoop-1.html">ILoop</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IQuasiGroup-1.html">IQuasiGroup</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMagma-1.html">IMagma</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.IAddable-1.html">IAddable</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.ISubtractable-1.html">ISubtractable</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.IZeroable-1.html">IZeroable</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.IGroupAction-2.html">IGroupAction</a>&lt;<span class="xref">System.Double</span>, <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Measure.INorm-1.html">INorm</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Measure.IMetric-1.html">IMetric</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a>&gt;</div>
+    <div><span class="xref">IEquatable</span>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IAbelianGroup-1.html">IAbelianGroup</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IGroup-1.html">IGroup</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMonoid-1.html">IMonoid</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.ISemiGroup-1.html">ISemiGroup</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.ILoop-1.html">ILoop</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IQuasiGroup-1.html">IQuasiGroup</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMagma-1.html">IMagma</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.IAddable-1.html">IAddable</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.ISubtractable-1.html">ISubtractable</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.IZeroable-1.html">IZeroable</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.IGroupAction-2.html">IGroupAction</a>&lt;<span class="xref">System.Double</span>, <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Measure.INorm-1.html">INorm</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Measure.IMetric-1.html">IMetric</a>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>&gt;</div>
+    <div><span class="xref">IEquatable</span>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>&gt;</div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html#BRIDGES_LinearAlgebra_Vectors_Vector_Add_BRIDGES_LinearAlgebra_Vectors_Vector_BRIDGES_LinearAlgebra_Vectors_Vector_">Vector.Add(Vector, Vector)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html#BRIDGES_LinearAlgebra_Vectors_Vector_Subtract_BRIDGES_LinearAlgebra_Vectors_Vector_BRIDGES_LinearAlgebra_Vectors_Vector_">Vector.Subtract(Vector, Vector)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html#BRIDGES_LinearAlgebra_Vectors_Vector_Multiply_System_Double_BRIDGES_LinearAlgebra_Vectors_Vector_">Vector.Multiply(Double, Vector)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html#BRIDGES_LinearAlgebra_Vectors_Vector_Multiply_BRIDGES_LinearAlgebra_Vectors_Vector_System_Double_">Vector.Multiply(Vector, Double)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html#BRIDGES_LinearAlgebra_Vectors_Vector_Divide_BRIDGES_LinearAlgebra_Vectors_Vector_System_Double_">Vector.Divide(Vector, Double)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html#BRIDGES_LinearAlgebra_Vectors_Vector_TransposeMultiply_BRIDGES_LinearAlgebra_Vectors_Vector_BRIDGES_LinearAlgebra_Vectors_Vector_">Vector.TransposeMultiply(Vector, Vector)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html#BRIDGES_LinearAlgebra_Vectors_Vector_GramSchmidt_IEnumerable_BRIDGES_LinearAlgebra_Vectors_Vector__">Vector.GramSchmidt(IEnumerable&lt;Vector&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html#BRIDGES_LinearAlgebra_Vectors_Vector_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_LinearAlgebra_Vectors_Vector__IsAssociative">Vector.IAddable&lt;Vector&gt;.IsAssociative</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html#BRIDGES_LinearAlgebra_Vectors_Vector_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_LinearAlgebra_Vectors_Vector__IsCommutative">Vector.IAddable&lt;Vector&gt;.IsCommutative</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html#BRIDGES_LinearAlgebra_Vectors_Vector_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_LinearAlgebra_Vectors_Vector__Add_BRIDGES_LinearAlgebra_Vectors_Vector_">Vector.IAddable&lt;Vector&gt;.Add(Vector)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html#BRIDGES_LinearAlgebra_Vectors_Vector_BRIDGES_Algebra_Fundamentals_ISubtractable_BRIDGES_LinearAlgebra_Vectors_Vector__Subtract_BRIDGES_LinearAlgebra_Vectors_Vector_">Vector.ISubtractable&lt;Vector&gt;.Subtract(Vector)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html#BRIDGES_LinearAlgebra_Vectors_Vector_BRIDGES_Algebra_Sets_Additive_IGroup_BRIDGES_LinearAlgebra_Vectors_Vector__Opposite">Vector.IGroup&lt;Vector&gt;.Opposite()</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html#BRIDGES_LinearAlgebra_Vectors_Vector_BRIDGES_Algebra_Fundamentals_IZeroable_BRIDGES_LinearAlgebra_Vectors_Vector__Zero">Vector.IZeroable&lt;Vector&gt;.Zero()</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html#BRIDGES_LinearAlgebra_Vectors_Vector_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_LinearAlgebra_Vectors_Vector__Multiply_System_Double_">Vector.IGroupAction&lt;Double, Vector&gt;.Multiply(Double)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html#BRIDGES_LinearAlgebra_Vectors_Vector_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_LinearAlgebra_Vectors_Vector__Divide_System_Double_">Vector.IGroupAction&lt;Double, Vector&gt;.Divide(Double)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html#BRIDGES_LinearAlgebra_Vectors_Vector_BRIDGES_Algebra_Measure_INorm_BRIDGES_LinearAlgebra_Vectors_Vector__Norm">Vector.INorm&lt;Vector&gt;.Norm()</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html#BRIDGES_LinearAlgebra_Vectors_Vector_BRIDGES_Algebra_Measure_IMetric_BRIDGES_LinearAlgebra_Vectors_Vector__DistanceTo_BRIDGES_LinearAlgebra_Vectors_Vector_">Vector.IMetric&lt;Vector&gt;.DistanceTo(Vector)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.html">BRIDGES.LinearAlgebra.Vectors</a></h6>
+  <h6><strong>Assembly</strong>: BRIDGES.dll</h6>
+  <h5 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class DenseVector : Vector, IAbelianGroup&lt;Vector&gt;, IGroup&lt;Vector&gt;, IMonoid&lt;Vector&gt;, ISemiGroup&lt;Vector&gt;, ILoop&lt;Vector&gt;, IQuasiGroup&lt;Vector&gt;, IMagma&lt;Vector&gt;, IAddable&lt;Vector&gt;, ISubtractable&lt;Vector&gt;, IZeroable&lt;Vector&gt;, IGroupAction&lt;double, Vector&gt;, INorm&lt;Vector&gt;, IMetric&lt;Vector&gt;, IAbelianGroup&lt;DenseVector&gt;, IGroup&lt;DenseVector&gt;, IMonoid&lt;DenseVector&gt;, ISemiGroup&lt;DenseVector&gt;, ILoop&lt;DenseVector&gt;, IQuasiGroup&lt;DenseVector&gt;, IMagma&lt;DenseVector&gt;, IAddable&lt;DenseVector&gt;, ISubtractable&lt;DenseVector&gt;, IZeroable&lt;DenseVector&gt;, IGroupAction&lt;double, DenseVector&gt;, INorm&lt;DenseVector&gt;, IMetric&lt;DenseVector&gt;</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector__ctor_BRIDGES_LinearAlgebra_Vectors_DenseVector_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.%23ctor(BRIDGES.LinearAlgebra.Vectors.DenseVector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L75">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector__ctor_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.#ctor*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector__ctor_BRIDGES_LinearAlgebra_Vectors_DenseVector_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.#ctor(BRIDGES.LinearAlgebra.Vectors.DenseVector)">DenseVector(DenseVector)</h4>
+  <div class="markdown level1 summary"><p>Initialises a new instance of the <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> class from another <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DenseVector(DenseVector vector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><span class="parametername">vector</span></td>
+        <td><p><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> to copy.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector__ctor_BRIDGES_LinearAlgebra_Vectors_SparseVector_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.%23ctor(BRIDGES.LinearAlgebra.Vectors.SparseVector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L90">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector__ctor_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.#ctor*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector__ctor_BRIDGES_LinearAlgebra_Vectors_SparseVector_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.#ctor(BRIDGES.LinearAlgebra.Vectors.SparseVector)">DenseVector(SparseVector)</h4>
+  <div class="markdown level1 summary"><p>Initialises a new instance of the <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> class from a <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DenseVector(SparseVector vector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a></td>
+        <td><span class="parametername">vector</span></td>
+        <td><p><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a> to copy.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector__ctor_IEnumerable_System_Double__.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.%23ctor(IEnumerable%7BSystem.Double%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L60">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector__ctor_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.#ctor*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector__ctor_IEnumerable_System_Double__" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.#ctor(IEnumerable{System.Double})">DenseVector(IEnumerable&lt;Double&gt;)</h4>
+  <div class="markdown level1 summary"><p>Initialises a new instance of the <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> class from its components.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DenseVector(IEnumerable&lt;double&gt; components)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">components</span></td>
+        <td><p>Components of the new <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector__ctor_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.%23ctor(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L51">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector__ctor_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.#ctor*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector__ctor_System_Int32_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.#ctor(System.Int32)">DenseVector(Int32)</h4>
+  <div class="markdown level1 summary"><p>Initialises a new instance of the <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> class of given size, containing only zeros.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DenseVector(int size)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">size</span></td>
+        <td><p>Number of component of the current <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_Item_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.Item(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L37">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Item_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Item*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Item_System_Int32_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Item(System.Int32)">Item[Int32]</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the component at a given index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double this[int index] { get; set; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html#BRIDGES_LinearAlgebra_Vectors_Vector_Item_System_Int32_">Vector.Item[Int32]</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_Size.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.Size%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L31">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Size_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Size*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Size" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Size">Size</h4>
+  <div class="markdown level1 summary"><p>Number of component of the current vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int Size { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html#BRIDGES_LinearAlgebra_Vectors_Vector_Size">Vector.Size</a></div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_Add_BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_LinearAlgebra_Vectors_DenseVector_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.Add(BRIDGES.LinearAlgebra.Vectors.DenseVector%2CBRIDGES.LinearAlgebra.Vectors.DenseVector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L158">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Add_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Add*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Add_BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_LinearAlgebra_Vectors_DenseVector_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Add(BRIDGES.LinearAlgebra.Vectors.DenseVector,BRIDGES.LinearAlgebra.Vectors.DenseVector)">Add(DenseVector, DenseVector)</h4>
+  <div class="markdown level1 summary"><p>Computes the addition of two <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DenseVector Add(DenseVector left, DenseVector right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>Left <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> for the addition.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>Right <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> for the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> resulting from the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_Add_BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_LinearAlgebra_Vectors_SparseVector_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.Add(BRIDGES.LinearAlgebra.Vectors.DenseVector%2CBRIDGES.LinearAlgebra.Vectors.SparseVector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L265">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Add_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Add*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Add_BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_LinearAlgebra_Vectors_SparseVector_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Add(BRIDGES.LinearAlgebra.Vectors.DenseVector,BRIDGES.LinearAlgebra.Vectors.SparseVector)">Add(DenseVector, SparseVector)</h4>
+  <div class="markdown level1 summary"><p>Computes the addition of a <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> with a <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DenseVector Add(DenseVector left, SparseVector right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>Left <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> for the addition.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>Right <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a> for the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> resulting from the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_Add_BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_LinearAlgebra_Vectors_Vector_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.Add(BRIDGES.LinearAlgebra.Vectors.DenseVector%2CBRIDGES.LinearAlgebra.Vectors.Vector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L205">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Add_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Add*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Add_BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_LinearAlgebra_Vectors_Vector_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Add(BRIDGES.LinearAlgebra.Vectors.DenseVector,BRIDGES.LinearAlgebra.Vectors.Vector)">Add(DenseVector, Vector)</h4>
+  <div class="markdown level1 summary"><p>Computes the addition of a <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> with a <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DenseVector Add(DenseVector left, Vector right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>Left <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> for the addition.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>Right <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a> for the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> resulting from the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_Add_BRIDGES_LinearAlgebra_Vectors_SparseVector_BRIDGES_LinearAlgebra_Vectors_DenseVector_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.Add(BRIDGES.LinearAlgebra.Vectors.SparseVector%2CBRIDGES.LinearAlgebra.Vectors.DenseVector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L292">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Add_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Add*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Add_BRIDGES_LinearAlgebra_Vectors_SparseVector_BRIDGES_LinearAlgebra_Vectors_DenseVector_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Add(BRIDGES.LinearAlgebra.Vectors.SparseVector,BRIDGES.LinearAlgebra.Vectors.DenseVector)">Add(SparseVector, DenseVector)</h4>
+  <div class="markdown level1 summary"><p>Computes the addition of a <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a> with a <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DenseVector Add(SparseVector left, DenseVector right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>Left <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a> for the addition.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>Right <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> for the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> resulting from the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_Add_BRIDGES_LinearAlgebra_Vectors_Vector_BRIDGES_LinearAlgebra_Vectors_DenseVector_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.Add(BRIDGES.LinearAlgebra.Vectors.Vector%2CBRIDGES.LinearAlgebra.Vectors.DenseVector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L219">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Add_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Add*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Add_BRIDGES_LinearAlgebra_Vectors_Vector_BRIDGES_LinearAlgebra_Vectors_DenseVector_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Add(BRIDGES.LinearAlgebra.Vectors.Vector,BRIDGES.LinearAlgebra.Vectors.DenseVector)">Add(Vector, DenseVector)</h4>
+  <div class="markdown level1 summary"><p>Computes the addition of a <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a> with a <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DenseVector Add(Vector left, DenseVector right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>Left <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a> for the addition.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>Right <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> for the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> resulting from the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_Divide_BRIDGES_LinearAlgebra_Vectors_DenseVector_System_Double_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.Divide(BRIDGES.LinearAlgebra.Vectors.DenseVector%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L415">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Divide_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Divide*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Divide_BRIDGES_LinearAlgebra_Vectors_DenseVector_System_Double_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Divide(BRIDGES.LinearAlgebra.Vectors.DenseVector,System.Double)">Divide(DenseVector, Double)</h4>
+  <div class="markdown level1 summary"><p>Computes the scalar division of a <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> with a <see cref="!:System.Double"></see>-precision real number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DenseVector Divide(DenseVector operand, double divisor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><span class="parametername">operand</span></td>
+        <td><p><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> to divide.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">divisor</span></td>
+        <td><p><see cref="!:System.Double"></see>-precision real number to divide with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> resulting from the scalar division.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_Equals_BRIDGES_LinearAlgebra_Vectors_DenseVector_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.Equals(BRIDGES.LinearAlgebra.Vectors.DenseVector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L554">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Equals_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Equals*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Equals_BRIDGES_LinearAlgebra_Vectors_DenseVector_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Equals(BRIDGES.LinearAlgebra.Vectors.DenseVector)">Equals(DenseVector)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(DenseVector other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><span class="parametername">other</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_Equals_BRIDGES_LinearAlgebra_Vectors_Vector_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.Equals(BRIDGES.LinearAlgebra.Vectors.Vector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L616">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Equals_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Equals*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Equals_BRIDGES_LinearAlgebra_Vectors_Vector_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Equals(BRIDGES.LinearAlgebra.Vectors.Vector)">Equals(Vector)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(Vector other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a></td>
+        <td><span class="parametername">other</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html#BRIDGES_LinearAlgebra_Vectors_Vector_Equals_BRIDGES_LinearAlgebra_Vectors_Vector_">Vector.Equals(Vector)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_GramSchmidt_IEnumerable_BRIDGES_LinearAlgebra_Vectors_DenseVector__.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.GramSchmidt(IEnumerable%7BBRIDGES.LinearAlgebra.Vectors.DenseVector%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L518">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_GramSchmidt_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.GramSchmidt*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_GramSchmidt_IEnumerable_BRIDGES_LinearAlgebra_Vectors_DenseVector__" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.GramSchmidt(IEnumerable{BRIDGES.LinearAlgebra.Vectors.DenseVector})">GramSchmidt(IEnumerable&lt;DenseVector&gt;)</h4>
+  <div class="markdown level1 summary"><p>Ortho-normalise the set of <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> using a Gram-Schimdt process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DenseVector[] GramSchmidt(IEnumerable&lt;DenseVector&gt; vectors)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>&gt;</td>
+        <td><span class="parametername">vectors</span></td>
+        <td><p>Set of <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> to operate on.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>[]</td>
+        <td><p>The ortho-normal set of <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_GramSchmidt_IEnumerable_BRIDGES_LinearAlgebra_Vectors_DenseVector___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If the vectors are not linearly independent the number of vectors will change.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_Length.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.Length%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L587">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Length_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Length*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Length" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Length">Length()</h4>
+  <div class="markdown level1 summary"><p>Computes the length of the current vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double Length()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The value of the vector length.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html#BRIDGES_LinearAlgebra_Vectors_Vector_Length">Vector.Length()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_Multiply_BRIDGES_LinearAlgebra_Vectors_DenseVector_System_Double_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.Multiply(BRIDGES.LinearAlgebra.Vectors.DenseVector%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L395">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Multiply_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Multiply*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Multiply_BRIDGES_LinearAlgebra_Vectors_DenseVector_System_Double_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Multiply(BRIDGES.LinearAlgebra.Vectors.DenseVector,System.Double)">Multiply(DenseVector, Double)</h4>
+  <div class="markdown level1 summary"><p>Computes the scalar multiplication of a <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> with a <see cref="!:System.Double"></see>-precision real number on the right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DenseVector Multiply(DenseVector operand, double factor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><span class="parametername">operand</span></td>
+        <td><p><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> to multiply on the right.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">factor</span></td>
+        <td><p><see cref="!:System.Double"></see>-precision real number.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> resulting from the scalar multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_Multiply_System_Double_BRIDGES_LinearAlgebra_Vectors_DenseVector_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.Multiply(System.Double%2CBRIDGES.LinearAlgebra.Vectors.DenseVector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L376">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Multiply_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Multiply*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Multiply_System_Double_BRIDGES_LinearAlgebra_Vectors_DenseVector_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Multiply(System.Double,BRIDGES.LinearAlgebra.Vectors.DenseVector)">Multiply(Double, DenseVector)</h4>
+  <div class="markdown level1 summary"><p>Computes the scalar multiplication of a <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> with a <see cref="!:System.Double"></see>-precision real number on the left.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DenseVector Multiply(double factor, DenseVector operand)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">factor</span></td>
+        <td><p><see cref="!:System.Double"></see>-precision real number.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><span class="parametername">operand</span></td>
+        <td><p><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> to multiply on the left.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> resulting from the scalar multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_Opposite.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.Opposite%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L632">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Opposite_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Opposite*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Opposite" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Opposite">Opposite()</h4>
+  <div class="markdown level1 summary"><p>Replaces the current element with its opposite.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Opposite()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html#BRIDGES_LinearAlgebra_Vectors_Vector_Opposite">Vector.Opposite()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_SquaredLength.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.SquaredLength%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L601">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_SquaredLength_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.SquaredLength*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_SquaredLength" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.SquaredLength">SquaredLength()</h4>
+  <div class="markdown level1 summary"><p>Computes the squared length of the current vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double SquaredLength()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The value of the vector squared length.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html#BRIDGES_LinearAlgebra_Vectors_Vector_SquaredLength">Vector.SquaredLength()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_StandardVector_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.StandardVector(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L137">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_StandardVector_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.StandardVector*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_StandardVector_System_Int32_System_Int32_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.StandardVector(System.Int32,System.Int32)">StandardVector(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Returns the unit <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> of a given <code data-dev-comment-type="paramref" class="paramref">size</code>, with one at the given row <code data-dev-comment-type="paramref" class="paramref">index</code> and zeros elsewhere.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DenseVector StandardVector(int size, int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">size</span></td>
+        <td><p>Size of the new <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Index of the standard vector, i.e of the component equal to one.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> representing the standard vector.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_Subtract_BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_LinearAlgebra_Vectors_DenseVector_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.Subtract(BRIDGES.LinearAlgebra.Vectors.DenseVector%2CBRIDGES.LinearAlgebra.Vectors.DenseVector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L180">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Subtract_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Subtract*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Subtract_BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_LinearAlgebra_Vectors_DenseVector_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Subtract(BRIDGES.LinearAlgebra.Vectors.DenseVector,BRIDGES.LinearAlgebra.Vectors.DenseVector)">Subtract(DenseVector, DenseVector)</h4>
+  <div class="markdown level1 summary"><p>Computes the subtraction of two <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DenseVector Subtract(DenseVector left, DenseVector right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>Left <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> to subtract.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>Right <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> to subtract with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> resulting from the subtraction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_Subtract_BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_LinearAlgebra_Vectors_SparseVector_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.Subtract(BRIDGES.LinearAlgebra.Vectors.DenseVector%2CBRIDGES.LinearAlgebra.Vectors.SparseVector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L320">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Subtract_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Subtract*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Subtract_BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_LinearAlgebra_Vectors_SparseVector_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Subtract(BRIDGES.LinearAlgebra.Vectors.DenseVector,BRIDGES.LinearAlgebra.Vectors.SparseVector)">Subtract(DenseVector, SparseVector)</h4>
+  <div class="markdown level1 summary"><p>Computes the subtraction of a <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> with a <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DenseVector Subtract(DenseVector left, SparseVector right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>Left <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> to subtract.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>Right <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a> to subtract with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> resulting from the subtraction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_Subtract_BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_LinearAlgebra_Vectors_Vector_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.Subtract(BRIDGES.LinearAlgebra.Vectors.DenseVector%2CBRIDGES.LinearAlgebra.Vectors.Vector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L234">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Subtract_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Subtract*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Subtract_BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_LinearAlgebra_Vectors_Vector_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Subtract(BRIDGES.LinearAlgebra.Vectors.DenseVector,BRIDGES.LinearAlgebra.Vectors.Vector)">Subtract(DenseVector, Vector)</h4>
+  <div class="markdown level1 summary"><p>Computes the subtraction of a <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> with a <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DenseVector Subtract(DenseVector left, Vector right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>Left <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> to subtract.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>Right <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a> to subtract with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> resulting from the subtraction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_Subtract_BRIDGES_LinearAlgebra_Vectors_SparseVector_BRIDGES_LinearAlgebra_Vectors_DenseVector_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.Subtract(BRIDGES.LinearAlgebra.Vectors.SparseVector%2CBRIDGES.LinearAlgebra.Vectors.DenseVector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L347">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Subtract_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Subtract*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Subtract_BRIDGES_LinearAlgebra_Vectors_SparseVector_BRIDGES_LinearAlgebra_Vectors_DenseVector_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Subtract(BRIDGES.LinearAlgebra.Vectors.SparseVector,BRIDGES.LinearAlgebra.Vectors.DenseVector)">Subtract(SparseVector, DenseVector)</h4>
+  <div class="markdown level1 summary"><p>Computes the subtraction of a <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a> with a <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DenseVector Subtract(SparseVector left, DenseVector right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>Left <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a> to subtract.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>Right <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> to subtract with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> resulting from the subtraction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_Subtract_BRIDGES_LinearAlgebra_Vectors_Vector_BRIDGES_LinearAlgebra_Vectors_DenseVector_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.Subtract(BRIDGES.LinearAlgebra.Vectors.Vector%2CBRIDGES.LinearAlgebra.Vectors.DenseVector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L248">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Subtract_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Subtract*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Subtract_BRIDGES_LinearAlgebra_Vectors_Vector_BRIDGES_LinearAlgebra_Vectors_DenseVector_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Subtract(BRIDGES.LinearAlgebra.Vectors.Vector,BRIDGES.LinearAlgebra.Vectors.DenseVector)">Subtract(Vector, DenseVector)</h4>
+  <div class="markdown level1 summary"><p>Computes the subtraction of a <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a> with a <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DenseVector Subtract(Vector left, DenseVector right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>Left <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html">Vector</a> to subtract.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>Right <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> to subtract with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> resulting from the subtraction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_ToArray.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.ToArray%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L623">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_ToArray_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.ToArray*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_ToArray" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.ToArray">ToArray()</h4>
+  <div class="markdown level1 summary"><p>Translates the current vector into its array representation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override double[] ToArray()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span>[]</td>
+        <td><p>The <see cref="!:System.Double"></see>-precision array representing the vector.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html#BRIDGES_LinearAlgebra_Vectors_Vector_ToArray">Vector.ToArray()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_TransposeMultiply_BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_LinearAlgebra_Vectors_DenseVector_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.TransposeMultiply(BRIDGES.LinearAlgebra.Vectors.DenseVector%2CBRIDGES.LinearAlgebra.Vectors.DenseVector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L438">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_TransposeMultiply_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.TransposeMultiply*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_TransposeMultiply_BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_LinearAlgebra_Vectors_DenseVector_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.TransposeMultiply(BRIDGES.LinearAlgebra.Vectors.DenseVector,BRIDGES.LinearAlgebra.Vectors.DenseVector)">TransposeMultiply(DenseVector, DenseVector)</h4>
+  <div class="markdown level1 summary"><p>Computes the multiplication between the transposed left <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> and the right <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double TransposeMultiply(DenseVector left, DenseVector right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>Left <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> to transpose, then multiply.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>Right <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> to multiply.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The <see cref="!:System.Double"></see>-precision scalar resulting from the multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_TransposeMultiply_BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_LinearAlgebra_Vectors_SparseVector_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.TransposeMultiply(BRIDGES.LinearAlgebra.Vectors.DenseVector%2CBRIDGES.LinearAlgebra.Vectors.SparseVector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L460">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_TransposeMultiply_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.TransposeMultiply*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_TransposeMultiply_BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_LinearAlgebra_Vectors_SparseVector_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.TransposeMultiply(BRIDGES.LinearAlgebra.Vectors.DenseVector,BRIDGES.LinearAlgebra.Vectors.SparseVector)">TransposeMultiply(DenseVector, SparseVector)</h4>
+  <div class="markdown level1 summary"><p>Computes the multiplication between the transposed left <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> and the right <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double TransposeMultiply(DenseVector left, SparseVector right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>Left <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> to transpose, then multiply.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>Right <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a> to multiply.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The <see cref="!:System.Double"></see>-precision scalar resulting from the multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_TransposeMultiply_BRIDGES_LinearAlgebra_Vectors_SparseVector_BRIDGES_LinearAlgebra_Vectors_DenseVector_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.TransposeMultiply(BRIDGES.LinearAlgebra.Vectors.SparseVector%2CBRIDGES.LinearAlgebra.Vectors.DenseVector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L488">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_TransposeMultiply_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.TransposeMultiply*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_TransposeMultiply_BRIDGES_LinearAlgebra_Vectors_SparseVector_BRIDGES_LinearAlgebra_Vectors_DenseVector_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.TransposeMultiply(BRIDGES.LinearAlgebra.Vectors.SparseVector,BRIDGES.LinearAlgebra.Vectors.DenseVector)">TransposeMultiply(SparseVector, DenseVector)</h4>
+  <div class="markdown level1 summary"><p>Computes the multiplication between the transposed left <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a> and the right <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double TransposeMultiply(SparseVector left, DenseVector right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>Left <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.SparseVector.html">SparseVector</a> to transpose, then multiply.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>Right <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> to multiply.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The <see cref="!:System.Double"></see>-precision scalar resulting from the multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_Unitise.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.Unitise%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L575">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Unitise_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Unitise*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Unitise" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Unitise">Unitise()</h4>
+  <div class="markdown level1 summary"><p>Unitises the current <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Unitise()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.Vector.html#BRIDGES_LinearAlgebra_Vectors_Vector_Unitise">Vector.Unitise()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_Zero_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.Zero(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L125">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Zero_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Zero*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_Zero_System_Int32_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.Zero(System.Int32)">Zero(Int32)</h4>
+  <div class="markdown level1 summary"><p>Returns the neutral <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> for the addition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DenseVector Zero(int size)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">size</span></td>
+        <td><p>Number of component of the current <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><p>The <a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a> of the given size and with zeros on every coordinates.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_LinearAlgebra_Vectors_DenseVector__Add_BRIDGES_LinearAlgebra_Vectors_DenseVector_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES%23Algebra%23Fundamentals%23IAddable%7BBRIDGES%23LinearAlgebra%23Vectors%23DenseVector%7D%23Add(BRIDGES.LinearAlgebra.Vectors.DenseVector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L659">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_LinearAlgebra_Vectors_DenseVector__Add_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#LinearAlgebra#Vectors#DenseVector}#Add*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_LinearAlgebra_Vectors_DenseVector__Add_BRIDGES_LinearAlgebra_Vectors_DenseVector_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#LinearAlgebra#Vectors#DenseVector}#Add(BRIDGES.LinearAlgebra.Vectors.DenseVector)">IAddable&lt;DenseVector&gt;.Add(DenseVector)</h4>
+  <div class="markdown level1 summary"><p>Computes the addition of the current element with another element on the right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DenseVector IAddable&lt;DenseVector&gt;.Add(DenseVector right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><span class="parametername">right</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><p>The new element resulting from the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_LinearAlgebra_Vectors_DenseVector__IsAssociative.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES%23Algebra%23Fundamentals%23IAddable%7BBRIDGES%23LinearAlgebra%23Vectors%23DenseVector%7D%23IsAssociative%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L650">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_LinearAlgebra_Vectors_DenseVector__IsAssociative_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#LinearAlgebra#Vectors#DenseVector}#IsAssociative*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_LinearAlgebra_Vectors_DenseVector__IsAssociative" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#LinearAlgebra#Vectors#DenseVector}#IsAssociative">IAddable&lt;DenseVector&gt;.IsAssociative</h4>
+  <div class="markdown level1 summary"><p>Evaluates whether the addition is associative : a + (b + c) = (a + b) + c.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IAddable&lt;DenseVector&gt;.IsAssociative { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_LinearAlgebra_Vectors_DenseVector__IsAssociative_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This property should be implemented explicitely as it is only informative.<br>
+It also helps prevents any confusion with the homonymous property of the multiplication.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_LinearAlgebra_Vectors_DenseVector__IsCommutative.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES%23Algebra%23Fundamentals%23IAddable%7BBRIDGES%23LinearAlgebra%23Vectors%23DenseVector%7D%23IsCommutative%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L653">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_LinearAlgebra_Vectors_DenseVector__IsCommutative_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#LinearAlgebra#Vectors#DenseVector}#IsCommutative*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_LinearAlgebra_Vectors_DenseVector__IsCommutative" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#LinearAlgebra#Vectors#DenseVector}#IsCommutative">IAddable&lt;DenseVector&gt;.IsCommutative</h4>
+  <div class="markdown level1 summary"><p>Evaluates whether the addition is commutative : a + b = b + a.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IAddable&lt;DenseVector&gt;.IsCommutative { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_LinearAlgebra_Vectors_DenseVector__IsCommutative_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This property should be implemented explicitely as it is only informative.<br>
+It also helps prevents any confusion with the homonymous property of the multiplication.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Fundamentals_ISubtractable_BRIDGES_LinearAlgebra_Vectors_DenseVector__Subtract_BRIDGES_LinearAlgebra_Vectors_DenseVector_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES%23Algebra%23Fundamentals%23ISubtractable%7BBRIDGES%23LinearAlgebra%23Vectors%23DenseVector%7D%23Subtract(BRIDGES.LinearAlgebra.Vectors.DenseVector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L665">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Fundamentals_ISubtractable_BRIDGES_LinearAlgebra_Vectors_DenseVector__Subtract_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES#Algebra#Fundamentals#ISubtractable{BRIDGES#LinearAlgebra#Vectors#DenseVector}#Subtract*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Fundamentals_ISubtractable_BRIDGES_LinearAlgebra_Vectors_DenseVector__Subtract_BRIDGES_LinearAlgebra_Vectors_DenseVector_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES#Algebra#Fundamentals#ISubtractable{BRIDGES#LinearAlgebra#Vectors#DenseVector}#Subtract(BRIDGES.LinearAlgebra.Vectors.DenseVector)">ISubtractable&lt;DenseVector&gt;.Subtract(DenseVector)</h4>
+  <div class="markdown level1 summary"><p>Computes the subtraction of the current element with another element on the right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DenseVector ISubtractable&lt;DenseVector&gt;.Subtract(DenseVector right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><span class="parametername">right</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><p>The new element resulting from the subtraction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Fundamentals_IZeroable_BRIDGES_LinearAlgebra_Vectors_DenseVector__Zero.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES%23Algebra%23Fundamentals%23IZeroable%7BBRIDGES%23LinearAlgebra%23Vectors%23DenseVector%7D%23Zero%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L678">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Fundamentals_IZeroable_BRIDGES_LinearAlgebra_Vectors_DenseVector__Zero_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES#Algebra#Fundamentals#IZeroable{BRIDGES#LinearAlgebra#Vectors#DenseVector}#Zero*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Fundamentals_IZeroable_BRIDGES_LinearAlgebra_Vectors_DenseVector__Zero" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES#Algebra#Fundamentals#IZeroable{BRIDGES#LinearAlgebra#Vectors#DenseVector}#Zero">IZeroable&lt;DenseVector&gt;.Zero()</h4>
+  <div class="markdown level1 summary"><p>Returns the neutral element of the addition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DenseVector IZeroable&lt;DenseVector&gt;.Zero()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><p>The neutral element of the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Measure_IMetric_BRIDGES_LinearAlgebra_Vectors_DenseVector__DistanceTo_BRIDGES_LinearAlgebra_Vectors_DenseVector_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES%23Algebra%23Measure%23IMetric%7BBRIDGES%23LinearAlgebra%23Vectors%23DenseVector%7D%23DistanceTo(BRIDGES.LinearAlgebra.Vectors.DenseVector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L700">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Measure_IMetric_BRIDGES_LinearAlgebra_Vectors_DenseVector__DistanceTo_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES#Algebra#Measure#IMetric{BRIDGES#LinearAlgebra#Vectors#DenseVector}#DistanceTo*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Measure_IMetric_BRIDGES_LinearAlgebra_Vectors_DenseVector__DistanceTo_BRIDGES_LinearAlgebra_Vectors_DenseVector_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES#Algebra#Measure#IMetric{BRIDGES#LinearAlgebra#Vectors#DenseVector}#DistanceTo(BRIDGES.LinearAlgebra.Vectors.DenseVector)">IMetric&lt;DenseVector&gt;.DistanceTo(DenseVector)</h4>
+  <div class="markdown level1 summary"><p>Computes the distance of the current element to another element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">double IMetric&lt;DenseVector&gt;.DistanceTo(DenseVector other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><span class="parametername">other</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The value of the distance between the two elements.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Measure_INorm_BRIDGES_LinearAlgebra_Vectors_DenseVector__Norm.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES%23Algebra%23Measure%23INorm%7BBRIDGES%23LinearAlgebra%23Vectors%23DenseVector%7D%23Norm%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L697">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Measure_INorm_BRIDGES_LinearAlgebra_Vectors_DenseVector__Norm_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES#Algebra#Measure#INorm{BRIDGES#LinearAlgebra#Vectors#DenseVector}#Norm*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Measure_INorm_BRIDGES_LinearAlgebra_Vectors_DenseVector__Norm" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES#Algebra#Measure#INorm{BRIDGES#LinearAlgebra#Vectors#DenseVector}#Norm">INorm&lt;DenseVector&gt;.Norm()</h4>
+  <div class="markdown level1 summary"><p>Computes the norm the current <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">double INorm&lt;DenseVector&gt;.Norm()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The value of the norm.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Sets_Additive_IGroup_BRIDGES_LinearAlgebra_Vectors_DenseVector__Opposite.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES%23Algebra%23Sets%23Additive%23IGroup%7BBRIDGES%23LinearAlgebra%23Vectors%23DenseVector%7D%23Opposite%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L671">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Sets_Additive_IGroup_BRIDGES_LinearAlgebra_Vectors_DenseVector__Opposite_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES#Algebra#Sets#Additive#IGroup{BRIDGES#LinearAlgebra#Vectors#DenseVector}#Opposite*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Sets_Additive_IGroup_BRIDGES_LinearAlgebra_Vectors_DenseVector__Opposite" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES#Algebra#Sets#Additive#IGroup{BRIDGES#LinearAlgebra#Vectors#DenseVector}#Opposite">IGroup&lt;DenseVector&gt;.Opposite()</h4>
+  <div class="markdown level1 summary"><p>Replaces the current element with its opposite.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IGroup&lt;DenseVector&gt;.Opposite()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the current element was opposed, <span class="xref">false</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_LinearAlgebra_Vectors_DenseVector__Divide_System_Double_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES%23Algebra%23Sets%23IGroupAction%7BSystem%23Double%2CBRIDGES%23LinearAlgebra%23Vectors%23DenseVector%7D%23Divide(System.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L690">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_LinearAlgebra_Vectors_DenseVector__Divide_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES#Algebra#Sets#IGroupAction{System#Double,BRIDGES#LinearAlgebra#Vectors#DenseVector}#Divide*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_LinearAlgebra_Vectors_DenseVector__Divide_System_Double_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES#Algebra#Sets#IGroupAction{System#Double,BRIDGES#LinearAlgebra#Vectors#DenseVector}#Divide(System.Double)">IGroupAction&lt;Double, DenseVector&gt;.Divide(Double)</h4>
+  <div class="markdown level1 summary"><p>Computes the right scalar division of the current element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DenseVector IGroupAction&lt;double, DenseVector&gt;.Divide(double divisor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">divisor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><p>The new element resulting from the scalar dividion.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_LinearAlgebra_Vectors_DenseVector__Multiply_System_Double_.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES%23Algebra%23Sets%23IGroupAction%7BSystem%23Double%2CBRIDGES%23LinearAlgebra%23Vectors%23DenseVector%7D%23Multiply(System.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L687">View Source</a>
+  </span>
+  <a id="BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_LinearAlgebra_Vectors_DenseVector__Multiply_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES#Algebra#Sets#IGroupAction{System#Double,BRIDGES#LinearAlgebra#Vectors#DenseVector}#Multiply*"></a>
+  <h4 id="BRIDGES_LinearAlgebra_Vectors_DenseVector_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_LinearAlgebra_Vectors_DenseVector__Multiply_System_Double_" data-uid="BRIDGES.LinearAlgebra.Vectors.DenseVector.BRIDGES#Algebra#Sets#IGroupAction{System#Double,BRIDGES#LinearAlgebra#Vectors#DenseVector}#Multiply(System.Double)">IGroupAction&lt;Double, DenseVector&gt;.Multiply(Double)</h4>
+  <div class="markdown level1 summary"><p>Computes the right scalar multiplication of the current element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DenseVector IGroupAction&lt;double, DenseVector&gt;.Multiply(double factor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">factor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.LinearAlgebra.Vectors.DenseVector.html">DenseVector</a></td>
+        <td><p>The new element resulting from the scalar multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IAbelianGroup-1.html">IAbelianGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IGroup-1.html">IGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMonoid-1.html">IMonoid&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.ISemiGroup-1.html">ISemiGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.ILoop-1.html">ILoop&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IQuasiGroup-1.html">IQuasiGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMagma-1.html">IMagma&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.IAddable-1.html">IAddable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.ISubtractable-1.html">ISubtractable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.IZeroable-1.html">IZeroable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.IGroupAction-2.html">IGroupAction&lt;TValue, T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Measure.INorm-1.html">INorm&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Measure.IMetric-1.html">IMetric&lt;T&gt;</a>
+  </div>
+  <div>
+      <span class="xref">IEquatable&lt;&gt;</span>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IAbelianGroup-1.html">IAbelianGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IGroup-1.html">IGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMonoid-1.html">IMonoid&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.ISemiGroup-1.html">ISemiGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.ILoop-1.html">ILoop&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IQuasiGroup-1.html">IQuasiGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMagma-1.html">IMagma&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.IAddable-1.html">IAddable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.ISubtractable-1.html">ISubtractable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.IZeroable-1.html">IZeroable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.IGroupAction-2.html">IGroupAction&lt;TValue, T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Measure.INorm-1.html">INorm&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Measure.IMetric-1.html">IMetric&lt;T&gt;</a>
+  </div>
+  <div>
+      <span class="xref">IEquatable&lt;&gt;</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_LinearAlgebra_Vectors_DenseVector.md&amp;value=---%0Auid%3A%20BRIDGES.LinearAlgebra.Vectors.DenseVector%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/LinearAlgebra/Vectors/DenseVector.cs/#L14" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            By ENPC and the Build'in Platform
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

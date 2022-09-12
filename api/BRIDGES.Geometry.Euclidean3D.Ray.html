@@ -1,0 +1,496 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Struct Ray
+   | BRIDGES </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Struct Ray
+   | BRIDGES ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/logo_enpc.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="BRIDGES.Geometry.Euclidean3D.Ray">
+  
+  
+  <h1 id="BRIDGES_Geometry_Euclidean3D_Ray" data-uid="BRIDGES.Geometry.Euclidean3D.Ray" class="text-break">Struct Ray
+  </h1>
+  <div class="markdown level0 summary"><p>Structure defining a half-line in three-dimensional euclidean space.<br>
+It is defined by a start point and an end point (finite length). For an infinite line, refer to <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Line.html">Line</a>.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BRIDGES.Geometry.Euclidean3D.html">BRIDGES.Geometry.Euclidean3D</a></h6>
+  <h6><strong>Assembly</strong>: BRIDGES.dll</h6>
+  <h5 id="BRIDGES_Geometry_Euclidean3D_Ray_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public struct Ray</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Ray__ctor_BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Geometry_Euclidean3D_Vector_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Ray.%23ctor(BRIDGES.Geometry.Euclidean3D.Point%2CBRIDGES.Geometry.Euclidean3D.Vector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Ray.cs/#L33">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Ray__ctor_" data-uid="BRIDGES.Geometry.Euclidean3D.Ray.#ctor*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Ray__ctor_BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Geometry_Euclidean3D_Vector_" data-uid="BRIDGES.Geometry.Euclidean3D.Ray.#ctor(BRIDGES.Geometry.Euclidean3D.Point,BRIDGES.Geometry.Euclidean3D.Vector)">Ray(Point, Vector)</h4>
+  <div class="markdown level1 summary"><p>Initialises a new instance of the <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Ray.html">Ray</a> structure by defining its origin and axis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Ray(Point start, Vector axis)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">start</span></td>
+        <td><p>Start <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> of the <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Ray.html">Ray</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Vector.html">Vector</a></td>
+        <td><span class="parametername">axis</span></td>
+        <td><p>Axis of the <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Ray.html">Ray</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Ray__ctor_BRIDGES_Geometry_Euclidean3D_Ray_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Ray.%23ctor(BRIDGES.Geometry.Euclidean3D.Ray)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Ray.cs/#L43">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Ray__ctor_" data-uid="BRIDGES.Geometry.Euclidean3D.Ray.#ctor*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Ray__ctor_BRIDGES_Geometry_Euclidean3D_Ray_" data-uid="BRIDGES.Geometry.Euclidean3D.Ray.#ctor(BRIDGES.Geometry.Euclidean3D.Ray)">Ray(Ray)</h4>
+  <div class="markdown level1 summary"><p>Initialises a new instance of the <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Ray.html">Ray</a> structure from another <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Ray.html">Ray</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Ray(Ray ray)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Ray.html">Ray</a></td>
+        <td><span class="parametername">ray</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Ray.html">Ray</a> to copy.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Ray_Axis.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Ray.Axis%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Ray.cs/#L22">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Ray_Axis_" data-uid="BRIDGES.Geometry.Euclidean3D.Ray.Axis*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Ray_Axis" data-uid="BRIDGES.Geometry.Euclidean3D.Ray.Axis">Axis</h4>
+  <div class="markdown level1 summary"><p>Gets the axis of the current <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Ray.html">Ray</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector Axis { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Vector.html">Vector</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Ray_StartPoint.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Ray.StartPoint%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Ray.cs/#L17">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Ray_StartPoint_" data-uid="BRIDGES.Geometry.Euclidean3D.Ray.StartPoint*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Ray_StartPoint" data-uid="BRIDGES.Geometry.Euclidean3D.Ray.StartPoint">StartPoint</h4>
+  <div class="markdown level1 summary"><p>Gets the start <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> of the current <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Ray.html">Ray</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Point StartPoint { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Ray_Equals_BRIDGES_Geometry_Euclidean3D_Ray_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Ray.Equals(BRIDGES.Geometry.Euclidean3D.Ray)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Ray.cs/#L86">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Ray_Equals_" data-uid="BRIDGES.Geometry.Euclidean3D.Ray.Equals*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Ray_Equals_BRIDGES_Geometry_Euclidean3D_Ray_" data-uid="BRIDGES.Geometry.Euclidean3D.Ray.Equals(BRIDGES.Geometry.Euclidean3D.Ray)">Equals(Ray)</h4>
+  <div class="markdown level1 summary"><p>Evaluates whether the current <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Ray.html">Ray</a> is equal to another <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Ray.html">Ray</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(Ray other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Ray.html">Ray</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Ray.html">Ray</a> to compare with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the two <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Ray.html">Ray</a> are equal, <span class="xref">false</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_Geometry_Euclidean3D_Ray_Equals_BRIDGES_Geometry_Euclidean3D_Ray__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Two <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Ray.html">Ray</a> are equal if their start <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> are equal and their <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Vector.html">Vector</a> axis parallel.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Ray_Equals_System_Object_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Ray.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Ray.cs/#L97">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Ray_Equals_" data-uid="BRIDGES.Geometry.Euclidean3D.Ray.Equals*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Ray_Equals_System_Object_" data-uid="BRIDGES.Geometry.Euclidean3D.Ray.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Ray_Flip.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Ray.Flip%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Ray.cs/#L56">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Ray_Flip_" data-uid="BRIDGES.Geometry.Euclidean3D.Ray.Flip*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Ray_Flip" data-uid="BRIDGES.Geometry.Euclidean3D.Ray.Flip">Flip()</h4>
+  <div class="markdown level1 summary"><p>Flips the current <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Ray.html">Ray</a> by flipping the <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Ray.html#BRIDGES_Geometry_Euclidean3D_Ray_Axis">Axis</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Flip()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Ray_GetHashCode.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Ray.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Ray.cs/#L103">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Ray_GetHashCode_" data-uid="BRIDGES.Geometry.Euclidean3D.Ray.GetHashCode*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Ray_GetHashCode" data-uid="BRIDGES.Geometry.Euclidean3D.Ray.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Ray_PointAt_System_Double_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Ray.PointAt(System.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Ray.cs/#L67">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Ray_PointAt_" data-uid="BRIDGES.Geometry.Euclidean3D.Ray.PointAt*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Ray_PointAt_System_Double_" data-uid="BRIDGES.Geometry.Euclidean3D.Ray.PointAt(System.Double)">PointAt(Double)</h4>
+  <div class="markdown level1 summary"><p>Evaluates the current <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Ray.html">Ray</a> at the given length parameter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Point PointAt(double lengthParameter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">lengthParameter</span></td>
+        <td><p>Value of the length parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><p>The <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> on the <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Line.html">Line</a> at the given length parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Ray_ToString.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Ray.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Ray.cs/#L109">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Ray_ToString_" data-uid="BRIDGES.Geometry.Euclidean3D.Ray.ToString*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Ray_ToString" data-uid="BRIDGES.Geometry.Euclidean3D.Ray.ToString">ToString()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Ray.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Ray%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Manifold_1D/Ray.cs/#L10" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            By ENPC and the Build'in Platform
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

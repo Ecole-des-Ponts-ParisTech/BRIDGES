@@ -1,0 +1,1862 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class HeMesh&lt;TPosition&gt;
+   | BRIDGES </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class HeMesh&lt;TPosition&gt;
+   | BRIDGES ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/logo_enpc.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1">
+  
+  
+  <h1 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1" class="text-break">Class HeMesh&lt;TPosition&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>Class for a polyhedral halfedge mesh data structure.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html">Mesh</a>&lt;TPosition, <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex-1.html">HeVertex</a>&lt;TPosition&gt;, <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge-1.html">HeEdge</a>&lt;TPosition&gt;, <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace-1.html">HeFace</a>&lt;TPosition&gt;&gt;</div>
+    <div class="level2"><span class="xref">HeMesh&lt;TPosition&gt;</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.IMesh-1.html">IMesh</a>&lt;TPosition&gt;</div>
+    <div><span class="xref">ICloneable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_VertexCount">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.VertexCount</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EdgeCount">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.EdgeCount</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_FaceCount">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.FaceCount</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_RemoveVertex_System_Int32_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.RemoveVertex(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EraseVertex_System_Int32_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.EraseVertex(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddEdge_System_Int32_System_Int32_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.AddEdge(Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EdgeBetween_System_Int32_System_Int32_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.EdgeBetween(Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_RemoveEdge_System_Int32_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.RemoveEdge(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EraseEdge_System_Int32_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.EraseEdge(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddFace_System_Int32_System_Int32_System_Int32_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.AddFace(Int32, Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddFace_System_Int32_System_Int32_System_Int32_System_Int32_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.AddFace(Int32, Int32, Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddFace_List_System_Int32__">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.AddFace(List&lt;Int32&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddFace__1__1__1_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.AddFace(HeVertex&lt;TPosition&gt;, HeVertex&lt;TPosition&gt;, HeVertex&lt;TPosition&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddFace__1__1__1__1_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.AddFace(HeVertex&lt;TPosition&gt;, HeVertex&lt;TPosition&gt;, HeVertex&lt;TPosition&gt;, HeVertex&lt;TPosition&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_RemoveFace_System_Int32_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.RemoveFace(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EraseFace_System_Int32_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.EraseFace(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EdgeBetween__1__1_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.EdgeBetween(HeVertex&lt;TPosition&gt;, HeVertex&lt;TPosition&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_CleanMesh_System_Boolean_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.CleanMesh(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_Clone">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.Clone()</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddVertex__0_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.AddVertex(TPosition)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetVertex_System_Int32_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.GetVertex(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_TryGetVertex_System_Int32_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.TryGetVertex(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetVertices">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.GetVertices()</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_RemoveVertex__1_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.RemoveVertex(HeVertex&lt;TPosition&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EraseVertex__1_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.EraseVertex(HeVertex&lt;TPosition&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetEdge_System_Int32_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.GetEdge(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_TryGetEdge_System_Int32_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.TryGetEdge(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetEdges">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.GetEdges()</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_RemoveEdge__2_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.RemoveEdge(HeEdge&lt;TPosition&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EraseEdge__2_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.EraseEdge(HeEdge&lt;TPosition&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddFace_List__1__">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.AddFace(List&lt;HeVertex&lt;TPosition&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetFace_System_Int32_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.GetFace(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_TryGetFace_System_Int32_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.TryGetFace(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetFaces">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.GetFaces()</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_RemoveFace__3_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.RemoveFace(HeFace&lt;TPosition&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EraseFace__3_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.EraseFace(HeFace&lt;TPosition&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_Equals_System_Object_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetHashCode">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_ToString">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__AddVertex__0_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.IMesh&lt;TPosition&gt;.AddVertex(TPosition)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__GetVertex_System_Int32_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.IMesh&lt;TPosition&gt;.GetVertex(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__TryGetVertex_System_Int32_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.IMesh&lt;TPosition&gt;.TryGetVertex(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__GetVertices">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.IMesh&lt;TPosition&gt;.GetVertices()</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__AddEdge_System_Int32_System_Int32_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.IMesh&lt;TPosition&gt;.AddEdge(Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__GetEdge_System_Int32_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.IMesh&lt;TPosition&gt;.GetEdge(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__TryGetEdge_System_Int32_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.IMesh&lt;TPosition&gt;.TryGetEdge(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__GetEdges">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.IMesh&lt;TPosition&gt;.GetEdges()</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__EdgeBetween_System_Int32_System_Int32_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.IMesh&lt;TPosition&gt;.EdgeBetween(Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__AddFace_System_Int32_System_Int32_System_Int32_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.IMesh&lt;TPosition&gt;.AddFace(Int32, Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__AddFace_System_Int32_System_Int32_System_Int32_System_Int32_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.IMesh&lt;TPosition&gt;.AddFace(Int32, Int32, Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__AddFace_List_System_Int32__">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.IMesh&lt;TPosition&gt;.AddFace(List&lt;Int32&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__GetFace_System_Int32_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.IMesh&lt;TPosition&gt;.GetFace(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__TryGetFace_System_Int32_">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.IMesh&lt;TPosition&gt;.TryGetFace(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html#BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__GetFaces">Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;.IMesh&lt;TPosition&gt;.GetFaces()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.html">BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh</a></h6>
+  <h6><strong>Assembly</strong>: BRIDGES.dll</h6>
+  <h5 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class HeMesh&lt;TPosition&gt; : Mesh&lt;TPosition, HeVertex&lt;TPosition&gt;, HeEdge&lt;TPosition&gt;, HeFace&lt;TPosition&gt;&gt;, IMesh&lt;TPosition&gt; where TPosition : IEquatable&lt;TPosition&gt;</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TPosition</span></td>
+        <td><p>Type for the position of the vertex.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1__ctor.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L91">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1__ctor_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.#ctor*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1__ctor" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.#ctor">HeMesh()</h4>
+  <div class="markdown level1 summary"><p>Initialises a new instance of the <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh-1.html">HeMesh&lt;TPosition&gt;</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HeMesh()</code></pre>
+  </div>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1__faces.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601._faces%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L48">View Source</a>
+  </span>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1__faces" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1._faces">_faces</h4>
+  <div class="markdown level1 summary"><p>Dictionary containing the <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace-1.html">HeFace&lt;TPosition&gt;</a> of the current <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh-1.html">HeMesh&lt;TPosition&gt;</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Dictionary&lt;int, HeFace&lt;TPosition&gt;&gt; _faces</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.Int32</span>, <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace-1.html">HeFace</a>&lt;TPosition&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1__faces_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Key : Index of the <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace-1.html">HeFace&lt;TPosition&gt;</a>; Value : Corresponding <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace-1.html">HeFace&lt;TPosition&gt;</a>.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1__halfedges.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601._halfedges%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L35">View Source</a>
+  </span>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1__halfedges" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1._halfedges">_halfedges</h4>
+  <div class="markdown level1 summary"><p>Dictionary containing the <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge-1.html">HeEdge&lt;TPosition&gt;</a> of the current <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh-1.html">HeMesh&lt;TPosition&gt;</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Dictionary&lt;int, HeHalfedge&lt;TPosition&gt;&gt; _halfedges</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.Int32</span>, <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeHalfedge-1.html">HeHalfedge</a>&lt;TPosition&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1__halfedges_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Key : Index of the <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge-1.html">HeEdge&lt;TPosition&gt;</a>; Value : Corresponding <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge-1.html">HeEdge&lt;TPosition&gt;</a>.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1__newFaceIndex.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601._newFaceIndex%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L54">View Source</a>
+  </span>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1__newFaceIndex" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1._newFaceIndex">_newFaceIndex</h4>
+  <div class="markdown level1 summary"><p>Index for a newly created face.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int _newFaceIndex</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1__newFaceIndex_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This may not match with <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh-1.html#BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_FaceCount">FaceCount</a> if faces are removed from the mesh.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1__newHalfedgeIndex.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601._newHalfedgeIndex%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L41">View Source</a>
+  </span>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1__newHalfedgeIndex" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1._newHalfedgeIndex">_newHalfedgeIndex</h4>
+  <div class="markdown level1 summary"><p>Index for a newly created edge.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int _newHalfedgeIndex</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1__newHalfedgeIndex_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This may not match with <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh-1.html#BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_EdgeCount">EdgeCount</a> if edges are removed from the mesh.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1__newVertexIndex.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601._newVertexIndex%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L28">View Source</a>
+  </span>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1__newVertexIndex" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1._newVertexIndex">_newVertexIndex</h4>
+  <div class="markdown level1 summary"><p>Index for a newly created vertex.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int _newVertexIndex</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1__newVertexIndex_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This may not match with <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh-1.html#BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_VertexCount">VertexCount</a> if vertices are removed from the mesh.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1__vertices.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601._vertices%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L22">View Source</a>
+  </span>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1__vertices" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1._vertices">_vertices</h4>
+  <div class="markdown level1 summary"><p>Dictionary containing the <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex-1.html">HeVertex&lt;TPosition&gt;</a> of the current <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh-1.html">HeMesh&lt;TPosition&gt;</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Dictionary&lt;int, HeVertex&lt;TPosition&gt;&gt; _vertices</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.Int32</span>, <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex-1.html">HeVertex</a>&lt;TPosition&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1__vertices_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Key : Index of the <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex-1.html">HeVertex&lt;TPosition&gt;</a>; Value : Corresponding <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex-1.html">HeVertex&lt;TPosition&gt;</a>.</p>
+</div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_EdgeCount.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.EdgeCount%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L73">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_EdgeCount_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.EdgeCount*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_EdgeCount" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.EdgeCount">EdgeCount</h4>
+  <div class="markdown level1 summary"><p>Gets the number of edges in the current mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int EdgeCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh&lt;TPosition, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace&lt;TPosition&gt;&gt;.EdgeCount</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_FaceCount.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.FaceCount%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L79">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_FaceCount_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.FaceCount*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_FaceCount" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.FaceCount">FaceCount</h4>
+  <div class="markdown level1 summary"><p>Gets the number of faces in the current mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int FaceCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh&lt;TPosition, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace&lt;TPosition&gt;&gt;.FaceCount</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_HalfedgeCount.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.HalfedgeCount%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L67">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_HalfedgeCount_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.HalfedgeCount*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_HalfedgeCount" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.HalfedgeCount">HalfedgeCount</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int HalfedgeCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_VertexCount.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.VertexCount%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L61">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_VertexCount_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.VertexCount*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_VertexCount" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.VertexCount">VertexCount</h4>
+  <div class="markdown level1 summary"><p>Gets the number of vertices in the current mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int VertexCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh&lt;TPosition, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace&lt;TPosition&gt;&gt;.VertexCount</span></div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_AddFace_List_BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeVertex__0___.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.AddFace(List%7BBRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L865">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_AddFace_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.AddFace*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_AddFace_List_BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeVertex__0___" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.AddFace(List{BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex{`0}})">AddFace(List&lt;HeVertex&lt;TPosition&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds a new face to the current mesh from its vertices.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override HeFace&lt;TPosition&gt; AddFace(List&lt;HeVertex&lt;TPosition&gt;&gt; vertices)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">List</span>&lt;<a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex-1.html">HeVertex</a>&lt;TPosition&gt;&gt;</td>
+        <td><span class="parametername">vertices</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace-1.html">HeFace</a>&lt;TPosition&gt;</td>
+        <td><p>The new face if it was added, <span class="xref">null</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh&lt;TPosition, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace&lt;TPosition&gt;&gt;.AddFace(List&lt;BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex&lt;TPosition&gt;&gt;)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_AddVertex__0_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.AddVertex(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L712">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_AddVertex_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.AddVertex*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_AddVertex__0_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.AddVertex(`0)">AddVertex(TPosition)</h4>
+  <div class="markdown level1 summary"><p>Adds a vertex in the mesh from its position.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override HeVertex&lt;TPosition&gt; AddVertex(TPosition position)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TPosition</span></td>
+        <td><span class="parametername">position</span></td>
+        <td><p>Position of the vertex.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex-1.html">HeVertex</a>&lt;TPosition&gt;</td>
+        <td><p>The new vertex if it was added, <span class="xref">null</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh&lt;TPosition, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace&lt;TPosition&gt;&gt;.AddVertex(TPosition)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_CleanMesh_System_Boolean_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.CleanMesh(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L483">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_CleanMesh_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.CleanMesh*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_CleanMesh_System_Boolean_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.CleanMesh(System.Boolean)">CleanMesh(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Cleans the current mesh by reindexing the faces, edges and vertices.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void CleanMesh(bool cullIsolated = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">cullIsolated</span></td>
+        <td><p>Evaluates whether isolated members should be removed in the process.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh&lt;TPosition, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace&lt;TPosition&gt;&gt;.CleanMesh(System.Boolean)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_Clone.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.Clone%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L602">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_Clone_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.Clone*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_Clone" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.Clone">Clone()</h4>
+  <div class="markdown level1 summary"><p>Creates a new object that is a deep copy of the current instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override object Clone()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><p>The new object that is a deep copy of the current instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh&lt;TPosition, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace&lt;TPosition&gt;&gt;.Clone()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_EdgeBetween_BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeVertex__0__BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeVertex__0__.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.EdgeBetween(BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex%7B%600%7D%2CBRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L834">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_EdgeBetween_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.EdgeBetween*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_EdgeBetween_BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeVertex__0__BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeVertex__0__" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.EdgeBetween(BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex{`0},BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex{`0})">EdgeBetween(HeVertex&lt;TPosition&gt;, HeVertex&lt;TPosition&gt;)</h4>
+  <div class="markdown level1 summary"><p>Looks for the edge between <code data-dev-comment-type="paramref" class="paramref">vertexA</code> and <code data-dev-comment-type="paramref" class="paramref">vertexB</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override HeEdge&lt;TPosition&gt; EdgeBetween(HeVertex&lt;TPosition&gt; vertexA, HeVertex&lt;TPosition&gt; vertexB)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex-1.html">HeVertex</a>&lt;TPosition&gt;</td>
+        <td><span class="parametername">vertexA</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex-1.html">HeVertex</a>&lt;TPosition&gt;</td>
+        <td><span class="parametername">vertexB</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge-1.html">HeEdge</a>&lt;TPosition&gt;</td>
+        <td><p>The edge if it exists, <span class="xref">null</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh&lt;TPosition, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace&lt;TPosition&gt;&gt;.EdgeBetween(BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex&lt;TPosition&gt;)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_EraseEdge_BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeEdge__0__.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.EraseEdge(BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L856">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_EraseEdge_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.EraseEdge*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_EraseEdge_BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeEdge__0__" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.EraseEdge(BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge{`0})">EraseEdge(HeEdge&lt;TPosition&gt;)</h4>
+  <div class="markdown level1 summary"><p>Erases the edge from the mesh. The mesh may not be manifold after this operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void EraseEdge(HeEdge&lt;TPosition&gt; edge)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge-1.html">HeEdge</a>&lt;TPosition&gt;</td>
+        <td><span class="parametername">edge</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh&lt;TPosition, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace&lt;TPosition&gt;&gt;.EraseEdge(BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge&lt;TPosition&gt;)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_EraseFace_BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeFace__0__.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.EraseFace(BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L1171">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_EraseFace_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.EraseFace*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_EraseFace_BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeFace__0__" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.EraseFace(BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace{`0})">EraseFace(HeFace&lt;TPosition&gt;)</h4>
+  <div class="markdown level1 summary"><p>Erases the face from the mesh. The mesh may not be manifold after this operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void EraseFace(HeFace&lt;TPosition&gt; face)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace-1.html">HeFace</a>&lt;TPosition&gt;</td>
+        <td><span class="parametername">face</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh&lt;TPosition, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace&lt;TPosition&gt;&gt;.EraseFace(BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace&lt;TPosition&gt;)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_EraseHalfedge_BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeHalfedge__0__.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.EraseHalfedge(BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeHalfedge%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L289">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_EraseHalfedge_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.EraseHalfedge*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_EraseHalfedge_BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeHalfedge__0__" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.EraseHalfedge(BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeHalfedge{`0})">EraseHalfedge(HeHalfedge&lt;TPosition&gt;)</h4>
+  <div class="markdown level1 summary"><p>Erases any reference to the halfedge and its pair halfedge, then delete them from the mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EraseHalfedge(HeHalfedge&lt;TPosition&gt; halfedge)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeHalfedge-1.html">HeHalfedge</a>&lt;TPosition&gt;</td>
+        <td><span class="parametername">halfedge</span></td>
+        <td><p>The halfedge to erase.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_EraseVertex_BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeVertex__0__.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.EraseVertex(BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L768">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_EraseVertex_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.EraseVertex*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_EraseVertex_BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeVertex__0__" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.EraseVertex(BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex{`0})">EraseVertex(HeVertex&lt;TPosition&gt;)</h4>
+  <div class="markdown level1 summary"><p>Erases the vertex from the mesh. Every reference to this vertex should be deleted before it is erased.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void EraseVertex(HeVertex&lt;TPosition&gt; vertex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex-1.html">HeVertex</a>&lt;TPosition&gt;</td>
+        <td><span class="parametername">vertex</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh&lt;TPosition, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace&lt;TPosition&gt;&gt;.EraseVertex(BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex&lt;TPosition&gt;)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_GetEdge_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.GetEdge(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L796">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_GetEdge_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.GetEdge*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_GetEdge_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.GetEdge(System.Int32)">GetEdge(Int32)</h4>
+  <div class="markdown level1 summary"><p>Returns the edge at the given index in the mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override HeEdge&lt;TPosition&gt; GetEdge(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge-1.html">HeEdge</a>&lt;TPosition&gt;</td>
+        <td><p>The edge at the given index in the mesh.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh&lt;TPosition, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace&lt;TPosition&gt;&gt;.GetEdge(System.Int32)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_GetEdges.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.GetEdges%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L812">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_GetEdges_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.GetEdges*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_GetEdges" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.GetEdges">GetEdges()</h4>
+  <div class="markdown level1 summary"><p>Returns the list of edges of the current mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IReadOnlyList&lt;HeEdge&lt;TPosition&gt;&gt; GetEdges()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IReadOnlyList</span>&lt;<a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge-1.html">HeEdge</a>&lt;TPosition&gt;&gt;</td>
+        <td><p>List of edges of the mesh.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh&lt;TPosition, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace&lt;TPosition&gt;&gt;.GetEdges()</span></div>
+  <h5 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_GetEdges_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If some edges were removed from the mesh, the index of the edge in the returned list might not match the edge index in the mesh. <br>
+The index of the edges in the mesh is accessible through the Index property.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_GetFace_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.GetFace(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L1102">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_GetFace_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.GetFace*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_GetFace_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.GetFace(System.Int32)">GetFace(Int32)</h4>
+  <div class="markdown level1 summary"><p>Returns the face at the given index in the mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override HeFace&lt;TPosition&gt; GetFace(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace-1.html">HeFace</a>&lt;TPosition&gt;</td>
+        <td><p>The face at the given index in the mesh.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh&lt;TPosition, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace&lt;TPosition&gt;&gt;.GetFace(System.Int32)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_GetFaces.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.GetFaces%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L1116">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_GetFaces_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.GetFaces*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_GetFaces" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.GetFaces">GetFaces()</h4>
+  <div class="markdown level1 summary"><p>Returns the list of faces of the current mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IReadOnlyList&lt;HeFace&lt;TPosition&gt;&gt; GetFaces()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IReadOnlyList</span>&lt;<a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace-1.html">HeFace</a>&lt;TPosition&gt;&gt;</td>
+        <td><p>List of faces of the mesh.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh&lt;TPosition, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace&lt;TPosition&gt;&gt;.GetFaces()</span></div>
+  <h5 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_GetFaces_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If some faces were removed from the mesh, the index of the face in the returned list might not match the face index in the mesh. <br>
+The index of the faces in the mesh is accessible through the Index property.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_GetHalfedge_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.GetHalfedge(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L166">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_GetHalfedge_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.GetHalfedge*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_GetHalfedge_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.GetHalfedge(System.Int32)">GetHalfedge(Int32)</h4>
+  <div class="markdown level1 summary"><p>Returns the halfedge at the given index in the mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HeHalfedge&lt;TPosition&gt; GetHalfedge(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeHalfedge-1.html">HeHalfedge</a>&lt;TPosition&gt;</td>
+        <td><p>The hlafedge at the given index in the mesh.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_GetHalfedges.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.GetHalfedges%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L191">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_GetHalfedges_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.GetHalfedges*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_GetHalfedges" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.GetHalfedges">GetHalfedges()</h4>
+  <div class="markdown level1 summary"><p>Returns the list of halfedges of the current mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;HeHalfedge&lt;TPosition&gt;&gt; GetHalfedges()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IReadOnlyList</span>&lt;<a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeHalfedge-1.html">HeHalfedge</a>&lt;TPosition&gt;&gt;</td>
+        <td><p>List of edges of the mesh.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_GetHalfedges_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If some halfedges were removed from the mesh, the index of the halfedge in the returned list might not match the halfedge index in the mesh. <br>
+The index of the halfedges in the mesh is accessible through the Index property.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_GetVertex_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.GetVertex(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L726">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_GetVertex_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.GetVertex*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_GetVertex_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.GetVertex(System.Int32)">GetVertex(Int32)</h4>
+  <div class="markdown level1 summary"><p>Returns the vertex at the given index in the mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override HeVertex&lt;TPosition&gt; GetVertex(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex-1.html">HeVertex</a>&lt;TPosition&gt;</td>
+        <td><p>The vertex at the given index in the mesh.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh&lt;TPosition, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace&lt;TPosition&gt;&gt;.GetVertex(System.Int32)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_GetVertices.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.GetVertices%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L740">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_GetVertices_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.GetVertices*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_GetVertices" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.GetVertices">GetVertices()</h4>
+  <div class="markdown level1 summary"><p>Returns the list of vertices of the current mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IReadOnlyList&lt;HeVertex&lt;TPosition&gt;&gt; GetVertices()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IReadOnlyList</span>&lt;<a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex-1.html">HeVertex</a>&lt;TPosition&gt;&gt;</td>
+        <td><p>List of vertices of the mesh.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh&lt;TPosition, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace&lt;TPosition&gt;&gt;.GetVertices()</span></div>
+  <h5 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_GetVertices_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If some vertices were removed from the mesh, the index of the vertex in the returned list might not match the vertex index in the mesh. <br>
+The index of the vertices in the mesh is accessible through the Index property.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_HalfedgeBetween_BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeVertex__0__BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeVertex__0__.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.HalfedgeBetween(BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex%7B%600%7D%2CBRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L212">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_HalfedgeBetween_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.HalfedgeBetween*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_HalfedgeBetween_BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeVertex__0__BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeVertex__0__" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.HalfedgeBetween(BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex{`0},BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex{`0})">HalfedgeBetween(HeVertex&lt;TPosition&gt;, HeVertex&lt;TPosition&gt;)</h4>
+  <div class="markdown level1 summary"><p>Looks for the halfedge starting at <code data-dev-comment-type="paramref" class="paramref">startVertex</code> and ending at <code data-dev-comment-type="paramref" class="paramref">endVertex</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HeHalfedge&lt;TPosition&gt; HalfedgeBetween(HeVertex&lt;TPosition&gt; startVertex, HeVertex&lt;TPosition&gt; endVertex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex-1.html">HeVertex</a>&lt;TPosition&gt;</td>
+        <td><span class="parametername">startVertex</span></td>
+        <td><p>Start vertex of the halfedge.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex-1.html">HeVertex</a>&lt;TPosition&gt;</td>
+        <td><span class="parametername">endVertex</span></td>
+        <td><p>End vertex of the halfedge.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeHalfedge-1.html">HeHalfedge</a>&lt;TPosition&gt;</td>
+        <td><p>The halfedge if it exists, <span class="xref">null</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_RemoveEdge_BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeEdge__0__.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.RemoveEdge(BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L849">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_RemoveEdge_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.RemoveEdge*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_RemoveEdge_BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeEdge__0__" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.RemoveEdge(BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge{`0})">RemoveEdge(HeEdge&lt;TPosition&gt;)</h4>
+  <div class="markdown level1 summary"><p>Removes the edge from the mesh by keeping the mesh manifold.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void RemoveEdge(HeEdge&lt;TPosition&gt; edge)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge-1.html">HeEdge</a>&lt;TPosition&gt;</td>
+        <td><span class="parametername">edge</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh&lt;TPosition, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace&lt;TPosition&gt;&gt;.RemoveEdge(BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge&lt;TPosition&gt;)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_RemoveFace_BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeFace__0__.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.RemoveFace(BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L1132">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_RemoveFace_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.RemoveFace*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_RemoveFace_BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeFace__0__" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.RemoveFace(BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace{`0})">RemoveFace(HeFace&lt;TPosition&gt;)</h4>
+  <div class="markdown level1 summary"><p>Removes the face from the mesh by keeping the mesh manifold.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void RemoveFace(HeFace&lt;TPosition&gt; face)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace-1.html">HeFace</a>&lt;TPosition&gt;</td>
+        <td><span class="parametername">face</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh&lt;TPosition, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace&lt;TPosition&gt;&gt;.RemoveFace(BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace&lt;TPosition&gt;)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_RemoveHalfedge_BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeHalfedge__0__.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.RemoveHalfedge(BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeHalfedge%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L253">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_RemoveHalfedge_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.RemoveHalfedge*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_RemoveHalfedge_BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeHalfedge__0__" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.RemoveHalfedge(BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeHalfedge{`0})">RemoveHalfedge(HeHalfedge&lt;TPosition&gt;)</h4>
+  <div class="markdown level1 summary"><p>Removes the halfedge and its pair halfedge by keeping the mesh manifold.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveHalfedge(HeHalfedge&lt;TPosition&gt; halfedge)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeHalfedge-1.html">HeHalfedge</a>&lt;TPosition&gt;</td>
+        <td><span class="parametername">halfedge</span></td>
+        <td><p>The halfedge to remove.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_RemoveVertex_BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeVertex__0__.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.RemoveVertex(BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L756">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_RemoveVertex_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.RemoveVertex*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_RemoveVertex_BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeVertex__0__" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.RemoveVertex(BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex{`0})">RemoveVertex(HeVertex&lt;TPosition&gt;)</h4>
+  <div class="markdown level1 summary"><p>Removes the vertex from the mesh by keeping the mesh manifold.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void RemoveVertex(HeVertex&lt;TPosition&gt; vertex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex-1.html">HeVertex</a>&lt;TPosition&gt;</td>
+        <td><span class="parametername">vertex</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh&lt;TPosition, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace&lt;TPosition&gt;&gt;.RemoveVertex(BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex&lt;TPosition&gt;)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_ToFaceVertexMesh.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.ToFaceVertexMesh%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L383">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_ToFaceVertexMesh_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.ToFaceVertexMesh*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_ToFaceVertexMesh" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.ToFaceVertexMesh">ToFaceVertexMesh()</h4>
+  <div class="markdown level1 summary"><p>Creates a face-vertex mesh from the current halfedge mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FvMesh&lt;TPosition&gt; ToFaceVertexMesh()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.FaceVertexMesh.FvMesh-1.html">FvMesh</a>&lt;TPosition&gt;</td>
+        <td><p>Face-vertex mesh which represents the topology and geometry of the current halfedge mesh.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_ToString.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L471">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_ToString_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.ToString*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_ToString" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.ToString">ToString()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh&lt;TPosition, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace&lt;TPosition&gt;&gt;.ToString()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_TryGetEdge_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.TryGetEdge(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L804">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_TryGetEdge_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.TryGetEdge*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_TryGetEdge_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.TryGetEdge(System.Int32)">TryGetEdge(Int32)</h4>
+  <div class="markdown level1 summary"><p>Returns the edge at the given index in the mesh if it exists, <span class="xref">null</span> otherwise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override HeEdge&lt;TPosition&gt; TryGetEdge(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>The index of the edge to look for.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge-1.html">HeEdge</a>&lt;TPosition&gt;</td>
+        <td><p>The edge if it exists, <span class="xref">null</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh&lt;TPosition, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace&lt;TPosition&gt;&gt;.TryGetEdge(System.Int32)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_TryGetFace_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.TryGetFace(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L1108">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_TryGetFace_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.TryGetFace*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_TryGetFace_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.TryGetFace(System.Int32)">TryGetFace(Int32)</h4>
+  <div class="markdown level1 summary"><p>Returns the face at the given index in the mesh if it exists, <span class="xref">null</span> otherwise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override HeFace&lt;TPosition&gt; TryGetFace(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>The index of the face to look for.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace-1.html">HeFace</a>&lt;TPosition&gt;</td>
+        <td><p>The face if it exists, <span class="xref">null</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh&lt;TPosition, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace&lt;TPosition&gt;&gt;.TryGetFace(System.Int32)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_TryGetHalfedge_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.TryGetHalfedge(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L176">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_TryGetHalfedge_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.TryGetHalfedge*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_TryGetHalfedge_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.TryGetHalfedge(System.Int32)">TryGetHalfedge(Int32)</h4>
+  <div class="markdown level1 summary"><p>Returns the halfedge at the given index in the mesh if it exists, <span class="xref">null</span> otherwise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HeHalfedge&lt;TPosition&gt; TryGetHalfedge(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>The index of the halfedge to look for.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeHalfedge-1.html">HeHalfedge</a>&lt;TPosition&gt;</td>
+        <td><p>The halfedge if it exists, <span class="xref">null</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_TryGetVertex_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601.TryGetVertex(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L732">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_TryGetVertex_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.TryGetVertex*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1_TryGetVertex_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh`1.TryGetVertex(System.Int32)">TryGetVertex(Int32)</h4>
+  <div class="markdown level1 summary"><p>Returns the vertex at the given index in the mesh if it exists, <span class="xref">null</span> otherwise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override HeVertex&lt;TPosition&gt; TryGetVertex(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>The index of the vertex to look for.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex-1.html">HeVertex</a>&lt;TPosition&gt;</td>
+        <td><p>The vertex if it exists, <span class="xref">null</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh&lt;TPosition, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge&lt;TPosition&gt;, BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace&lt;TPosition&gt;&gt;.TryGetVertex(System.Int32)</span></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.IMesh-1.html">IMesh&lt;TPosition&gt;</a>
+  </div>
+  <div>
+      <span class="xref">ICloneable</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_HalfedgeMesh_HeMesh_1.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/HalfedgeMesh/HeMesh.cs/#L13" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            By ENPC and the Build'in Platform
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

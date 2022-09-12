@@ -1,0 +1,2151 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Struct Real
+   | BRIDGES </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Struct Real
+   | BRIDGES ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/logo_enpc.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="BRIDGES.Arithmetic.Numbers.Real">
+  
+  
+  <h1 id="BRIDGES_Arithmetic_Numbers_Real" data-uid="BRIDGES.Arithmetic.Numbers.Real" class="text-break">Struct Real
+  </h1>
+  <div class="markdown level0 summary"><p>Structure defining a real number.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IAbelianGroup-1.html">IAbelianGroup</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IGroup-1.html">IGroup</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMonoid-1.html">IMonoid</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.ISemiGroup-1.html">ISemiGroup</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.ILoop-1.html">ILoop</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IQuasiGroup-1.html">IQuasiGroup</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMagma-1.html">IMagma</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.IAddable-1.html">IAddable</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.ISubtractable-1.html">ISubtractable</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.IZeroable-1.html">IZeroable</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.IAbelianGroup-1.html">IAbelianGroup</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.IGroup-1.html">IGroup</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.IMonoid-1.html">IMonoid</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.ISemiGroup-1.html">ISemiGroup</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.ILoop-1.html">ILoop</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.IQuasiGroup-1.html">IQuasiGroup</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.IMagma-1.html">IMagma</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.IDivisible-1.html">IDivisible</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.IOneable-1.html">IOneable</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.IMultiplicable-1.html">IMultiplicable</a>&lt;<a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a>&gt;</div>
+    <div><span class="xref">IEquatable</span>&lt;<a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a>&gt;</div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BRIDGES.Arithmetic.Numbers.html">BRIDGES.Arithmetic.Numbers</a></h6>
+  <h6><strong>Assembly</strong>: BRIDGES.dll</h6>
+  <h5 id="BRIDGES_Arithmetic_Numbers_Real_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public struct Real : IAbelianGroup&lt;Real&gt;, IGroup&lt;Real&gt;, IMonoid&lt;Real&gt;, ISemiGroup&lt;Real&gt;, ILoop&lt;Real&gt;, IQuasiGroup&lt;Real&gt;, IMagma&lt;Real&gt;, IAddable&lt;Real&gt;, ISubtractable&lt;Real&gt;, IZeroable&lt;Real&gt;, IAbelianGroup&lt;Real&gt;, IGroup&lt;Real&gt;, IMonoid&lt;Real&gt;, ISemiGroup&lt;Real&gt;, ILoop&lt;Real&gt;, IQuasiGroup&lt;Real&gt;, IMagma&lt;Real&gt;, IDivisible&lt;Real&gt;, IOneable&lt;Real&gt;, IMultiplicable&lt;Real&gt;</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real__ctor_BRIDGES_Arithmetic_Numbers_Real_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.%23ctor(BRIDGES.Arithmetic.Numbers.Real)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L40">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real__ctor_" data-uid="BRIDGES.Arithmetic.Numbers.Real.#ctor*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real__ctor_BRIDGES_Arithmetic_Numbers_Real_" data-uid="BRIDGES.Arithmetic.Numbers.Real.#ctor(BRIDGES.Arithmetic.Numbers.Real)">Real(Real)</h4>
+  <div class="markdown level1 summary"><p>Initialises a new instance of the <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> structure from another <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Real(Real real)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">real</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number to copy.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real__ctor_System_Double_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.%23ctor(System.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L31">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real__ctor_" data-uid="BRIDGES.Arithmetic.Numbers.Real.#ctor*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real__ctor_System_Double_" data-uid="BRIDGES.Arithmetic.Numbers.Real.#ctor(System.Double)">Real(Double)</h4>
+  <div class="markdown level1 summary"><p>Initialises a new instance of the <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> structure by defining its value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Real(double number = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">number</span></td>
+        <td><p>Value of the real number.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_One.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.One%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L58">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_One_" data-uid="BRIDGES.Arithmetic.Numbers.Real.One*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_One" data-uid="BRIDGES.Arithmetic.Numbers.Real.One">One</h4>
+  <div class="markdown level1 summary"><p>Gets a new instance of the <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> structure equal to one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Real One { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number equal to one.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_Value.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.Value%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L21">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_Value_" data-uid="BRIDGES.Arithmetic.Numbers.Real.Value*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_Value" data-uid="BRIDGES.Arithmetic.Numbers.Real.Value">Value</h4>
+  <div class="markdown level1 summary"><p>Value of the real numbers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Value { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_Zero.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.Zero%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L52">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_Zero_" data-uid="BRIDGES.Arithmetic.Numbers.Real.Zero*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_Zero" data-uid="BRIDGES.Arithmetic.Numbers.Real.Zero">Zero</h4>
+  <div class="markdown level1 summary"><p>Gets a new instance of the <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> structure equal to zero.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Real Zero { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_Add_BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Arithmetic_Numbers_Real_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.Add(BRIDGES.Arithmetic.Numbers.Real%2CBRIDGES.Arithmetic.Numbers.Real)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L67">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_Add_" data-uid="BRIDGES.Arithmetic.Numbers.Real.Add*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_Add_BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Arithmetic_Numbers_Real_" data-uid="BRIDGES.Arithmetic.Numbers.Real.Add(BRIDGES.Arithmetic.Numbers.Real,BRIDGES.Arithmetic.Numbers.Real)">Add(Real, Real)</h4>
+  <div class="markdown level1 summary"><p>Computes the addition of two <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> numbers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Real Add(Real realA, Real realB)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">realA</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number for the addition.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">realB</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number for the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number resulting from the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_Divide_BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Arithmetic_Numbers_Real_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.Divide(BRIDGES.Arithmetic.Numbers.Real%2CBRIDGES.Arithmetic.Numbers.Real)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L80">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_Divide_" data-uid="BRIDGES.Arithmetic.Numbers.Real.Divide*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_Divide_BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Arithmetic_Numbers_Real_" data-uid="BRIDGES.Arithmetic.Numbers.Real.Divide(BRIDGES.Arithmetic.Numbers.Real,BRIDGES.Arithmetic.Numbers.Real)">Divide(Real, Real)</h4>
+  <div class="markdown level1 summary"><p>Computes the division of two <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> numbers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Real Divide(Real realA, Real realB)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">realA</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number to divide.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">realB</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number to divide with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number resulting from the division.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_Equals_BRIDGES_Arithmetic_Numbers_Real_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.Equals(BRIDGES.Arithmetic.Numbers.Real)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L252">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_Equals_" data-uid="BRIDGES.Arithmetic.Numbers.Real.Equals*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_Equals_BRIDGES_Arithmetic_Numbers_Real_" data-uid="BRIDGES.Arithmetic.Numbers.Real.Equals(BRIDGES.Arithmetic.Numbers.Real)">Equals(Real)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(Real other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">other</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_Equals_System_Object_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L260">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_Equals_" data-uid="BRIDGES.Arithmetic.Numbers.Real.Equals*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_Equals_System_Object_" data-uid="BRIDGES.Arithmetic.Numbers.Real.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_GetHashCode.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L266">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_GetHashCode_" data-uid="BRIDGES.Arithmetic.Numbers.Real.GetHashCode*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_GetHashCode" data-uid="BRIDGES.Arithmetic.Numbers.Real.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_Inverse.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.Inverse%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L240">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_Inverse_" data-uid="BRIDGES.Arithmetic.Numbers.Real.Inverse*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_Inverse" data-uid="BRIDGES.Arithmetic.Numbers.Real.Inverse">Inverse()</h4>
+  <div class="markdown level1 summary"><p>Computes the inverse of the current <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Inverse()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the current <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number was inversed, <span class="xref">false</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_Inverse_BRIDGES_Arithmetic_Numbers_Real_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.Inverse(BRIDGES.Arithmetic.Numbers.Real)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L87">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_Inverse_" data-uid="BRIDGES.Arithmetic.Numbers.Real.Inverse*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_Inverse_BRIDGES_Arithmetic_Numbers_Real_" data-uid="BRIDGES.Arithmetic.Numbers.Real.Inverse(BRIDGES.Arithmetic.Numbers.Real)">Inverse(Real)</h4>
+  <div class="markdown level1 summary"><p>Computes the inverse of the given <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Real Inverse(Real real)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">real</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> to be inversed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number, inverse of the initial one.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_Multiply_BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Arithmetic_Numbers_Real_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.Multiply(BRIDGES.Arithmetic.Numbers.Real%2CBRIDGES.Arithmetic.Numbers.Real)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L77">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_Multiply_" data-uid="BRIDGES.Arithmetic.Numbers.Real.Multiply*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_Multiply_BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Arithmetic_Numbers_Real_" data-uid="BRIDGES.Arithmetic.Numbers.Real.Multiply(BRIDGES.Arithmetic.Numbers.Real,BRIDGES.Arithmetic.Numbers.Real)">Multiply(Real, Real)</h4>
+  <div class="markdown level1 summary"><p>Computes the multiplication of two <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> numbers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Real Multiply(Real realA, Real realB)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">realA</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number for the multiplication.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">realB</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number for the multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number resulting from the multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_Opposite.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.Opposite%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L230">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_Opposite_" data-uid="BRIDGES.Arithmetic.Numbers.Real.Opposite*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_Opposite" data-uid="BRIDGES.Arithmetic.Numbers.Real.Opposite">Opposite()</h4>
+  <div class="markdown level1 summary"><p>Computes the opposite of the current <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Opposite()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the current <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number was opposed, <span class="xref">false</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_Opposite_BRIDGES_Arithmetic_Numbers_Real_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.Opposite(BRIDGES.Arithmetic.Numbers.Real)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L73">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_Opposite_" data-uid="BRIDGES.Arithmetic.Numbers.Real.Opposite*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_Opposite_BRIDGES_Arithmetic_Numbers_Real_" data-uid="BRIDGES.Arithmetic.Numbers.Real.Opposite(BRIDGES.Arithmetic.Numbers.Real)">Opposite(Real)</h4>
+  <div class="markdown level1 summary"><p>Computes the opposite of the given <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Real Opposite(Real real)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">real</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number to be opposed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number, opposite of the initial one.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_Subtract_BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Arithmetic_Numbers_Real_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.Subtract(BRIDGES.Arithmetic.Numbers.Real%2CBRIDGES.Arithmetic.Numbers.Real)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L70">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_Subtract_" data-uid="BRIDGES.Arithmetic.Numbers.Real.Subtract*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_Subtract_BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Arithmetic_Numbers_Real_" data-uid="BRIDGES.Arithmetic.Numbers.Real.Subtract(BRIDGES.Arithmetic.Numbers.Real,BRIDGES.Arithmetic.Numbers.Real)">Subtract(Real, Real)</h4>
+  <div class="markdown level1 summary"><p>Computes the subtraction of two <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> numbers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Real Subtract(Real realA, Real realB)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">realA</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number to subtract.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">realB</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number to subtract with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number resulting from the subtraction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_ToString.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L272">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_ToString_" data-uid="BRIDGES.Arithmetic.Numbers.Real.ToString*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_ToString" data-uid="BRIDGES.Arithmetic.Numbers.Real.ToString">ToString()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="operators">Operators
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_op_Addition_BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Arithmetic_Numbers_Real_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.op_Addition(BRIDGES.Arithmetic.Numbers.Real%2CBRIDGES.Arithmetic.Numbers.Real)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L101">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_op_Addition_" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_Addition*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_op_Addition_BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Arithmetic_Numbers_Real_" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_Addition(BRIDGES.Arithmetic.Numbers.Real,BRIDGES.Arithmetic.Numbers.Real)">Addition(Real, Real)</h4>
+  <div class="markdown level1 summary"><p>Computes the addition of two <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> numbers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Real operator +(Real realA, Real realB)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">realA</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number for the addition.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">realB</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number for the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number resulting from the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_op_Addition_BRIDGES_Arithmetic_Numbers_Real_System_Double_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.op_Addition(BRIDGES.Arithmetic.Numbers.Real%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L143">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_op_Addition_" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_Addition*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_op_Addition_BRIDGES_Arithmetic_Numbers_Real_System_Double_" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_Addition(BRIDGES.Arithmetic.Numbers.Real,System.Double)">Addition(Real, Double)</h4>
+  <div class="markdown level1 summary"><p>Computes the addition of a <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number with a <see cref="!:System.Double"></see>-precision real number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Real operator +(Real real, double number)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">real</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number for the addition.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">number</span></td>
+        <td><p><see cref="!:System.Double"></see>-precision real number for the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number resulting from the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_op_Addition_System_Double_BRIDGES_Arithmetic_Numbers_Real_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.op_Addition(System.Double%2CBRIDGES.Arithmetic.Numbers.Real)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L151">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_op_Addition_" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_Addition*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_op_Addition_System_Double_BRIDGES_Arithmetic_Numbers_Real_" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_Addition(System.Double,BRIDGES.Arithmetic.Numbers.Real)">Addition(Double, Real)</h4>
+  <div class="markdown level1 summary"><p>Computes the addition of a <see cref="!:System.Double"></see>-precision real number with a <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Real operator +(double number, Real real)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">number</span></td>
+        <td><p><see cref="!:System.Double"></see>-precision real number for the addition.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">real</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number for the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number resulting from the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_op_Division_BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Arithmetic_Numbers_Real_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.op_Division(BRIDGES.Arithmetic.Numbers.Real%2CBRIDGES.Arithmetic.Numbers.Real)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L132">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_op_Division_" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_Division*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_op_Division_BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Arithmetic_Numbers_Real_" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_Division(BRIDGES.Arithmetic.Numbers.Real,BRIDGES.Arithmetic.Numbers.Real)">Division(Real, Real)</h4>
+  <div class="markdown level1 summary"><p>Computes the division of two <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> numbers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Real operator /(Real realA, Real realB)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">realA</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number to divide.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">realB</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number to divide with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number resulting from the division.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_op_Division_BRIDGES_Arithmetic_Numbers_Real_System_Double_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.op_Division(BRIDGES.Arithmetic.Numbers.Real%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L194">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_op_Division_" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_Division*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_op_Division_BRIDGES_Arithmetic_Numbers_Real_System_Double_" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_Division(BRIDGES.Arithmetic.Numbers.Real,System.Double)">Division(Real, Double)</h4>
+  <div class="markdown level1 summary"><p>Computes the division of a <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number with a <see cref="!:System.Double"></see>-precision real number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Real operator /(Real real, double number)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">real</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number to divide.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">number</span></td>
+        <td><p><see cref="!:System.Double"></see>-precision real number to divide with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number resulting from the division.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_op_Division_System_Double_BRIDGES_Arithmetic_Numbers_Real_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.op_Division(System.Double%2CBRIDGES.Arithmetic.Numbers.Real)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L202">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_op_Division_" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_Division*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_op_Division_System_Double_BRIDGES_Arithmetic_Numbers_Real_" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_Division(System.Double,BRIDGES.Arithmetic.Numbers.Real)">Division(Double, Real)</h4>
+  <div class="markdown level1 summary"><p>Computes the division of a <see cref="!:System.Double"></see>-precision real number with a <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Real operator /(double number, Real real)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">number</span></td>
+        <td><p><see cref="!:System.Double"></see>-precision real number to divide.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">real</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number to divide with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number resulting from the division.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_op_Explicit_BRIDGES_Arithmetic_Numbers_Real__System_Double.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.op_Explicit(BRIDGES.Arithmetic.Numbers.Real)~System.Double%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L213">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_op_Explicit_" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_Explicit*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_op_Explicit_BRIDGES_Arithmetic_Numbers_Real__System_Double" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_Explicit(BRIDGES.Arithmetic.Numbers.Real)~System.Double">Explicit(Real to Double)</h4>
+  <div class="markdown level1 summary"><p>Casts a <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number into a <see cref="!:System.Double"></see>-precision real number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator double (Real real)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">real</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number to cast.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The new <see cref="!:System.Double"></see>-precision real number resulting from the cast.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_op_Explicit_System_Double__BRIDGES_Arithmetic_Numbers_Real.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.op_Explicit(System.Double)~BRIDGES.Arithmetic.Numbers.Real%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L220">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_op_Explicit_" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_Explicit*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_op_Explicit_System_Double__BRIDGES_Arithmetic_Numbers_Real" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_Explicit(System.Double)~BRIDGES.Arithmetic.Numbers.Real">Explicit(Double to Real)</h4>
+  <div class="markdown level1 summary"><p>Casts a <see cref="!:System.Double"></see>-precision real number into a <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Real(double number)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">number</span></td>
+        <td><p><see cref="!:System.Double"></see>-precision real number to cast.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number resulting from the cast.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_op_Multiply_BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Arithmetic_Numbers_Real_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.op_Multiply(BRIDGES.Arithmetic.Numbers.Real%2CBRIDGES.Arithmetic.Numbers.Real)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L124">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_op_Multiply_" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_Multiply*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_op_Multiply_BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Arithmetic_Numbers_Real_" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_Multiply(BRIDGES.Arithmetic.Numbers.Real,BRIDGES.Arithmetic.Numbers.Real)">Multiply(Real, Real)</h4>
+  <div class="markdown level1 summary"><p>Computes the multiplication of two <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> numbers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Real operator *(Real realA, Real realB)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">realA</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number for the multiplication.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">realB</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number for the multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number resulting from the multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_op_Multiply_BRIDGES_Arithmetic_Numbers_Real_System_Double_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.op_Multiply(BRIDGES.Arithmetic.Numbers.Real%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L177">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_op_Multiply_" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_Multiply*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_op_Multiply_BRIDGES_Arithmetic_Numbers_Real_System_Double_" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_Multiply(BRIDGES.Arithmetic.Numbers.Real,System.Double)">Multiply(Real, Double)</h4>
+  <div class="markdown level1 summary"><p>Computes the multiplication of a <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number with a <see cref="!:System.Double"></see>-precision real number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Real operator *(Real real, double number)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">real</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number for the multiplicaion.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">number</span></td>
+        <td><p><see cref="!:System.Double"></see>-precision real number for the multiplicaion.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number resulting from the multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_op_Multiply_System_Double_BRIDGES_Arithmetic_Numbers_Real_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.op_Multiply(System.Double%2CBRIDGES.Arithmetic.Numbers.Real)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L185">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_op_Multiply_" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_Multiply*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_op_Multiply_System_Double_BRIDGES_Arithmetic_Numbers_Real_" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_Multiply(System.Double,BRIDGES.Arithmetic.Numbers.Real)">Multiply(Double, Real)</h4>
+  <div class="markdown level1 summary"><p>Computes the multiplication of a <see cref="!:System.Double"></see>-precision real number with a <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Real operator *(double number, Real real)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">number</span></td>
+        <td><p><see cref="!:System.Double"></see>-precision real number for the multiplicaion.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">real</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number for the multiplicaion.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number resulting from the multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_op_Subtraction_BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Arithmetic_Numbers_Real_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.op_Subtraction(BRIDGES.Arithmetic.Numbers.Real%2CBRIDGES.Arithmetic.Numbers.Real)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L109">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_op_Subtraction_" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_Subtraction*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_op_Subtraction_BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Arithmetic_Numbers_Real_" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_Subtraction(BRIDGES.Arithmetic.Numbers.Real,BRIDGES.Arithmetic.Numbers.Real)">Subtraction(Real, Real)</h4>
+  <div class="markdown level1 summary"><p>Computes the subtraction of two <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> numbers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Real operator -(Real realA, Real realB)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">realA</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number to subtract.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">realB</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number to subtract with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number resulting from the subtraction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_op_Subtraction_BRIDGES_Arithmetic_Numbers_Real_System_Double_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.op_Subtraction(BRIDGES.Arithmetic.Numbers.Real%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L160">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_op_Subtraction_" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_Subtraction*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_op_Subtraction_BRIDGES_Arithmetic_Numbers_Real_System_Double_" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_Subtraction(BRIDGES.Arithmetic.Numbers.Real,System.Double)">Subtraction(Real, Double)</h4>
+  <div class="markdown level1 summary"><p>Computes the subtraction of a <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number with a <see cref="!:System.Double"></see>-precision real number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Real operator -(Real real, double number)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">real</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number to subtract.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">number</span></td>
+        <td><p><see cref="!:System.Double"></see>-precision real number to subtract with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number resulting from the subtraction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_op_Subtraction_System_Double_BRIDGES_Arithmetic_Numbers_Real_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.op_Subtraction(System.Double%2CBRIDGES.Arithmetic.Numbers.Real)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L168">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_op_Subtraction_" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_Subtraction*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_op_Subtraction_System_Double_BRIDGES_Arithmetic_Numbers_Real_" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_Subtraction(System.Double,BRIDGES.Arithmetic.Numbers.Real)">Subtraction(Double, Real)</h4>
+  <div class="markdown level1 summary"><p>Computes the subtraction of a <see cref="!:System.Double"></see>-precision real number with a <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Real operator -(double number, Real real)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">number</span></td>
+        <td><p><see cref="!:System.Double"></see>-precision real number to subtract.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">real</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number to subtract with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number resulting from the subtraction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_op_UnaryNegation_BRIDGES_Arithmetic_Numbers_Real_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.op_UnaryNegation(BRIDGES.Arithmetic.Numbers.Real)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L116">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_op_UnaryNegation_" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_UnaryNegation*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_op_UnaryNegation_BRIDGES_Arithmetic_Numbers_Real_" data-uid="BRIDGES.Arithmetic.Numbers.Real.op_UnaryNegation(BRIDGES.Arithmetic.Numbers.Real)">UnaryNegation(Real)</h4>
+  <div class="markdown level1 summary"><p>Computes the opposite of the given <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Real operator -(Real real)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">real</span></td>
+        <td><p><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number to be opposed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a> number, opposite of the initial one.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Arithmetic_Numbers_Real__Add_BRIDGES_Arithmetic_Numbers_Real_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.BRIDGES%23Algebra%23Fundamentals%23IAddable%7BBRIDGES%23Arithmetic%23Numbers%23Real%7D%23Add(BRIDGES.Arithmetic.Numbers.Real)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L294">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Arithmetic_Numbers_Real__Add_" data-uid="BRIDGES.Arithmetic.Numbers.Real.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#Arithmetic#Numbers#Real}#Add*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Arithmetic_Numbers_Real__Add_BRIDGES_Arithmetic_Numbers_Real_" data-uid="BRIDGES.Arithmetic.Numbers.Real.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#Arithmetic#Numbers#Real}#Add(BRIDGES.Arithmetic.Numbers.Real)">IAddable&lt;Real&gt;.Add(Real)</h4>
+  <div class="markdown level1 summary"><p>Computes the addition of the current element with another element on the right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Real IAddable&lt;Real&gt;.Add(Real other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">other</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><p>The new element resulting from the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Arithmetic_Numbers_Real__IsAssociative.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.BRIDGES%23Algebra%23Fundamentals%23IAddable%7BBRIDGES%23Arithmetic%23Numbers%23Real%7D%23IsAssociative%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L285">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Arithmetic_Numbers_Real__IsAssociative_" data-uid="BRIDGES.Arithmetic.Numbers.Real.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#Arithmetic#Numbers#Real}#IsAssociative*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Arithmetic_Numbers_Real__IsAssociative" data-uid="BRIDGES.Arithmetic.Numbers.Real.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#Arithmetic#Numbers#Real}#IsAssociative">IAddable&lt;Real&gt;.IsAssociative</h4>
+  <div class="markdown level1 summary"><p>Evaluates whether the addition is associative : a + (b + c) = (a + b) + c.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">readonly bool IAddable&lt;Real&gt;.IsAssociative { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Arithmetic_Numbers_Real__IsAssociative_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This property should be implemented explicitely as it is only informative.<br>
+It also helps prevents any confusion with the homonymous property of the multiplication.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Arithmetic_Numbers_Real__IsCommutative.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.BRIDGES%23Algebra%23Fundamentals%23IAddable%7BBRIDGES%23Arithmetic%23Numbers%23Real%7D%23IsCommutative%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L288">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Arithmetic_Numbers_Real__IsCommutative_" data-uid="BRIDGES.Arithmetic.Numbers.Real.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#Arithmetic#Numbers#Real}#IsCommutative*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Arithmetic_Numbers_Real__IsCommutative" data-uid="BRIDGES.Arithmetic.Numbers.Real.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#Arithmetic#Numbers#Real}#IsCommutative">IAddable&lt;Real&gt;.IsCommutative</h4>
+  <div class="markdown level1 summary"><p>Evaluates whether the addition is commutative : a + b = b + a.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">readonly bool IAddable&lt;Real&gt;.IsCommutative { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Arithmetic_Numbers_Real__IsCommutative_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This property should be implemented explicitely as it is only informative.<br>
+It also helps prevents any confusion with the homonymous property of the multiplication.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IDivisible_BRIDGES_Arithmetic_Numbers_Real__Divide_BRIDGES_Arithmetic_Numbers_Real_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.BRIDGES%23Algebra%23Fundamentals%23IDivisible%7BBRIDGES%23Arithmetic%23Numbers%23Real%7D%23Divide(BRIDGES.Arithmetic.Numbers.Real)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L321">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IDivisible_BRIDGES_Arithmetic_Numbers_Real__Divide_" data-uid="BRIDGES.Arithmetic.Numbers.Real.BRIDGES#Algebra#Fundamentals#IDivisible{BRIDGES#Arithmetic#Numbers#Real}#Divide*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IDivisible_BRIDGES_Arithmetic_Numbers_Real__Divide_BRIDGES_Arithmetic_Numbers_Real_" data-uid="BRIDGES.Arithmetic.Numbers.Real.BRIDGES#Algebra#Fundamentals#IDivisible{BRIDGES#Arithmetic#Numbers#Real}#Divide(BRIDGES.Arithmetic.Numbers.Real)">IDivisible&lt;Real&gt;.Divide(Real)</h4>
+  <div class="markdown level1 summary"><p>Computes the division of the current element with another element on the right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Real IDivisible&lt;Real&gt;.Divide(Real other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">other</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><p>The new element resulting from the division.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_Arithmetic_Numbers_Real__IsAssociative.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.BRIDGES%23Algebra%23Fundamentals%23IMultiplicable%7BBRIDGES%23Arithmetic%23Numbers%23Real%7D%23IsAssociative%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L309">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_Arithmetic_Numbers_Real__IsAssociative_" data-uid="BRIDGES.Arithmetic.Numbers.Real.BRIDGES#Algebra#Fundamentals#IMultiplicable{BRIDGES#Arithmetic#Numbers#Real}#IsAssociative*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_Arithmetic_Numbers_Real__IsAssociative" data-uid="BRIDGES.Arithmetic.Numbers.Real.BRIDGES#Algebra#Fundamentals#IMultiplicable{BRIDGES#Arithmetic#Numbers#Real}#IsAssociative">IMultiplicable&lt;Real&gt;.IsAssociative</h4>
+  <div class="markdown level1 summary"><p>Evaluates whether the multiplication is associative : a * (b * c) = (a * b) * c.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">readonly bool IMultiplicable&lt;Real&gt;.IsAssociative { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_Arithmetic_Numbers_Real__IsAssociative_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This property should be implemented explicitely as it is only informative.<br>
+It also helps prevents any confusion with the homonymous property of the addition.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_Arithmetic_Numbers_Real__IsCommutative.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.BRIDGES%23Algebra%23Fundamentals%23IMultiplicable%7BBRIDGES%23Arithmetic%23Numbers%23Real%7D%23IsCommutative%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L312">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_Arithmetic_Numbers_Real__IsCommutative_" data-uid="BRIDGES.Arithmetic.Numbers.Real.BRIDGES#Algebra#Fundamentals#IMultiplicable{BRIDGES#Arithmetic#Numbers#Real}#IsCommutative*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_Arithmetic_Numbers_Real__IsCommutative" data-uid="BRIDGES.Arithmetic.Numbers.Real.BRIDGES#Algebra#Fundamentals#IMultiplicable{BRIDGES#Arithmetic#Numbers#Real}#IsCommutative">IMultiplicable&lt;Real&gt;.IsCommutative</h4>
+  <div class="markdown level1 summary"><p>Evaluates whether the multiplication is commutative : a * b = b * a.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">readonly bool IMultiplicable&lt;Real&gt;.IsCommutative { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_Arithmetic_Numbers_Real__IsCommutative_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This property should be implemented explicitely as it is only informative.<br>
+It also helps prevents any confusion with the homonymous property of the addition.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_Arithmetic_Numbers_Real__Multiply_BRIDGES_Arithmetic_Numbers_Real_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.BRIDGES%23Algebra%23Fundamentals%23IMultiplicable%7BBRIDGES%23Arithmetic%23Numbers%23Real%7D%23Multiply(BRIDGES.Arithmetic.Numbers.Real)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L318">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_Arithmetic_Numbers_Real__Multiply_" data-uid="BRIDGES.Arithmetic.Numbers.Real.BRIDGES#Algebra#Fundamentals#IMultiplicable{BRIDGES#Arithmetic#Numbers#Real}#Multiply*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IMultiplicable_BRIDGES_Arithmetic_Numbers_Real__Multiply_BRIDGES_Arithmetic_Numbers_Real_" data-uid="BRIDGES.Arithmetic.Numbers.Real.BRIDGES#Algebra#Fundamentals#IMultiplicable{BRIDGES#Arithmetic#Numbers#Real}#Multiply(BRIDGES.Arithmetic.Numbers.Real)">IMultiplicable&lt;Real&gt;.Multiply(Real)</h4>
+  <div class="markdown level1 summary"><p>Computes the multiplication of the current element with another element on the right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Real IMultiplicable&lt;Real&gt;.Multiply(Real other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">other</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><p>The new element resulting from the multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IOneable_BRIDGES_Arithmetic_Numbers_Real__One.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.BRIDGES%23Algebra%23Fundamentals%23IOneable%7BBRIDGES%23Arithmetic%23Numbers%23Real%7D%23One%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L324">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IOneable_BRIDGES_Arithmetic_Numbers_Real__One_" data-uid="BRIDGES.Arithmetic.Numbers.Real.BRIDGES#Algebra#Fundamentals#IOneable{BRIDGES#Arithmetic#Numbers#Real}#One*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IOneable_BRIDGES_Arithmetic_Numbers_Real__One" data-uid="BRIDGES.Arithmetic.Numbers.Real.BRIDGES#Algebra#Fundamentals#IOneable{BRIDGES#Arithmetic#Numbers#Real}#One">IOneable&lt;Real&gt;.One()</h4>
+  <div class="markdown level1 summary"><p>Returns the neutral element of the multiplication.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Real IOneable&lt;Real&gt;.One()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><p>The neutral element of the multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_ISubtractable_BRIDGES_Arithmetic_Numbers_Real__Subtract_BRIDGES_Arithmetic_Numbers_Real_.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.BRIDGES%23Algebra%23Fundamentals%23ISubtractable%7BBRIDGES%23Arithmetic%23Numbers%23Real%7D%23Subtract(BRIDGES.Arithmetic.Numbers.Real)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L297">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_ISubtractable_BRIDGES_Arithmetic_Numbers_Real__Subtract_" data-uid="BRIDGES.Arithmetic.Numbers.Real.BRIDGES#Algebra#Fundamentals#ISubtractable{BRIDGES#Arithmetic#Numbers#Real}#Subtract*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_ISubtractable_BRIDGES_Arithmetic_Numbers_Real__Subtract_BRIDGES_Arithmetic_Numbers_Real_" data-uid="BRIDGES.Arithmetic.Numbers.Real.BRIDGES#Algebra#Fundamentals#ISubtractable{BRIDGES#Arithmetic#Numbers#Real}#Subtract(BRIDGES.Arithmetic.Numbers.Real)">ISubtractable&lt;Real&gt;.Subtract(Real)</h4>
+  <div class="markdown level1 summary"><p>Computes the subtraction of the current element with another element on the right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Real ISubtractable&lt;Real&gt;.Subtract(Real other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><span class="parametername">other</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><p>The new element resulting from the subtraction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IZeroable_BRIDGES_Arithmetic_Numbers_Real__Zero.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real.BRIDGES%23Algebra%23Fundamentals%23IZeroable%7BBRIDGES%23Arithmetic%23Numbers%23Real%7D%23Zero%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L300">View Source</a>
+  </span>
+  <a id="BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IZeroable_BRIDGES_Arithmetic_Numbers_Real__Zero_" data-uid="BRIDGES.Arithmetic.Numbers.Real.BRIDGES#Algebra#Fundamentals#IZeroable{BRIDGES#Arithmetic#Numbers#Real}#Zero*"></a>
+  <h4 id="BRIDGES_Arithmetic_Numbers_Real_BRIDGES_Algebra_Fundamentals_IZeroable_BRIDGES_Arithmetic_Numbers_Real__Zero" data-uid="BRIDGES.Arithmetic.Numbers.Real.BRIDGES#Algebra#Fundamentals#IZeroable{BRIDGES#Arithmetic#Numbers#Real}#Zero">IZeroable&lt;Real&gt;.Zero()</h4>
+  <div class="markdown level1 summary"><p>Returns the neutral element of the addition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Real IZeroable&lt;Real&gt;.Zero()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Arithmetic.Numbers.Real.html">Real</a></td>
+        <td><p>The neutral element of the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IAbelianGroup-1.html">IAbelianGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IGroup-1.html">IGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMonoid-1.html">IMonoid&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.ISemiGroup-1.html">ISemiGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.ILoop-1.html">ILoop&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IQuasiGroup-1.html">IQuasiGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMagma-1.html">IMagma&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.IAddable-1.html">IAddable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.ISubtractable-1.html">ISubtractable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.IZeroable-1.html">IZeroable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.IAbelianGroup-1.html">IAbelianGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.IGroup-1.html">IGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.IMonoid-1.html">IMonoid&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.ISemiGroup-1.html">ISemiGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.ILoop-1.html">ILoop&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.IQuasiGroup-1.html">IQuasiGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Multiplicative.IMagma-1.html">IMagma&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.IDivisible-1.html">IDivisible&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.IOneable-1.html">IOneable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.IMultiplicable-1.html">IMultiplicable&lt;T&gt;</a>
+  </div>
+  <div>
+      <span class="xref">IEquatable&lt;&gt;</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Arithmetic_Numbers_Real.md&amp;value=---%0Auid%3A%20BRIDGES.Arithmetic.Numbers.Real%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Arithmetic/Numbers/Real.cs/#L12" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            By ENPC and the Build'in Platform
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,2280 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Struct Point
+   | BRIDGES </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Struct Point
+   | BRIDGES ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/logo_enpc.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="BRIDGES.Geometry.Euclidean3D.Point">
+  
+  
+  <h1 id="BRIDGES_Geometry_Euclidean3D_Point" data-uid="BRIDGES.Geometry.Euclidean3D.Point" class="text-break">Struct Point
+  </h1>
+  <div class="markdown level0 summary"><p>Structure defining a point in three-dimensional euclidean space.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IAbelianGroup-1.html">IAbelianGroup</a>&lt;<a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IGroup-1.html">IGroup</a>&lt;<a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMonoid-1.html">IMonoid</a>&lt;<a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.ISemiGroup-1.html">ISemiGroup</a>&lt;<a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.ILoop-1.html">ILoop</a>&lt;<a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IQuasiGroup-1.html">IQuasiGroup</a>&lt;<a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMagma-1.html">IMagma</a>&lt;<a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.IAddable-1.html">IAddable</a>&lt;<a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.ISubtractable-1.html">ISubtractable</a>&lt;<a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Fundamentals.IZeroable-1.html">IZeroable</a>&lt;<a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Sets.IGroupAction-2.html">IGroupAction</a>&lt;<span class="xref">System.Double</span>, <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Measure.IDotProduct-2.html">IDotProduct</a>&lt;<span class="xref">System.Double</span>, <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Measure.INorm-1.html">INorm</a>&lt;<a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>&gt;</div>
+    <div><a class="xref" href="BRIDGES.Algebra.Measure.IMetric-1.html">IMetric</a>&lt;<a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>&gt;</div>
+    <div><span class="xref">IEquatable</span>&lt;<a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>&gt;</div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BRIDGES.Geometry.Euclidean3D.html">BRIDGES.Geometry.Euclidean3D</a></h6>
+  <h6><strong>Assembly</strong>: BRIDGES.dll</h6>
+  <h5 id="BRIDGES_Geometry_Euclidean3D_Point_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public struct Point : IAbelianGroup&lt;Point&gt;, IGroup&lt;Point&gt;, IMonoid&lt;Point&gt;, ISemiGroup&lt;Point&gt;, ILoop&lt;Point&gt;, IQuasiGroup&lt;Point&gt;, IMagma&lt;Point&gt;, IAddable&lt;Point&gt;, ISubtractable&lt;Point&gt;, IZeroable&lt;Point&gt;, IGroupAction&lt;double, Point&gt;, IDotProduct&lt;double, Point&gt;, INorm&lt;Point&gt;, IMetric&lt;Point&gt;</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point__ctor_BRIDGES_Geometry_Euclidean3D_Point_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.%23ctor(BRIDGES.Geometry.Euclidean3D.Point)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L117">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point__ctor_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.#ctor*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point__ctor_BRIDGES_Geometry_Euclidean3D_Point_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.#ctor(BRIDGES.Geometry.Euclidean3D.Point)">Point(Point)</h4>
+  <div class="markdown level1 summary"><p>Initialises a new instance of the <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> structure from another <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Point(Point point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> to copy.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point__ctor_System_Double_System_Double_System_Double_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.%23ctor(System.Double%2CSystem.Double%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L90">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point__ctor_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.#ctor*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point__ctor_System_Double_System_Double_System_Double_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.#ctor(System.Double,System.Double,System.Double)">Point(Double, Double, Double)</h4>
+  <div class="markdown level1 summary"><p>Initialises a new instance of the <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> structure by defining its three coordinates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Point(double x, double y, double z)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">x</span></td>
+        <td><p>Value of the first coordinate.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">y</span></td>
+        <td><p>Value of the second coordinate.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">z</span></td>
+        <td><p>Value of the third coordinate.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point__ctor_System_Double___.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.%23ctor(System.Double%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L102">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point__ctor_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.#ctor*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point__ctor_System_Double___" data-uid="BRIDGES.Geometry.Euclidean3D.Point.#ctor(System.Double[])">Point(Double[])</h4>
+  <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> structure by defining its coordinates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Point(double[] coordinates)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span>[]</td>
+        <td><span class="parametername">coordinates</span></td>
+        <td><p>Value of the coordinates.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_Dimension.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.Dimension%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L78">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_Dimension_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.Dimension*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_Dimension" data-uid="BRIDGES.Geometry.Euclidean3D.Point.Dimension">Dimension</h4>
+  <div class="markdown level1 summary"><p>Gets the dimension of the current <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>'s euclidean space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly int Dimension { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_Item_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.Item(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L48">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_Item_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.Item*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_Item_System_Int32_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.Item(System.Int32)">Item[Int32]</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the value of the coordinate at the given index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double this[int index] { get; set; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Index of the coordinate to get or set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The value of the coordinate at the given index.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_X.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.X%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L26">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_X_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.X*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_X" data-uid="BRIDGES.Geometry.Euclidean3D.Point.X">X</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the first coordinate of the current <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double X { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_Y.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.Y%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L31">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_Y_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.Y*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_Y" data-uid="BRIDGES.Geometry.Euclidean3D.Point.Y">Y</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the second coordinate of the current <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Y { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_Z.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.Z%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L36">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_Z_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.Z*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_Z" data-uid="BRIDGES.Geometry.Euclidean3D.Point.Z">Z</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the third coordinate of the current <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Z { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_Zero.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.Zero%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L131">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_Zero_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.Zero*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_Zero" data-uid="BRIDGES.Geometry.Euclidean3D.Point.Zero">Zero</h4>
+  <div class="markdown level1 summary"><p>Gets a new <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> with coordinates (0.0, 0.0, 0.0)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Point Zero { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_Add_BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Geometry_Euclidean3D_Point_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.Add(BRIDGES.Geometry.Euclidean3D.Point%2CBRIDGES.Geometry.Euclidean3D.Point)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L155">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_Add_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.Add*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_Add_BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Geometry_Euclidean3D_Point_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.Add(BRIDGES.Geometry.Euclidean3D.Point,BRIDGES.Geometry.Euclidean3D.Point)">Add(Point, Point)</h4>
+  <div class="markdown level1 summary"><p>Computes the addition of two <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Point Add(Point left, Point right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> for the addition.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> for the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> resulting from the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_Add_BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Geometry_Euclidean3D_Vector_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.Add(BRIDGES.Geometry.Euclidean3D.Point%2CBRIDGES.Geometry.Euclidean3D.Vector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L170">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_Add_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.Add*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_Add_BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Geometry_Euclidean3D_Vector_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.Add(BRIDGES.Geometry.Euclidean3D.Point,BRIDGES.Geometry.Euclidean3D.Vector)">Add(Point, Vector)</h4>
+  <div class="markdown level1 summary"><p>Computes the addition of a <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> with a <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Vector.html">Vector</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Point Add(Point point, Vector vector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> for the addition.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Vector.html">Vector</a></td>
+        <td><span class="parametername">vector</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Vector.html">Vector</a> for the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> resulting from the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_CrossProduct_BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Geometry_Euclidean3D_Point_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.CrossProduct(BRIDGES.Geometry.Euclidean3D.Point%2CBRIDGES.Geometry.Euclidean3D.Point)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L146">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_CrossProduct_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.CrossProduct*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_CrossProduct_BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Geometry_Euclidean3D_Point_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.CrossProduct(BRIDGES.Geometry.Euclidean3D.Point,BRIDGES.Geometry.Euclidean3D.Point)">CrossProduct(Point, Point)</h4>
+  <div class="markdown level1 summary"><p>Returns the cross product of two <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Point CrossProduct(Point left, Point right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>Left <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> for the cross product.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>Right <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> for the cross product.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><p>A new <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> resulting from the cross product of two <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_DistanceTo_BRIDGES_Geometry_Euclidean3D_Point_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.DistanceTo(BRIDGES.Geometry.Euclidean3D.Point)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L362">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_DistanceTo_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.DistanceTo*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_DistanceTo_BRIDGES_Geometry_Euclidean3D_Point_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.DistanceTo(BRIDGES.Geometry.Euclidean3D.Point)">DistanceTo(Point)</h4>
+  <div class="markdown level1 summary"><p>Computes the distance of the current <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> to another <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> (using the L2-norm).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double DistanceTo(Point other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> to evaluate the distance to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The value of the distance between the two <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_Divide_BRIDGES_Geometry_Euclidean3D_Point_System_Double_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.Divide(BRIDGES.Geometry.Euclidean3D.Point%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L191">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_Divide_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.Divide*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_Divide_BRIDGES_Geometry_Euclidean3D_Point_System_Double_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.Divide(BRIDGES.Geometry.Euclidean3D.Point,System.Double)">Divide(Point, Double)</h4>
+  <div class="markdown level1 summary"><p>Computes the scalar division of a <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> with a <see cref="!:System.Double"></see>-precision real number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Point Divide(Point operand, double divisor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">operand</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> to divide.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">divisor</span></td>
+        <td><p><see cref="!:System.Double"></see>-precision real number to divide with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> resulting from the scalar division.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_DotProduct_BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Geometry_Euclidean3D_Point_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.DotProduct(BRIDGES.Geometry.Euclidean3D.Point%2CBRIDGES.Geometry.Euclidean3D.Point)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L200">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_DotProduct_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.DotProduct*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_DotProduct_BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Geometry_Euclidean3D_Point_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.DotProduct(BRIDGES.Geometry.Euclidean3D.Point,BRIDGES.Geometry.Euclidean3D.Point)">DotProduct(Point, Point)</h4>
+  <div class="markdown level1 summary"><p>Computes the dot product of two <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double DotProduct(Point left, Point right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> for the dot product.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> for the dot product.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> resulting from the dot product of two <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_Equals_BRIDGES_Geometry_Euclidean3D_Point_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.Equals(BRIDGES.Geometry.Euclidean3D.Point)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L386">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_Equals_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.Equals*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_Equals_BRIDGES_Geometry_Euclidean3D_Point_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.Equals(BRIDGES.Geometry.Euclidean3D.Point)">Equals(Point)</h4>
+  <div class="markdown level1 summary"><p>Evaluates whether the current <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> is equal to another <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(Point other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> to compare with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the two <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> are equal, <span class="xref">false</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_Geometry_Euclidean3D_Point_Equals_BRIDGES_Geometry_Euclidean3D_Point__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Two <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> are equal if their coordinates are equal.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_Equals_System_Object_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L401">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_Equals_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.Equals*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_Equals_System_Object_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_GetCoordinates.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.GetCoordinates%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L351">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_GetCoordinates_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.GetCoordinates*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_GetCoordinates" data-uid="BRIDGES.Geometry.Euclidean3D.Point.GetCoordinates">GetCoordinates()</h4>
+  <div class="markdown level1 summary"><p>Gets the coordinates of the current <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double[] GetCoordinates()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span>[]</td>
+        <td><p>The array representation of the <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>'s coordinates.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_GetHashCode.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L407">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_GetHashCode_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.GetHashCode*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_GetHashCode" data-uid="BRIDGES.Geometry.Euclidean3D.Point.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_Multiply_System_Double_BRIDGES_Geometry_Euclidean3D_Point_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.Multiply(System.Double%2CBRIDGES.Geometry.Euclidean3D.Point)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L185">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_Multiply_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.Multiply*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_Multiply_System_Double_BRIDGES_Geometry_Euclidean3D_Point_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.Multiply(System.Double,BRIDGES.Geometry.Euclidean3D.Point)">Multiply(Double, Point)</h4>
+  <div class="markdown level1 summary"><p>Computes the scalar multiplication of a <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> with a <see cref="!:System.Double"></see>-precision real number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Point Multiply(double factor, Point operand)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">factor</span></td>
+        <td><p><see cref="!:System.Double"></see>-precision real number.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">operand</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> to multiply.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> resulting from the scalar multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_Norm.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.Norm%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L372">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_Norm_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.Norm*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_Norm" data-uid="BRIDGES.Geometry.Euclidean3D.Point.Norm">Norm()</h4>
+  <div class="markdown level1 summary"><p>Computes the L2-norm the current <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Norm()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The value of the norm.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_Subtract_BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Geometry_Euclidean3D_Point_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.Subtract(BRIDGES.Geometry.Euclidean3D.Point%2CBRIDGES.Geometry.Euclidean3D.Point)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L161">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_Subtract_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.Subtract*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_Subtract_BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Geometry_Euclidean3D_Point_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.Subtract(BRIDGES.Geometry.Euclidean3D.Point,BRIDGES.Geometry.Euclidean3D.Point)">Subtract(Point, Point)</h4>
+  <div class="markdown level1 summary"><p>Computes the subtraction of two <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Point Subtract(Point left, Point right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> to subtract.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> to subtract with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> resulting from the subtraction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_Subtract_BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Geometry_Euclidean3D_Vector_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.Subtract(BRIDGES.Geometry.Euclidean3D.Point%2CBRIDGES.Geometry.Euclidean3D.Vector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L176">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_Subtract_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.Subtract*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_Subtract_BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Geometry_Euclidean3D_Vector_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.Subtract(BRIDGES.Geometry.Euclidean3D.Point,BRIDGES.Geometry.Euclidean3D.Vector)">Subtract(Point, Vector)</h4>
+  <div class="markdown level1 summary"><p>Computes the subtraction of a <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> with a <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Vector.html">Vector</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Point Subtract(Point point, Vector vector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> to subtract.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Vector.html">Vector</a></td>
+        <td><span class="parametername">vector</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Vector.html">Vector</a> to subtract with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> resulting from the subtraction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_ToString.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L413">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_ToString_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.ToString*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_ToString" data-uid="BRIDGES.Geometry.Euclidean3D.Point.ToString">ToString()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="operators">Operators
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_op_Addition_BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Geometry_Euclidean3D_Point_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.op_Addition(BRIDGES.Geometry.Euclidean3D.Point%2CBRIDGES.Geometry.Euclidean3D.Point)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L217">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_op_Addition_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.op_Addition*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_op_Addition_BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Geometry_Euclidean3D_Point_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.op_Addition(BRIDGES.Geometry.Euclidean3D.Point,BRIDGES.Geometry.Euclidean3D.Point)">Addition(Point, Point)</h4>
+  <div class="markdown level1 summary"><p>Computes the addition of two <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Point operator +(Point left, Point right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> for the addition.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> for the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> resulting from the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_op_Addition_BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Geometry_Euclidean3D_Vector_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.op_Addition(BRIDGES.Geometry.Euclidean3D.Point%2CBRIDGES.Geometry.Euclidean3D.Vector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L252">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_op_Addition_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.op_Addition*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_op_Addition_BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Geometry_Euclidean3D_Vector_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.op_Addition(BRIDGES.Geometry.Euclidean3D.Point,BRIDGES.Geometry.Euclidean3D.Vector)">Addition(Point, Vector)</h4>
+  <div class="markdown level1 summary"><p>Computes the addition of a <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> with a <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Vector.html">Vector</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Point operator +(Point point, Vector vector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> for the addition.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Vector.html">Vector</a></td>
+        <td><span class="parametername">vector</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Vector.html">Vector</a> for the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> resulting from the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_op_Division_BRIDGES_Geometry_Euclidean3D_Point_System_Double_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.op_Division(BRIDGES.Geometry.Euclidean3D.Point%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L294">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_op_Division_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.op_Division*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_op_Division_BRIDGES_Geometry_Euclidean3D_Point_System_Double_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.op_Division(BRIDGES.Geometry.Euclidean3D.Point,System.Double)">Division(Point, Double)</h4>
+  <div class="markdown level1 summary"><p>Computes the scalar division of a <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> with a <see cref="!:System.Double"></see>-precision real number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Point operator /(Point operand, double divisor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">operand</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> to divide.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">divisor</span></td>
+        <td><p><see cref="!:System.Double"></see>-precision real number to divide with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> resulting from the scalar division.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_op_Explicit_BRIDGES_Geometry_Projective3D_Point__BRIDGES_Geometry_Euclidean3D_Point.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.op_Explicit(BRIDGES.Geometry.Projective3D.Point)~BRIDGES.Geometry.Euclidean3D.Point%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L333">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_op_Explicit_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.op_Explicit*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_op_Explicit_BRIDGES_Geometry_Projective3D_Point__BRIDGES_Geometry_Euclidean3D_Point" data-uid="BRIDGES.Geometry.Euclidean3D.Point.op_Explicit(BRIDGES.Geometry.Projective3D.Point)~BRIDGES.Geometry.Euclidean3D.Point">Explicit(Point to Point)</h4>
+  <div class="markdown level1 summary"><p>Casts a <a class="xref" href="BRIDGES.Geometry.Projective3D.Point.html">Point</a> into a <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator Point(Point point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Projective3D.Point.html">Point</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Projective3D.Point.html">Point</a> to cast.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> resulting from the cast.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_op_Implicit_BRIDGES_Geometry_Euclidean3D_Vector__BRIDGES_Geometry_Euclidean3D_Point.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.op_Implicit(BRIDGES.Geometry.Euclidean3D.Vector)~BRIDGES.Geometry.Euclidean3D.Point%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L322">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_op_Implicit_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.op_Implicit*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_op_Implicit_BRIDGES_Geometry_Euclidean3D_Vector__BRIDGES_Geometry_Euclidean3D_Point" data-uid="BRIDGES.Geometry.Euclidean3D.Point.op_Implicit(BRIDGES.Geometry.Euclidean3D.Vector)~BRIDGES.Geometry.Euclidean3D.Point">Implicit(Vector to Point)</h4>
+  <div class="markdown level1 summary"><p>Casts a <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Vector.html">Vector</a> into a <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator Point(Vector vector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Vector.html">Vector</a></td>
+        <td><span class="parametername">vector</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Vector.html">Vector</a> to cast.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> resulting from the cast.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_op_Multiply_BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Geometry_Euclidean3D_Point_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.op_Multiply(BRIDGES.Geometry.Euclidean3D.Point%2CBRIDGES.Geometry.Euclidean3D.Point)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L308">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_op_Multiply_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.op_Multiply*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_op_Multiply_BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Geometry_Euclidean3D_Point_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.op_Multiply(BRIDGES.Geometry.Euclidean3D.Point,BRIDGES.Geometry.Euclidean3D.Point)">Multiply(Point, Point)</h4>
+  <div class="markdown level1 summary"><p>Computes the dot product of two <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double operator *(Point left, Point right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> for the dot product.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> for the dot product.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> resulting from the dot product of two <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_op_Multiply_BRIDGES_Geometry_Euclidean3D_Point_System_Double_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.op_Multiply(BRIDGES.Geometry.Euclidean3D.Point%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L283">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_op_Multiply_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.op_Multiply*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_op_Multiply_BRIDGES_Geometry_Euclidean3D_Point_System_Double_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.op_Multiply(BRIDGES.Geometry.Euclidean3D.Point,System.Double)">Multiply(Point, Double)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Point operator *(Point operand, double factor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">operand</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">factor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_op_Multiply_System_Double_BRIDGES_Geometry_Euclidean3D_Point_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.op_Multiply(System.Double%2CBRIDGES.Geometry.Euclidean3D.Point)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L277">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_op_Multiply_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.op_Multiply*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_op_Multiply_System_Double_BRIDGES_Geometry_Euclidean3D_Point_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.op_Multiply(System.Double,BRIDGES.Geometry.Euclidean3D.Point)">Multiply(Double, Point)</h4>
+  <div class="markdown level1 summary"><p>Computes the scalar multiplication of a <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> with a <see cref="!:System.Double"></see>-precision real number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Point operator *(double factor, Point operand)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">factor</span></td>
+        <td><p><see cref="!:System.Double"></see>-precision real number.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">operand</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> to multiply.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> resulting from the scalar multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_op_Subtraction_BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Geometry_Euclidean3D_Point_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.op_Subtraction(BRIDGES.Geometry.Euclidean3D.Point%2CBRIDGES.Geometry.Euclidean3D.Point)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L228">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_op_Subtraction_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.op_Subtraction*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_op_Subtraction_BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Geometry_Euclidean3D_Point_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.op_Subtraction(BRIDGES.Geometry.Euclidean3D.Point,BRIDGES.Geometry.Euclidean3D.Point)">Subtraction(Point, Point)</h4>
+  <div class="markdown level1 summary"><p>Computes the subtraction of two <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Point operator -(Point left, Point right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> to subtract.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> to subtract with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> resulting from the subtraction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_op_Subtraction_BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Geometry_Euclidean3D_Vector_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.op_Subtraction(BRIDGES.Geometry.Euclidean3D.Point%2CBRIDGES.Geometry.Euclidean3D.Vector)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L263">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_op_Subtraction_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.op_Subtraction*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_op_Subtraction_BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Geometry_Euclidean3D_Vector_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.op_Subtraction(BRIDGES.Geometry.Euclidean3D.Point,BRIDGES.Geometry.Euclidean3D.Vector)">Subtraction(Point, Vector)</h4>
+  <div class="markdown level1 summary"><p>Computes the subtraction of a <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> with a <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Vector.html">Vector</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Point operator -(Point point, Vector vector)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> to subtract.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Vector.html">Vector</a></td>
+        <td><span class="parametername">vector</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Vector.html">Vector</a> to subtract with.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> resulting from the subtraction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_op_UnaryNegation_BRIDGES_Geometry_Euclidean3D_Point_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.op_UnaryNegation(BRIDGES.Geometry.Euclidean3D.Point)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L238">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_op_UnaryNegation_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.op_UnaryNegation*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_op_UnaryNegation_BRIDGES_Geometry_Euclidean3D_Point_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.op_UnaryNegation(BRIDGES.Geometry.Euclidean3D.Point)">UnaryNegation(Point)</h4>
+  <div class="markdown level1 summary"><p>Computes the opposite of the given <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Point operator -(Point operand)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">operand</span></td>
+        <td><p><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a> to be opposed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><p>The new <a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a>, opposite of the initial one.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Geometry_Euclidean3D_Point__Add_BRIDGES_Geometry_Euclidean3D_Point_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.BRIDGES%23Algebra%23Fundamentals%23IAddable%7BBRIDGES%23Geometry%23Euclidean3D%23Point%7D%23Add(BRIDGES.Geometry.Euclidean3D.Point)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L435">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Geometry_Euclidean3D_Point__Add_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#Geometry#Euclidean3D#Point}#Add*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Geometry_Euclidean3D_Point__Add_BRIDGES_Geometry_Euclidean3D_Point_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#Geometry#Euclidean3D#Point}#Add(BRIDGES.Geometry.Euclidean3D.Point)">IAddable&lt;Point&gt;.Add(Point)</h4>
+  <div class="markdown level1 summary"><p>Computes the addition of the current element with another element on the right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Point IAddable&lt;Point&gt;.Add(Point right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">right</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><p>The new element resulting from the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Geometry_Euclidean3D_Point__IsAssociative.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.BRIDGES%23Algebra%23Fundamentals%23IAddable%7BBRIDGES%23Geometry%23Euclidean3D%23Point%7D%23IsAssociative%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L426">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Geometry_Euclidean3D_Point__IsAssociative_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#Geometry#Euclidean3D#Point}#IsAssociative*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Geometry_Euclidean3D_Point__IsAssociative" data-uid="BRIDGES.Geometry.Euclidean3D.Point.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#Geometry#Euclidean3D#Point}#IsAssociative">IAddable&lt;Point&gt;.IsAssociative</h4>
+  <div class="markdown level1 summary"><p>Evaluates whether the addition is associative : a + (b + c) = (a + b) + c.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">readonly bool IAddable&lt;Point&gt;.IsAssociative { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Geometry_Euclidean3D_Point__IsAssociative_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This property should be implemented explicitely as it is only informative.<br>
+It also helps prevents any confusion with the homonymous property of the multiplication.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Geometry_Euclidean3D_Point__IsCommutative.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.BRIDGES%23Algebra%23Fundamentals%23IAddable%7BBRIDGES%23Geometry%23Euclidean3D%23Point%7D%23IsCommutative%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L429">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Geometry_Euclidean3D_Point__IsCommutative_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#Geometry#Euclidean3D#Point}#IsCommutative*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Geometry_Euclidean3D_Point__IsCommutative" data-uid="BRIDGES.Geometry.Euclidean3D.Point.BRIDGES#Algebra#Fundamentals#IAddable{BRIDGES#Geometry#Euclidean3D#Point}#IsCommutative">IAddable&lt;Point&gt;.IsCommutative</h4>
+  <div class="markdown level1 summary"><p>Evaluates whether the addition is commutative : a + b = b + a.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">readonly bool IAddable&lt;Point&gt;.IsCommutative { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Fundamentals_IAddable_BRIDGES_Geometry_Euclidean3D_Point__IsCommutative_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This property should be implemented explicitely as it is only informative.<br>
+It also helps prevents any confusion with the homonymous property of the multiplication.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Fundamentals_ISubtractable_BRIDGES_Geometry_Euclidean3D_Point__Subtract_BRIDGES_Geometry_Euclidean3D_Point_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.BRIDGES%23Algebra%23Fundamentals%23ISubtractable%7BBRIDGES%23Geometry%23Euclidean3D%23Point%7D%23Subtract(BRIDGES.Geometry.Euclidean3D.Point)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L438">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Fundamentals_ISubtractable_BRIDGES_Geometry_Euclidean3D_Point__Subtract_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.BRIDGES#Algebra#Fundamentals#ISubtractable{BRIDGES#Geometry#Euclidean3D#Point}#Subtract*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Fundamentals_ISubtractable_BRIDGES_Geometry_Euclidean3D_Point__Subtract_BRIDGES_Geometry_Euclidean3D_Point_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.BRIDGES#Algebra#Fundamentals#ISubtractable{BRIDGES#Geometry#Euclidean3D#Point}#Subtract(BRIDGES.Geometry.Euclidean3D.Point)">ISubtractable&lt;Point&gt;.Subtract(Point)</h4>
+  <div class="markdown level1 summary"><p>Computes the subtraction of the current element with another element on the right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Point ISubtractable&lt;Point&gt;.Subtract(Point right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">right</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><p>The new element resulting from the subtraction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Fundamentals_IZeroable_BRIDGES_Geometry_Euclidean3D_Point__Zero.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.BRIDGES%23Algebra%23Fundamentals%23IZeroable%7BBRIDGES%23Geometry%23Euclidean3D%23Point%7D%23Zero%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L451">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Fundamentals_IZeroable_BRIDGES_Geometry_Euclidean3D_Point__Zero_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.BRIDGES#Algebra#Fundamentals#IZeroable{BRIDGES#Geometry#Euclidean3D#Point}#Zero*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Fundamentals_IZeroable_BRIDGES_Geometry_Euclidean3D_Point__Zero" data-uid="BRIDGES.Geometry.Euclidean3D.Point.BRIDGES#Algebra#Fundamentals#IZeroable{BRIDGES#Geometry#Euclidean3D#Point}#Zero">IZeroable&lt;Point&gt;.Zero()</h4>
+  <div class="markdown level1 summary"><p>Returns the neutral element of the addition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Point IZeroable&lt;Point&gt;.Zero()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><p>The neutral element of the addition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Measure_IDotProduct_System_Double_BRIDGES_Geometry_Euclidean3D_Point__AngleWith_BRIDGES_Geometry_Euclidean3D_Point_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.BRIDGES%23Algebra%23Measure%23IDotProduct%7BSystem%23Double%2CBRIDGES%23Geometry%23Euclidean3D%23Point%7D%23AngleWith(BRIDGES.Geometry.Euclidean3D.Point)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L495">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Measure_IDotProduct_System_Double_BRIDGES_Geometry_Euclidean3D_Point__AngleWith_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.BRIDGES#Algebra#Measure#IDotProduct{System#Double,BRIDGES#Geometry#Euclidean3D#Point}#AngleWith*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Measure_IDotProduct_System_Double_BRIDGES_Geometry_Euclidean3D_Point__AngleWith_BRIDGES_Geometry_Euclidean3D_Point_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.BRIDGES#Algebra#Measure#IDotProduct{System#Double,BRIDGES#Geometry#Euclidean3D#Point}#AngleWith(BRIDGES.Geometry.Euclidean3D.Point)">IDotProduct&lt;Double, Point&gt;.AngleWith(Point)</h4>
+  <div class="markdown level1 summary"><p>Computes the angle between the current element and another element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">double IDotProduct&lt;double, Point&gt;.AngleWith(Point other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">other</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The value of the angle (in radians).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Measure_IDotProduct_System_Double_BRIDGES_Geometry_Euclidean3D_Point__DotProduct_BRIDGES_Geometry_Euclidean3D_Point_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.BRIDGES%23Algebra%23Measure%23IDotProduct%7BSystem%23Double%2CBRIDGES%23Geometry%23Euclidean3D%23Point%7D%23DotProduct(BRIDGES.Geometry.Euclidean3D.Point)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L489">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Measure_IDotProduct_System_Double_BRIDGES_Geometry_Euclidean3D_Point__DotProduct_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.BRIDGES#Algebra#Measure#IDotProduct{System#Double,BRIDGES#Geometry#Euclidean3D#Point}#DotProduct*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Measure_IDotProduct_System_Double_BRIDGES_Geometry_Euclidean3D_Point__DotProduct_BRIDGES_Geometry_Euclidean3D_Point_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.BRIDGES#Algebra#Measure#IDotProduct{System#Double,BRIDGES#Geometry#Euclidean3D#Point}#DotProduct(BRIDGES.Geometry.Euclidean3D.Point)">IDotProduct&lt;Double, Point&gt;.DotProduct(Point)</h4>
+  <div class="markdown level1 summary"><p>Computes the dot product of the current element with another element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">double IDotProduct&lt;double, Point&gt;.DotProduct(Point right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><span class="parametername">right</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The value of the dot product of the two elements.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Measure_INorm_BRIDGES_Geometry_Euclidean3D_Point__Unitise.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.BRIDGES%23Algebra%23Measure%23INorm%7BBRIDGES%23Geometry%23Euclidean3D%23Point%7D%23Unitise%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L473">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Measure_INorm_BRIDGES_Geometry_Euclidean3D_Point__Unitise_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.BRIDGES#Algebra#Measure#INorm{BRIDGES#Geometry#Euclidean3D#Point}#Unitise*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Measure_INorm_BRIDGES_Geometry_Euclidean3D_Point__Unitise" data-uid="BRIDGES.Geometry.Euclidean3D.Point.BRIDGES#Algebra#Measure#INorm{BRIDGES#Geometry#Euclidean3D#Point}#Unitise">INorm&lt;Point&gt;.Unitise()</h4>
+  <div class="markdown level1 summary"><p>Unitises the current <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void INorm&lt;Point&gt;.Unitise()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Sets_Additive_IGroup_BRIDGES_Geometry_Euclidean3D_Point__Opposite.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.BRIDGES%23Algebra%23Sets%23Additive%23IGroup%7BBRIDGES%23Geometry%23Euclidean3D%23Point%7D%23Opposite%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L441">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Sets_Additive_IGroup_BRIDGES_Geometry_Euclidean3D_Point__Opposite_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.BRIDGES#Algebra#Sets#Additive#IGroup{BRIDGES#Geometry#Euclidean3D#Point}#Opposite*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Sets_Additive_IGroup_BRIDGES_Geometry_Euclidean3D_Point__Opposite" data-uid="BRIDGES.Geometry.Euclidean3D.Point.BRIDGES#Algebra#Sets#Additive#IGroup{BRIDGES#Geometry#Euclidean3D#Point}#Opposite">IGroup&lt;Point&gt;.Opposite()</h4>
+  <div class="markdown level1 summary"><p>Replaces the current element with its opposite.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IGroup&lt;Point&gt;.Opposite()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the current element was opposed, <span class="xref">false</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_Geometry_Euclidean3D_Point__Divide_System_Double_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.BRIDGES%23Algebra%23Sets%23IGroupAction%7BSystem%23Double%2CBRIDGES%23Geometry%23Euclidean3D%23Point%7D%23Divide(System.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L463">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_Geometry_Euclidean3D_Point__Divide_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.BRIDGES#Algebra#Sets#IGroupAction{System#Double,BRIDGES#Geometry#Euclidean3D#Point}#Divide*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_Geometry_Euclidean3D_Point__Divide_System_Double_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.BRIDGES#Algebra#Sets#IGroupAction{System#Double,BRIDGES#Geometry#Euclidean3D#Point}#Divide(System.Double)">IGroupAction&lt;Double, Point&gt;.Divide(Double)</h4>
+  <div class="markdown level1 summary"><p>Computes the right scalar division of the current element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Point IGroupAction&lt;double, Point&gt;.Divide(double divisor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">divisor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><p>The new element resulting from the scalar dividion.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_Geometry_Euclidean3D_Point__Multiply_System_Double_.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point.BRIDGES%23Algebra%23Sets%23IGroupAction%7BSystem%23Double%2CBRIDGES%23Geometry%23Euclidean3D%23Point%7D%23Multiply(System.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L460">View Source</a>
+  </span>
+  <a id="BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_Geometry_Euclidean3D_Point__Multiply_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.BRIDGES#Algebra#Sets#IGroupAction{System#Double,BRIDGES#Geometry#Euclidean3D#Point}#Multiply*"></a>
+  <h4 id="BRIDGES_Geometry_Euclidean3D_Point_BRIDGES_Algebra_Sets_IGroupAction_System_Double_BRIDGES_Geometry_Euclidean3D_Point__Multiply_System_Double_" data-uid="BRIDGES.Geometry.Euclidean3D.Point.BRIDGES#Algebra#Sets#IGroupAction{System#Double,BRIDGES#Geometry#Euclidean3D#Point}#Multiply(System.Double)">IGroupAction&lt;Double, Point&gt;.Multiply(Double)</h4>
+  <div class="markdown level1 summary"><p>Computes the right scalar multiplication of the current element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Point IGroupAction&lt;double, Point&gt;.Multiply(double factor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">factor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.Geometry.Euclidean3D.Point.html">Point</a></td>
+        <td><p>The new element resulting from the scalar multiplication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IAbelianGroup-1.html">IAbelianGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IGroup-1.html">IGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMonoid-1.html">IMonoid&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.ISemiGroup-1.html">ISemiGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.ILoop-1.html">ILoop&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IQuasiGroup-1.html">IQuasiGroup&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.Additive.IMagma-1.html">IMagma&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.IAddable-1.html">IAddable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.ISubtractable-1.html">ISubtractable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Fundamentals.IZeroable-1.html">IZeroable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Sets.IGroupAction-2.html">IGroupAction&lt;TValue, T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Measure.IDotProduct-2.html">IDotProduct&lt;TValue, T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Measure.INorm-1.html">INorm&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BRIDGES.Algebra.Measure.IMetric-1.html">IMetric&lt;T&gt;</a>
+  </div>
+  <div>
+      <span class="xref">IEquatable&lt;&gt;</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_Geometry_Euclidean3D_Point.md&amp;value=---%0Auid%3A%20BRIDGES.Geometry.Euclidean3D.Point%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/Geometry/Euclidean3D/Point.cs/#L15" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            By ENPC and the Build'in Platform
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

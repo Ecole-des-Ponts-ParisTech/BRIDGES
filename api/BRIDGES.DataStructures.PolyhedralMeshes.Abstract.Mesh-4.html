@@ -1,0 +1,2547 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class Mesh&lt;TPosition, TVertex, TEdge, TFace&gt;
+   | BRIDGES </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class Mesh&lt;TPosition, TVertex, TEdge, TFace&gt;
+   | BRIDGES ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/logo_enpc.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4">
+  
+  
+  <h1 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4" class="text-break">Class Mesh&lt;TPosition, TVertex, TEdge, TFace&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>Abstract class for a polyhedral mesh data structure.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Mesh&lt;TPosition, TVertex, TEdge, TFace&gt;</span></div>
+      <div class="level2"><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.FaceVertexMesh.FvMesh-1.html">FvMesh&lt;TPosition&gt;</a></div>
+      <div class="level2"><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh-1.html">HeMesh&lt;TPosition&gt;</a></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.IMesh-1.html">IMesh</a>&lt;TPosition&gt;</div>
+    <div><span class="xref">ICloneable</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.html">BRIDGES.DataStructures.PolyhedralMeshes.Abstract</a></h6>
+  <h6><strong>Assembly</strong>: BRIDGES.dll</h6>
+  <h5 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class Mesh&lt;TPosition, TVertex, TEdge, TFace&gt; : object, IMesh&lt;TPosition&gt; where TPosition : IEquatable&lt;TPosition&gt; where TVertex : Vertex&lt;TPosition, TVertex, TEdge, TFace&gt; where TEdge : Edge&lt;TPosition, TVertex, TEdge, TFace&gt; where TFace : Face&lt;TPosition, TVertex, TEdge, TFace&gt;</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TPosition</span></td>
+        <td><p>Type for the position of the vertex.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TVertex</span></td>
+        <td><p>Type of vertex for the mesh.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TEdge</span></td>
+        <td><p>Type of vertex for the mesh.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TFace</span></td>
+        <td><p>Type of vertex for the mesh.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4__ctor.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L46">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4__ctor_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.#ctor*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4__ctor" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.#ctor">Mesh()</h4>
+  <div class="markdown level1 summary"><p>Initialises a new instance of the <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html">Mesh&lt;TPosition, TVertex, TEdge, TFace&gt;</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Mesh()</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EdgeCount.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.EdgeCount%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L32">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EdgeCount_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.EdgeCount*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EdgeCount" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.EdgeCount">EdgeCount</h4>
+  <div class="markdown level1 summary"><p>Gets the number of edges in the current mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract int EdgeCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_FaceCount.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.FaceCount%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L37">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_FaceCount_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.FaceCount*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_FaceCount" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.FaceCount">FaceCount</h4>
+  <div class="markdown level1 summary"><p>Gets the number of faces in the current mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract int FaceCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_VertexCount.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.VertexCount%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L27">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_VertexCount_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.VertexCount*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_VertexCount" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.VertexCount">VertexCount</h4>
+  <div class="markdown level1 summary"><p>Gets the number of vertices in the current mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract int VertexCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddEdge_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.AddEdge(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L88">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddEdge_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.AddEdge*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddEdge_System_Int32_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.AddEdge(System.Int32,System.Int32)">AddEdge(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Adds a new edge to the current mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected TEdge AddEdge(int startIndex, int endIndex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">startIndex</span></td>
+        <td><p>Index of the start vertex for the new edge.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">endIndex</span></td>
+        <td><p>Index of the end vertex for the new edge.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TEdge</span></td>
+        <td><p>The new edge if it was added, <span class="xref">null</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddFace__1__1__1_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.AddFace(%601%2C%601%2C%601)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L195">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddFace_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.AddFace*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddFace__1__1__1_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.AddFace(`1,`1,`1)">AddFace(TVertex, TVertex, TVertex)</h4>
+  <div class="markdown level1 summary"><p>Adds a new triangular face to the current mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TFace AddFace(TVertex vertexA, TVertex vertexB, TVertex vertexC)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TVertex</span></td>
+        <td><span class="parametername">vertexA</span></td>
+        <td><p>First vertex for the new face.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TVertex</span></td>
+        <td><span class="parametername">vertexB</span></td>
+        <td><p>Second vertex for the new face.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TVertex</span></td>
+        <td><span class="parametername">vertexC</span></td>
+        <td><p>Third vertex for the new face.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TFace</span></td>
+        <td><p>The newly created triangular face.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddFace__1__1__1__1_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.AddFace(%601%2C%601%2C%601%2C%601)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L208">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddFace_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.AddFace*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddFace__1__1__1__1_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.AddFace(`1,`1,`1,`1)">AddFace(TVertex, TVertex, TVertex, TVertex)</h4>
+  <div class="markdown level1 summary"><p>Adds a new quadrangular face to the current mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TFace AddFace(TVertex vertexA, TVertex vertexB, TVertex vertexC, TVertex vertexD)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TVertex</span></td>
+        <td><span class="parametername">vertexA</span></td>
+        <td><p>First vertex for the new face.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TVertex</span></td>
+        <td><span class="parametername">vertexB</span></td>
+        <td><p>Second vertex for the new face.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TVertex</span></td>
+        <td><span class="parametername">vertexC</span></td>
+        <td><p>Third vertex for the new face.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TVertex</span></td>
+        <td><span class="parametername">vertexD</span></td>
+        <td><p>Fourth vertex for the new face.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TFace</span></td>
+        <td><p>The newly created quadrangular face.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddFace_List__1__.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.AddFace(List%7B%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L386">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddFace_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.AddFace*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddFace_List__1__" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.AddFace(List{`1})">AddFace(List&lt;TVertex&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds a new face to the current mesh from its vertices.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract TFace AddFace(List&lt;TVertex&gt; vertices)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">List</span>&lt;TVertex&gt;</td>
+        <td><span class="parametername">vertices</span></td>
+        <td><p>Ordered list of the face's vertex.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TFace</span></td>
+        <td><p>The new face if it was added, <span class="xref">null</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddFace_List_System_Int32__.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.AddFace(List%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L176">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddFace_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.AddFace*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddFace_List_System_Int32__" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.AddFace(List{System.Int32})">AddFace(List&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds a new face to the current mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TFace AddFace(List&lt;int&gt; indices)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">List</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">indices</span></td>
+        <td><p>Ordered list of the face's vertex indices.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TFace</span></td>
+        <td><p>The newly created face.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddFace_System_Int32_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.AddFace(System.Int32%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L144">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddFace_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.AddFace*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddFace_System_Int32_System_Int32_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.AddFace(System.Int32,System.Int32,System.Int32)">AddFace(Int32, Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Adds a new triangular face to the current mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TFace AddFace(int indexA, int indexB, int indexC)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">indexA</span></td>
+        <td><p>Index of the first vertex for the new face.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">indexB</span></td>
+        <td><p>Index of the second vertex for the new face.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">indexC</span></td>
+        <td><p>Index of the third vertex for the new face.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TFace</span></td>
+        <td><p>The newly created triangular face.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddFace_System_Int32_System_Int32_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.AddFace(System.Int32%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L161">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddFace_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.AddFace*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddFace_System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.AddFace(System.Int32,System.Int32,System.Int32,System.Int32)">AddFace(Int32, Int32, Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Adds a new quadrangular face to the current mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TFace AddFace(int indexA, int indexB, int indexC, int indexD)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">indexA</span></td>
+        <td><p>Index of the first vertex for the new face.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">indexB</span></td>
+        <td><p>Index of the second vertex for the new face.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">indexC</span></td>
+        <td><p>Index of the third vertex for the new face.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">indexD</span></td>
+        <td><p>Index of the fourth vertex for the new face.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TFace</span></td>
+        <td><p>The newly created quadrangular face.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddVertex__0_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.AddVertex(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L288">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddVertex_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.AddVertex*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_AddVertex__0_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.AddVertex(`0)">AddVertex(TPosition)</h4>
+  <div class="markdown level1 summary"><p>Adds a vertex in the mesh from its position.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract TVertex AddVertex(TPosition position)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TPosition</span></td>
+        <td><span class="parametername">position</span></td>
+        <td><p>Position of the vertex.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TVertex</span></td>
+        <td><p>The new vertex if it was added, <span class="xref">null</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_CleanMesh_System_Boolean_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.CleanMesh(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L273">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_CleanMesh_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.CleanMesh*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_CleanMesh_System_Boolean_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.CleanMesh(System.Boolean)">CleanMesh(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Cleans the current mesh by reindexing the faces, edges and vertices.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void CleanMesh(bool cullIsolated = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">cullIsolated</span></td>
+        <td><p>Evaluates whether isolated members should be removed in the process.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_Clone.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.Clone%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L279">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_Clone_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.Clone*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_Clone" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.Clone">Clone()</h4>
+  <div class="markdown level1 summary"><p>Creates a new object that is a deep copy of the current instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract object Clone()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><p>The new object that is a deep copy of the current instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EdgeBetween__1__1_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.EdgeBetween(%601%2C%601)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L249">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EdgeBetween_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.EdgeBetween*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EdgeBetween__1__1_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.EdgeBetween(`1,`1)">EdgeBetween(TVertex, TVertex)</h4>
+  <div class="markdown level1 summary"><p>Looks for the edge between <code data-dev-comment-type="paramref" class="paramref">vertexA</code> and <code data-dev-comment-type="paramref" class="paramref">vertexB</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual TEdge EdgeBetween(TVertex vertexA, TVertex vertexB)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TVertex</span></td>
+        <td><span class="parametername">vertexA</span></td>
+        <td><p>First end vertex of the edge.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TVertex</span></td>
+        <td><span class="parametername">vertexB</span></td>
+        <td><p>Second end vertex of the edge.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TEdge</span></td>
+        <td><p>The edge if it exists, <span class="xref">null</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EdgeBetween_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.EdgeBetween(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L102">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EdgeBetween_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.EdgeBetween*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EdgeBetween_System_Int32_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.EdgeBetween(System.Int32,System.Int32)">EdgeBetween(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Looks for the edge between two vertices.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TEdge EdgeBetween(int indexA, int indexB)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">indexA</span></td>
+        <td><p>Index of the first end vertex of the edge.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">indexB</span></td>
+        <td><p>Index of the second end vertex of the edge.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TEdge</span></td>
+        <td><p>The edge if it exists, <span class="xref">null</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_Equals_System_Object_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L433">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_Equals_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.Equals*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_Equals_System_Object_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EraseEdge__2_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.EraseEdge(%602)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L376">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EraseEdge_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.EraseEdge*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EraseEdge__2_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.EraseEdge(`2)">EraseEdge(TEdge)</h4>
+  <div class="markdown level1 summary"><p>Erases the edge from the mesh. The mesh may not be manifold after this operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void EraseEdge(TEdge edge)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TEdge</span></td>
+        <td><span class="parametername">edge</span></td>
+        <td><p>Edge to erase.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EraseEdge_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.EraseEdge(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L127">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EraseEdge_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.EraseEdge*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EraseEdge_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.EraseEdge(System.Int32)">EraseEdge(Int32)</h4>
+  <div class="markdown level1 summary"><p>Erases the edge at the given index in the mesh. The mesh may be non-manifold after this operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EraseEdge(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Index of the edge to erase.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EraseFace__3_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.EraseFace(%603)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L425">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EraseFace_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.EraseFace*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EraseFace__3_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.EraseFace(`3)">EraseFace(TFace)</h4>
+  <div class="markdown level1 summary"><p>Erases the face from the mesh. The mesh may not be manifold after this operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void EraseFace(TFace face)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TFace</span></td>
+        <td><span class="parametername">face</span></td>
+        <td><p>Face to erase.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EraseFace_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.EraseFace(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L232">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EraseFace_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.EraseFace*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EraseFace_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.EraseFace(System.Int32)">EraseFace(Int32)</h4>
+  <div class="markdown level1 summary"><p>Erases the face at the given index in the mesh. The mesh may be non-manifold after this operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EraseFace(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Index of the face to erase.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EraseVertex__1_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.EraseVertex(%601)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L326">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EraseVertex_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.EraseVertex*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EraseVertex__1_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.EraseVertex(`1)">EraseVertex(TVertex)</h4>
+  <div class="markdown level1 summary"><p>Erases the vertex from the mesh. Every reference to this vertex should be deleted before it is erased.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void EraseVertex(TVertex vertex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TVertex</span></td>
+        <td><span class="parametername">vertex</span></td>
+        <td><p>The vertex to erase.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EraseVertex_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.EraseVertex(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L73">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EraseVertex_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.EraseVertex*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_EraseVertex_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.EraseVertex(System.Int32)">EraseVertex(Int32)</h4>
+  <div class="markdown level1 summary"><p>Erases the vertex at the given index in the mesh. Every reference to this vertex should be deleted before it is erased.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EraseVertex(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Index of the vertex to erase.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetEdge_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.GetEdge(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L345">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetEdge_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.GetEdge*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetEdge_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.GetEdge(System.Int32)">GetEdge(Int32)</h4>
+  <div class="markdown level1 summary"><p>Returns the edge at the given index in the mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract TEdge GetEdge(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TEdge</span></td>
+        <td><p>The edge at the given index in the mesh.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetEdges.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.GetEdges%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L362">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetEdges_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.GetEdges*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetEdges" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.GetEdges">GetEdges()</h4>
+  <div class="markdown level1 summary"><p>Returns the list of edges of the current mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract IReadOnlyList&lt;TEdge&gt; GetEdges()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IReadOnlyList</span>&lt;TEdge&gt;</td>
+        <td><p>List of edges of the mesh.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetEdges_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If some edges were removed from the mesh, the index of the edge in the returned list might not match the edge index in the mesh. <br>
+The index of the edges in the mesh is accessible through the Index property.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetFace_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.GetFace(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L394">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetFace_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.GetFace*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetFace_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.GetFace(System.Int32)">GetFace(Int32)</h4>
+  <div class="markdown level1 summary"><p>Returns the face at the given index in the mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract TFace GetFace(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TFace</span></td>
+        <td><p>The face at the given index in the mesh.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetFaces.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.GetFaces%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L411">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetFaces_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.GetFaces*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetFaces" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.GetFaces">GetFaces()</h4>
+  <div class="markdown level1 summary"><p>Returns the list of faces of the current mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract IReadOnlyList&lt;TFace&gt; GetFaces()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IReadOnlyList</span>&lt;TFace&gt;</td>
+        <td><p>List of faces of the mesh.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetFaces_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If some faces were removed from the mesh, the index of the face in the returned list might not match the face index in the mesh. <br>
+The index of the faces in the mesh is accessible through the Index property.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetHashCode.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L439">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetHashCode_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.GetHashCode*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetHashCode" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetVertex_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.GetVertex(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L295">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetVertex_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.GetVertex*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetVertex_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.GetVertex(System.Int32)">GetVertex(Int32)</h4>
+  <div class="markdown level1 summary"><p>Returns the vertex at the given index in the mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract TVertex GetVertex(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TVertex</span></td>
+        <td><p>The vertex at the given index in the mesh.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetVertices.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.GetVertices%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L312">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetVertices_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.GetVertices*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetVertices" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.GetVertices">GetVertices()</h4>
+  <div class="markdown level1 summary"><p>Returns the list of vertices of the current mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract IReadOnlyList&lt;TVertex&gt; GetVertices()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IReadOnlyList</span>&lt;TVertex&gt;</td>
+        <td><p>List of vertices of the mesh.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_GetVertices_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If some vertices were removed from the mesh, the index of the vertex in the returned list might not match the vertex index in the mesh. <br>
+The index of the vertices in the mesh is accessible through the Index property.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_RemoveEdge__2_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.RemoveEdge(%602)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L369">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_RemoveEdge_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.RemoveEdge*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_RemoveEdge__2_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.RemoveEdge(`2)">RemoveEdge(TEdge)</h4>
+  <div class="markdown level1 summary"><p>Removes the edge from the mesh by keeping the mesh manifold.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void RemoveEdge(TEdge edge)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TEdge</span></td>
+        <td><span class="parametername">edge</span></td>
+        <td><p>Edge to remove.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_RemoveEdge_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.RemoveEdge(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L114">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_RemoveEdge_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.RemoveEdge*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_RemoveEdge_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.RemoveEdge(System.Int32)">RemoveEdge(Int32)</h4>
+  <div class="markdown level1 summary"><p>Removes the edge at the given index in the mesh by keeping the mesh manifold.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveEdge(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Index of the edge to remove.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_RemoveFace__3_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.RemoveFace(%603)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L418">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_RemoveFace_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.RemoveFace*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_RemoveFace__3_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.RemoveFace(`3)">RemoveFace(TFace)</h4>
+  <div class="markdown level1 summary"><p>Removes the face from the mesh by keeping the mesh manifold.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void RemoveFace(TFace face)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TFace</span></td>
+        <td><span class="parametername">face</span></td>
+        <td><p>Face to remove.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_RemoveFace_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.RemoveFace(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L219">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_RemoveFace_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.RemoveFace*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_RemoveFace_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.RemoveFace(System.Int32)">RemoveFace(Int32)</h4>
+  <div class="markdown level1 summary"><p>Removes the face at the given index in the mesh by keeping the mesh manifold.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveFace(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Index of the face to remove.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_RemoveVertex__1_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.RemoveVertex(%601)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L319">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_RemoveVertex_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.RemoveVertex*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_RemoveVertex__1_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.RemoveVertex(`1)">RemoveVertex(TVertex)</h4>
+  <div class="markdown level1 summary"><p>Removes the vertex from the mesh by keeping the mesh manifold.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void RemoveVertex(TVertex vertex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TVertex</span></td>
+        <td><span class="parametername">vertex</span></td>
+        <td><p>Vertex to remove.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_RemoveVertex_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.RemoveVertex(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L61">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_RemoveVertex_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.RemoveVertex*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_RemoveVertex_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.RemoveVertex(System.Int32)">RemoveVertex(Int32)</h4>
+  <div class="markdown level1 summary"><p>Removes the vertex at the given index in the mesh by keeping the mesh manifold.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveVertex(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Index of the vertex to remove.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_ToString.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L445">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_ToString_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.ToString*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_ToString" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.ToString">ToString()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_TryGetEdge_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.TryGetEdge(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L352">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_TryGetEdge_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.TryGetEdge*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_TryGetEdge_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.TryGetEdge(System.Int32)">TryGetEdge(Int32)</h4>
+  <div class="markdown level1 summary"><p>Returns the edge at the given index in the mesh if it exists, <span class="xref">null</span> otherwise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract TEdge TryGetEdge(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>The index of the edge to look for.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TEdge</span></td>
+        <td><p>The edge if it exists, <span class="xref">null</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_TryGetFace_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.TryGetFace(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L401">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_TryGetFace_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.TryGetFace*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_TryGetFace_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.TryGetFace(System.Int32)">TryGetFace(Int32)</h4>
+  <div class="markdown level1 summary"><p>Returns the face at the given index in the mesh if it exists, <span class="xref">null</span> otherwise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract TFace TryGetFace(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>The index of the face to look for.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TFace</span></td>
+        <td><p>The face if it exists, <span class="xref">null</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_TryGetVertex_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.TryGetVertex(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L302">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_TryGetVertex_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.TryGetVertex*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_TryGetVertex_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.TryGetVertex(System.Int32)">TryGetVertex(Int32)</h4>
+  <div class="markdown level1 summary"><p>Returns the vertex at the given index in the mesh if it exists, <span class="xref">null</span> otherwise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract TVertex TryGetVertex(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>The index of the vertex to look for.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TVertex</span></td>
+        <td><p>The vertex if it exists, <span class="xref">null</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__AddEdge_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.BRIDGES%23DataStructures%23PolyhedralMeshes%23IMesh%7BTPosition%7D%23AddEdge(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L478">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__AddEdge_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#AddEdge*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__AddEdge_System_Int32_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#AddEdge(System.Int32,System.Int32)">IMesh&lt;TPosition&gt;.AddEdge(Int32, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEdge&lt;TPosition&gt; IMesh&lt;TPosition&gt;.AddEdge(int startIndex, int endIndex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">startIndex</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">endIndex</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.IEdge-1.html">IEdge</a>&lt;TPosition&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__AddFace_List_System_Int32__.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.BRIDGES%23DataStructures%23PolyhedralMeshes%23IMesh%7BTPosition%7D%23AddFace(List%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L514">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__AddFace_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#AddFace*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__AddFace_List_System_Int32__" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#AddFace(List{System.Int32})">IMesh&lt;TPosition&gt;.AddFace(List&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IFace&lt;TPosition&gt; IMesh&lt;TPosition&gt;.AddFace(List&lt;int&gt; indices)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">List</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">indices</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.IFace-1.html">IFace</a>&lt;TPosition&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__AddFace_System_Int32_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.BRIDGES%23DataStructures%23PolyhedralMeshes%23IMesh%7BTPosition%7D%23AddFace(System.Int32%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L504">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__AddFace_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#AddFace*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__AddFace_System_Int32_System_Int32_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#AddFace(System.Int32,System.Int32,System.Int32)">IMesh&lt;TPosition&gt;.AddFace(Int32, Int32, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IFace&lt;TPosition&gt; IMesh&lt;TPosition&gt;.AddFace(int indexA, int indexB, int indexC)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">indexA</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">indexB</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">indexC</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.IFace-1.html">IFace</a>&lt;TPosition&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__AddFace_System_Int32_System_Int32_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.BRIDGES%23DataStructures%23PolyhedralMeshes%23IMesh%7BTPosition%7D%23AddFace(System.Int32%2CSystem.Int32%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L509">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__AddFace_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#AddFace*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__AddFace_System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#AddFace(System.Int32,System.Int32,System.Int32,System.Int32)">IMesh&lt;TPosition&gt;.AddFace(Int32, Int32, Int32, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IFace&lt;TPosition&gt; IMesh&lt;TPosition&gt;.AddFace(int indexA, int indexB, int indexC, int indexD)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">indexA</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">indexB</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">indexC</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">indexD</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.IFace-1.html">IFace</a>&lt;TPosition&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__AddVertex__0_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.BRIDGES%23DataStructures%23PolyhedralMeshes%23IMesh%7BTPosition%7D%23AddVertex(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L457">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__AddVertex_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#AddVertex*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__AddVertex__0_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#AddVertex(`0)">IMesh&lt;TPosition&gt;.AddVertex(TPosition)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IVertex&lt;TPosition&gt; IMesh&lt;TPosition&gt;.AddVertex(TPosition position)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TPosition</span></td>
+        <td><span class="parametername">position</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.IVertex-1.html">IVertex</a>&lt;TPosition&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__EdgeBetween_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.BRIDGES%23DataStructures%23PolyhedralMeshes%23IMesh%7BTPosition%7D%23EdgeBetween(System.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L498">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__EdgeBetween_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#EdgeBetween*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__EdgeBetween_System_Int32_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#EdgeBetween(System.Int32,System.Int32)">IMesh&lt;TPosition&gt;.EdgeBetween(Int32, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEdge&lt;TPosition&gt; IMesh&lt;TPosition&gt;.EdgeBetween(int indexA, int indexB)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">indexA</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">indexB</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.IEdge-1.html">IEdge</a>&lt;TPosition&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__GetEdge_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.BRIDGES%23DataStructures%23PolyhedralMeshes%23IMesh%7BTPosition%7D%23GetEdge(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L483">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__GetEdge_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#GetEdge*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__GetEdge_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#GetEdge(System.Int32)">IMesh&lt;TPosition&gt;.GetEdge(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEdge&lt;TPosition&gt; IMesh&lt;TPosition&gt;.GetEdge(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.IEdge-1.html">IEdge</a>&lt;TPosition&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__GetEdges.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.BRIDGES%23DataStructures%23PolyhedralMeshes%23IMesh%7BTPosition%7D%23GetEdges%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L493">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__GetEdges_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#GetEdges*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__GetEdges" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#GetEdges">IMesh&lt;TPosition&gt;.GetEdges()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IReadOnlyList&lt;IEdge&lt;TPosition&gt;&gt; IMesh&lt;TPosition&gt;.GetEdges()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IReadOnlyList</span>&lt;<a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.IEdge-1.html">IEdge</a>&lt;TPosition&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__GetFace_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.BRIDGES%23DataStructures%23PolyhedralMeshes%23IMesh%7BTPosition%7D%23GetFace(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L519">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__GetFace_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#GetFace*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__GetFace_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#GetFace(System.Int32)">IMesh&lt;TPosition&gt;.GetFace(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IFace&lt;TPosition&gt; IMesh&lt;TPosition&gt;.GetFace(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.IFace-1.html">IFace</a>&lt;TPosition&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__GetFaces.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.BRIDGES%23DataStructures%23PolyhedralMeshes%23IMesh%7BTPosition%7D%23GetFaces%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L529">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__GetFaces_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#GetFaces*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__GetFaces" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#GetFaces">IMesh&lt;TPosition&gt;.GetFaces()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IReadOnlyList&lt;IFace&lt;TPosition&gt;&gt; IMesh&lt;TPosition&gt;.GetFaces()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IReadOnlyList</span>&lt;<a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.IFace-1.html">IFace</a>&lt;TPosition&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__GetVertex_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.BRIDGES%23DataStructures%23PolyhedralMeshes%23IMesh%7BTPosition%7D%23GetVertex(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L462">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__GetVertex_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#GetVertex*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__GetVertex_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#GetVertex(System.Int32)">IMesh&lt;TPosition&gt;.GetVertex(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IVertex&lt;TPosition&gt; IMesh&lt;TPosition&gt;.GetVertex(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.IVertex-1.html">IVertex</a>&lt;TPosition&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__GetVertices.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.BRIDGES%23DataStructures%23PolyhedralMeshes%23IMesh%7BTPosition%7D%23GetVertices%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L472">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__GetVertices_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#GetVertices*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__GetVertices" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#GetVertices">IMesh&lt;TPosition&gt;.GetVertices()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IReadOnlyList&lt;IVertex&lt;TPosition&gt;&gt; IMesh&lt;TPosition&gt;.GetVertices()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IReadOnlyList</span>&lt;<a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.IVertex-1.html">IVertex</a>&lt;TPosition&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__TryGetEdge_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.BRIDGES%23DataStructures%23PolyhedralMeshes%23IMesh%7BTPosition%7D%23TryGetEdge(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L488">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__TryGetEdge_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#TryGetEdge*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__TryGetEdge_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#TryGetEdge(System.Int32)">IMesh&lt;TPosition&gt;.TryGetEdge(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEdge&lt;TPosition&gt; IMesh&lt;TPosition&gt;.TryGetEdge(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.IEdge-1.html">IEdge</a>&lt;TPosition&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__TryGetFace_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.BRIDGES%23DataStructures%23PolyhedralMeshes%23IMesh%7BTPosition%7D%23TryGetFace(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L524">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__TryGetFace_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#TryGetFace*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__TryGetFace_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#TryGetFace(System.Int32)">IMesh&lt;TPosition&gt;.TryGetFace(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IFace&lt;TPosition&gt; IMesh&lt;TPosition&gt;.TryGetFace(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.IFace-1.html">IFace</a>&lt;TPosition&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__TryGetVertex_System_Int32_.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604.BRIDGES%23DataStructures%23PolyhedralMeshes%23IMesh%7BTPosition%7D%23TryGetVertex(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L467">View Source</a>
+  </span>
+  <a id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__TryGetVertex_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#TryGetVertex*"></a>
+  <h4 id="BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4_BRIDGES_DataStructures_PolyhedralMeshes_IMesh_TPosition__TryGetVertex_System_Int32_" data-uid="BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh`4.BRIDGES#DataStructures#PolyhedralMeshes#IMesh{TPosition}#TryGetVertex(System.Int32)">IMesh&lt;TPosition&gt;.TryGetVertex(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IVertex&lt;TPosition&gt; IMesh&lt;TPosition&gt;.TryGetVertex(int index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.IVertex-1.html">IVertex</a>&lt;TPosition&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="BRIDGES.DataStructures.PolyhedralMeshes.IMesh-1.html">IMesh&lt;TPosition&gt;</a>
+  </div>
+  <div>
+      <span class="xref">ICloneable</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/new/master/apiSpec/new?filename=BRIDGES_DataStructures_PolyhedralMeshes_Abstract_Mesh_4.md&amp;value=---%0Auid%3A%20BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh%604%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES/blob/1a91aae23b3b8bab844911d409a1f418629a2a51/BRIDGES/DataStructures/PolyhedralMeshes/Abstract/Mesh.cs/#L15" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            By ENPC and the Build'in Platform
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
