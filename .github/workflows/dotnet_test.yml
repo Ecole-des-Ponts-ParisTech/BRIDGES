@@ -1,5 +1,5 @@
 # This workflow runs the test project.
-name: Test
+name: .Net Test
 
 # Controls the event triggering the workflow
 on:

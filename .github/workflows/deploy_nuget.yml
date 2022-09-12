@@ -1,5 +1,5 @@
 # This workflow builds the NuGet package and publish it on GitHub.
-name: Deploy Nuget
+name: Deploy Nuget Package
 
 # Controls the event triggering the workflow
 on:
