@@ -4,9 +4,9 @@
 namespace BRIDGES.Algebra.Sets.Additive
 {
     /// <summary>
-    /// Interface defining an additive abelian group.
+    /// Interface defining methods to manipulate elements in an additive abelian group.
     /// </summary>
-    /// <typeparam name="T"> Type of the elements in the additive set. </typeparam>
+    /// <typeparam name="T"> Type of the elements in the additive abelian group. </typeparam>
     public interface IAbelianGroup<T> : IGroup<T>
         where T : IAbelianGroup<T>
     {

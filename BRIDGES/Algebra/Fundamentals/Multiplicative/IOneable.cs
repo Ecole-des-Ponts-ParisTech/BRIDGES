@@ -4,7 +4,7 @@
 namespace BRIDGES.Algebra.Fundamentals
 {
     /// <summary>
-    /// Interfaces defining the neutral element of the multiplication.
+    /// Interface defining a method returning the neutral element of the multiplication.
     /// </summary>
     /// <typeparam name="T"> Type of the elements in the multiplicative set. </typeparam>
     public interface IOneable<T> : IMultiplicable<T>
@@ -13,7 +13,7 @@ namespace BRIDGES.Algebra.Fundamentals
         #region Methods
 
         /// <summary>
-        /// Gets the neutral element of the multiplication.
+        /// Returns the neutral element of the multiplication.
         /// </summary>
         /// <returns> The neutral element of the multiplication. </returns>
         T One();

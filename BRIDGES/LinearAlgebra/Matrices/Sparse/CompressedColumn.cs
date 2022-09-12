@@ -970,7 +970,28 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
             (_rowCount, _columnCount) = (_columnCount, _rowCount);
         }
 
-        
+
+        /// <summary>
+        /// Computes the kernel (or null-space) of the current <see cref="SparseMatrix"/> using the QR decomposition.
+        /// </summary>
+        /// <remarks> The method is adapted for rectangular matrix. </remarks>
+        /// <returns> The vectors forming a basis of the null-space. </returns>
+        public DenseVector[] Kernel()
+        {
+            // Verification
+            if (NonZeroCount == 0) { throw new Exception("The kernel of a zero matrix cannot be computed."); }
+
+            CompressedColumn squareCcs = CompleteToSquare();
+
+            DenseVector[] kernel = ComputeKernel(ref squareCcs);
+
+            if (RowCount != ColumnCount) { kernel = FilterKernelVectors(kernel); }
+
+            return kernel;
+        }
+
+
+
         /// <summary>
         /// Converts a the current <see cref="CompressedColumn"/> matrix into an equivalent <see cref="CompressedRow"/> matrix.
         /// </summary>
@@ -1022,26 +1043,6 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         }
 
         #endregion
-
-
-        /// <summary>
-        /// Computes the kernel (or null-space) of the current <see cref="SparseMatrix"/> using the QR decomposition.
-        /// </summary>
-        /// <remarks> The method is adapted for rectangular matrix. </remarks>
-        /// <returns> The vectors forming a basis of the null-space. </returns>
-        public DenseVector[] Kernel()
-        {
-            // Verification
-            if (NonZeroCount == 0) { throw new Exception("The kernel of a zero matrix cannot be computed."); }
-
-            CompressedColumn squareCcs = CompleteToSquare();
-
-            DenseVector[] kernel = ComputeKernel(ref squareCcs);
-
-            if (RowCount != ColumnCount) { kernel = FilterKernelVectors(kernel); }
-
-            return kernel;
-        }
 
         #region Other Methods
 
@@ -1340,6 +1341,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         }
 
         #endregion
+
 
         #region Override : Matrix
 

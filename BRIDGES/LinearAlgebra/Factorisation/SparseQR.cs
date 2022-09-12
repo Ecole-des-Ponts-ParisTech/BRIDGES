@@ -7,7 +7,6 @@ using BRIDGES.LinearAlgebra.Matrices;
 using BRIDGES.LinearAlgebra.Matrices.Sparse; 
 
 
-
 namespace BRIDGES.LinearAlgebra.Factorisation
 {
     /// <summary>
