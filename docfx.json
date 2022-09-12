@@ -68,7 +68,7 @@
     "globalMetadata": {
       "_appTitle": "BRIDGES",
       "_appFooter": "By ENPC and the Build'in Platform",
-      "_appLogoPath": "images/logo_enpc.png",
+      "_appLogoPath": "images/logo_enpc.svg",
       "_gitContribute": {
         "repo": "https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES",
         "branch": "master"
