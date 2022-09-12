@@ -15,6 +15,6 @@ jobs :
     needs: test-branch-workflow
     uses : Ecole-des-Ponts-ParisTech/BRIDGES/.github/workflows/deploy_nuget.yml@master
 
-  deploy-nuget-workflow :
-    needs: deploy-nuget
+  deploy-pages-workflow :
+    needs: deploy-nuget-workflow
     uses : Ecole-des-Ponts-ParisTech/BRIDGES/.github/workflows/deploy_docfx_pages.yml@master
