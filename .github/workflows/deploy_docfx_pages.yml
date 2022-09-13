@@ -42,10 +42,18 @@ jobs:
         sudo unzip docfx.zip -d "${HOME}/docfx"
         rm docfx.zip
 
+    - name : Build DocFX Metadata
+      run : |
+        mono "${HOME}/docfx/docfx.exe" metadata
+
+    - name : Nest API ToC Namespaces
+      run : |
+        sudo pwsh ./unflatten-namespaces.ps1 ./api/toc.yml
+
+
     - name : Build Static Pages with DocFX
       run : |
-        ls
-        mono "${HOME}/docfx/docfx.exe" ${{ github.workspace }}/docfx.json
+        mono "${HOME}/docfx/docfx.exe" build ${{ github.workspace }}/docfx.json
 
     - name : Deploy Static Pages
       uses : JamesIves/github-pages-deploy-action@v4
