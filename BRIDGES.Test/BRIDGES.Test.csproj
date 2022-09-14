@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
+		<PackageId>BRIDGES.Test</PackageId>
 		<Authors>École des Ponts ParisTech</Authors>
 		<Company>École des Ponts ParisTech</Company>
 		<Description>Test project for the BRIDGES class library.</Description>

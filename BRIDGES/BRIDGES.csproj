@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
+		<PackageId>BRIDGES</PackageId>
 		<Authors>École des Ponts ParisTech</Authors>
 		<Company>École des Ponts ParisTech</Company>
 		<Description>Tools from the Build'in platform for Geometry and Structural Design.</Description>

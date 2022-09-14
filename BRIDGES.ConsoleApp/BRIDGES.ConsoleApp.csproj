@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
+		<PackageId>BRIDGES.ConsoleApp</PackageId>
 		<Authors>École des Ponts ParisTech</Authors>
 		<Company>École des Ponts ParisTech</Company>
 		<Description>Console application based on BRIDGES class library which contains implemented examples.</Description>
