@@ -695,7 +695,7 @@ namespace BRIDGES.Test.DataStructures.PolyhedralMeshes.HalfedgeMesh
         /// Tests the method <see cref="HeMesh{TPosition}.AddFace(List{HeVertex{TPosition}})"/>.
         /// </summary>
         [TestMethod("Method AddFace(List<HeVertex>)")]
-        public void AddEdge_HeVertexList()
+        public void AddFace_HeVertexList()
         {
             // Arrange
             HeMesh<Euc3D.Point> heMesh = new HeMesh<Euc3D.Point>();
@@ -727,6 +727,62 @@ namespace BRIDGES.Test.DataStructures.PolyhedralMeshes.HalfedgeMesh
             Assert.IsTrue(faceHalfedge.Equals(face.FirstHalfedge));
         }
 
+        /// <summary>
+        /// Tests the method <see cref="HeMesh{TPosition}.AddFace(List{HeVertex{TPosition}})"/>.
+        /// </summary>
+        [TestMethod("Method AddFace(List<HeVertex> - Non Manifold A)")]
+        public void AddFace_HeVertexList_NonManifold_A()
+        {
+            // Arrange
+            HeMesh<Euc3D.Point> heMesh = new HeMesh<Euc3D.Point>();
+
+            Euc3D.Point point0 = new Euc3D.Point(2.0, 1.0, 3.0);
+            Euc3D.Point point1 = new Euc3D.Point(5.0, 1.0, 4.0);
+            Euc3D.Point point2 = new Euc3D.Point(4.5, 3.0, 1.5);
+            Euc3D.Point point3 = new Euc3D.Point(2.0, 5.0, 4.5);
+            Euc3D.Point point4 = new Euc3D.Point(0.0, 3.0, 2.5);
+            Euc3D.Point point5 = new Euc3D.Point(-1.0, 1.0, 3.5);
+            Euc3D.Point point6 = new Euc3D.Point(0.5, -1.0, 5.0);
+            Euc3D.Point point7 = new Euc3D.Point(2.0, -2.0, 2.0);
+            Euc3D.Point point8 = new Euc3D.Point(3.5, -1.0, 5.5);
+
+            // Act
+            HeVertex<Euc3D.Point> vertex0 = heMesh.AddVertex(point0);
+            HeVertex<Euc3D.Point> vertex1 = heMesh.AddVertex(point1);
+            HeVertex<Euc3D.Point> vertex2 = heMesh.AddVertex(point2);
+            HeVertex<Euc3D.Point> vertex3 = heMesh.AddVertex(point3);
+            HeVertex<Euc3D.Point> vertex4 = heMesh.AddVertex(point4);
+            HeVertex<Euc3D.Point> vertex5 = heMesh.AddVertex(point5);
+            HeVertex<Euc3D.Point> vertex6 = heMesh.AddVertex(point6);
+            HeVertex<Euc3D.Point> vertex7 = heMesh.AddVertex(point7);
+            HeVertex<Euc3D.Point> vertex8 = heMesh.AddVertex(point8);
+
+            List<HeVertex<Euc3D.Point>> faceVertices_A = new List<HeVertex<Euc3D.Point>>() { vertex0, vertex1, vertex2 };
+            List<HeVertex<Euc3D.Point>> faceVertices_B = new List<HeVertex<Euc3D.Point>>() { vertex0, vertex3, vertex4 };
+            List<HeVertex<Euc3D.Point>> faceVertices_C = new List<HeVertex<Euc3D.Point>>() { vertex0, vertex7, vertex8 };
+            List<HeVertex<Euc3D.Point>> faceVertices_D = new List<HeVertex<Euc3D.Point>>() { vertex0, vertex5, vertex6 };
+
+            List<HeVertex<Euc3D.Point>> faceVertices_E = new List<HeVertex<Euc3D.Point>>() { vertex0, vertex6, vertex7 };
+            List<HeVertex<Euc3D.Point>> faceVertices_F = new List<HeVertex<Euc3D.Point>>() { vertex0, vertex8, vertex1 };
+            List<HeVertex<Euc3D.Point>> faceVertices_G = new List<HeVertex<Euc3D.Point>>() { vertex0, vertex4, vertex5 };
+            List<HeVertex<Euc3D.Point>> faceVertices_H = new List<HeVertex<Euc3D.Point>>() { vertex0, vertex2, vertex3 };
+
+            HeFace<Euc3D.Point> face_A = heMesh.AddFace(faceVertices_A);
+            HeFace<Euc3D.Point> face_B = heMesh.AddFace(faceVertices_B);
+            HeFace<Euc3D.Point> face_C = heMesh.AddFace(faceVertices_C);
+            HeFace<Euc3D.Point> face_D = heMesh.AddFace(faceVertices_D);
+
+            HeFace<Euc3D.Point> face_E = heMesh.AddFace(faceVertices_E);
+            HeFace<Euc3D.Point> face_F = heMesh.AddFace(faceVertices_F);
+            HeFace<Euc3D.Point> face_G = heMesh.AddFace(faceVertices_G);
+            HeFace<Euc3D.Point> face_H = heMesh.AddFace(faceVertices_H);
+
+            // Assert
+            Assert.AreEqual(9, heMesh.VertexCount);
+            Assert.AreEqual(32, heMesh.HalfedgeCount);
+            Assert.AreEqual(16, heMesh.EdgeCount);
+            Assert.AreEqual(8, heMesh.FaceCount);
+        }
 
         /// <summary>
         /// Tests the method <see cref="HeMesh{TPosition}.GetFace(int)"/>.
