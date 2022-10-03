@@ -145,7 +145,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices.Sparse
             Assert.AreEqual(5, matrix.RowCount);
             Assert.AreEqual(4, matrix.ColumnCount);
 
-            Assert.AreEqual(0, matrix.NonZeroCount);
+            Assert.AreEqual(0, matrix.NonZerosCount);
 
             for (int r = 0; r < 5; r++)
             {
@@ -171,7 +171,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices.Sparse
             Assert.AreEqual(4, matrix.RowCount);
             Assert.AreEqual(4, matrix.ColumnCount);
 
-            Assert.AreEqual(4, matrix.NonZeroCount);
+            Assert.AreEqual(4, matrix.NonZerosCount);
 
             for (int r = 0; r < 4; r++)
             {
@@ -301,7 +301,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices.Sparse
             SparseMatrix crsRight = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
                 new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
             SparseMatrix ccsright = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
 
             DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { 5.0, 5.0, 5.0, 10.0, 10.0, 10.0 });
 
@@ -336,7 +336,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices.Sparse
             SparseMatrix crsLeft = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
                 new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
             SparseMatrix ccsLeft = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
             CompressedRow right = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
                 new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
 
@@ -377,7 +377,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices.Sparse
             SparseMatrix crsRight = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
                 new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
             SparseMatrix ccsright = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
 
             DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { -3.0, -1.0, 1.0, 0.0, 2.0, 4.0 });
 
@@ -412,7 +412,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices.Sparse
             SparseMatrix crsLeft = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
                 new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
             SparseMatrix ccsLeft = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
             CompressedRow right = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
                 new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
 
@@ -453,7 +453,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices.Sparse
             SparseMatrix crsRight = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
                 new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
             SparseMatrix ccsRight = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
 
             DenseMatrix matrix = new DenseMatrix(4, 3, new double[] { 14.0, 11.0, 8.0, 37.0, 29.0, 21.0, 59.0, 46.0, 33.0, 76.0, 59.0, 42.0 });
 
@@ -488,7 +488,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices.Sparse
             SparseMatrix crsLeft = new CompressedRow(4, 2, new int[5] { 0, 2, 4, 6, 8 },
                 new List<int> { 0, 1, 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0, 9.0, 8.0 });
             SparseMatrix ccsLeft = new CompressedColumn(4, 2, new int[3] { 0, 4, 8 },
-                new List<int> { 0, 1, 2, 3, 0, 1, 2, 3 }, new List<double> { 1.0, 3.0, 6.0, 9.0, 2.0, 5.0, 7.0, 8.0 });
+                new int[8] { 0, 1, 2, 3, 0, 1, 2, 3 }, new double[8] { 1.0, 3.0, 6.0, 9.0, 2.0, 5.0, 7.0, 8.0 });
             CompressedRow right = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
                 new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
 
@@ -528,7 +528,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices.Sparse
             CompressedRow left = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
                 new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
             CompressedColumn ccsright = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
 
             DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { 5.0, 5.0, 5.0, 10.0, 10.0, 10.0 });
 
@@ -556,7 +556,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices.Sparse
         {
             // Arrange
             CompressedColumn ccsLeft = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
             CompressedRow right = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
                 new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
 
@@ -590,7 +590,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices.Sparse
             CompressedRow left = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
                 new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
             CompressedColumn ccsRight = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
 
             DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { -3.0, -1.0, 1.0, 0.0, 2.0, 4.0 });
 
@@ -618,7 +618,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices.Sparse
         {
             // Arrange
             CompressedColumn ccsLeft = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
             CompressedRow right = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
                 new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
 
@@ -652,7 +652,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices.Sparse
             CompressedRow left = new CompressedRow(4, 2, new int[5] { 0, 2, 4, 6, 8 },
                 new List<int> { 0, 1, 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0, 9.0, 8.0 });
             CompressedColumn ccsRight = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
 
             DenseMatrix matrix = new DenseMatrix(4, 3, new double[] { 14.0, 11.0, 8.0, 37.0, 29.0, 21.0, 59.0, 46.0, 33.0, 76.0, 59.0, 42.0 });
 
@@ -680,7 +680,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices.Sparse
         {
             // Arrange
             CompressedColumn ccsLeft = new CompressedColumn(4, 2, new int[3] { 0, 4, 8 },
-                new List<int> { 0, 1, 2, 3, 0, 1, 2, 3 }, new List<double> { 1.0, 3.0, 6.0, 9.0, 2.0, 5.0, 7.0, 8.0 });
+                new int[8] { 0, 1, 2, 3, 0, 1, 2, 3 }, new double[8] { 1.0, 3.0, 6.0, 9.0, 2.0, 5.0, 7.0, 8.0 });
             CompressedRow right = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
                 new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
 
@@ -974,7 +974,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices.Sparse
                 new List<int> { 1, 3, 3, 2, 3, 1, 2, 3, 4 }, new List<double> { 1.5, 1.25, 6.75, 2.0, 5.5, 4.0, 3.5, 2.25, 7.25 });
 
             CompressedColumn result = new CompressedColumn(6, 5, new int[6] { 0, 0, 2, 4, 8, 9 },
-                new List<int> { 0, 4, 2, 4, 0, 1, 3, 4, 5 }, new List<double> { 1.5, 4.0, 2.0, 3.5, 1.25, 6.75, 5.5, 2.25, 7.25 });
+                new int[9] { 0, 4, 2, 4, 0, 1, 3, 4, 5 }, new double[9] { 1.5, 4.0, 2.0, 3.5, 1.25, 6.75, 5.5, 2.25, 7.25 });
 
             // Act
             CompressedColumn ccs = crs.ToCompressedColumn();

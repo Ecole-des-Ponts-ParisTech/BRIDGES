@@ -127,6 +127,19 @@ namespace BRIDGES.LinearAlgebra.Matrices
             else { throw new NotImplementedException($"The multiplication of a {left.GetType()} and a {right.GetType()} as {nameof(Matrix)} is not implemented."); }
         }
 
+        /// <summary>
+        /// Computes the left multiplication of a <see cref="Matrix"/> with its transposition : <c>At*A</c>.
+        /// </summary>
+        /// <param name="matrix">transposed <see cref="Matrix"/> for the multiplication. </param>
+        /// <returns> The new <see cref="Matrix"/> resulting from the multiplication. </returns>
+        /// <exception cref="NotImplementedException"> The multiplication of these two matrix types is not implemented. </exception>
+        public static Matrix TransposeMultiplySelf(Matrix matrix)
+        {
+            if (matrix is DenseMatrix dense) { return DenseMatrix.TransposeMultiplySelf(dense); }
+            else if (matrix is SparseMatrix sparse) { return SparseMatrix.TransposeMultiplySelf(sparse); }
+            else { throw new NotImplementedException($"The left multiplication of a {matrix.GetType()} with it transposition as {nameof(Matrix)} is not implemented."); }
+        }
+
 
         /******************** Group Action ********************/
 

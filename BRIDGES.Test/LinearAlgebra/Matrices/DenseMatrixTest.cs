@@ -271,7 +271,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
             BRIDGES.LinearAlgebra.Matrices.Matrix crsRight = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
                 new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
             BRIDGES.LinearAlgebra.Matrices.Matrix ccsright = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
             BRIDGES.LinearAlgebra.Matrices.Matrix denseRight = new DenseMatrix(2, 3, new double[] { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
 
             DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { 5.0, 5.0, 5.0, 10.0, 10.0, 10.0 });
@@ -311,7 +311,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
             BRIDGES.LinearAlgebra.Matrices.Matrix crsLeft = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
                 new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
             BRIDGES.LinearAlgebra.Matrices.Matrix ccsLeft = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
             BRIDGES.LinearAlgebra.Matrices.Matrix denseLeft = new DenseMatrix(2, 3, new double[] { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
             DenseMatrix right = new DenseMatrix(2, 3, new double[] { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
 
@@ -355,7 +355,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
             BRIDGES.LinearAlgebra.Matrices.Matrix crsRight = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
                 new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
             BRIDGES.LinearAlgebra.Matrices.Matrix ccsright = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
             BRIDGES.LinearAlgebra.Matrices.Matrix denseRight = new DenseMatrix(2, 3, new double[] { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
 
             DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { -3.0, -1.0, 1.0, 0.0, 2.0, 4.0 });
@@ -395,7 +395,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
             BRIDGES.LinearAlgebra.Matrices.Matrix crsLeft = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
                 new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
             BRIDGES.LinearAlgebra.Matrices.Matrix ccsLeft = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
             BRIDGES.LinearAlgebra.Matrices.Matrix denseLeft = new DenseMatrix(2, 3, new double[] { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
             DenseMatrix right = new DenseMatrix(2, 3, new double[] { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
 
@@ -439,7 +439,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
             BRIDGES.LinearAlgebra.Matrices.Matrix crsRight = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
                 new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
             BRIDGES.LinearAlgebra.Matrices.Matrix ccsRight = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
             BRIDGES.LinearAlgebra.Matrices.Matrix denseRight = new DenseMatrix(2, 3, new double[] { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
 
             DenseMatrix matrix = new DenseMatrix(4, 3, new double[] { 14.0, 11.0, 8.0, 37.0, 29.0, 21.0, 59.0, 46.0, 33.0, 76.0, 59.0, 42.0 });
@@ -479,7 +479,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
             BRIDGES.LinearAlgebra.Matrices.Matrix crsLeft = new CompressedRow(4, 2, new int[5] { 0, 2, 4, 6, 8 },
                 new List<int> { 0, 1, 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0, 9.0, 8.0 });
             BRIDGES.LinearAlgebra.Matrices.Matrix ccsLeft = new CompressedColumn(4, 2, new int[3] { 0, 4, 8 },
-                new List<int> { 0, 1, 2, 3, 0, 1, 2, 3 }, new List<double> { 1.0, 3.0, 6.0, 9.0, 2.0, 5.0, 7.0, 8.0 });
+                new int[8] { 0, 1, 2, 3, 0, 1, 2, 3 }, new double[8] { 1.0, 3.0, 6.0, 9.0, 2.0, 5.0, 7.0, 8.0 });
             BRIDGES.LinearAlgebra.Matrices.Matrix denseLeft = new DenseMatrix(4, 2, new double[] { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0, 9.0, 8.0 });
             DenseMatrix right = new DenseMatrix(2, 3, new double[] { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
 
@@ -525,7 +525,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
             Matrix crsRight = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
                 new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
             Matrix ccsright = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
 
             DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { 5.0, 5.0, 5.0, 10.0, 10.0, 10.0 });
 
@@ -560,7 +560,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
             Matrix crsLeft = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
                 new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
             Matrix ccsLeft = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
             DenseMatrix right = new DenseMatrix(2, 3, new double[] { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
 
             DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { 5.0, 5.0, 5.0, 10.0, 10.0, 10.0 });
@@ -599,7 +599,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
             Matrix crsRight = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
                 new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
             Matrix ccsright = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
 
             DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { -3.0, -1.0, 1.0, 0.0, 2.0, 4.0 });
 
@@ -634,7 +634,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
             Matrix crsLeft = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
                 new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
             Matrix ccsLeft = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
             DenseMatrix right = new DenseMatrix(2, 3, new double[] { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
 
             DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { -3.0, -1.0, 1.0, 0.0, 2.0, 4.0 });
@@ -673,7 +673,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
             Matrix crsRight = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
                 new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
             Matrix ccsRight = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
 
             DenseMatrix matrix = new DenseMatrix(4, 3, new double[] { 14.0, 11.0, 8.0, 37.0, 29.0, 21.0, 59.0, 46.0, 33.0, 76.0, 59.0, 42.0 });
 
@@ -708,7 +708,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
             Matrix crsLeft = new CompressedRow(4, 2, new int[5] { 0, 2, 4, 6, 8 },
                 new List<int> { 0, 1, 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0, 9.0, 8.0 });
             Matrix ccsLeft = new CompressedColumn(4, 2, new int[3] { 0, 4, 8 },
-                new List<int> { 0, 1, 2, 3, 0, 1, 2, 3 }, new List<double> { 1.0, 3.0, 6.0, 9.0, 2.0, 5.0, 7.0, 8.0 });
+                new int[8] { 0, 1, 2, 3, 0, 1, 2, 3 }, new double[8] { 1.0, 3.0, 6.0, 9.0, 2.0, 5.0, 7.0, 8.0 });
             DenseMatrix right = new DenseMatrix(2, 3, new double[] { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
 
             DenseMatrix matrix = new DenseMatrix(4, 3, new double[] { 14.0, 11.0, 8.0, 37.0, 29.0, 21.0, 59.0, 46.0, 33.0, 76.0, 59.0, 42.0 });
@@ -746,7 +746,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
             // Arrange
             DenseMatrix left = new DenseMatrix(2, 3, new double[] { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
             CompressedColumn ccsright = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
 
             DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { 5.0, 5.0, 5.0, 10.0, 10.0, 10.0 });
 
@@ -774,7 +774,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
         {
             // Arrange
             CompressedColumn ccsLeft = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
             DenseMatrix right = new DenseMatrix(2, 3, new double[] { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
 
             DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { 5.0, 5.0, 5.0, 10.0, 10.0, 10.0 });
@@ -806,7 +806,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
             // Arrange
             DenseMatrix left = new DenseMatrix(2, 3, new double[] { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0 });
             CompressedColumn ccsright = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
 
             DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { -3.0, -1.0, 1.0, 0.0, 2.0, 4.0 });
 
@@ -834,7 +834,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
         {
             // Arrange
             CompressedColumn ccsLeft = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
             DenseMatrix right = new DenseMatrix(2, 3, new double[] { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
 
             DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { -3.0, -1.0, 1.0, 0.0, 2.0, 4.0 });
@@ -866,7 +866,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
             // Arrange
             DenseMatrix left = new DenseMatrix(4, 2, new double[] { 1.0, 2.0, 3.0, 5.0, 6.0, 7.0, 9.0, 8.0 });
             CompressedColumn ccsRight = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
 
             DenseMatrix matrix = new DenseMatrix(4, 3, new double[] { 14.0, 11.0, 8.0, 37.0, 29.0, 21.0, 59.0, 46.0, 33.0, 76.0, 59.0, 42.0 });
 
@@ -895,7 +895,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
             // Arrange
 
             CompressedColumn ccsLeft = new CompressedColumn(4, 2, new int[3] { 0, 4, 8 },
-                new List<int> { 0, 1, 2, 3, 0, 1, 2, 3 }, new List<double> { 1.0, 3.0, 6.0, 9.0, 2.0, 5.0, 7.0, 8.0 });
+                new int[8] { 0, 1, 2, 3, 0, 1, 2, 3 }, new double[8] { 1.0, 3.0, 6.0, 9.0, 2.0, 5.0, 7.0, 8.0 });
             DenseMatrix right = new DenseMatrix(2, 3, new double[] { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
 
             DenseMatrix matrix = new DenseMatrix(4, 3, new double[] { 14.0, 11.0, 8.0, 37.0, 29.0, 21.0, 59.0, 46.0, 33.0, 76.0, 59.0, 42.0 });

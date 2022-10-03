@@ -19,7 +19,7 @@ namespace BRIDGES.LinearAlgebra.Matrices
         /// <summary>
         /// Gets the number of non-zero values in the current sparse matrix.
         /// </summary>
-        public abstract int NonZeroCount { get; }
+        public abstract int NonZerosCount { get; }
 
         #endregion
 
@@ -107,6 +107,19 @@ namespace BRIDGES.LinearAlgebra.Matrices
             if (left is Sparse.CompressedColumn ccsLeft) { return Sparse.CompressedColumn.Multiply(ccsLeft, right); }
             else if (left is Sparse.CompressedRow crsLeft) { return Sparse.CompressedRow.Multiply(crsLeft, right); }
             else { throw new NotImplementedException($"The multiplication of a {left.GetType()} and a {right.GetType()} as {nameof(SparseMatrix)} is not implemented."); }
+        }
+
+        /// <summary>
+        /// Computes the left multiplication of a <see cref="SparseMatrix"/> with its transposition : <c>At*A</c>.
+        /// </summary>
+        /// <param name="matrix">transposed <see cref="SparseMatrix"/> for the multiplication. </param>
+        /// <returns> The new <see cref="SparseMatrix"/> resulting from the multiplication. </returns>
+        /// <exception cref="NotImplementedException"> The multiplication of these two matrix types is not implemented. </exception>
+        public static SparseMatrix TransposeMultiplySelf(SparseMatrix matrix)
+        {
+            if (matrix is Sparse.CompressedColumn ccs) { return Sparse.CompressedColumn.TransposeMultiplySelf(ccs); }
+            else if (matrix is Sparse.CompressedRow crs) { return Sparse.CompressedRow.TransposeMultiplySelf(crs); }
+            else { throw new NotImplementedException($"The left multiplication of a {matrix.GetType()} with it transposition as {nameof(SparseMatrix)} is not implemented."); }
         }
 
 
