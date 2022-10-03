@@ -29,8 +29,8 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
             Matrix crsMatrix = new CompressedRow(2, 2, new int[3] { 0, 2, 4 }, new List<int> { 0, 1, 0, 1 }, new List<double> { 1.0, 2.0, 3.0, 4.0 });
             Matrix otherCrsMatrix = new CompressedRow(1, 2, new int[2] { 0, 2 }, new List<int> { 0, 1 }, new List<double> { 2.0, 4.0 });
 
-            Matrix ccsMatrix = new CompressedColumn(2, 2, new int[3] { 0, 2, 4 }, new List<int> { 0, 1, 0, 1 }, new List<double> { 1.0, 3.0, 2.0, 4.0 });
-            Matrix otherCcsMatrix = new CompressedColumn(1, 2, new int[3] { 0, 1, 2 }, new List<int> { 0, 1 }, new List<double> { 2.0, 4.0 });
+            Matrix ccsMatrix = new CompressedColumn(2, 2, new int[3] { 0, 2, 4 }, new int[4] { 0, 1, 0, 1 }, new double[4] { 1.0, 3.0, 2.0, 4.0 });
+            Matrix otherCcsMatrix = new CompressedColumn(1, 2, new int[3] { 0, 1, 2 }, new int[2] { 0, 1 }, new double[2] { 2.0, 4.0 });
 
             //Act
             otherCrsMatrix = crsMatrix;
@@ -59,7 +59,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
             SparseMatrix crsMatrix = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
                 new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 });
             SparseMatrix ccsMatrix = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 4.0, 2.0, 5.0, 3.0, 6.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 1.0, 4.0, 2.0, 5.0, 3.0, 6.0 });
 
             // Act
 
@@ -81,7 +81,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
             SparseMatrix crsMatrix = new CompressedRow(2, 3, new int[3] { 0, 3, 6 },
                 new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 });
             SparseMatrix ccsMatrix = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 4.0, 2.0, 5.0, 3.0, 6.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 1.0, 4.0, 2.0, 5.0, 3.0, 6.0 });
 
             //Act
 
@@ -181,9 +181,9 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
                 new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
 
             SparseMatrix ccsLeft = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
             SparseMatrix ccsRight = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
 
 
             DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { 5.0, 5.0, 5.0, 10.0, 10.0, 10.0 });
@@ -236,9 +236,9 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
                 new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 3.0, 2.0, 5.0, 4.0, 3.0 });
 
             SparseMatrix ccsLeft = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 1.0, 5.0, 2.0, 6.0, 3.0, 7.0 });
             SparseMatrix ccsRight = new CompressedColumn(2, 3, new int[4] { 0, 2, 4, 6 },
-                new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
+                new int[6] { 0, 1, 0, 1, 0, 1 }, new double[6] { 4.0, 5.0, 3.0, 4.0, 2.0, 3.0 });
 
 
             DenseMatrix matrix = new DenseMatrix(2, 3, new double[] { -3.0, -1.0, 1.0, 0.0, 2.0, 4.0 });
@@ -292,9 +292,9 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
                 new List<int> { 0, 1, 0, 0, 1, 2, 0, 1 }, new List<double> { 3.5, 1.5, 5.0, 2.0, 3.0, 4.0, 0.5, 2.5 });
 
             SparseMatrix ccsLeft = new CompressedColumn(6, 5, new int[6] { 0, 0, 2, 4, 8, 9 },
-                new List<int> { 0, 4, 2, 4, 0, 1, 3, 4, 5 }, new List<double> { 1.5, 4.0, 2.0, 3.5, 1.25, 6.75, 5.5, 2.25, 7.25 });
+                new int[9] { 0, 4, 2, 4, 0, 1, 3, 4, 5 }, new double[9] { 1.5, 4.0, 2.0, 3.5, 1.25, 6.75, 5.5, 2.25, 7.25 });
             SparseMatrix ccsRight = new CompressedColumn(5, 3, new int[4] { 0, 4, 7, 8 },
-                new List<int> { 0, 2, 3, 4, 1, 3, 4, 3 }, new List<double> { 3.5, 5.0, 2.0, 0.5, 1.5, 3.0, 2.5, 4.0 });
+                new int[8] { 0, 2, 3, 4, 1, 3, 4, 3 }, new double[8] { 3.5, 5.0, 2.0, 0.5, 1.5, 3.0, 2.5, 4.0 });
 
 
             CompressedRow matrix = new CompressedRow(6, 3, new int[7] { 0, 3, 6, 7, 10, 13, 15 },
@@ -349,7 +349,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
             SparseMatrix crsOperand = new CompressedRow(3, 2, new int[4] { 0, 2, 4, 6 },
                 new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 3.0, 2.0, -5.0, -4.0, 1.0 });
             SparseMatrix ccsOperand = new CompressedColumn(3, 2, new int[3] { 0, 3, 6 },
-                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 2.0, -4.0, 3.0, -5.0, 1.0 });
+                new int[6] { 0, 1, 2, 0, 1, 2 }, new double[6] { 4.0, 2.0, -4.0, 3.0, -5.0, 1.0 });
 
             DenseMatrix result = new DenseMatrix(3, 2, new double[] { -10.0, -7.5, -5.0, 12.5, 10.0, -2.5 });
 
@@ -384,7 +384,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
             SparseMatrix crsOperand = new CompressedRow(3, 2, new int[4] { 0, 2, 4, 6 },
                 new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 3.0, 2.0, -5.0, -4.0, 1.0 });
             SparseMatrix ccsOperand = new CompressedColumn(3, 2, new int[3] { 0, 3, 6 },
-                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 2.0, -4.0, 3.0, -5.0, 1.0 });
+                new int[6] { 0, 1, 2, 0, 1, 2 }, new double[6] { 4.0, 2.0, -4.0, 3.0, -5.0, 1.0 });
             double factor = -2.5;
 
             DenseMatrix result = new DenseMatrix(3, 2, new double[] { -10.0, -7.5, -5.0, 12.5, 10.0, -2.5 });
@@ -421,7 +421,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
             SparseMatrix crsOperand = new CompressedRow(2, 1, new int[3] { 0, 1, 2 },
                 new List<int> { 0, 0 }, new List<double> { 4.0, 3.0 });
             SparseMatrix ccsOperand = new CompressedColumn(2, 1, new int[2] { 0, 2 },
-                new List<int> { 0, 1 }, new List<double> { 4.0, 3.0 });
+                new int[2] { 0, 1 }, new double[2] { 4.0, 3.0 });
             double divisor = -2.0;
 
             DenseMatrix result = new DenseMatrix(2, 1, new double[] { -2.0, -1.5 });
@@ -460,7 +460,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
             SparseMatrix crsMatrix = new CompressedRow(3, 2, new int[4] { 0, 2, 4, 6 },
                 new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 3.0, 2.0, -5.0, -4.0, 1.0 });
             SparseMatrix ccsMatrix = new CompressedColumn(3, 2, new int[3] { 0, 3, 6 },
-                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 2.0, -4.0, 3.0, -5.0, 1.0 });
+                new int[6] { 0, 1, 2, 0, 1, 2 }, new double[6] { 4.0, 2.0, -4.0, 3.0, -5.0, 1.0 });
 
             Vector denseVector = new DenseVector(new double[2] { -2.0, 6.0 });
             Vector sparseVector = new SparseVector(2, new int[2] { 0, 1 }, new double[2] { -2.0, 6.0 });
@@ -501,7 +501,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
             SparseMatrix crsMatrix = new CompressedRow(3, 2, new int[4] { 0, 2, 4, 6 },
                 new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 3.0, 2.0, -5.0, -4.0, 1.0 });
             SparseMatrix ccsMatrix = new CompressedColumn(3, 2, new int[3] { 0, 3, 6 },
-                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 2.0, -4.0, 3.0, -5.0, 1.0 });
+                new int[6] { 0, 1, 2, 0, 1, 2 }, new double[6] { 4.0, 2.0, -4.0, 3.0, -5.0, 1.0 });
 
             DenseVector denseVector = new DenseVector(new double[2] { -2.0, 6.0 });
 
@@ -532,7 +532,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
             SparseMatrix crsMatrix = new CompressedRow(3, 2, new int[4] { 0, 2, 4, 6 },
                 new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 3.0, 2.0, -5.0, -4.0, 1.0 });
             SparseMatrix ccsMatrix = new CompressedColumn(3, 2, new int[3] { 0, 3, 6 },
-                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 2.0, -4.0, 3.0, -5.0, 1.0 });
+                new int[6] { 0, 1, 2, 0, 1, 2 }, new double[6] { 4.0, 2.0, -4.0, 3.0, -5.0, 1.0 });
 
             SparseVector sparseVector = new SparseVector(2, new int[2] { 0, 1 }, new double[2] { -2.0, 6.0 });
 
@@ -565,7 +565,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
             SparseMatrix crsMatrix = new CompressedRow(3, 2, new int[4] { 0, 2, 4, 6 },
                 new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 3.0, 2.0, -5.0, -4.0, 1.0 });
             SparseMatrix ccsMatrix = new CompressedColumn(3, 2, new int[3] { 0, 3, 6 },
-                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 2.0, -4.0, 3.0, -5.0, 1.0 });
+                new int[6] { 0, 1, 2, 0, 1, 2 }, new double[6] { 4.0, 2.0, -4.0, 3.0, -5.0, 1.0 });
 
             Vector denseVector = new DenseVector(new double[3] { -2.0, 0.0, 6.0 });
             Vector sparseVector = new SparseVector(3, new int[2] { 0, 2 }, new double[2] { -2.0, 6.0 });
@@ -606,7 +606,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
             SparseMatrix crsMatrix = new CompressedRow(3, 2, new int[4] { 0, 2, 4, 6 },
                 new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 3.0, 2.0, -5.0, -4.0, 1.0 });
             SparseMatrix ccsMatrix = new CompressedColumn(3, 2, new int[3] { 0, 3, 6 },
-                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 2.0, -4.0, 3.0, -5.0, 1.0 });
+                new int[6] { 0, 1, 2, 0, 1, 2 }, new double[6] { 4.0, 2.0, -4.0, 3.0, -5.0, 1.0 });
 
             DenseVector denseVector = new DenseVector(new double[3] { -2.0, 0.0, 6.0 });
 
@@ -637,7 +637,7 @@ namespace BRIDGES.Test.LinearAlgebra.Matrices
             SparseMatrix crsMatrix = new CompressedRow(3, 2, new int[4] { 0, 2, 4, 6 },
                 new List<int> { 0, 1, 0, 1, 0, 1 }, new List<double> { 4.0, 3.0, 2.0, -5.0, -4.0, 1.0 });
             SparseMatrix ccsMatrix = new CompressedColumn(3, 2, new int[3] { 0, 3, 6 },
-                new List<int> { 0, 1, 2, 0, 1, 2 }, new List<double> { 4.0, 2.0, -4.0, 3.0, -5.0, 1.0 });
+                new int[6] { 0, 1, 2, 0, 1, 2 }, new double[6] { 4.0, 2.0, -4.0, 3.0, -5.0, 1.0 });
 
             SparseVector sparseVector = new SparseVector(3, new int[2] { 0, 2 }, new double[2] { -2.0, 6.0 });
 

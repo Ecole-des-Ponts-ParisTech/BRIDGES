@@ -14,7 +14,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Storage
         /// <summary>
         /// Values for the sparse matrix associated with there row-column pair.
         /// </summary>
-        private Dictionary<(int, int), double> _values;
+        internal Dictionary<(int, int), double> _values;
 
         #endregion
 
