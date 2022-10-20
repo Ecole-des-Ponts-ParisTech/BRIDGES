@@ -35,7 +35,7 @@ namespace BRIDGES.LinearAlgebra.Vectors
 
         /// <inheritdoc/>
         public override double this[int index]
-        {
+        {  
             get { return _components[index]; }
             set { _components[index] = value; }
         }

@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 
 using BRIDGES.LinearAlgebra.Matrices.Storage;
+
 using BRIDGES.Solvers.GuidedProjection.Interfaces;
 
 
-namespace BRIDGES.Solvers.GuidedProjection.QuadraticConstraints
+namespace BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes
 {
     /// <summary>
-    /// Class defining a quadratic constraint type for the <see cref="GuidedProjectionAlgorithm"/>.<br/>
-    /// The constraint enforces a value variable lij to be higher than a lower bound l thanks to a dummy value variables λij.
+    /// Constraint enforcing a value variable <em>l</em> to be higher than a lower bound <em>σ</em> using a dummy value variable <em>λ</em>.
     /// </summary>
-    /// <remarks> The vector xReduced (λij, lij), and Ci = l.</remarks>
+    /// <remarks> The vector xReduced = [l, λ], and Ci = σ.</remarks>
     public class LowerBound : IQuadraticConstraintType
     {
         #region Properties
@@ -22,9 +22,7 @@ namespace BRIDGES.Solvers.GuidedProjection.QuadraticConstraints
         /// <inheritdoc cref="IQuadraticConstraintType.LocalBi"/>
         public Dictionary<int, double> LocalBi { get; }
 
-        /// <summary>
-        /// Gets the lower bound of constraint.
-        /// </summary>
+        /// <inheritdoc cref="IQuadraticConstraintType.Ci"/>
         public double Ci { get; }
 
         #endregion
@@ -32,16 +30,24 @@ namespace BRIDGES.Solvers.GuidedProjection.QuadraticConstraints
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LowerBound"/> class.
+        /// Initialises a new instance of the <see cref="LowerBound"/> class.
         /// </summary>
-        public LowerBound()
+        /// <param name="lowerBound"> Value of the lower bound of the constraint. </param>
+        public LowerBound(double lowerBound)
         {
             /******************** Define LocalHi ********************/
             LocalHi = new DictionaryOfKeys();
-            LocalHi.Add(2, 0, 0);
+            LocalHi.Add(2.0, 1, 1);
+
 
             /******************** Define LocalBi ********************/
-            LocalBi = new Dictionary<int, double> { { 1, -1 } }; ;
+
+            LocalBi = new Dictionary<int, double>();
+            LocalBi.Add(0, -1.0);
+
+
+            /******************** Define Ci ********************/
+            Ci = lowerBound;
         }
 
         #endregion

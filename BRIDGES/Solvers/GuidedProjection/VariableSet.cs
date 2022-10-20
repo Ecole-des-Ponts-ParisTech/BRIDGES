@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace BRIDGES.Solvers.GuidedProjection
 {
     /// <summary>
-    /// Class defining a set of variables with same dimension (i.e. the same number of components).
+    /// Class defining a set of variables with the same dimension (i.e. variables with the same number of components).
     /// </summary>
     public class VariableSet
     {
@@ -21,12 +21,6 @@ namespace BRIDGES.Solvers.GuidedProjection
         #region Properties
 
         /// <summary>
-        /// Gets the rank of the first component of the first variable in the set.
-        /// </summary>
-        internal int FirstRank { get; private set; }
-
-
-        /// <summary>
         /// Gets the index of the set in the <see cref="GuidedProjectionAlgorithm"/>'s list of variable sets.
         /// </summary>
         public int SetIndex { get; private set; }
@@ -39,7 +33,13 @@ namespace BRIDGES.Solvers.GuidedProjection
         /// <summary>
         /// Gets the number of variables in the set. 
         /// </summary>
-        public int VariableCount  { get; private set; }
+        public int VariableCount { get; private set; }
+
+
+        /// <summary>
+        /// Gets the rank of the first component of the first variable in the set.
+        /// </summary>
+        internal int FirstRank { get; private set; }
 
         #endregion
 
@@ -69,9 +69,9 @@ namespace BRIDGES.Solvers.GuidedProjection
         /// </summary>
         /// <param name="setIndex"> Index of the set in the <see cref="GuidedProjectionAlgorithm"/>'s list of VariableSet. </param>
         /// <param name="firstRank"> Index of the first component of the first variable in the set. </param>
-        /// <param name="setCapacity"> Indicative capacity of the set. </param>
         /// <param name="variableDimension"> Dimension of the variables contained in the set. </param>
-        internal VariableSet(int setIndex, int firstRank, int setCapacity, int variableDimension)
+        /// <param name="setCapacity"> Indicative capacity of the set. </param>
+        internal VariableSet(int setIndex, int firstRank, int variableDimension, int setCapacity)
         {
             // Instanciate Fields 
             _variables = new List<double>(variableDimension * setCapacity);
@@ -113,9 +113,9 @@ namespace BRIDGES.Solvers.GuidedProjection
         /// Adds a variable to the set. 
         /// </summary>
         /// <param name="components"> Components of the variables to add. </param>
-        public void AddVariable(double[] components)
+        public void AddVariable(params double[] components)
         {
-            if(components.Length != VariableDimension)
+            if (components.Length != VariableDimension)
             {
                 throw new ArgumentOutOfRangeException("The number of components for the new variable" +
                     "does not match the expected dimension of the variables of the set.");

@@ -5,13 +5,12 @@ using BRIDGES.LinearAlgebra.Matrices.Storage;
 using BRIDGES.Solvers.GuidedProjection.Interfaces;
 
 
-namespace BRIDGES.Solvers.GuidedProjection.QuadraticConstraints
+namespace BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes
 {
     /// <summary>
-    /// Class defining a quadratic constraint type for the <see cref="GuidedProjectionAlgorithm"/>.<br/>
-    /// The constraint enforces a vector variable v to have a length given l with respect to the euclidean norm.
+    /// Constraint enforcing a vector variable <em>v</em> to have a given length <em>l</em> (computed with euclidean norm).
     /// </summary>
-    /// <remarks> The vector xReduced is (v) and Ci = l.</remarks>
+    /// <remarks> The vector xReduced = [v], and Ci = l<sup>2</sup>.</remarks>
     public class VectorLength : IQuadraticConstraintType
     {
         #region Properties
@@ -22,22 +21,31 @@ namespace BRIDGES.Solvers.GuidedProjection.QuadraticConstraints
         /// <inheritdoc cref="IQuadraticConstraintType.LocalBi"/>
         public Dictionary<int, double> LocalBi { get; }
 
+        /// <inheritdoc cref="IQuadraticConstraintType.Ci"/>
+        public double Ci { get; }
+
         #endregion
 
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VectorLength"/> class.
+        /// Initialises a new instance of the <see cref="VectorLength"/> class.
         /// </summary>
-        /// <param name="spaceDimension">Dimension of the space containing the vector.</param>
-        public VectorLength(int spaceDimension = 3)
+        /// <param name="targetLength"> Target length for the vector. </param>
+        /// <param name="spaceDimension"> Dimension of the space containing the vector. </param>
+        public VectorLength(double targetLength, int spaceDimension = 3)
         {
             /******************** Define LocalHi ********************/
             LocalHi = new DictionaryOfKeys();
-            for (int i = 0; i < spaceDimension; i++) { LocalHi.Add(-2, spaceDimension, spaceDimension); }
+            for (int i = 0; i < spaceDimension; i++) { LocalHi.Add(-2.0, spaceDimension, spaceDimension); }
+
 
             /******************** Define LocalBi ********************/
             LocalBi = null;
+
+
+            /******************** Define Ci ********************/
+            Ci = targetLength * targetLength;
         }
 
         #endregion

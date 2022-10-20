@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 
 using BRIDGES.LinearAlgebra.Matrices.Storage;
+
 using BRIDGES.Solvers.GuidedProjection.Interfaces;
 
 
-namespace BRIDGES.Solvers.GuidedProjection.QuadraticConstraints
+namespace BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes
 {
     /// <summary>
-    /// Class defining a quadratic constraint type for the <see cref="GuidedProjectionAlgorithm"/>.<br/>
-    /// The constraint enforces a length variable lij to match with the distance between two point variables (pi,pj).
+    /// Constraint enforcing a scalar variable <em>l</em> to match with the distance between two point variables, <em>pi</em> and <em>pe</em>.
     /// </summary>
-    /// <remarks> The vector xReduced is (pi, pj, lij).</remarks>
+    /// <remarks> The vector xReduced = [pi, pj, l].</remarks>
     public class CoherentLength : IQuadraticConstraintType
     {
         #region Properties
@@ -22,12 +22,15 @@ namespace BRIDGES.Solvers.GuidedProjection.QuadraticConstraints
         /// <inheritdoc cref="IQuadraticConstraintType.LocalBi"/>
         public Dictionary<int, double> LocalBi { get; }
 
+        /// <inheritdoc cref="IQuadraticConstraintType.Ci"/>
+        public double Ci { get; }
+
         #endregion
 
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CoherentLength"/> class.
+        /// Initialises a new instance of the <see cref="CoherentLength"/> class.
         /// </summary>
         /// <param name="spaceDimension"> Dimension of the space containing the points. </param>
         public CoherentLength(int spaceDimension = 3)
@@ -41,8 +44,14 @@ namespace BRIDGES.Solvers.GuidedProjection.QuadraticConstraints
             }
             LocalHi.Add(-2, 2 * spaceDimension, 2 * spaceDimension);
 
+
             /******************** Define LocalBi ********************/
-            LocalBi = null;
+
+            LocalBi = null ;
+
+
+            /******************** Define Ci ********************/
+            Ci = 0.0;
         }
 
         #endregion
