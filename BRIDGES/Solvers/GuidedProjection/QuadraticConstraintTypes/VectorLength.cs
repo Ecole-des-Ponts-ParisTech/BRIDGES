@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using BRIDGES.LinearAlgebra.Matrices;
+using BRIDGES.LinearAlgebra.Matrices.Sparse;
 using BRIDGES.LinearAlgebra.Matrices.Storage;
+using BRIDGES.LinearAlgebra.Vectors;
 using BRIDGES.Solvers.GuidedProjection.Interfaces;
 
 
@@ -16,10 +18,10 @@ namespace BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes
         #region Properties
 
         /// <inheritdoc cref="IQuadraticConstraintType.LocalHi"/>
-        public DictionaryOfKeys LocalHi { get; }
+        public SparseMatrix LocalHi { get; }
 
         /// <inheritdoc cref="IQuadraticConstraintType.LocalBi"/>
-        public Dictionary<int, double> LocalBi { get; }
+        public SparseVector LocalBi { get; }
 
         /// <inheritdoc cref="IQuadraticConstraintType.Ci"/>
         public double Ci { get; }
@@ -36,11 +38,24 @@ namespace BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes
         public VectorLength(double targetLength, int spaceDimension = 3)
         {
             /******************** Define LocalHi ********************/
-            LocalHi = new DictionaryOfKeys();
-            for (int i = 0; i < spaceDimension; i++) { LocalHi.Add(-2.0, spaceDimension, spaceDimension); }
+
+            int[] columnPointers = new int[spaceDimension + 1];
+            int[] rowIndices = new int[spaceDimension];
+            double[] values = new double[spaceDimension];
+
+            columnPointers[0] = 0;
+            for (int i = 0; i < spaceDimension; i++)
+            {
+                columnPointers[i + 1] = i + 1;
+                rowIndices[i] = i;
+                values[i] = -2.0;
+            }
+
+            LocalHi = new CompressedColumn(spaceDimension, spaceDimension, columnPointers, rowIndices, values);
 
 
             /******************** Define LocalBi ********************/
+
             LocalBi = null;
 
 

@@ -14,8 +14,74 @@ namespace BRIDGES.Solvers.GuidedProjection
     /// Class defining a Guided Projection Algorithm solver.<br/>
     /// The algorithm is described in <see href="https://doi.org/10.1145/2601097.2601213"/>.
     /// </summary>
-    public class GuidedProjectionAlgorithm
+    public sealed class GuidedProjectionAlgorithm
     {
+        #region Events
+
+        /******************** For Weigths ********************/
+
+        /// <summary>
+        /// Event raised whenever <see cref="Energy"/> and <see cref="QuadraticConstraint"/> weights needs to be updated.
+        /// </summary>
+        private event Action<int> WeigthUpdate;
+
+        /// <summary>
+        /// Raises the event which updates the <see cref="Energy"/> and the <see cref="QuadraticConstraint"/> weights. 
+        /// </summary>
+        /// <param name="iteration"> Index of the current iteration. </param>
+        private void OnWeigthUpdate(int iteration)
+        {
+            Action<int> handler = WeigthUpdate;
+            if (handler != null)
+            {
+                handler(iteration);
+            }
+        }
+
+        /******************** For Energy and Quadratic Constraints ********************/
+
+        /// <summary>
+        /// Event raised whenever the members of <see cref="QuadraticConstraint"/> needs completion.
+        /// </summary>
+        private event Action<int> Completion;
+
+        /// <summary>
+        /// Raises the event which completes the members of <see cref="QuadraticConstraint"/>.
+        /// </summary>
+        /// <param name="size"> Size of the global vector X at the current iteration. </param>
+        private void OnCompletion(int size)
+        {
+            Action<int> handler = Completion;
+            if (handler != null)
+            {
+                handler(size);
+            }
+        }
+
+
+        /******************** For Quadratic Constraints ********************/
+
+
+        /// <summary>
+        /// Event raised whenever the members of <see cref="LinearisedConstraint"/> needs to be updated.
+        /// </summary>
+        private event Action<DenseVector> ConstraintUpdate;
+
+        /// <summary>
+        /// Raises the event which updates the members of <see cref="LinearisedConstraint"/>.
+        /// </summary>
+        /// <param name="x"> Global vector X at the current iteration. </param>
+        private void OnConstraintUpdate(in DenseVector x)
+        {
+            Action<DenseVector> handler = ConstraintUpdate;
+            if (handler != null)
+            {
+                handler(x);
+            }
+        }
+
+        #endregion
+
         #region Fields
 
         /// <summary>
@@ -51,14 +117,14 @@ namespace BRIDGES.Solvers.GuidedProjection
         /**************************************** Settings ****************************************/
 
         /// <summary>
-        /// Gets or sets the number of iteration after which the solver is stopped.
+        /// Gets or sets the maximum number of iteration after which the solver is stopped.
         /// </summary>
         public int MaxIteration { get; set; }
 
         /// <summary>
-        /// Gets the number of executed iteration.
+        /// Gets the zero-based index of the current iteration.
         /// </summary>
-        public int IterationCount { get; internal set; }
+        public int IterationIndex { get; internal set; }
 
 
         /**************************************** For Solving ****************************************/
@@ -89,7 +155,7 @@ namespace BRIDGES.Solvers.GuidedProjection
 
             // Initialize Properties
             MaxIteration = maxIteration;
-            IterationCount = 0;
+            IterationIndex = 0;
 
             Epsilon = epsilon;
         }
@@ -149,7 +215,7 @@ namespace BRIDGES.Solvers.GuidedProjection
         /******************** For Energies ********************/
 
         /// <summary>
-        /// Creates and adds a new <see cref="Energy"/> to the list.
+        /// Creates a new <see cref="Energy"/> with a constant weight and adds it to the list.
         /// </summary>
         /// <param name="energyType"> Energy type defining the energy locally. </param>
         /// <param name="variables"> Variables composing the local vector xReduced. </param>
@@ -161,6 +227,31 @@ namespace BRIDGES.Solvers.GuidedProjection
 
             Energy energy = new Energy(energyType, variables, weight);
             _energies.Add(energy);
+
+            Completion += energy.Complete;
+
+            return energy;
+        }
+
+        /// <summary>
+        /// Creates a new <see cref="Energy"/> with a varying weight and adds it to the list.
+        /// </summary>
+        /// <param name="energyType"> Energy type defining the energy locally. </param>
+        /// <param name="variables">  Variables composing the local vector xReduced. </param>
+        /// <param name="weightFunction"> Function computing the weight from the iteration index. </param>
+        /// <returns></returns>
+        public Energy AddEnergy(IEnergyType energyType, List<(VariableSet, int)> variables, Func<int,double> weightFunction)
+        {
+            int energyIndex = _energies.Count;
+
+            Energy energy = new Energy(energyType, variables, 0.0);
+            _energies.Add(energy);
+
+            Completion += energy.Complete;
+
+            void energyWeightUpdater(int iteration) => energy.Weight = weightFunction(iteration);
+            WeigthUpdate += energyWeightUpdater;
+
             return energy;
         }
 
@@ -168,7 +259,7 @@ namespace BRIDGES.Solvers.GuidedProjection
         /******************** For Quadratic Constraints ********************/
 
         /// <summary>
-        /// Creates and adds a new <see cref="QuadraticConstraint"/> to the list.
+        /// Creates a new <see cref="QuadraticConstraint"/> with a constant weight and adds it to the list.
         /// </summary>
         /// <param name="constraintType"> Quadratic constraint type defining the constraint locally. </param>
         /// <param name="variables"> Variables composing the local vector xReduced. </param>
@@ -180,11 +271,39 @@ namespace BRIDGES.Solvers.GuidedProjection
 
             QuadraticConstraint constraint = new QuadraticConstraint(constraintType, variables, weight);
             _constraints.Add(constraint);
+
+            Completion += constraint.Complete;
+
             return constraint;
         }
 
         /// <summary>
-        /// Creates and adds a new <see cref="LinearisedConstraint"/> to the list.
+        /// Creates a new <see cref="QuadraticConstraint"/> with a varying weight and adds it to the list.
+        /// </summary>
+        /// <param name="constraintType"> Quadratic constraint type defining the constraint locally. </param>
+        /// <param name="variables"> Variables composing the local vector xReduced. </param>
+        /// <param name="weightFunction"> Function computing the weight from the iteration index. </param>
+        /// <returns> The new constraint. </returns>
+        public QuadraticConstraint AddConstraint(IQuadraticConstraintType constraintType, List<(VariableSet, int)> variables, Func<int, double> weightFunction)
+        {
+            int constraintIndex = _constraints.Count;
+
+            QuadraticConstraint constraint = new QuadraticConstraint(constraintType, variables, 0.0);
+            _constraints.Add(constraint);
+
+            Completion += constraint.Complete;
+
+            void constraintWeightUpdater(int iteration) => constraint.Weight = weightFunction(iteration);
+            WeigthUpdate += constraintWeightUpdater;
+
+            return constraint;
+        }
+
+
+        /******************** For Linearised Constraints ********************/
+
+        /// <summary>
+        /// Creates a new <see cref="LinearisedConstraint"/> with a constant weight and adds it to the list.
         /// </summary>
         /// <param name="constraintType"> Quadratic constraint type defining the constraint locally. </param>
         /// <param name="variables"> Variables composing the local vector xReduced. </param>
@@ -196,15 +315,41 @@ namespace BRIDGES.Solvers.GuidedProjection
 
             LinearisedConstraint constraint = new LinearisedConstraint(constraintType, variables, weight);
             _constraints.Add(constraint);
+
+            ConstraintUpdate += constraint.Update;
+
             return constraint;
         }
+
+        /// <summary>
+        /// Creates a new <see cref="LinearisedConstraint"/> with a varying weight and adds it to the list.
+        /// </summary>
+        /// <param name="constraintType"> Quadratic constraint type defining the constraint locally. </param>
+        /// <param name="variables"> Variables composing the local vector xReduced. </param>
+        /// <param name="weightFunction"> Function computing the weight from the iteration index. </param>
+        /// <returns> The new constraint. </returns>
+        public LinearisedConstraint AddConstraint(ILinearisedConstraintType constraintType, List<(VariableSet, int)> variables, Func<int, double> weightFunction)
+        {
+            int constraintIndex = _constraints.Count;
+
+            LinearisedConstraint constraint = new LinearisedConstraint(constraintType, variables, 0.0);
+            _constraints.Add(constraint);
+
+            ConstraintUpdate += constraint.Update;
+
+            void constraintWeightUpdater(int iteration) => constraint.Weight = weightFunction(iteration);
+            WeigthUpdate += constraintWeightUpdater;
+
+            return constraint;
+        }
+
 
         /**************************************** For Solving ****************************************/
 
         /// <summary>
         /// Initialise the solver for the <see cref="GuidedProjectionAlgorithm"/>.
         /// </summary>
-        public void InitialiseSolver()
+        public void InitialiseX()
         {
             /******************** Create global X (Variable) ********************/
 
@@ -224,36 +369,51 @@ namespace BRIDGES.Solvers.GuidedProjection
                 }
             }
 
+            /******************** Create global members (Energy and Quadratic Constraint) ********************/
 
-            /******************** Create global Hi and global Bi (Constraint) ********************/
-
-            // Create global Hi and global Bi
-            for (int i_Cstr = 0; i_Cstr < _constraints.Count; i_Cstr++)
-            {
-                if(_constraints[i_Cstr] is LinearisedConstraint linCstr) 
-                {
-                    double[] xReduced = linCstr.GetXReduced(ref _x);
-
-                    linCstr.UpdateLocal(xReduced);
-                }
-
-                _constraints[i_Cstr].Globalise();
-            }
-
-
-            /******************** Create global Ki (Energy) ********************/
-
-            // Create global Ki
-            for (int i_Energy = 0; i_Energy < _energies.Count; i_Energy++)
-            {
-                _energies[i_Energy].Globalise();
-            }
+            OnCompletion(sizeX);
         }
 
         /// <summary>
         /// Runs one iteration.
         /// </summary>
-        public void DoOneIteration()
+        public void RunIteration()
+        {
+            /********** Iteration Updates **********/
+
+            OnConstraintUpdate(_x);
+
+            OnWeigthUpdate(IterationIndex);
+
+
+            /********** Formulate and Solve the System  **********/
+
+            _x = FormAndSolveSystem();
+
+
+            /******************** Update Variables ********************/
+
+            // Fill the VariableSet with the updated values
+            for (int i_VariableSet = 0; i_VariableSet < _variableSets.Count; i_VariableSet++)
+            {
+                VariableSet variableSet = _variableSets[i_VariableSet];
+                int componentCount = variableSet.VariableCount * variableSet.VariableDimension;
+                for (int i_Component = 0; i_Component < componentCount; i_Component++)
+                {
+                    variableSet.SetComponent(i_Component, _x[variableSet.FirstRank + i_Component]);
+                }
+            }
+        }
+
+        #endregion
+
+        #region Other Methods
+
+        /// <summary>
+        /// Compute the members of the system and solves it using Cholesky factorisation.
+        /// </summary>
+        /// <returns> The solution of the sytem. </returns>
+        private DenseVector FormAndSolveSystem()
         {
             /******************** Iterate on the quadratic constraints to create H and r ********************/
 
@@ -268,29 +428,32 @@ namespace BRIDGES.Solvers.GuidedProjection
                 /******************** Use of Hi ********************/
                 if (!(cstr.GlobalHi is null))
                 {
-                    Dictionary<int, double> HiX = Multiply(cstr.GlobalHi, _x);
+                    DenseVector HiX = CompressedColumn.Multiply(cstr.GlobalHi, _x);
 
                     // Iterate on the keys (RowIndex) of the sparse vector.
-                    foreach (int key in HiX.Keys) // *.Keys is an O(1) operation
+                    int size = HiX.Size;
+                    for (int i = 0; i < size; i++)
                     {
-                        dok_H.Add(cstr.Weight * HiX[key], constraintCount, key); // Fill H with the contributions of HiX
+                        if (HiX[i] == 0.0) { continue; }
+
+                        dok_H.Add(cstr.Weight * HiX[i], constraintCount, i);
                     }
 
-                    vect_r[constraintCount] = 0.5 * cstr.Weight * TransposeMultiply(_x, HiX);
+                    vect_r[constraintCount] = 0.5 * cstr.Weight * DenseVector.TransposeMultiply(_x, HiX);
                 }
 
 
                 /******************** Use of Bi ********************/
                 if (!(cstr.GlobalBi is null))
                 {
-                    Dictionary<int, double> Bi = cstr.GlobalBi;
+                    SparseVector Bi = cstr.GlobalBi;
 
                     // Iterate on the keys (RowIndex) of the sparse vector.
-                    foreach (int key in Bi.Keys) // *.Keys is an O(1) operation.
+                    foreach (var component in Bi.GetNonZeros()) // *.Keys is an O(1) operation.
                     {
                         // If value (RowIndex, ColumnIndex) already exists in dok_H, the value is added to the existing one.
                         // This is achieved trough *.ContainsKey() which is an O(1) operation.
-                        dok_H.Add(cstr.Weight * Bi[key], constraintCount, key); // Fill H with the contributions of Bi
+                        dok_H.Add(cstr.Weight * component.Value, constraintCount, component.RowIndex); // Fill H with the contributions of Bi
                     }
                 }
 
@@ -319,12 +482,12 @@ namespace BRIDGES.Solvers.GuidedProjection
                 /******************** Use of Ki ********************/
                 if (!(energy.GlobalKi is null))
                 {
-                    Dictionary<int, double> Ki = energy.GlobalKi;
+                    SparseVector Ki = energy.GlobalKi;
 
                     // Iterate on the keys (RowIndex) of the sparse vector.
-                    foreach (int key in Ki.Keys) // *.Keys is an O(1) operation.
+                    foreach (var component in Ki.GetNonZeros()) // *.Keys is an O(1) operation.
                     {
-                        dok_K.Add(energy.Weight * Ki[key], energyCount, key);
+                        dok_K.Add(energy.Weight * component.Value, energyCount, component.RowIndex);
                     }
                 }
 
@@ -347,10 +510,14 @@ namespace BRIDGES.Solvers.GuidedProjection
 
             if (dok_H._values.Count != 0 && dok_K._values.Count != 0)
             {
-                CompressedColumn sparse_H = new CompressedColumn(_x.Size, _x.Size, dok_H);
-                CompressedColumn sparse_K = new CompressedColumn(_x.Size, _x.Size, dok_K);
+                CompressedColumn sparse_H = new CompressedColumn(constraintCount, _x.Size, dok_H);
+                CompressedColumn sparse_K = new CompressedColumn(energyCount, _x.Size, dok_K);
 
-                LHS = CompressedColumn.Add(CompressedColumn.TransposeMultiplySelf(sparse_H), CompressedColumn.TransposeMultiplySelf(sparse_K));
+                /* Major performance issue : Multiply , in transpose multiply self */
+                CompressedColumn HtH = CompressedColumn.TransposeMultiplySelf(sparse_H);
+                CompressedColumn KtK = CompressedColumn.TransposeMultiplySelf(sparse_K);
+
+                LHS = CompressedColumn.Add(HtH, KtK);
                 RHS = DenseVector.Add(CompressedColumn.TransposeMultiply(sparse_H, vect_r), CompressedColumn.TransposeMultiply(sparse_K, vect_s));
             }
             else
@@ -362,33 +529,20 @@ namespace BRIDGES.Solvers.GuidedProjection
                     LHS = CompressedColumn.TransposeMultiplySelf(sparse_H);
                     RHS = CompressedColumn.TransposeMultiply(sparse_H, vect_r);
                 }
-                else
+                else if (dok_K._values.Count != 0)
                 {
                     CompressedColumn sparse_K = new CompressedColumn(_x.Size, _x.Size, dok_K);
 
                     LHS = CompressedColumn.TransposeMultiplySelf(sparse_K);
                     RHS = CompressedColumn.TransposeMultiply(sparse_K, vect_s);
                 }
+                else { throw new InvalidOperationException("The matrices H and K are empty."); }
             }
 
             LHS = CompressedColumn.Add(LHS, CompressedColumn.Multiply(Epsilon * Epsilon, CompressedColumn.Identity(_x.Size)));
             RHS = DenseVector.Add(RHS, DenseVector.Multiply(Epsilon * Epsilon, _x));
 
-            _x = LHS.SolveCholesky(RHS);
-
-            /******************** Update Variables ********************/
-
-            // Get the size X
-            for (int i_VariableSet = 0; i_VariableSet < _variableSets.Count; i_VariableSet++)
-            {
-                VariableSet variableSet = _variableSets[i_VariableSet];
-                int componentCount = variableSet.VariableCount * variableSet.VariableDimension;
-                for (int i_Component = 0; i_Component < componentCount; i_Component++)
-                {
-                    variableSet.SetComponent(i_Component, _x[variableSet.FirstRank + i_Component]);
-                }
-            }
-
+            return LHS.SolveCholesky(RHS);
         }
 
         #endregion

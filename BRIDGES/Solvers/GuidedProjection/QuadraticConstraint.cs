@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using BRIDGES.LinearAlgebra.Vectors;
+using BRIDGES.LinearAlgebra.Matrices;
+using BRIDGES.LinearAlgebra.Matrices.Sparse;
 using BRIDGES.LinearAlgebra.Matrices.Storage;
 
 using BRIDGES.Solvers.GuidedProjection.Interfaces;
-
 
 namespace BRIDGES.Solvers.GuidedProjection
 {
@@ -15,8 +17,9 @@ namespace BRIDGES.Solvers.GuidedProjection
     {
         #region Fields
 
-        /// <summary>
-        /// The constraint type defining the local matrix symmetric Hi, the local vector Bi and the scalar value Ci.
+        /// /// <summary>
+        /// Constraint type defining the reduced matrix <see cref="IQuadraticConstraintType.LocalHi"/>,
+        /// the reduced vector <see cref="IQuadraticConstraintType.LocalBi"/> and the scalar value <see cref="IQuadraticConstraintType.Ci"/>.
         /// </summary>
         protected IQuadraticConstraintType _constraintType { get; }
 
@@ -33,18 +36,18 @@ namespace BRIDGES.Solvers.GuidedProjection
         /// <summary>
         /// Gets or sets the value of the weight for the constraint.
         /// </summary>
-        public double Weight { get; set; }
+        public double Weight { get; internal set; }
 
 
         /// <summary>
         /// Gets the symmetric matrix Hi defined on x.
         /// </summary>
-        public DictionaryOfKeys GlobalHi { get; internal set; }
+        public CompressedColumn GlobalHi { get; internal set; }
 
         /// <summary>
         /// Gets the vector Bi defined on x.
         /// </summary>
-        public Dictionary<int, double> GlobalBi { get; internal set; }
+        public SparseVector GlobalBi { get; internal set; }
 
         /// <summary>
         /// Gets the scalar value Ci of the constraint.
@@ -79,19 +82,20 @@ namespace BRIDGES.Solvers.GuidedProjection
         #region Other Methods
 
         /// <summary>
-        /// Translates the local members of the energy defined on xReduced, into the global members defined on x.
+        /// Translates the local members of the constraint, defined on xReduced, into the global members defined on x.
         /// </summary>
-        internal void Globalise()
+        /// <param name="size"> Number of component of the global vector x. </param>
+        internal void Complete(int size)
         {
             List<int> converter = CreateConverter(_variables);
 
-            if (!(_constraintType.LocalHi is null) && _constraintType.LocalHi?._values.Count != 0)
+            if (!(_constraintType.LocalHi is null) && _constraintType.LocalHi.NonZerosCount != 0)
             {
-                GlobalHi = GlobaliseHi(converter);
+                CompleteHi(size, converter);
             }
-            if (!(_constraintType.LocalBi is null) && _constraintType.LocalBi?.Count != 0)
+            if (!(_constraintType.LocalBi is null) && _constraintType.LocalBi.NonZerosCount != 0)
             {
-                GlobalBi = GlobaliseBi( converter);
+                CompleteBi(size, converter);
             }
         }
 
@@ -126,39 +130,39 @@ namespace BRIDGES.Solvers.GuidedProjection
         /// <summary>
         /// Translates the local Hi defined on xReduced, into the global Hi defined on x.
         /// </summary>
+        /// <param name="size"> Number of component of the global vector x. </param>
         /// <param name="converter"> Converter translating Hi's row and column indices. </param>
         /// <returns> The global symmetric matrix Hi defined on x. </returns>
-        private protected DictionaryOfKeys GlobaliseHi(List<int> converter)
+        private protected void CompleteHi(int size, List<int> converter)
         {
-            Dictionary<(int, int), double> values = _constraintType.LocalHi._values;
-
+            int nonZerosCount = _constraintType.LocalHi.NonZerosCount;
             DictionaryOfKeys dok_GlobalHi = new DictionaryOfKeys();
 
-            // Iterate on the keys (RowIndex, ColumnIndex) of the sparse matrix.
-            foreach ((int, int) key in values.Keys) // *.Keys is an O(1) operation.
+            foreach(var component in _constraintType.LocalHi.GetNonZeros())
             {
-                dok_GlobalHi.Add(values[key], converter[key.Item1], converter[key.Item2]);
+                dok_GlobalHi.Add(component.Value, component.RowIndex, component.ColumnIndex);
             }
 
-            return dok_GlobalHi;
+            GlobalHi = new CompressedColumn(size, size, dok_GlobalHi);
         }
 
         /// <summary>
         /// Translates the local Bi defined on xReduced, into the global Bi defined on x.
         /// </summary>
+        /// <param name="size"> Number of component of the global vector x. </param>
         /// <param name="converter"> Converter translating Bi's row indices. </param>
         /// <returns> The global vector Bi defined on X. </returns>
-        private protected Dictionary<int, double> GlobaliseBi(List<int> converter)
+        private protected void CompleteBi(int size, List<int> converter)
         {
-            Dictionary<int, double> globalBi = new Dictionary<int, double>();
+            int nonZerosCount = _constraintType.LocalBi.NonZerosCount;
+            Dictionary<int, double> components = new Dictionary<int, double>(nonZerosCount);
 
-            // Iterate on the keys (RowIndex) of the sparse vector.
-            foreach (int key in _constraintType.LocalBi.Keys)
+            foreach (var component in _constraintType.LocalBi.GetNonZeros())
             {
-                globalBi.Add(converter[key], _constraintType.LocalBi[key]);
+                components.Add(converter[component.RowIndex], component.Value);
             }
 
-            return globalBi;
+            GlobalBi = new SparseVector(size, ref components);
         }
 
         #endregion

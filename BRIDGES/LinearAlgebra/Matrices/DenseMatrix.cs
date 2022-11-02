@@ -942,21 +942,14 @@ namespace BRIDGES.LinearAlgebra.Matrices
         {
             double[] components = new double[matrix.RowCount];
 
-            IEnumerator<KeyValuePair<int, double>> kvpEnumerator = vector.GetNonZeros();
-            try
+            foreach(var component in vector.GetNonZeros())
             {
-                while (kvpEnumerator.MoveNext())
+                for (int i_R = 0; i_R < components.Length; i_R++)
                 {
-                    KeyValuePair<int, double> kvp = kvpEnumerator.Current;
-
-                    for (int i_R = 0; i_R < components.Length; i_R++)
-                    {
-                        components[i_R] += matrix._storedMatrix[i_R, kvp.Key] * kvp.Value;
-                    }
+                    components[i_R] += matrix._storedMatrix[i_R, component.RowIndex] * component.Value;
                 }
             }
-            finally { kvpEnumerator.Dispose(); }
-
+            
             return new DenseVector(components);
         }
 
@@ -1010,20 +1003,13 @@ namespace BRIDGES.LinearAlgebra.Matrices
         {
             double[] components = new double[matrix.ColumnCount];
 
-            IEnumerator<KeyValuePair<int, double>> kvpEnumerator = vector.GetNonZeros();
-            try
+            foreach(var component in vector.GetNonZeros())
             {
-                while (kvpEnumerator.MoveNext())
+                for (int i_R = 0; i_R < components.Length; i_R++)
                 {
-                    KeyValuePair<int, double> kvp = kvpEnumerator.Current;
-
-                    for (int i_R = 0; i_R < components.Length; i_R++)
-                    {
-                        components[i_R] += matrix._storedMatrix[kvp.Key, i_R] * kvp.Value;
-                    }
+                    components[i_R] += matrix._storedMatrix[component.RowIndex, i_R] * component.Value;
                 }
             }
-            finally { kvpEnumerator.Dispose(); }
 
             return new DenseVector(components);
         }

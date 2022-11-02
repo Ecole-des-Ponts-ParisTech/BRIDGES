@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using BRIDGES.LinearAlgebra.Vectors;
+
 using BRIDGES.Solvers.GuidedProjection.Interfaces;
 
 
@@ -14,7 +16,7 @@ namespace BRIDGES.Solvers.GuidedProjection
         #region Fields
 
         /// <summary>
-        /// Energy type defining the local vector Ki and the scalar value Si.
+        /// Energy type defining the reduced vector <see cref="IEnergyType.LocalKi"/> and the scalar value <see cref="IEnergyType.Si"/>.
         /// </summary>
         private IEnergyType _energyType { get; }
 
@@ -23,7 +25,7 @@ namespace BRIDGES.Solvers.GuidedProjection
         /// </summary>
         /// <remarks> The first component corresponds to the variable set and the second to the index of the variable in the set. </remarks>
         private List<(VariableSet, int)> _variables;
-
+        
         #endregion
 
         #region Properties
@@ -31,13 +33,13 @@ namespace BRIDGES.Solvers.GuidedProjection
         /// <summary>
         /// Gets or sets the weight of the energy.
         /// </summary>
-        public double Weight { get; set; }
+        public double Weight { get; internal set; }
 
 
         /// <summary>
         /// Gets the vector Ki defined on x.
         /// </summary>
-        public Dictionary<int, double> GlobalKi { get; private set; }
+        public SparseVector GlobalKi { get; private set; }
 
         /// <summary>
         /// Gets the scalar value Si of the energy.
@@ -74,21 +76,23 @@ namespace BRIDGES.Solvers.GuidedProjection
         /// <summary>
         /// Translates the local members of the energy defined on xReduced, into the global members defined on x.
         /// </summary>
-        internal void Globalise()
+        /// <param name="size"> Number of component of the global vector x. </param>
+        internal void Complete(int size)
         {
-            if (!(_energyType.LocalKi is null) &&  _energyType.LocalKi.Count != 0) { LocalToGlobalKi(); }
+            if (!(_energyType.LocalKi is null) &&  _energyType.LocalKi.NonZerosCount != 0) { CompleteKi(size); }
         }
 
 
         /// <summary>
-        /// Translates the local Ki defined on xReduced, into the global Ki defined on x.
+        /// Translates the reduced vector <see cref="IEnergyType.LocalKi"/> defined on xReduced, into <see cref="GlobalKi"/> defined on x.
         /// </summary>
-        private void LocalToGlobalKi()
+        /// <param name="size"> Number of component of the global vector x. </param>
+        private void CompleteKi(int size)
         {
             /******************** Translator for the column indices ********************/
 
             // Create the translator
-            List<int> translator = new List<int>();
+            List<int> converter = new List<int>();
             for (int i_Variable = 0; i_Variable < _variables.Count; i_Variable++)
             {
                 int firstRank = _variables[i_Variable].Item1.FirstRank;
@@ -100,21 +104,21 @@ namespace BRIDGES.Solvers.GuidedProjection
 
                 for (int i_Component = 0; i_Component < variableDimension; i_Component++)
                 {
-                    translator.Add(startIndex + i_Component);
+                    converter.Add(startIndex + i_Component);
                 }
             }
 
             /******************** Create global Ki ********************/
 
-            Dictionary<int, double> globalKi = new Dictionary<int, double>();
+            int nonZerosCount = _energyType.LocalKi.NonZerosCount;
+            Dictionary<int, double> components = new Dictionary<int, double>(nonZerosCount);
 
-            // Iterate on the keys (RowIndex) of the sparse vector.
-            foreach (int key in _energyType.LocalKi.Keys)
+            foreach(var component in _energyType.LocalKi.GetNonZeros())
             {
-                globalKi.Add(translator[key], _energyType.LocalKi[key]);
+                components.Add(converter[component.RowIndex], component.Value);
             }
 
-            GlobalKi = globalKi;
+            GlobalKi = new SparseVector(size , ref components);
         }
 
         #endregion

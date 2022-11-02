@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using BRIDGES.LinearAlgebra.Matrices.Storage;
-
+using BRIDGES.LinearAlgebra.Vectors;
 using BRIDGES.Solvers.GuidedProjection.Interfaces;
 
 
@@ -17,7 +16,7 @@ namespace BRIDGES.Solvers.GuidedProjection.QuadraticConstraints
         #region Properties
 
         /// <inheritdoc cref="IEnergyType.LocalKi"/>
-        public Dictionary<int, double> LocalKi { get; }
+        public SparseVector LocalKi { get; }
 
         /// <inheritdoc cref="IEnergyType.Si"/>
         public double Si { get; }
@@ -32,15 +31,20 @@ namespace BRIDGES.Solvers.GuidedProjection.QuadraticConstraints
         /// <param name="coordinates"> Coordinates of the target direction vector. </param>
         public SegmentOrthogonality(double[] coordinates)
         {
-            // Initialisation of Ki
-            LocalKi = new Dictionary<int, double>((2 * coordinates.Length));
+            /******************** Define LocalKi ********************/
+
+            Dictionary<int, double> components = new Dictionary<int, double>((2 * coordinates.Length));
             for (int i = 0; i < coordinates.Length; i++)
             {
-                LocalKi.Add(i, -coordinates[i]);
-                LocalKi.Add(coordinates.Length + i, coordinates[i]);
+                components.Add(i, -coordinates[i]);
+                components.Add(coordinates.Length + i, coordinates[i]);
             }
 
-            // Initialisation of Si
+            LocalKi = new SparseVector(2 * coordinates.Length, ref components);
+
+
+            /******************** Define Si ********************/
+
             Si = 0.0;
         }
 

@@ -702,6 +702,19 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
 
 
         /// <inheritdoc/>
+        public override IEnumerable<(int RowIndex, int ColumnIndex, double Value)> GetNonZeros()
+        {
+            for (int i_C = 0; i_C < ColumnCount; i_C++)
+            {
+                for (int i_NZ = _storedMatrix.ColumnPointers[i_C]; i_NZ < _storedMatrix.ColumnPointers[i_C + 1]; i_NZ++)
+                {
+                    yield return (RowIndex: _storedMatrix.RowIndices[i_NZ], ColumnIndex:  i_C, Value: _storedMatrix.Values[i_NZ]);
+                }
+            }
+        }
+
+
+        /// <inheritdoc/>
         public override void Transpose()
         {
             _storedMatrix = _storedMatrix.Transpose();

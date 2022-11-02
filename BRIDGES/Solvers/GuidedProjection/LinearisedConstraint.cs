@@ -11,7 +11,7 @@ namespace BRIDGES.Solvers.GuidedProjection
     /// <summary>
     /// Class defining a linearised constraint for the <see cref="GuidedProjectionAlgorithm"/>.
     /// </summary>
-    public class LinearisedConstraint : QuadraticConstraint
+    public sealed class LinearisedConstraint : QuadraticConstraint
     {
         #region Constructors
 
@@ -32,11 +32,27 @@ namespace BRIDGES.Solvers.GuidedProjection
         #region Other Methods
 
         /// <summary>
-        /// Retrieves the components of the local vector xReduced from its global counterpart x.
+        /// Updates the local members (LocalHi, LocalBi) of the linearised constraint using x,
+        /// and translates these local members into their global equivalent.
+        /// </summary>
+        /// <param name="x"> Global vector x at the current iteration. </param>
+        internal void Update(DenseVector x)
+        {
+            double[] xReduced = GetXReduced(x);
+
+            ILinearisedConstraintType linearisedConstraintType = _constraintType as ILinearisedConstraintType;
+            linearisedConstraintType.UpdateLocal(xReduced);
+
+            Complete(x.Size);
+        }
+
+
+        /// <summary>
+        /// Retrieves the components of the local vector xReduced from its global equivalent x.
         /// </summary>
         /// <param name="x"> The global vector x. </param>
         /// <returns> the components of xReduced </returns>
-        internal double[] GetXReduced(ref DenseVector x)
+        private double[] GetXReduced(in DenseVector x)
         {
             List<double> result = new List<double>();
             for (int i_LocalVariable = 0; i_LocalVariable < _variables.Count; i_LocalVariable++)
@@ -48,13 +64,6 @@ namespace BRIDGES.Solvers.GuidedProjection
             }
 
             return result.ToArray();
-        }
-
-        /// <inheritdoc cref="ILinearisedConstraintType.UpdateLocal(double[])"/>
-        internal void UpdateLocal(double[] xReduced)
-        {
-            ILinearisedConstraintType linearisedConstraintType = _constraintType as ILinearisedConstraintType;
-            linearisedConstraintType.UpdateLocal(xReduced);
         }
 
         #endregion

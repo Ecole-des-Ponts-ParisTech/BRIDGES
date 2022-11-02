@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 using Alg_Fund = BRIDGES.Algebra.Fundamentals;
 using Alg_Set = BRIDGES.Algebra.Sets;

@@ -92,15 +92,10 @@ namespace BRIDGES.LinearAlgebra.Vectors
             int size = vector.Size;
 
             _components = new double[size];
-            IEnumerator<KeyValuePair<int, double>> kvpENumuerator = vector.GetNonZeros();
-            try
+            foreach(var component in vector.GetNonZeros())
             {
-                while(kvpENumuerator.MoveNext())
-                {
-                    _components[kvpENumuerator.Current.Key] = kvpENumuerator.Current.Value;
-                }
+                _components[component.RowIndex] = component.Value;
             }
-            finally { kvpENumuerator.Dispose(); }
         }
 
 
@@ -268,16 +263,10 @@ namespace BRIDGES.LinearAlgebra.Vectors
 
             DenseVector result = new DenseVector(left);
 
-            IEnumerator<KeyValuePair<int, double>> kvpEnumerator = right.GetNonZeros();
-            try
+            foreach (var component in right.GetNonZeros())
             {
-                while (kvpEnumerator.MoveNext())
-                {
-                    KeyValuePair<int, double> kvp = kvpEnumerator.Current;
-                    result._components[kvp.Key] = result._components[kvp.Key] + kvp.Value;
-                }
+                result._components[component.RowIndex] = result._components[component.RowIndex] + component.Value;
             }
-            finally { kvpEnumerator.Dispose(); }
 
             return result;
         }
@@ -295,16 +284,10 @@ namespace BRIDGES.LinearAlgebra.Vectors
 
             DenseVector result = new DenseVector(right);
 
-            IEnumerator<KeyValuePair<int, double>> kvpEnumerator = left.GetNonZeros();
-            try
+            foreach (var component in left.GetNonZeros())
             {
-                while (kvpEnumerator.MoveNext())
-                {
-                    KeyValuePair<int, double> kvp = kvpEnumerator.Current;
-                    result._components[kvp.Key] = kvp.Value + result._components[kvp.Key];
-                }
+                result._components[component.RowIndex] = component.Value + result._components[component.RowIndex];
             }
-            finally { kvpEnumerator.Dispose(); }
 
             return result;
         }
@@ -323,16 +306,10 @@ namespace BRIDGES.LinearAlgebra.Vectors
 
             DenseVector result = new DenseVector(left);
 
-            IEnumerator<KeyValuePair<int, double>> kvpEnumerator = right.GetNonZeros();
-            try
+            foreach (var component in right.GetNonZeros())
             {
-                while (kvpEnumerator.MoveNext())
-                {
-                    KeyValuePair<int, double> kvp = kvpEnumerator.Current;
-                    result._components[kvp.Key] = result._components[kvp.Key] - kvp.Value;
-                }
+                result._components[component.RowIndex] = result._components[component.RowIndex] - component.Value;
             }
-            finally { kvpEnumerator.Dispose(); }
 
             return result;
         }
@@ -350,16 +327,10 @@ namespace BRIDGES.LinearAlgebra.Vectors
 
             DenseVector result = DenseVector.Multiply(-1.0, right);
 
-            IEnumerator<KeyValuePair<int, double>> kvpEnumerator = left.GetNonZeros();
-            try
+            foreach (var component in left.GetNonZeros())
             {
-                while (kvpEnumerator.MoveNext())
-                {
-                    KeyValuePair<int, double> kvp = kvpEnumerator.Current;
-                    result._components[kvp.Key] = kvp.Value +  result._components[kvp.Key];
-                }
+                result._components[component.RowIndex] = component.Value + result._components[component.RowIndex];
             }
-            finally { kvpEnumerator.Dispose(); }
 
             return result;
         }
@@ -460,20 +431,14 @@ namespace BRIDGES.LinearAlgebra.Vectors
         public static double TransposeMultiply(DenseVector left, SparseVector right)
         {
             if (left.Size != right.Size) { throw new ArgumentException("The size of the vectors should be the same."); }
-
+            
 
             double result = 0.0;
 
-            IEnumerator<KeyValuePair<int, double>> kvpEnumerator = right.GetNonZeros();
-            try
+            foreach(var component in right.GetNonZeros())
             {
-                while (kvpEnumerator.MoveNext())
-                {
-                    KeyValuePair<int, double> kvp = kvpEnumerator.Current;
-                    result += left[kvp.Key] * kvp.Value;
-                }
+                result += left[component.RowIndex] * component.Value;
             }
-            finally { kvpEnumerator.Dispose(); }
 
             return result;
         }
@@ -492,16 +457,10 @@ namespace BRIDGES.LinearAlgebra.Vectors
 
             double result = 0.0;
 
-            IEnumerator<KeyValuePair<int, double>> kvpEnumerator = left.GetNonZeros();
-            try
+            foreach(var component in left.GetNonZeros())
             {
-                while(kvpEnumerator.MoveNext())
-                {
-                    KeyValuePair<int, double> kvp = kvpEnumerator.Current;
-                    result += kvp.Value * right[kvp.Key];
-                }
+                result += component.Value * right[component.RowIndex];
             }
-            finally { kvpEnumerator.Dispose(); }
 
             return result;
         }

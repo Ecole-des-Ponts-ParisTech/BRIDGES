@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using BRIDGES.LinearAlgebra.Vectors;
 using BRIDGES.Solvers.GuidedProjection.Interfaces;
 
 
@@ -18,7 +19,7 @@ namespace BRIDGES.Solvers.GuidedProjection.EnergyTypes
         #region Properties
 
         /// <inheritdoc cref="IEnergyType.LocalKi"/>
-        public Dictionary<int, double> LocalKi { get; }
+        public SparseVector LocalKi { get; }
 
         /// <inheritdoc cref="IEnergyType.Si"/>
         public double Si { get; }
@@ -51,16 +52,19 @@ namespace BRIDGES.Solvers.GuidedProjection.EnergyTypes
                 coordinates[i] = coordinates[i] / length;
             }
 
-            // Initialisation of Ki
-            LocalKi = new Dictionary<int, double>((2 * coordinates.Length) + 1);
+            /******************** Define LocalKi ********************/
+
+            Dictionary<int, double> component = new Dictionary<int, double>((2 * coordinates.Length) + 1);
             for (int i = 0; i < coordinates.Length; i++)
             {
-                LocalKi.Add(i, -coordinates[i]);
-                LocalKi.Add(coordinates.Length + i, coordinates[i]);
+                component.Add(i, -coordinates[i]);
+                component.Add(coordinates.Length + i, coordinates[i]);
             }
-            LocalKi.Add(2 * coordinates.Length, -1);
+            component.Add(2 * coordinates.Length, -1);
 
-            // Initialisation of Si
+            LocalKi = new SparseVector((2 * coordinates.Length) + 1, ref component);
+
+            /******************** Define Si ********************/
             Si = 0.0;
         }
 

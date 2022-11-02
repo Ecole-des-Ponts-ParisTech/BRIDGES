@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using Alg_Fund = BRIDGES.Algebra.Fundamentals;
 using Alg_Set = BRIDGES.Algebra.Sets;
@@ -270,6 +271,16 @@ namespace BRIDGES.LinearAlgebra.Matrices
             else { throw new NotImplementedException($"The right multiplication of a transposed {matrix.GetType()} as a {nameof(SparseMatrix)} and a {vector.GetType()} is not implemented."); }
 
         }
+
+        #endregion
+
+        #region Public Methods
+
+        /// <summary>
+        /// Provides an enumerable collection to iterate on the non-zero entries of the <see cref="SparseMatrix"/> non-zero entries.
+        /// </summary>
+        /// <returns> The enumerable collection containing row index, the column index and the value of the <see cref="SparseMatrix"/> non-zero entries. </returns>
+        public abstract IEnumerable<(int RowIndex, int ColumnIndex, double Value)> GetNonZeros();
 
         #endregion
 

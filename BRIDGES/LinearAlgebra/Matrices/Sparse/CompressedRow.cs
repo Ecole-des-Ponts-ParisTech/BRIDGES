@@ -939,6 +939,19 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
 
 
         /// <inheritdoc/>
+        public override IEnumerable<(int RowIndex, int ColumnIndex, double Value)> GetNonZeros()
+        {
+            for (int i_R = 0; i_R < RowCount; i_R++)
+            {
+                for (int i_NZ = _rowPointers[i_R]; i_NZ < _rowPointers[i_R + 1]; i_NZ++)
+                {
+                    yield return (RowIndex: i_R, ColumnIndex: _columnIndices[i_NZ], Value: _values[i_NZ]);
+                }
+            }
+        }
+
+
+        /// <inheritdoc/>
         public override void Transpose()
         {
             // Get the number of elements per column of the current matrix

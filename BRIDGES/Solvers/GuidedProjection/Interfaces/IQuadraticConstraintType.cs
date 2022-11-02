@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 
-using BRIDGES.LinearAlgebra.Matrices.Storage;
+using BRIDGES.LinearAlgebra.Vectors;
+using BRIDGES.LinearAlgebra.Matrices;
 
 
 namespace BRIDGES.Solvers.GuidedProjection.Interfaces
@@ -16,12 +16,12 @@ namespace BRIDGES.Solvers.GuidedProjection.Interfaces
         /// <summary>
         /// Gets the local symmetric matrix Hi of the energy.
         /// </summary>
-        DictionaryOfKeys LocalHi { get; }
+        SparseMatrix LocalHi { get; }
 
         /// <summary>
         /// Gets the local vector Bi of the energy.
         /// </summary>
-        Dictionary<int, double> LocalBi { get; }
+        SparseVector LocalBi { get; }
 
         /// <summary>
         /// Gets the scalar value Ci of the energy.

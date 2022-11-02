@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
+
+using BRIDGES.LinearAlgebra.Vectors;
 
 
 namespace BRIDGES.Solvers.GuidedProjection.Interfaces
@@ -14,7 +15,7 @@ namespace BRIDGES.Solvers.GuidedProjection.Interfaces
         /// <summary>
         /// Gets the local vector Ki of the energy.
         /// </summary>
-        Dictionary<int, double> LocalKi { get; }
+        SparseVector LocalKi { get; }
 
         /// <summary>
         /// Gets the scalar value Si of the energy.

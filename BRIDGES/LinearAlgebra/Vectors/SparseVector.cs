@@ -36,11 +36,18 @@ namespace BRIDGES.LinearAlgebra.Vectors
 
         #region Properties
 
+        /// <summary>
+        /// Gets the number of non-zero values in the current sparse vector.
+        /// </summary>
+        public int NonZerosCount { get { return _components.Count; } }
+
+
         /// <inheritdoc/>
         public override int Size 
         { 
             get { return _size; }
         }
+
 
         /// <inheritdoc/>
         public override double this[int index]
@@ -64,7 +71,7 @@ namespace BRIDGES.LinearAlgebra.Vectors
         /// <summary>
         /// Initialises a new instance of the <see cref="SparseVector"/> class of given size, containing only zeros.
         /// </summary>
-        /// <param name="size"> Number of component of the current <see cref="SparseVector"/>. </param>
+        /// <param name="size"> Number of components of the current <see cref="SparseVector"/>. </param>
         public SparseVector(int size)
         {
             _size = size;
@@ -75,7 +82,7 @@ namespace BRIDGES.LinearAlgebra.Vectors
         /// <summary>
         /// Initialises a new instance of the <see cref="SparseVector"/> class of given size, with given values.
         /// </summary>
-        /// <param name="size"> Number of component of the current <see cref="SparseVector"/>. </param>
+        /// <param name="size"> Number of components of the current <see cref="SparseVector"/>. </param>
         /// <param name="rowIndices"> Row indices of the non-zero values of the current <see cref="SparseVector"/>. </param>
         /// <param name="values"> Non-zero values of the current <see cref="SparseVector"/>. </param>
         /// <exception cref="ArgumentException"> The numbers of row indices and values should be the same. </exception>
@@ -120,6 +127,19 @@ namespace BRIDGES.LinearAlgebra.Vectors
             _size = other._size;
 
             _components = new Dictionary<int, double>(other._components);
+        }
+
+
+        /// <summary>
+        /// Initialises a new instance of the <see cref="SparseVector"/> class of given size, with given components.
+        /// </summary>
+        /// <param name="size"> Number of components of the current <see cref="SparseVector"/>. </param>
+        /// <param name="components"> Non-zero components of the <see cref="SparseVector"/>, associated with there row index. </param>
+        internal SparseVector(int size, ref Dictionary<int, double> components)
+        {
+            _size = size;
+
+            _components = components;
         }
 
         #endregion
@@ -398,15 +418,23 @@ namespace BRIDGES.LinearAlgebra.Vectors
             return _components.TryGetValue(index, out val);
         }
 
-
         /// <summary>
         /// Returns an enumerator which reads through the non-zero components of the current <see cref="SparseVector"/>. <br/>
-        /// The <see cref="KeyValuePair{TKey, TValue}"/> represents is composed of the row index and thr component value.
+        /// The <see cref="KeyValuePair{TKey, TValue}"/> represents is composed of the row index and the component value.
         /// </summary>
         /// <returns> The enumerator of the <see cref="SparseVector"/>. </returns>
-        public IEnumerator<KeyValuePair<int, double>> GetNonZeros()
+        public IEnumerable<(int RowIndex, double Value)> GetNonZeros()
         {
-            return _components.GetEnumerator();
+            var kvp_Enumerator = _components.GetEnumerator();
+            try
+            {
+                while(kvp_Enumerator.MoveNext())
+                {
+                    var kvp = kvp_Enumerator.Current;
+                    yield return (RowIndex: kvp.Key, Value: kvp.Value);
+                }
+            }
+            finally{ kvp_Enumerator.Dispose(); }
         }
 
 
