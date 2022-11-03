@@ -1005,7 +1005,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
             var cholesky = CSparse.Double.Factorization.SparseCholesky.Create(sparse, CSparse.ColumnOrdering.MinimumDegreeAtPlusA);
 
             double[] x = new double[ColumnCount];
-            cholesky.Solve(vector.ToArray(), x);
+            cholesky.Solve(vector._components, x);
             return new DenseVector(x);
         }
 

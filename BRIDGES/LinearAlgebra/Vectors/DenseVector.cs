@@ -21,7 +21,7 @@ namespace BRIDGES.LinearAlgebra.Vectors
         /// <summary>
         /// Components of the current <see cref="DenseVector"/>.
         /// </summary>
-        private double[] _components;
+        internal double[] _components;
 
         #endregion
 
@@ -524,7 +524,6 @@ namespace BRIDGES.LinearAlgebra.Vectors
         }
 
         #endregion
-
 
         #region Override : Vector
 

@@ -554,7 +554,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         {
             double[] components = new double[matrix.RowCount];
 
-            matrix._storedMatrix.Multiply(vector.ToArray(), components);
+            matrix._storedMatrix.Multiply(vector._components, components);
 
             return new DenseVector(components);
         }
@@ -609,7 +609,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         {
             double[] components = new double[matrix.ColumnCount];
 
-            matrix._storedMatrix.TransposeMultiply(vector.ToArray(), components);
+            matrix._storedMatrix.TransposeMultiply(vector._components, components);
 
             return new DenseVector(components);
         }
@@ -750,7 +750,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
             var cholesky = CSparse.Double.Factorization.SparseCholesky.Create(_storedMatrix, CSparse.ColumnOrdering.MinimumDegreeAtPlusA);
 
             double[] x = new double[ColumnCount];
-            cholesky.Solve(vector.ToArray(), x);
+            cholesky.Solve(vector._components, x);
             return new DenseVector(x);
         }
 

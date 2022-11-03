@@ -33,17 +33,14 @@ namespace BRIDGES.Solvers.GuidedProjection
 
         /// <summary>
         /// Updates the local members (LocalHi, LocalBi) of the linearised constraint using x,
-        /// and translates these local members into their global equivalent.
         /// </summary>
         /// <param name="x"> Global vector x at the current iteration. </param>
         internal void Update(DenseVector x)
         {
             double[] xReduced = GetXReduced(x);
 
-            ILinearisedConstraintType linearisedConstraintType = _constraintType as ILinearisedConstraintType;
+            ILinearisedConstraintType linearisedConstraintType = constraintType as ILinearisedConstraintType;
             linearisedConstraintType.UpdateLocal(xReduced);
-
-            Complete(x.Size);
         }
 
 
@@ -55,10 +52,10 @@ namespace BRIDGES.Solvers.GuidedProjection
         private double[] GetXReduced(in DenseVector x)
         {
             List<double> result = new List<double>();
-            for (int i_LocalVariable = 0; i_LocalVariable < _variables.Count; i_LocalVariable++)
+            for (int i_LocalVariable = 0; i_LocalVariable < variables.Count; i_LocalVariable++)
             {
-                VariableSet variableSet = _variables[i_LocalVariable].Item1;
-                int variableIndex = _variables[i_LocalVariable].Item2;
+                VariableSet variableSet = variables[i_LocalVariable].Set;
+                int variableIndex = variables[i_LocalVariable].Index;
 
                 result.AddRange(variableSet.GetVariable(variableIndex));
             }

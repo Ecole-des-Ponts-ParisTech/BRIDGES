@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using BRIDGES.LinearAlgebra.Vectors;
+using BRIDGES.LinearAlgebra.Matrices;
 using BRIDGES.LinearAlgebra.Matrices.Sparse;
 using BRIDGES.LinearAlgebra.Matrices.Storage;
 
@@ -31,36 +32,11 @@ namespace BRIDGES.Solvers.GuidedProjection
         /// <param name="iteration"> Index of the current iteration. </param>
         private void OnWeigthUpdate(int iteration)
         {
-            Action<int> handler = WeigthUpdate;
-            if (handler != null)
-            {
-                handler(iteration);
-            }
-        }
-
-        /******************** For Energy and Quadratic Constraints ********************/
-
-        /// <summary>
-        /// Event raised whenever the members of <see cref="QuadraticConstraint"/> needs completion.
-        /// </summary>
-        private event Action<int> Completion;
-
-        /// <summary>
-        /// Raises the event which completes the members of <see cref="QuadraticConstraint"/>.
-        /// </summary>
-        /// <param name="size"> Size of the global vector X at the current iteration. </param>
-        private void OnCompletion(int size)
-        {
-            Action<int> handler = Completion;
-            if (handler != null)
-            {
-                handler(size);
-            }
+            WeigthUpdate?.Invoke(iteration);
         }
 
 
         /******************** For Quadratic Constraints ********************/
-
 
         /// <summary>
         /// Event raised whenever the members of <see cref="LinearisedConstraint"/> needs to be updated.
@@ -73,11 +49,7 @@ namespace BRIDGES.Solvers.GuidedProjection
         /// <param name="x"> Global vector X at the current iteration. </param>
         private void OnConstraintUpdate(in DenseVector x)
         {
-            Action<DenseVector> handler = ConstraintUpdate;
-            if (handler != null)
-            {
-                handler(x);
-            }
+            ConstraintUpdate?.Invoke(x);
         }
 
         #endregion
@@ -223,13 +195,11 @@ namespace BRIDGES.Solvers.GuidedProjection
         /// <returns> The new energy. </returns>
         public Energy AddEnergy(IEnergyType energyType, List<(VariableSet, int)> variables, double weight = 1.0)
         {
-            int energyIndex = _energies.Count;
-
             Energy energy = new Energy(energyType, variables, weight);
             _energies.Add(energy);
-
+/*
             Completion += energy.Complete;
-
+*/
             return energy;
         }
 
@@ -242,13 +212,11 @@ namespace BRIDGES.Solvers.GuidedProjection
         /// <returns></returns>
         public Energy AddEnergy(IEnergyType energyType, List<(VariableSet, int)> variables, Func<int,double> weightFunction)
         {
-            int energyIndex = _energies.Count;
-
             Energy energy = new Energy(energyType, variables, 0.0);
             _energies.Add(energy);
-
+/*
             Completion += energy.Complete;
-
+*/
             void energyWeightUpdater(int iteration) => energy.Weight = weightFunction(iteration);
             WeigthUpdate += energyWeightUpdater;
 
@@ -267,13 +235,11 @@ namespace BRIDGES.Solvers.GuidedProjection
         /// <returns> The new constraint. </returns>
         public QuadraticConstraint AddConstraint(IQuadraticConstraintType constraintType, List<(VariableSet, int)> variables, double weight = 1.0)
         {
-            int constraintIndex = _constraints.Count;
-
             QuadraticConstraint constraint = new QuadraticConstraint(constraintType, variables, weight);
             _constraints.Add(constraint);
-
+/*
             Completion += constraint.Complete;
-
+*/
             return constraint;
         }
 
@@ -286,13 +252,11 @@ namespace BRIDGES.Solvers.GuidedProjection
         /// <returns> The new constraint. </returns>
         public QuadraticConstraint AddConstraint(IQuadraticConstraintType constraintType, List<(VariableSet, int)> variables, Func<int, double> weightFunction)
         {
-            int constraintIndex = _constraints.Count;
-
             QuadraticConstraint constraint = new QuadraticConstraint(constraintType, variables, 0.0);
             _constraints.Add(constraint);
-
+/*
             Completion += constraint.Complete;
-
+*/
             void constraintWeightUpdater(int iteration) => constraint.Weight = weightFunction(iteration);
             WeigthUpdate += constraintWeightUpdater;
 
@@ -311,13 +275,11 @@ namespace BRIDGES.Solvers.GuidedProjection
         /// <returns> The new constraint. </returns>
         public LinearisedConstraint AddConstraint(ILinearisedConstraintType constraintType, List<(VariableSet, int)> variables, double weight = 1.0)
         {
-            int constraintIndex = _constraints.Count;
-
             LinearisedConstraint constraint = new LinearisedConstraint(constraintType, variables, weight);
             _constraints.Add(constraint);
-
+/*
             ConstraintUpdate += constraint.Update;
-
+*/
             return constraint;
         }
 
@@ -330,13 +292,11 @@ namespace BRIDGES.Solvers.GuidedProjection
         /// <returns> The new constraint. </returns>
         public LinearisedConstraint AddConstraint(ILinearisedConstraintType constraintType, List<(VariableSet, int)> variables, Func<int, double> weightFunction)
         {
-            int constraintIndex = _constraints.Count;
-
             LinearisedConstraint constraint = new LinearisedConstraint(constraintType, variables, 0.0);
             _constraints.Add(constraint);
-
+/*
             ConstraintUpdate += constraint.Update;
-
+*/
             void constraintWeightUpdater(int iteration) => constraint.Weight = weightFunction(iteration);
             WeigthUpdate += constraintWeightUpdater;
 
@@ -370,8 +330,9 @@ namespace BRIDGES.Solvers.GuidedProjection
             }
 
             /******************** Create global members (Energy and Quadratic Constraint) ********************/
-
+/*
             OnCompletion(sizeX);
+*/
         }
 
         /// <summary>
@@ -417,90 +378,12 @@ namespace BRIDGES.Solvers.GuidedProjection
         {
             /******************** Iterate on the quadratic constraints to create H and r ********************/
 
-            DictionaryOfKeys dok_H = new DictionaryOfKeys();
-            DenseVector vect_r = new DenseVector(_x.Size);
-
-            int constraintCount = 0;
-            for (int i_Cstr = 0; i_Cstr < _constraints.Count; i_Cstr++)
-            {
-                QuadraticConstraint cstr = _constraints[i_Cstr];
-
-                /******************** Use of Hi ********************/
-                if (!(cstr.GlobalHi is null))
-                {
-                    DenseVector HiX = CompressedColumn.Multiply(cstr.GlobalHi, _x);
-
-                    // Iterate on the keys (RowIndex) of the sparse vector.
-                    int size = HiX.Size;
-                    for (int i = 0; i < size; i++)
-                    {
-                        if (HiX[i] == 0.0) { continue; }
-
-                        dok_H.Add(cstr.Weight * HiX[i], constraintCount, i);
-                    }
-
-                    vect_r[constraintCount] = 0.5 * cstr.Weight * DenseVector.TransposeMultiply(_x, HiX);
-                }
-
-
-                /******************** Use of Bi ********************/
-                if (!(cstr.GlobalBi is null))
-                {
-                    SparseVector Bi = cstr.GlobalBi;
-
-                    // Iterate on the keys (RowIndex) of the sparse vector.
-                    foreach (var component in Bi.GetNonZeros()) // *.Keys is an O(1) operation.
-                    {
-                        // If value (RowIndex, ColumnIndex) already exists in dok_H, the value is added to the existing one.
-                        // This is achieved trough *.ContainsKey() which is an O(1) operation.
-                        dok_H.Add(cstr.Weight * component.Value, constraintCount, component.RowIndex); // Fill H with the contributions of Bi
-                    }
-                }
-
-                /******************** Use of Ci ********************/
-                if (!(cstr.Ci == 0.0))
-                {
-                    double Ci = (double)cstr.Ci;
-                    vect_r[constraintCount] -= cstr.Weight * Ci;
-                }
-
-
-                constraintCount++;
-            }
+            FormConstraintMembers(out CompressedColumn H, out DenseVector r);
 
 
             /******************** Iterate on the energies to create K and s ********************/
 
-            DictionaryOfKeys dok_K = new DictionaryOfKeys();
-            DenseVector vect_s = new DenseVector(_x.Size);
-
-            int energyCount = 0;
-            for (int i_Energy = 0; i_Energy < _energies.Count; i_Energy++)
-            {
-                Energy energy = _energies[i_Energy];
-
-                /******************** Use of Ki ********************/
-                if (!(energy.GlobalKi is null))
-                {
-                    SparseVector Ki = energy.GlobalKi;
-
-                    // Iterate on the keys (RowIndex) of the sparse vector.
-                    foreach (var component in Ki.GetNonZeros()) // *.Keys is an O(1) operation.
-                    {
-                        dok_K.Add(energy.Weight * component.Value, energyCount, component.RowIndex);
-                    }
-                }
-
-                /******************** Use of Si ********************/
-                if (!(energy.Si == 0.0))
-                {
-                    double Si = (double)energy.Si;
-                    vect_s[energyCount] += energy.Weight * Si;
-                }
-
-
-                energyCount++;
-            }
+            FromEnergyMembers(out CompressedColumn K, out SparseVector s);
 
 
             /******************** Solve the minimisation problem ********************/
@@ -508,33 +391,27 @@ namespace BRIDGES.Solvers.GuidedProjection
             CompressedColumn LHS; // Left hand side of the equation
             DenseVector RHS; // Right hand side of the equation
 
-            if (dok_H._values.Count != 0 && dok_K._values.Count != 0)
+            if (H.NonZerosCount != 0 && K.NonZerosCount != 0)
             {
-                CompressedColumn sparse_H = new CompressedColumn(constraintCount, _x.Size, dok_H);
-                CompressedColumn sparse_K = new CompressedColumn(energyCount, _x.Size, dok_K);
-
-                /* Major performance issue : Multiply , in transpose multiply self */
-                CompressedColumn HtH = CompressedColumn.TransposeMultiplySelf(sparse_H);
-                CompressedColumn KtK = CompressedColumn.TransposeMultiplySelf(sparse_K);
+                CompressedColumn HtH = CompressedColumn.TransposeMultiplySelf(H);
+                CompressedColumn KtK = CompressedColumn.TransposeMultiplySelf(K);
 
                 LHS = CompressedColumn.Add(HtH, KtK);
-                RHS = DenseVector.Add(CompressedColumn.TransposeMultiply(sparse_H, vect_r), CompressedColumn.TransposeMultiply(sparse_K, vect_s));
+                RHS = DenseVector.Add(CompressedColumn.TransposeMultiply(H, r), CompressedColumn.TransposeMultiply(K, s));
             }
             else
             {
-                if (dok_H._values.Count != 0)
+                if (H.NonZerosCount != 0)
                 {
-                    CompressedColumn sparse_H = new CompressedColumn(_x.Size, _x.Size, dok_H);
-
-                    LHS = CompressedColumn.TransposeMultiplySelf(sparse_H);
-                    RHS = CompressedColumn.TransposeMultiply(sparse_H, vect_r);
+                    LHS = CompressedColumn.TransposeMultiplySelf(H);
+                    RHS = CompressedColumn.TransposeMultiply(H, r);
                 }
-                else if (dok_K._values.Count != 0)
+                else if (K.NonZerosCount != 0)
                 {
-                    CompressedColumn sparse_K = new CompressedColumn(_x.Size, _x.Size, dok_K);
+                    DenseVector tmp = new DenseVector(s.ToArray());
 
-                    LHS = CompressedColumn.TransposeMultiplySelf(sparse_K);
-                    RHS = CompressedColumn.TransposeMultiply(sparse_K, vect_s);
+                    LHS = CompressedColumn.TransposeMultiplySelf(K);
+                    RHS = CompressedColumn.TransposeMultiply(K, tmp);
                 }
                 else { throw new InvalidOperationException("The matrices H and K are empty."); }
             }
@@ -545,47 +422,152 @@ namespace BRIDGES.Solvers.GuidedProjection
             return LHS.SolveCholesky(RHS);
         }
 
-        #endregion
 
-
-        #region Helpers
-
-        /**************************************** For Iteration ****************************************/
-
-        private Dictionary<int, double> Multiply(DictionaryOfKeys matrix, DenseVector vector)
+        /// <summary>
+        /// Forms the system members derived from the constraints.
+        /// </summary>
+        /// <param name="H"> The matrix H. </param>
+        /// <param name="r"> The vector r. </param>
+        private void FormConstraintMembers(out CompressedColumn H, out DenseVector r)
         {
-            Dictionary<(int, int), double> values = matrix._values;
+            DictionaryOfKeys dok_H = new DictionaryOfKeys();
+            List<double> list_r = new List<double>(_constraints.Count);
 
-            Dictionary<int, double> product = new Dictionary<int, double>(values.Count);
+            int constraintCount = 0;
 
-            // Iterate on the keys (RowIndex, ColumnIndex) of the matrix
-            foreach ((int, int) key in matrix._values.Keys) // *.Keys is an O(1) operation
+            for (int i_Cstr = 0; i_Cstr < _constraints.Count; i_Cstr++)
             {
-                if (product.ContainsKey(key.Item1)) // *.ContainsKey is an O(1) operation
+                QuadraticConstraint cstr = _constraints[i_Cstr];
+
+                // Verifications
+                if (cstr.Weight == 0d) { continue; }
+
+
+                List<(VariableSet Set, int Index)> variables = cstr.variables;
+                IQuadraticConstraintType constraintType = cstr.constraintType;
+
+                int size = constraintType.LocalHi.ColumnCount;
+
+
+                /******************** Create the Row Indices ********************/
+
+                // Translating the local indices of the constraint defined on xReduced into global indices defined on x.
+                List<int> rowIndex = new List<int>(size);
+                for (int i_Variable = 0; i_Variable < variables.Count; i_Variable++)
                 {
-                    product[key.Item1] += values[key] * vector[key.Item2];
+                    int startIndex = variables[i_Variable].Set.FirstRank + (variables[i_Variable].Set.VariableDimension * variables[i_Variable].Index);
+
+                    for (int i_VarComp = 0; i_VarComp < variables[i_Variable].Set.VariableDimension; i_VarComp++)
+                    {
+                        rowIndex.Add(startIndex + i_VarComp);
+                    }
                 }
-                else { product.Add(key.Item1, values[key] * vector[key.Item2]); }
+
+
+                /******************** Create xReduced ********************/
+
+                double[] components = new double[size];
+                for (int i_Comp = 0; i_Comp < size; i_Comp++)
+                {
+                    components[i_Comp] = _x[rowIndex[i_Comp]];
+                }
+                DenseVector xReduced = new DenseVector(components);
+
+
+                /******************** Compute Temporary Values ********************/
+
+                // Compute HiX
+                DenseVector tmp_Vect = SparseMatrix.Multiply(constraintType.LocalHi, xReduced);
+
+                // Compute XtHiX
+                double tmp_Val = DenseVector.TransposeMultiply(xReduced, tmp_Vect);
+
+
+                /******************** For r ********************/
+
+                if (cstr.constraintType.Ci == 0.0) { list_r.Add(cstr.Weight * 0.5 * tmp_Val); }
+                else { list_r.Add(cstr.Weight * (0.5 * tmp_Val - constraintType.Ci)); }
+
+
+                /******************** For H ********************/
+
+                if (!(cstr.constraintType.LocalBi is null))
+                {
+                    tmp_Vect = DenseVector.Add(tmp_Vect, cstr.constraintType.LocalBi);
+                }
+
+                for (int i_Comp = 0; i_Comp < size; i_Comp++)
+                {
+                    if (tmp_Vect[i_Comp] == 0d) { continue;  }
+                    dok_H.Add(cstr.Weight * tmp_Vect[i_Comp], constraintCount, rowIndex[i_Comp]);
+                }
+
+                constraintCount++;
             }
 
-            return product;
+            H = new CompressedColumn(constraintCount, _x.Size, dok_H);
+            r = new DenseVector(list_r.ToArray());
         }
 
-        private double TransposeMultiply(Vector leftVector, Dictionary<int, double> rightSparseVector)
+        /// <summary>
+        /// Forms the system members derived from the energies.
+        /// </summary>
+        /// <param name="K"> The matrix K. </param>
+        /// <param name="s"> The vector s. </param>
+        private void FromEnergyMembers(out CompressedColumn K, out SparseVector s)
         {
-            // Output of the method
-            double dotProduct = 0;
+            DictionaryOfKeys dok_K = new DictionaryOfKeys();
+            Dictionary<int, double> dict_s = new Dictionary<int, double>(_energies.Count);
 
-            // Iterate on the keys (RowIndex) of the sparse vector.
-            foreach (int key in rightSparseVector.Keys) // *.Keys is an O(1) operation
+            int energyCount = 0;
+            for (int i_Energy = 0; i_Energy < _energies.Count; i_Energy++)
             {
-                dotProduct += leftVector[key] * rightSparseVector[key];
+                Energy energy = _energies[i_Energy];
+
+                // Verifications
+                if (energy.Weight == 0d) { continue; }
+
+
+                List<(VariableSet Set, int Index)> variables = energy.variables;
+                IEnergyType energyType = energy.energyType;
+
+
+                /******************** Create the Row Indices ********************/
+
+                // Translating the local indices of the constraint defined on xReduced into global indices defined on x.
+                List<int> rowIndex = new List<int>();
+                for (int i_Variable = 0; i_Variable < energy.variables.Count; i_Variable++)
+                {
+                    int startIndex = variables[i_Variable].Set.FirstRank + (variables[i_Variable].Set.VariableDimension * variables[i_Variable].Index);
+
+                    for (int i_Component = 0; i_Component < variables[i_Variable].Set.VariableDimension; i_Component++)
+                    {
+                        rowIndex.Add(startIndex + i_Component);
+                    }
+                }
+
+                /******************** For s ********************/
+
+                if (!(energyType.Si == 0.0))
+                {
+                    dict_s.Add(energyCount, energy.Weight * energy.energyType.Si);
+                }
+
+                /******************** For K ********************/
+
+                foreach (var (RowIndex, Value) in energyType.LocalKi.GetNonZeros())
+                {
+                    dok_K.Add(energy.Weight * Value, energyCount, rowIndex[RowIndex]);
+                }
+
+                energyCount++;
             }
 
-            return dotProduct;
+            K = new CompressedColumn(energyCount, _x.Size, dok_K);
+            s = new SparseVector(energyCount, ref  dict_s);
         }
-
 
         #endregion
+
     }
 }
