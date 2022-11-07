@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using BRIDGES.LinearAlgebra.Vectors;
-using BRIDGES.LinearAlgebra.Matrices;
-using BRIDGES.LinearAlgebra.Matrices.Sparse;
-using BRIDGES.LinearAlgebra.Matrices.Storage;
-
 using BRIDGES.Solvers.GuidedProjection.Interfaces;
+
 
 namespace BRIDGES.Solvers.GuidedProjection
 {

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using BRIDGES.LinearAlgebra.Vectors;
-
 using BRIDGES.Solvers.GuidedProjection.Interfaces;
 
 

@@ -5,10 +5,10 @@ using BRIDGES.LinearAlgebra.Vectors;
 using BRIDGES.Solvers.GuidedProjection.Interfaces;
 
 
-namespace BRIDGES.Solvers.GuidedProjection.QuadraticConstraints
+namespace BRIDGES.Solvers.GuidedProjection.EnergyTypes
 {
     /// <summary>
-    /// Constraint enforcing a segment defined from two point variables, <em>pi</em> and <em>pj</em>, to be orthogonal to a given direction <em>v</em>.
+    /// Energy enforcing a segment defined from two point variables, <em>pi</em> and <em>pj</em>, to be orthogonal to a constant direction <em>v</em>.
     /// </summary>
     /// <remarks> The vector xReduced = [pi, pj].</remarks>
     public class SegmentOrthogonality : IEnergyType

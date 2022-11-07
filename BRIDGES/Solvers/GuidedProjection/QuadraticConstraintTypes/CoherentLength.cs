@@ -9,7 +9,7 @@ using BRIDGES.Solvers.GuidedProjection.Interfaces;
 namespace BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes
 {
     /// <summary>
-    /// Constraint enforcing a scalar variable <em>l</em> to match with the distance between two point variables, <em>pi</em> and <em>pe</em>.
+    /// Constraint enforcing a scalar variable <em>l</em> to match with the distance between two point variables, <em>pi</em> and <em>pj</em>.
     /// </summary>
     /// <remarks> The vector xReduced = [pi, pj, l].</remarks>
     public class CoherentLength : IQuadraticConstraintType

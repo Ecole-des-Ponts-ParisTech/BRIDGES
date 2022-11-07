@@ -197,9 +197,7 @@ namespace BRIDGES.Solvers.GuidedProjection
         {
             Energy energy = new Energy(energyType, variables, weight);
             _energies.Add(energy);
-/*
-            Completion += energy.Complete;
-*/
+
             return energy;
         }
 
@@ -214,9 +212,7 @@ namespace BRIDGES.Solvers.GuidedProjection
         {
             Energy energy = new Energy(energyType, variables, 0.0);
             _energies.Add(energy);
-/*
-            Completion += energy.Complete;
-*/
+
             void energyWeightUpdater(int iteration) => energy.Weight = weightFunction(iteration);
             WeigthUpdate += energyWeightUpdater;
 
@@ -237,9 +233,7 @@ namespace BRIDGES.Solvers.GuidedProjection
         {
             QuadraticConstraint constraint = new QuadraticConstraint(constraintType, variables, weight);
             _constraints.Add(constraint);
-/*
-            Completion += constraint.Complete;
-*/
+
             return constraint;
         }
 
@@ -254,9 +248,7 @@ namespace BRIDGES.Solvers.GuidedProjection
         {
             QuadraticConstraint constraint = new QuadraticConstraint(constraintType, variables, 0.0);
             _constraints.Add(constraint);
-/*
-            Completion += constraint.Complete;
-*/
+
             void constraintWeightUpdater(int iteration) => constraint.Weight = weightFunction(iteration);
             WeigthUpdate += constraintWeightUpdater;
 
@@ -277,9 +269,7 @@ namespace BRIDGES.Solvers.GuidedProjection
         {
             LinearisedConstraint constraint = new LinearisedConstraint(constraintType, variables, weight);
             _constraints.Add(constraint);
-/*
-            ConstraintUpdate += constraint.Update;
-*/
+
             return constraint;
         }
 
@@ -294,9 +284,7 @@ namespace BRIDGES.Solvers.GuidedProjection
         {
             LinearisedConstraint constraint = new LinearisedConstraint(constraintType, variables, 0.0);
             _constraints.Add(constraint);
-/*
-            ConstraintUpdate += constraint.Update;
-*/
+
             void constraintWeightUpdater(int iteration) => constraint.Weight = weightFunction(iteration);
             WeigthUpdate += constraintWeightUpdater;
 
@@ -328,11 +316,6 @@ namespace BRIDGES.Solvers.GuidedProjection
                     _x[variableSet.FirstRank + i_Component] = variableSet.GetComponent(i_Component);
                 }
             }
-
-            /******************** Create global members (Energy and Quadratic Constraint) ********************/
-/*
-            OnCompletion(sizeX);
-*/
         }
 
         /// <summary>

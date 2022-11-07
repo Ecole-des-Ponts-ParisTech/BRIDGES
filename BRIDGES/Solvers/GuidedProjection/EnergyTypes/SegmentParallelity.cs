@@ -8,7 +8,7 @@ using BRIDGES.Solvers.GuidedProjection.Interfaces;
 namespace BRIDGES.Solvers.GuidedProjection.EnergyTypes
 {
     /// <summary>
-    /// Energy enforcing a segment defined from two point variables, <em>pi</em> and <em>pj</em>, to be parallel to a given direction <em>v</em>.
+    /// Energy enforcing a segment defined from two point variables, <em>pi</em> and <em>pj</em>, to be parallel to a constant direction <em>v</em>.
     /// </summary>
     /// <remarks> 
     /// A scalar variable <em>l</em> identified as the segment length must be defined.<br/>
