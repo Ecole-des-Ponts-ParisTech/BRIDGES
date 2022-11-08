@@ -146,6 +146,19 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
             _storedMatrix = new CSparse.Double.SparseMatrix(rowCount, columnCount, values, rowIndices, columnPointers);
         }
 
+        /// <summary>
+        /// Initialises a new instance of the <see cref="CompressedColumn"/> class from a CSparse compressed column storage.
+        /// </summary>
+        /// <param name="ccs"> CSparse compressed column storage. </param>
+        public CompressedColumn(CompressedColumn ccs)
+        {
+            int[] columnPointer = ccs._storedMatrix.ColumnPointers.Clone() as int[];
+            int[] rowIndices = ccs._storedMatrix.RowIndices.Clone() as int[];
+            double[] values = ccs._storedMatrix.Values.Clone() as double[];
+
+            _storedMatrix = new CSparse.Double.SparseMatrix(ccs.RowCount, ccs.ColumnCount, values, rowIndices, columnPointer);
+        }
+
 
         /// <summary>
         /// Initialises a new instance of the <see cref="CompressedColumn"/> class by defining its number of row and column.
@@ -740,17 +753,23 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
             return kernel;
         }
 
+
         /// <summary>
         /// Solve the system <code>Ax=y</code> using Cholesky decomposition.
         /// </summary>
         /// <param name="vector"> The vector y in the system. </param>
         /// <returns> The vector x in the system. </returns>
-        public DenseVector SolveCholesky(DenseVector vector)
+        public DenseVector SolveCholesky(Vector vector)
         {
             var cholesky = CSparse.Double.Factorization.SparseCholesky.Create(_storedMatrix, CSparse.ColumnOrdering.MinimumDegreeAtPlusA);
 
+            double[] components;
+            if (vector is SparseVector sparse) { components = sparse.ToArray(); }
+            else if (vector is DenseVector dense) { components = dense._components; }
+            else { throw new NotImplementedException($"The resolution of the linear system from a {vector.GetType()} as a {nameof(Vector)} is not implemented."); }
+
             double[] x = new double[ColumnCount];
-            cholesky.Solve(vector._components, x);
+            cholesky.Solve(components, x);
             return new DenseVector(x);
         }
 

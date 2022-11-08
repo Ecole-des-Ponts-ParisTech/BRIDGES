@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Collections.Generic;
 
 using BRIDGES.LinearAlgebra.Vectors;
@@ -7,7 +8,7 @@ using BRIDGES.LinearAlgebra.Matrices.Sparse;
 using BRIDGES.LinearAlgebra.Matrices.Storage;
 
 using BRIDGES.Solvers.GuidedProjection.Interfaces;
-
+using System.Drawing;
 
 namespace BRIDGES.Solvers.GuidedProjection
 {
@@ -75,6 +76,11 @@ namespace BRIDGES.Solvers.GuidedProjection
         /// Vector containing the variables of the <see cref="GuidedProjectionAlgorithm"/>.
         /// </summary>
         private DenseVector _x;
+
+        /// <summary>
+        /// Identity matrix multiplied by Epsilon*Epsilon.
+        /// </summary>
+        private CompressedColumn _epsEpsIdentity;
 
         #endregion
 
@@ -316,12 +322,18 @@ namespace BRIDGES.Solvers.GuidedProjection
                     _x[variableSet.FirstRank + i_Component] = variableSet.GetComponent(i_Component);
                 }
             }
+
+
+            /******************** Create Utilities ********************/
+
+            _epsEpsIdentity = CompressedColumn.Multiply(Epsilon * Epsilon, CompressedColumn.Identity(_x.Size));
         }
 
         /// <summary>
         /// Runs one iteration.
         /// </summary>
-        public void RunIteration()
+        /// <param name="useAsync"> Evaluates whether the iteration should use asynchronous programming or not. </param>
+        public void RunIteration(bool useAsync)
         {
             /********** Iteration Updates **********/
 
@@ -332,8 +344,18 @@ namespace BRIDGES.Solvers.GuidedProjection
 
             /********** Formulate and Solve the System  **********/
 
-            _x = FormAndSolveSystem();
+            if (useAsync)
+            {
+                var task = FormAndSolveSystem_Async();
 
+                Task.WaitAll(task);
+
+                _x = task.Result;
+            }
+            else
+            {
+                _x = FormAndSolveSystem();
+            }
 
             /******************** Update Variables ********************/
 
@@ -399,12 +421,86 @@ namespace BRIDGES.Solvers.GuidedProjection
                 else { throw new InvalidOperationException("The matrices H and K are empty."); }
             }
 
-            LHS = CompressedColumn.Add(LHS, CompressedColumn.Multiply(Epsilon * Epsilon, CompressedColumn.Identity(_x.Size)));
+            LHS = CompressedColumn.Add(LHS, _epsEpsIdentity);
             RHS = DenseVector.Add(RHS, DenseVector.Multiply(Epsilon * Epsilon, _x));
 
             return LHS.SolveCholesky(RHS);
         }
 
+        /// <summary>
+        /// Compute the members of the system and solves it using Cholesky factorisation.
+        /// </summary>
+        /// <returns> The solution of the sytem. </returns>
+        private async Task<DenseVector> FormAndSolveSystem_Async()
+        {
+            CompressedColumn LHS;   // Left hand side of the equation
+            Vector RHS;        // Right hand side of the equation
+
+
+            var task_FormConstraintMembers = FormConstraintMembers();
+            var task_FormEnergyMembers = FormEnergyMembers();
+
+            Task<(CompressedColumn Matrix, Vector Vector)> task_FormMember;
+            Task<CompressedColumn> task_LHS; Task<Vector> task_RHS;
+
+            Task finishedTask = await Task.WhenAny(task_FormConstraintMembers, task_FormEnergyMembers);
+            if (finishedTask == task_FormConstraintMembers)
+            {
+                (CompressedColumn HtH, Vector Htr) = task_FormConstraintMembers.Result;
+
+                task_LHS = AddMatrices(HtH, _epsEpsIdentity);
+                task_RHS = AddVectors(Htr, DenseVector.Multiply(Epsilon * Epsilon, _x));
+
+                task_FormMember = task_FormEnergyMembers;
+            }
+            else
+            {
+                (CompressedColumn KtK, Vector Kts) = task_FormEnergyMembers.Result;
+
+                task_LHS = AddMatrices(KtK, _epsEpsIdentity);
+                task_RHS = AddVectors(Kts, DenseVector.Multiply(Epsilon * Epsilon, _x));
+
+                task_FormMember = task_FormConstraintMembers;
+            }
+
+            List<Task> activeTasks = new List<Task> { task_LHS, task_RHS, task_FormMember };
+
+            while (activeTasks.Count > 0)
+            {
+                await Task.WhenAny(activeTasks);
+
+                if (task_FormMember.IsCompleted && task_LHS.IsCompleted)
+                {
+                    activeTasks.Remove(task_FormMember); activeTasks.Remove(task_LHS);
+
+                    CompressedColumn matrix = task_FormMember.Result.Matrix;
+                    LHS = task_LHS.Result;
+
+                    task_LHS = AddMatrices(LHS, matrix);
+                }
+                if (task_FormMember.IsCompleted && task_RHS.IsCompleted)
+                {
+                    activeTasks.Remove(task_FormMember); activeTasks.Remove(task_RHS);
+
+                    Vector vector = task_FormMember.Result.Vector;
+                    RHS = task_RHS.Result;
+
+                    task_RHS = AddVectors(RHS, vector);
+                }
+            }
+
+            Task.WaitAll(task_LHS, task_RHS);
+
+            LHS = task_LHS.Result;
+            RHS = task_RHS.Result;
+
+            return LHS.SolveCholesky(RHS);
+        }
+
+        #endregion
+
+
+        #region Helper - Synchronous
 
         /// <summary>
         /// Forms the system members derived from the constraints.
@@ -432,7 +528,6 @@ namespace BRIDGES.Solvers.GuidedProjection
                 int size = constraintType.LocalHi.ColumnCount;
 
 
-                /******************** Create the Row Indices ********************/
 
                 // Translating the local indices of the constraint defined on xReduced into global indices defined on x.
                 List<int> rowIndex = new List<int>(size);
@@ -552,5 +647,305 @@ namespace BRIDGES.Solvers.GuidedProjection
 
         #endregion
 
+        #region Helpers - Asynchronous 
+
+        /********** Constraint Members **********/
+
+        private Task<(CompressedColumn HtH, Vector Htr)> FormConstraintMembers()
+        {
+            return Task.Run(() =>
+            {
+                System.Collections.Concurrent.ConcurrentBag<(SparseVector ColumnHt, double ValueR)> bag = new System.Collections.Concurrent.ConcurrentBag<(SparseVector ColumnHt, double ValueR)>();
+
+                Parallel.For(0, _constraints.Count, (int i_Cstr) =>
+                {
+                    /******************** Initialise Iteration ********************/
+
+                    QuadraticConstraint constraint = _constraints[i_Cstr];
+
+                    if (constraint.Weight == 0d) { return; }
+
+
+                    List<(VariableSet Set, int Index)> variables = constraint.variables;
+                    IQuadraticConstraintType constraintType = constraint.constraintType;
+
+                    int size = constraintType.LocalHi.ColumnCount;
+
+                    /******************** Devise xReduced ********************/
+
+                    DenseVector xReduced = DeviseXReduced(size, variables, out int[] rowIndices);
+
+
+                    /******************** Compute Temporary Values ********************/
+
+                    // Compute HiX
+                    DenseVector tmp_Vect = SparseMatrix.Multiply(constraintType.LocalHi, xReduced);
+
+                    // Compute XtHiX
+                    double tmp_Val = DenseVector.TransposeMultiply(xReduced, tmp_Vect);
+
+
+                    /******************** For r *******************/
+
+                    if (constraintType.Ci == 0.0) { tmp_Val = constraint.Weight * 0.5 * tmp_Val; }
+                    else { tmp_Val = constraint.Weight * (0.5 * tmp_Val - constraintType.Ci); }
+
+
+                    /******************** For Ht *******************/
+
+
+                    if (!(constraintType.LocalBi is null))
+                    {
+                        tmp_Vect = DenseVector.Add(tmp_Vect, constraintType.LocalBi);
+                    }
+
+                    Dictionary<int, double> components = new Dictionary<int, double>(size);
+                    for (int i_Comp = 0; i_Comp < size; i_Comp++)
+                    {
+                        if (tmp_Vect[i_Comp] == 0d) { continue; }
+                        components.Add(rowIndices[i_Comp], constraint.Weight * tmp_Vect[i_Comp]);
+                    }
+
+                    /******************** Finally *******************/
+
+                    bag.Add((new SparseVector(X.Size, ref components), tmp_Val));
+
+                });
+
+                (CompressedColumn Ht, DenseVector r) = AssembleConstraintMembers(_x.Size, bag);
+
+                (CompressedColumn HtH, DenseVector Htr) = MultiplyConstraintMembers(Ht, r);
+
+                return (HtH, Htr as Vector);
+            });
+        }
+
+
+        /// <summary>
+        /// Devises the component of xReduced.
+        /// </summary>
+        /// <param name="size"> Size of xReduced. </param>
+        /// <param name="variables"> Variables contained in xReduced. </param>
+        /// <param name="rowIndices"> The row indices of the components composing xReduced. </param>
+        /// <returns> The dense vector xReduced. </returns>
+        private DenseVector DeviseXReduced(int size, List<(VariableSet Set, int Index)> variables, out int[] rowIndices)
+        {
+            /******************** Create the Row Indices ********************/
+
+            // Translating the local indices of the constraint defined on xReduced into global indices defined on x.
+            rowIndices = new int[size];
+
+            int counter = 0;
+            for (int i_Variable = 0; i_Variable < variables.Count; i_Variable++)
+            {
+                int startIndex = variables[i_Variable].Set.FirstRank + (variables[i_Variable].Set.VariableDimension * variables[i_Variable].Index);
+
+                for (int i_VarComp = 0; i_VarComp < variables[i_Variable].Set.VariableDimension; i_VarComp++)
+                {
+                    rowIndices[counter] = startIndex + i_VarComp;
+                    counter++;
+                }
+            }
+
+
+            /******************** Create xReduced ********************/
+
+            double[] components = new double[size];
+            for (int i_Comp = 0; i_Comp < size; i_Comp++)
+            {
+                components[i_Comp] = _x[rowIndices[i_Comp]];
+            }
+
+            return new DenseVector(components);
+        }
+
+
+        /// <summary>
+        /// Assemble the data to create the tranposed matrix Ht and the vector r
+        /// </summary>
+        /// <param name="size"> Size of the global vector x. </param>
+        /// <param name="bag"> Collection containing the components of the constraint members. </param>
+        /// <returns></returns>
+        private (CompressedColumn Ht, DenseVector r) AssembleConstraintMembers(int size, System.Collections.Concurrent.ConcurrentBag<(SparseVector ColumnHt, double ValueR)> bag)
+        {
+            List<int> columnPointers = new List<int>();
+            List<int> rowIndices = new List<int>();
+            List<double> values = new List<double>();
+
+            List<double> list_r = new List<double>();
+
+            columnPointers.Add(0);
+            foreach ((SparseVector ColumnHt, double ValueR) in bag)
+            {
+                foreach ((int RowIndex, double Value) in ColumnHt.GetNonZeros())
+                {
+                    rowIndices.Add(RowIndex);
+                    values.Add(Value);
+                }
+                columnPointers.Add(values.Count);
+
+                list_r.Add(ValueR);
+            }
+
+            CompressedColumn Ht = new CompressedColumn(size, bag.Count, columnPointers.ToArray(), rowIndices.ToArray(), values.ToArray());
+            DenseVector r = new DenseVector(list_r.ToArray());
+
+            return (Ht, r);
+        }
+
+        private (CompressedColumn HtH, DenseVector Htr) MultiplyConstraintMembers(CompressedColumn Ht, DenseVector r)
+        {
+            Task<CompressedColumn> task_HtH = Task.Run(() =>
+            {
+                CompressedColumn H = new CompressedColumn(Ht); H.Transpose();
+                return CompressedColumn.Multiply(Ht, H);
+            });
+
+            Task<DenseVector> task_Htr = Task.Run(() =>
+            {
+                return CompressedColumn.Multiply(Ht, r);
+            });
+
+            Task.WaitAll(task_Htr, task_HtH);
+
+            CompressedColumn HtH = task_HtH.Result;
+            DenseVector Htr = task_Htr.Result;
+
+            return (HtH, Htr);
+        }
+
+
+        /********** Energy Members **********/
+
+        private Task<(CompressedColumn KtK, Vector Kts)> FormEnergyMembers()
+        {
+            return Task.Run(() => 
+            {
+                System.Collections.Concurrent.ConcurrentBag<(SparseVector ColumnKt, double ValueS)> bag = new System.Collections.Concurrent.ConcurrentBag<(SparseVector ColumnKt, double ValueS)>();
+
+                Parallel.For(0, _energies.Count, (int i_Energy) => 
+                {
+                    Energy energy = _energies[i_Energy];
+
+                    // Verifications
+                    if (energy.Weight == 0d) { return; }
+
+                    List<(VariableSet Set, int Index)> variables = energy.variables;
+                    IEnergyType energyType = energy.energyType;
+
+                    int size = energyType.LocalKi.Size;
+
+                    /******************** Create the Row Indices ********************/
+
+                    // Translating the local indices of the constraint defined on xReduced into global indices defined on x.
+                    List<int> rowIndices = new List<int>();
+                    for (int i_Variable = 0; i_Variable < energy.variables.Count; i_Variable++)
+                    {
+                        int startIndex = variables[i_Variable].Set.FirstRank + (variables[i_Variable].Set.VariableDimension * variables[i_Variable].Index);
+
+                        for (int i_Component = 0; i_Component < variables[i_Variable].Set.VariableDimension; i_Component++)
+                        {
+                            rowIndices.Add(startIndex + i_Component);
+                        }
+                    }
+
+                    /******************** For s ********************/
+
+                    double tmp_Val = 0.0;
+                    if (!(energyType.Si == 0.0))
+                    {
+                        tmp_Val = energy.Weight * energy.energyType.Si;
+                    }
+
+                    /******************** For Kt ********************/
+
+                    Dictionary<int, double> components = new Dictionary<int, double>(size);
+                    foreach (var (RowIndex, Value) in energyType.LocalKi.GetNonZeros())
+                    {
+                        components.Add(rowIndices[RowIndex], energy.Weight * Value);
+                    }
+
+                    /******************** Finally *******************/
+
+                    bag.Add((new SparseVector(X.Size, ref components), tmp_Val));
+
+                });
+
+                (CompressedColumn Kt, SparseVector s) = AssembleEnergyMembers(_x.Size, bag);
+
+                (CompressedColumn KtK, SparseVector Kts) = MultiplyEnergyMembers(Kt, s);
+
+                return (KtK, Kts as Vector);
+            });
+        }
+
+
+        private (CompressedColumn Kt, SparseVector s) AssembleEnergyMembers(int size, System.Collections.Concurrent.ConcurrentBag<(SparseVector ColumnKt, double ValueS)> bag)
+        {
+            List<int> columnPointers = new List<int>();
+            List<int> rowIndices = new List<int>();
+            List<double> values = new List<double>();
+
+            Dictionary<int, double> dict_s = new Dictionary<int,double>();
+
+            columnPointers.Add(0);
+            int counter = 0;
+            foreach ((SparseVector ColumnKt, double ValueS) in bag)
+            {
+                foreach ((int RowIndex, double Value) in ColumnKt.GetNonZeros())
+                {
+                    rowIndices.Add(RowIndex);
+                    values.Add(Value);
+                }
+                columnPointers.Add(values.Count);
+
+                if (ValueS != 0.0)
+                dict_s.Add(counter, ValueS);
+
+                counter++;
+            }
+
+            CompressedColumn Kt = new CompressedColumn(size, bag.Count, columnPointers.ToArray(), rowIndices.ToArray(), values.ToArray());
+            SparseVector s = new SparseVector(bag.Count, ref dict_s);
+
+            return (Kt, s);
+        }
+
+        private (CompressedColumn KtK, SparseVector Kts) MultiplyEnergyMembers(CompressedColumn Kt, SparseVector s)
+        {
+            Task<CompressedColumn> task_KtK = Task.Run(() =>
+            {
+                CompressedColumn K = new CompressedColumn(Kt); K.Transpose();
+                return CompressedColumn.Multiply(Kt, K);
+            });
+
+            Task<SparseVector> task_Kts = Task.Run(() =>
+            {
+                return CompressedColumn.Multiply(Kt, s);
+            });
+
+            Task.WaitAll(task_KtK, task_Kts);
+
+            CompressedColumn KtK = task_KtK.Result;
+            SparseVector Kts = task_Kts.Result;
+
+            return (KtK, Kts);
+        }
+
+
+        /********** Common Tasks **********/
+
+        private Task<Vector> AddVectors(Vector left, Vector right)
+        {
+            return Task.Run(() => Vector.Add(left, right));
+        }
+
+        private Task<CompressedColumn> AddMatrices(CompressedColumn left, CompressedColumn right)
+        {
+            return Task.Run(() => CompressedColumn.Add(left, right));
+        }
+
+
+        #endregion
     }
 }
