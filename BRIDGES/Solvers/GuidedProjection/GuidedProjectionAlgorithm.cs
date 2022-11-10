@@ -342,7 +342,7 @@ namespace BRIDGES.Solvers.GuidedProjection
             OnWeigthUpdate(IterationIndex);
 
 
-            /********** Formulate and Solve the System  **********/
+            /********** Formulate and Solve the System **********/
 
             if (useAsync)
             {
@@ -357,7 +357,8 @@ namespace BRIDGES.Solvers.GuidedProjection
                 _x = FormAndSolveSystem();
             }
 
-            /******************** Update Variables ********************/
+
+            /********** Update Variables **********/
 
             // Fill the VariableSet with the updated values
             for (int i_VariableSet = 0; i_VariableSet < _variableSets.Count; i_VariableSet++)
@@ -440,7 +441,7 @@ namespace BRIDGES.Solvers.GuidedProjection
             var task_FormConstraintMembers = FormConstraintMembers();
             var task_FormEnergyMembers = FormEnergyMembers();
 
-            Task<(CompressedColumn Matrix, Vector Vector)> task_FormMember;
+            Task<(CompressedColumn Matrix, Vector Vector)> task_FormSomeMembers;
             Task<CompressedColumn> task_LHS; Task<Vector> task_RHS;
 
             Task finishedTask = await Task.WhenAny(task_FormConstraintMembers, task_FormEnergyMembers);
@@ -448,45 +449,48 @@ namespace BRIDGES.Solvers.GuidedProjection
             {
                 (CompressedColumn HtH, Vector Htr) = task_FormConstraintMembers.Result;
 
-                task_LHS = AddMatrices(HtH, _epsEpsIdentity);
-                task_RHS = AddVectors(Htr, DenseVector.Multiply(Epsilon * Epsilon, _x));
+                task_LHS = Task.Run(() => CompressedColumn.Add(HtH, _epsEpsIdentity));
+                task_RHS = Task.Run(() => DenseVector.Add(Htr, DenseVector.Multiply(Epsilon * Epsilon, _x)) as Vector);
 
-                task_FormMember = task_FormEnergyMembers;
+                task_FormSomeMembers = task_FormEnergyMembers;
             }
-            else
+            else if(finishedTask == task_FormEnergyMembers)
             {
                 (CompressedColumn KtK, Vector Kts) = task_FormEnergyMembers.Result;
 
-                task_LHS = AddMatrices(KtK, _epsEpsIdentity);
-                task_RHS = AddVectors(Kts, DenseVector.Multiply(Epsilon * Epsilon, _x));
-
-                task_FormMember = task_FormConstraintMembers;
+                task_LHS = Task.Run(() => CompressedColumn.Add(KtK, _epsEpsIdentity));
+                task_RHS = Task.Run(() => DenseVector.Add(Kts, DenseVector.Multiply(Epsilon * Epsilon, _x)) as Vector);
+                 
+                task_FormSomeMembers = task_FormConstraintMembers;
             }
+            else { throw new Exception("The finished task does not correspond to one of the supplied task."); }
 
-            List<Task> activeTasks = new List<Task> { task_LHS, task_RHS, task_FormMember };
 
+            (CompressedColumn matrix, Vector vector) = await task_FormSomeMembers;
+
+
+            List<Task> activeTasks = new List<Task> { task_LHS, task_RHS };
             while (activeTasks.Count > 0)
             {
-                await Task.WhenAny(activeTasks);
+                finishedTask = await Task.WhenAny(activeTasks);
 
-                if (task_FormMember.IsCompleted && task_LHS.IsCompleted)
+                if (finishedTask == task_LHS)
                 {
-                    activeTasks.Remove(task_FormMember); activeTasks.Remove(task_LHS);
+                    activeTasks.Remove(task_LHS);
 
-                    CompressedColumn matrix = task_FormMember.Result.Matrix;
                     LHS = task_LHS.Result;
 
-                    task_LHS = AddMatrices(LHS, matrix);
+                    task_LHS = Task.Run(() => CompressedColumn.Add(LHS, matrix));
                 }
-                if (task_FormMember.IsCompleted && task_RHS.IsCompleted)
+                else if (finishedTask == task_RHS)
                 {
-                    activeTasks.Remove(task_FormMember); activeTasks.Remove(task_RHS);
+                    activeTasks.Remove(task_RHS);
 
-                    Vector vector = task_FormMember.Result.Vector;
                     RHS = task_RHS.Result;
 
-                    task_RHS = AddVectors(RHS, vector);
+                    task_RHS = Task.Run(() => DenseVector.Add(RHS, vector));
                 }
+                else { throw new Exception("The finished task does not correspond to one of the supplied task."); }
             }
 
             Task.WaitAll(task_LHS, task_RHS);
@@ -525,29 +529,29 @@ namespace BRIDGES.Solvers.GuidedProjection
                 List<(VariableSet Set, int Index)> variables = cstr.variables;
                 IQuadraticConstraintType constraintType = cstr.constraintType;
 
-                int size = constraintType.LocalHi.ColumnCount;
+                int sizeReduced = constraintType.LocalHi.ColumnCount;
 
-
+                /******************** Create the Row Indices ********************/
 
                 // Translating the local indices of the constraint defined on xReduced into global indices defined on x.
-                List<int> rowIndex = new List<int>(size);
+                List<int> rowIndices = new List<int>(sizeReduced);
                 for (int i_Variable = 0; i_Variable < variables.Count; i_Variable++)
                 {
                     int startIndex = variables[i_Variable].Set.FirstRank + (variables[i_Variable].Set.VariableDimension * variables[i_Variable].Index);
 
                     for (int i_VarComp = 0; i_VarComp < variables[i_Variable].Set.VariableDimension; i_VarComp++)
                     {
-                        rowIndex.Add(startIndex + i_VarComp);
+                        rowIndices.Add(startIndex + i_VarComp);
                     }
                 }
 
 
                 /******************** Create xReduced ********************/
 
-                double[] components = new double[size];
-                for (int i_Comp = 0; i_Comp < size; i_Comp++)
+                double[] components = new double[sizeReduced];
+                for (int i_Comp = 0; i_Comp < sizeReduced; i_Comp++)
                 {
-                    components[i_Comp] = _x[rowIndex[i_Comp]];
+                    components[i_Comp] = _x[rowIndices[i_Comp]];
                 }
                 DenseVector xReduced = new DenseVector(components);
 
@@ -563,21 +567,21 @@ namespace BRIDGES.Solvers.GuidedProjection
 
                 /******************** For r ********************/
 
-                if (cstr.constraintType.Ci == 0.0) { list_r.Add(cstr.Weight * 0.5 * tmp_Val); }
+                if (constraintType.Ci == 0.0) { list_r.Add(cstr.Weight * 0.5 * tmp_Val); }
                 else { list_r.Add(cstr.Weight * (0.5 * tmp_Val - constraintType.Ci)); }
 
 
                 /******************** For H ********************/
 
-                if (!(cstr.constraintType.LocalBi is null))
+                if (!(constraintType.LocalBi is null))
                 {
                     tmp_Vect = DenseVector.Add(tmp_Vect, cstr.constraintType.LocalBi);
                 }
 
-                for (int i_Comp = 0; i_Comp < size; i_Comp++)
+                for (int i_Comp = 0; i_Comp < sizeReduced; i_Comp++)
                 {
                     if (tmp_Vect[i_Comp] == 0d) { continue;  }
-                    dok_H.Add(cstr.Weight * tmp_Vect[i_Comp], constraintCount, rowIndex[i_Comp]);
+                    dok_H.Add(cstr.Weight * tmp_Vect[i_Comp], constraintCount, rowIndices[i_Comp]);
                 }
 
                 constraintCount++;
@@ -613,14 +617,14 @@ namespace BRIDGES.Solvers.GuidedProjection
                 /******************** Create the Row Indices ********************/
 
                 // Translating the local indices of the constraint defined on xReduced into global indices defined on x.
-                List<int> rowIndex = new List<int>();
-                for (int i_Variable = 0; i_Variable < energy.variables.Count; i_Variable++)
+                List<int> rowIndices = new List<int>();
+                for (int i_Variable = 0; i_Variable < variables.Count; i_Variable++)
                 {
                     int startIndex = variables[i_Variable].Set.FirstRank + (variables[i_Variable].Set.VariableDimension * variables[i_Variable].Index);
 
                     for (int i_Component = 0; i_Component < variables[i_Variable].Set.VariableDimension; i_Component++)
                     {
-                        rowIndex.Add(startIndex + i_Component);
+                        rowIndices.Add(startIndex + i_Component);
                     }
                 }
 
@@ -628,14 +632,14 @@ namespace BRIDGES.Solvers.GuidedProjection
 
                 if (!(energyType.Si == 0.0))
                 {
-                    dict_s.Add(energyCount, energy.Weight * energy.energyType.Si);
+                    dict_s.Add(energyCount, energy.Weight * energyType.Si);
                 }
 
                 /******************** For K ********************/
 
                 foreach (var (RowIndex, Value) in energyType.LocalKi.GetNonZeros())
                 {
-                    dok_K.Add(energy.Weight * Value, energyCount, rowIndex[RowIndex]);
+                    dok_K.Add(energy.Weight * Value, energyCount, rowIndices[RowIndex]);
                 }
 
                 energyCount++;
@@ -651,29 +655,34 @@ namespace BRIDGES.Solvers.GuidedProjection
 
         /********** Constraint Members **********/
 
-        private Task<(CompressedColumn HtH, Vector Htr)> FormConstraintMembers()
+        /// <summary>
+        /// Forms the system members derived from the constraints.
+        /// </summary>
+        private async Task<(CompressedColumn HtH, Vector Htr)> FormConstraintMembers()
         {
-            return Task.Run(() =>
+            return await Task.Run(() =>
             {
-                System.Collections.Concurrent.ConcurrentBag<(SparseVector ColumnHt, double ValueR)> bag = new System.Collections.Concurrent.ConcurrentBag<(SparseVector ColumnHt, double ValueR)>();
+                System.Collections.Concurrent.ConcurrentBag<(SortedDictionary<int, double> ColumnHt, double ValueR)> bag 
+                    = new System.Collections.Concurrent.ConcurrentBag<(SortedDictionary<int,double> ColumnHt, double ValueR)>();
 
                 Parallel.For(0, _constraints.Count, (int i_Cstr) =>
                 {
                     /******************** Initialise Iteration ********************/
 
-                    QuadraticConstraint constraint = _constraints[i_Cstr];
+                    QuadraticConstraint cstr = _constraints[i_Cstr];
 
-                    if (constraint.Weight == 0d) { return; }
+                    // Verifications
+                    if (cstr.Weight == 0d) { return; }
 
 
-                    List<(VariableSet Set, int Index)> variables = constraint.variables;
-                    IQuadraticConstraintType constraintType = constraint.constraintType;
+                    List<(VariableSet Set, int Index)> variables = cstr.variables;
+                    IQuadraticConstraintType constraintType = cstr.constraintType;
 
-                    int size = constraintType.LocalHi.ColumnCount;
+                    int sizeReduced = constraintType.LocalHi.ColumnCount;
 
                     /******************** Devise xReduced ********************/
 
-                    DenseVector xReduced = DeviseXReduced(size, variables, out int[] rowIndices);
+                    DenseVector xReduced = DeviseXReduced(sizeReduced, variables, out int[] rowIndices);
 
 
                     /******************** Compute Temporary Values ********************/
@@ -687,8 +696,9 @@ namespace BRIDGES.Solvers.GuidedProjection
 
                     /******************** For r *******************/
 
-                    if (constraintType.Ci == 0.0) { tmp_Val = constraint.Weight * 0.5 * tmp_Val; }
-                    else { tmp_Val = constraint.Weight * (0.5 * tmp_Val - constraintType.Ci); }
+                    double valueR = 0d;
+                    if (constraintType.Ci == 0.0) { valueR = cstr.Weight * 0.5 * tmp_Val; }
+                    else { valueR = cstr.Weight * (0.5 * tmp_Val - constraintType.Ci); }
 
 
                     /******************** For Ht *******************/
@@ -698,17 +708,17 @@ namespace BRIDGES.Solvers.GuidedProjection
                     {
                         tmp_Vect = DenseVector.Add(tmp_Vect, constraintType.LocalBi);
                     }
-
-                    Dictionary<int, double> components = new Dictionary<int, double>(size);
-                    for (int i_Comp = 0; i_Comp < size; i_Comp++)
+                    Dictionary<int, double> components = new Dictionary<int, double>(sizeReduced);
+                    for (int i_Comp = 0; i_Comp < sizeReduced; i_Comp++)
                     {
                         if (tmp_Vect[i_Comp] == 0d) { continue; }
-                        components.Add(rowIndices[i_Comp], constraint.Weight * tmp_Vect[i_Comp]);
+                        components.Add(rowIndices[i_Comp], cstr.Weight * tmp_Vect[i_Comp]);
                     }
+                    SortedDictionary<int, double> columnHt = new SortedDictionary<int, double>(components);
 
                     /******************** Finally *******************/
 
-                    bag.Add((new SparseVector(X.Size, ref components), tmp_Val));
+                    bag.Add((columnHt, valueR));
 
                 });
 
@@ -761,12 +771,13 @@ namespace BRIDGES.Solvers.GuidedProjection
 
 
         /// <summary>
-        /// Assemble the data to create the tranposed matrix Ht and the vector r
+        /// Assemble the data to create the tranposed matrix Ht and the vector r.
         /// </summary>
         /// <param name="size"> Size of the global vector x. </param>
         /// <param name="bag"> Collection containing the components of the constraint members. </param>
-        /// <returns></returns>
-        private (CompressedColumn Ht, DenseVector r) AssembleConstraintMembers(int size, System.Collections.Concurrent.ConcurrentBag<(SparseVector ColumnHt, double ValueR)> bag)
+        /// <returns> A pair containing the tranposed matrix Ht and the vector s. </returns>
+        private (CompressedColumn Ht, DenseVector r) AssembleConstraintMembers(int size, 
+            System.Collections.Concurrent.ConcurrentBag<(SortedDictionary<int, double> ColumnHt, double ValueR)> bag)
         {
             List<int> columnPointers = new List<int>();
             List<int> rowIndices = new List<int>();
@@ -775,12 +786,12 @@ namespace BRIDGES.Solvers.GuidedProjection
             List<double> list_r = new List<double>();
 
             columnPointers.Add(0);
-            foreach ((SparseVector ColumnHt, double ValueR) in bag)
+            foreach ((SortedDictionary<int, double> ColumnHt, double ValueR) in bag)
             {
-                foreach ((int RowIndex, double Value) in ColumnHt.GetNonZeros())
+                foreach (KeyValuePair<int, double> component in ColumnHt)
                 {
-                    rowIndices.Add(RowIndex);
-                    values.Add(Value);
+                    rowIndices.Add(component.Key);
+                    values.Add(component.Value);
                 }
                 columnPointers.Add(values.Count);
 
@@ -793,6 +804,12 @@ namespace BRIDGES.Solvers.GuidedProjection
             return (Ht, r);
         }
 
+        /// <summary>
+        /// Multiplies the assembled constraint members to form the system members
+        /// </summary>
+        /// <param name="Ht"> The tranposed matrix Ht. </param>
+        /// <param name="r"> The vector r. </param>
+        /// <returns> A pair containing the necessary system members. </returns>
         private (CompressedColumn HtH, DenseVector Htr) MultiplyConstraintMembers(CompressedColumn Ht, DenseVector r)
         {
             Task<CompressedColumn> task_HtH = Task.Run(() =>
@@ -817,11 +834,15 @@ namespace BRIDGES.Solvers.GuidedProjection
 
         /********** Energy Members **********/
 
-        private Task<(CompressedColumn KtK, Vector Kts)> FormEnergyMembers()
+        /// <summary>
+        /// Forms the system members derived from the energies.
+        /// </summary>
+        private async Task<(CompressedColumn KtK, Vector Kts)> FormEnergyMembers()
         {
-            return Task.Run(() => 
+            return await Task.Run(() => 
             {
-                System.Collections.Concurrent.ConcurrentBag<(SparseVector ColumnKt, double ValueS)> bag = new System.Collections.Concurrent.ConcurrentBag<(SparseVector ColumnKt, double ValueS)>();
+                System.Collections.Concurrent.ConcurrentBag<(SortedDictionary<int, double> ColumnKt, double ValueS)> bag 
+                    = new System.Collections.Concurrent.ConcurrentBag<(SortedDictionary<int, double> ColumnKt, double ValueS)>();
 
                 Parallel.For(0, _energies.Count, (int i_Energy) => 
                 {
@@ -833,13 +854,13 @@ namespace BRIDGES.Solvers.GuidedProjection
                     List<(VariableSet Set, int Index)> variables = energy.variables;
                     IEnergyType energyType = energy.energyType;
 
-                    int size = energyType.LocalKi.Size;
+                    int sizeReduced = energyType.LocalKi.Size;
 
                     /******************** Create the Row Indices ********************/
 
                     // Translating the local indices of the constraint defined on xReduced into global indices defined on x.
                     List<int> rowIndices = new List<int>();
-                    for (int i_Variable = 0; i_Variable < energy.variables.Count; i_Variable++)
+                    for (int i_Variable = 0; i_Variable < variables.Count; i_Variable++)
                     {
                         int startIndex = variables[i_Variable].Set.FirstRank + (variables[i_Variable].Set.VariableDimension * variables[i_Variable].Index);
 
@@ -851,23 +872,25 @@ namespace BRIDGES.Solvers.GuidedProjection
 
                     /******************** For s ********************/
 
-                    double tmp_Val = 0.0;
+                    double valueS = 0.0;
                     if (!(energyType.Si == 0.0))
                     {
-                        tmp_Val = energy.Weight * energy.energyType.Si;
+                        valueS = energy.Weight * energyType.Si;
                     }
 
                     /******************** For Kt ********************/
 
-                    Dictionary<int, double> components = new Dictionary<int, double>(size);
+                    Dictionary<int, double> components = new Dictionary<int, double>(sizeReduced);
                     foreach (var (RowIndex, Value) in energyType.LocalKi.GetNonZeros())
                     {
                         components.Add(rowIndices[RowIndex], energy.Weight * Value);
                     }
 
+                    SortedDictionary<int, double> ColumnKt = new SortedDictionary<int, double>(components);
+
                     /******************** Finally *******************/
 
-                    bag.Add((new SparseVector(X.Size, ref components), tmp_Val));
+                    bag.Add((ColumnKt, valueS));
 
                 });
 
@@ -880,7 +903,14 @@ namespace BRIDGES.Solvers.GuidedProjection
         }
 
 
-        private (CompressedColumn Kt, SparseVector s) AssembleEnergyMembers(int size, System.Collections.Concurrent.ConcurrentBag<(SparseVector ColumnKt, double ValueS)> bag)
+        /// <summary>
+        /// Assemble the data to create the tranposed matrix Kt and the vector s.
+        /// </summary>
+        /// <param name="size"> Size of the global vector x. </param>
+        /// <param name="bag"> Collection containing the components of the constraint members. </param>
+        /// <returns> A pair containing the tranposed matrix Kt and the vector s. </returns>
+        private (CompressedColumn Kt, SparseVector s) AssembleEnergyMembers(int size, 
+            System.Collections.Concurrent.ConcurrentBag<(SortedDictionary<int, double> ColumnKt, double ValueS)> bag)
         {
             List<int> columnPointers = new List<int>();
             List<int> rowIndices = new List<int>();
@@ -890,17 +920,17 @@ namespace BRIDGES.Solvers.GuidedProjection
 
             columnPointers.Add(0);
             int counter = 0;
-            foreach ((SparseVector ColumnKt, double ValueS) in bag)
+            foreach ((SortedDictionary<int, double> ColumnKt, double ValueS) in bag)
             {
-                foreach ((int RowIndex, double Value) in ColumnKt.GetNonZeros())
+                foreach (KeyValuePair<int, double> component in ColumnKt)
                 {
-                    rowIndices.Add(RowIndex);
-                    values.Add(Value);
+                    rowIndices.Add(component.Key);
+                    values.Add(component.Value);
                 }
                 columnPointers.Add(values.Count);
 
-                if (ValueS != 0.0)
-                dict_s.Add(counter, ValueS);
+                if (ValueS != 0.0) { dict_s.Add(counter, ValueS); }
+                
 
                 counter++;
             }
@@ -911,6 +941,12 @@ namespace BRIDGES.Solvers.GuidedProjection
             return (Kt, s);
         }
 
+        /// <summary>
+        /// Multiplies the assembled energy members to form the system members
+        /// </summary>
+        /// <param name="Kt"> The tranposed matrix Kt. </param>
+        /// <param name="s"> The vector s. </param>
+        /// <returns> A pair containing the necessary system members. </returns>
         private (CompressedColumn KtK, SparseVector Kts) MultiplyEnergyMembers(CompressedColumn Kt, SparseVector s)
         {
             Task<CompressedColumn> task_KtK = Task.Run(() =>
@@ -931,20 +967,6 @@ namespace BRIDGES.Solvers.GuidedProjection
 
             return (KtK, Kts);
         }
-
-
-        /********** Common Tasks **********/
-
-        private Task<Vector> AddVectors(Vector left, Vector right)
-        {
-            return Task.Run(() => Vector.Add(left, right));
-        }
-
-        private Task<CompressedColumn> AddMatrices(CompressedColumn left, CompressedColumn right)
-        {
-            return Task.Run(() => CompressedColumn.Add(left, right));
-        }
-
 
         #endregion
     }
