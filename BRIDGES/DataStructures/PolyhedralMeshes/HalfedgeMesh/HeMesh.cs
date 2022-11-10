@@ -1017,21 +1017,16 @@ namespace BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh
                     faceHalfedges[i_OutFaceHe].PrevHalfedge = faceHalfedges[i_IncFaceHe];
 
                     // Ensures that if a vertex lies on a boundary, then its outgoingHalfedge is a boundary halfedge.
-                    if (isHeNew[i_IncFaceHe])
-                    {
-                        vertex.OutgoingHalfedge = faceHalfedges[i_IncFaceHe].PairHalfedge;
-                    }
+                    vertex.OutgoingHalfedge = outBoundary;
                 }
 
-                else // Both of the above considered face halfedge pair are new (includes trickery for non-manifold vertex)
+                else // None of the above considered face halfedge pair are new (includes trickery for non-manifold vertex)
                 {
-                    // Gets the number of boundary outgoing halfedge at this vertex.
-                    int outgoingBoundaryHeCount = 0;
-                    foreach (HeHalfedge<TPosition> outgoingHe in vertex.OutgoingHalfedges())
-                    {
-                        if (outgoingHe.IsBoundary()) { outgoingBoundaryHeCount++; }
-                    }
+                    IReadOnlyList<HeHalfedge<TPosition>> outgoingHalfedges = vertex.OutgoingHalfedges();
 
+                    // Gets the number of boundary outgoing halfedge at this vertex.
+                    int outgoingBoundaryHeCount = outgoingHalfedges.Count;
+                    
                     if (outgoingBoundaryHeCount == 0) // In the case where the vertex is manifold.
                     {
                         // Do nothing !
@@ -1044,7 +1039,7 @@ namespace BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh
                             throw new InvalidOperationException("Two of the requested halfedges for the creation of a face are not consecutive.");
                         }
                         // Assign the only boundary outgoing edge as the outgoing edge of vertex.
-                        foreach (HeHalfedge<TPosition> outgoingHe in vertex.OutgoingHalfedges())
+                        foreach (HeHalfedge<TPosition> outgoingHe in outgoingHalfedges)
                         {
                             if (outgoingHe.IsBoundary()) { vertex.OutgoingHalfedge = outgoingHe; break; }
                         }
@@ -1053,7 +1048,7 @@ namespace BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh
                     {
                         if (faceHalfedges[i_IncFaceHe].NextHalfedge.Equals(faceHalfedges[i_OutFaceHe])) // If "luckily" the arrangement of the faces around the vertex is fine.
                         {
-                            foreach (HeHalfedge<TPosition> outgoingHe in vertex.OutgoingHalfedges())
+                            foreach (HeHalfedge<TPosition> outgoingHe in outgoingHalfedges)
                             {
                                 if (outgoingHe.IsBoundary()) { vertex.OutgoingHalfedge = outgoingHe; break; }
                             }
@@ -1064,7 +1059,7 @@ namespace BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh
                             HeHalfedge<TPosition> prev_OutFaceHe = faceHalfedges[i_OutFaceHe].PrevHalfedge;
 
                             // Assign new outgoing edge to the vertex
-                            foreach (HeHalfedge<TPosition> outgoingHe in vertex.OutgoingHalfedges())
+                            foreach (HeHalfedge<TPosition> outgoingHe in outgoingHalfedges)
                             {
                                 if (outgoingHe.Equals(next_IncFaceHe)) { continue; } // Beware : The outgoing edge can not be any boundary edge.
                                 if (outgoingHe.IsBoundary()) { vertex.OutgoingHalfedge = outgoingHe; break; }

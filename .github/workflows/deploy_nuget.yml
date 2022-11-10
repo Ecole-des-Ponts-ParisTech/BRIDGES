@@ -54,18 +54,24 @@ jobs:
       run : echo "RELEASE_NUMBER=${RELEASE_VERSION:1}" >> $GITHUB_ENV
 
 
-    # For Release : Build NuGet package
-    - name: Create Release NuGet
+    # For Release : Build NuGet package from master branch
+    - name: Create Master Release NuGet
       if: ${{ (env.GITHUB_BRANCH == 'master') && (!github.event.release.prerelease) }}
       run:
         dotnet pack ${{ env.PROJECT_PATH }} --no-build -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
         --configuration Release -p:PackageVersion=${{env.RELEASE_NUMBER}} --output ${{ env.PKG_OUTPUT_DIR }}
-    # For Pre-release : Build NuGet package in beta version
-    - name: Create PreRelease NuGet
-      if: ${{ ((env.GITHUB_BRANCH == 'develop') || (env.GITHUB_BRANCH == 'master')) && (github.event.release.prerelease) }}
+    # For Pre-Release : Build NuGet package in beta version from master branch
+    - name: Create Master Pre-Release NuGet
+      if: ${{ (env.GITHUB_BRANCH == 'master') && (github.event.release.prerelease) }}
       run:
         dotnet pack ${{ env.PROJECT_PATH }} --no-build -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
         --configuration Release -p:PackageVersion=${{env.RELEASE_NUMBER}}-beta --output ${{ env.PKG_OUTPUT_DIR }}
+    # For Release : Build NuGet package in beta version from develop branch
+    - name: Create PreRelease NuGet
+      if: ${{ ((env.GITHUB_BRANCH == 'develop') }}
+      run:
+        dotnet pack ${{ env.PROJECT_PATH }} --no-build -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
+        --configuration Release -p:PackageId:BRIDGES-dev -p:PackageVersion=${{env.RELEASE_NUMBER}}-beta --output ${{ env.PKG_OUTPUT_DIR }}
 
 
     # Publish the NuGet package on github

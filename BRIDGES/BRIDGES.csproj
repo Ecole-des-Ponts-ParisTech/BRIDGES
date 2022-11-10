@@ -6,14 +6,17 @@
 		<Company>École des Ponts ParisTech</Company>
 		<Description>Tools from the Build'in platform for Geometry and Structural Design.</Description>
 
-		<RepositoryUrl>https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES</RepositoryUrl>
-
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<OutputType>Library</OutputType>
 
+		<RepositoryUrl>https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<IncludeSymbols>true</IncludeSymbols>	  
+		<IncludeSymbols>true</IncludeSymbols>
+
+		<PackageId>BRIDGES</PackageId>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>
 
 	<ItemGroup>

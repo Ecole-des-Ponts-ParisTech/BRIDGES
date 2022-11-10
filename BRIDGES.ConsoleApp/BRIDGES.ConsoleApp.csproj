@@ -6,13 +6,16 @@
 		<Company>École des Ponts ParisTech</Company>
 		<Description>Console application based on BRIDGES class library which contains implemented examples.</Description>
 
-		<RepositoryUrl>https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES</RepositoryUrl>
-	  
 		<TargetFramework>net6.0</TargetFramework>
 		<OutputType>Exe</OutputType>
-	  
-		<IncludeSymbols>true</IncludeSymbols>
+		
+		<RepositoryUrl>https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<IncludeSymbols>true</IncludeSymbols>
+
+		<IsPackable>false</IsPackable>
 	</PropertyGroup>
 
 	<ItemGroup>
