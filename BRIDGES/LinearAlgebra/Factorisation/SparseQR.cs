@@ -48,12 +48,9 @@ namespace BRIDGES.LinearAlgebra.Factorisation
         /// <returns> The <see cref="Vector"/> X, solution of the system. </returns>
         public Vector Solve(Vector vector)
         {
-            double[] components = vector.ToArray();
-            double[] result = new double[vector.Size];
-
-            _qr.Solve(components, result);
-
-            return new DenseVector(result);
+            if (vector is DenseVector dense) { return Solve(dense); }
+            else if (vector is SparseVector sparse) { return Solve(sparse); }
+            else { throw new NotImplementedException($"The resolution of the linear system using a {vector.GetType()} as a {nameof(Vector)} is not implemented."); }
         }
 
         /// <summary>
@@ -64,7 +61,7 @@ namespace BRIDGES.LinearAlgebra.Factorisation
         /// <returns> The <see cref="DenseVector"/> X, solution of the system. </returns>
         public DenseVector Solve(DenseVector vector)
         {
-            double[] components = vector.ToArray();
+            double[] components = vector._components;
             double[] result = new double[vector.Size];
 
             _qr.Solve(components, result);

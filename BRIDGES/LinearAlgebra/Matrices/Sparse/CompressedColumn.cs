@@ -18,6 +18,14 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         #region Fields
 
         /// <summary>
+        /// Sparse matrix from CSparse library, in the form of a compressed column storage.
+        /// </summary>
+        private CSparse.Storage.CompressedColumnStorage<double> _storedMatrix;
+
+        /* Old fields 
+
+
+        /// <summary>
         /// Number of row of the current <see cref="CompressedColumn"/>
         /// </summary>
         private int _rowCount;
@@ -31,7 +39,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <summary>
         /// Pointers giving the number of non-zero values before the row at a given index.
         /// </summary>
-        /// <remarks> Array of length (ColumnCount + 1), starting at 0 and ending at <see cref="SparseMatrix.NonZeroCount"/>. </remarks>
+        /// <remarks> Array of length (ColumnCount + 1), starting at 0 and ending at <see cref="SparseMatrix.NonZerosCount"/>. </remarks>
         private int[] _columnPointers;
 
         /// <summary>
@@ -44,21 +52,23 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// </summary>
         private List<double> _values;
 
+        */
+
         #endregion
 
         #region Properties
 
         /// <inheritdoc/>
-        public override int RowCount { get { return _rowCount; } }
+        public override int RowCount { get { return _storedMatrix.RowCount; } }
 
         /// <inheritdoc/>
-        public override int ColumnCount { get { return _columnCount; } }
+        public override int ColumnCount { get { return _storedMatrix.ColumnCount; } }
 
 
         /// <inheritdoc/>
-        public override int NonZeroCount 
+        public override int NonZerosCount 
         {
-            get { return _values.Count; }
+            get { return _storedMatrix.NonZerosCount; }
         }
 
         /// <inheritdoc/>
@@ -66,10 +76,10 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         {
             get
             {
-                for (int i_NZ = _columnPointers[column]; i_NZ < _columnPointers[column + 1]; i_NZ++)
+                for (int i_NZ = _storedMatrix.ColumnPointers[column]; i_NZ < _storedMatrix.ColumnPointers[column + 1]; i_NZ++)
                 {
-                    if (_rowIndices[i_NZ] == row) { return _values[i_NZ]; }
-                    else if(row < _rowIndices[i_NZ]) { break; }
+                    if (_storedMatrix.RowIndices[i_NZ] == row) { return _storedMatrix.Values[i_NZ]; }
+                    else if(row < _storedMatrix.RowIndices[i_NZ]) { break; }
                 }
                 return 0.0;
             }
@@ -88,10 +98,6 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <param name="dok"> Values of the <see cref="CompressedColumn"/>. </param>
         public CompressedColumn(int rowCount, int columnCount, Storage.DictionaryOfKeys dok)
         {
-            _rowCount = rowCount;
-            _columnCount = columnCount;
-
-
             List<(int, double)>[] columns = new List<(int, double)>[columnCount];
             for (int i_C = 0; i_C < columnCount; i_C++) { columns[i_C] = new List<(int, double)>(); }
             
@@ -115,24 +121,42 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
             }
 
             // Creates the new row index and value lists
-            _columnPointers = new int[columnCount + 1];
-            _rowIndices = new List<int>(dok.Count);
-            _values = new List<double>(dok.Count);
+            int[] columnPointers = new int[columnCount + 1];
+            int[] rowIndices = new int[dok.Count];
+            double[] values = new double[dok.Count];
 
-            _columnPointers[0] = 0;
+            int counter = 0;
+
+            columnPointers[0] = 0;
             for (int i_C = 0; i_C < columnCount; i_C++)
             {
                 List<(int, double)> column = columns[i_C];
                 int count = column.Count;
 
-                _columnPointers[i_C + 1] = _columnPointers[i_C] + columns[i_C].Count;
+                columnPointers[i_C + 1] = columnPointers[i_C] + columns[i_C].Count;
 
                 for (int i_NZ = 0; i_NZ < count; i_NZ++)
                 {
-                    _rowIndices.Add(column[i_NZ].Item1);
-                    _values.Add(column[i_NZ].Item2);
+                    rowIndices[counter] = column[i_NZ].Item1;
+                    values[counter] = column[i_NZ].Item2;
+                    counter++;
                 }
             }
+
+            _storedMatrix = new CSparse.Double.SparseMatrix(rowCount, columnCount, values, rowIndices, columnPointers);
+        }
+
+        /// <summary>
+        /// Initialises a new instance of the <see cref="CompressedColumn"/> class from a CSparse compressed column storage.
+        /// </summary>
+        /// <param name="ccs"> CSparse compressed column storage. </param>
+        public CompressedColumn(CompressedColumn ccs)
+        {
+            int[] columnPointer = ccs._storedMatrix.ColumnPointers.Clone() as int[];
+            int[] rowIndices = ccs._storedMatrix.RowIndices.Clone() as int[];
+            double[] values = ccs._storedMatrix.Values.Clone() as double[];
+
+            _storedMatrix = new CSparse.Double.SparseMatrix(ccs.RowCount, ccs.ColumnCount, values, rowIndices, columnPointer);
         }
 
 
@@ -144,29 +168,33 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <param name="values"> Non-zero values of the <see cref="CompressedColumn"/>. </param>
         /// <param name="rowIndices"> Row indices of the <see cref="CompressedColumn"/>.</param>
         /// <param name="columnPointers"> Column pointers of the <see cref="CompressedColumn"/>. </param>
-        public CompressedColumn(int rowCount, int columnCount, int[] columnPointers, List<int> rowIndices, List<double> values)
+        internal CompressedColumn(int rowCount, int columnCount, int[] columnPointers, int[] rowIndices, double[] values)
         {
-            _rowCount = rowCount;
-            _columnCount = columnCount;
-
-
             // Verifications
             if (columnPointers.Length != columnCount + 1)
             {
                 throw new ArgumentException("The number of column pointers is not consistent with the number of columns.", nameof(columnPointers));
             }
-            if (values.Count != rowIndices.Count)
+            if (values.Length != rowIndices.Length)
             {
                 throw new ArgumentException($"The number of elements in {nameof(values)} and {nameof(rowIndices)} do not match.");
             }
-            if (columnPointers[columnPointers.Length - 1] != values.Count)
+            if (columnPointers[columnPointers.Length - 1] != values.Length)
             {
                 throw new ArgumentException($"The last value of {nameof(columnPointers)} is not equal to the number of non-zero values.");
             }
 
-            _columnPointers = columnPointers;
-            _rowIndices = rowIndices;
-            _values = values;
+
+            _storedMatrix = new CSparse.Double.SparseMatrix(rowCount, columnCount, values, rowIndices, columnPointers);
+        }
+
+        /// <summary>
+        /// Initialises a new instance of the <see cref="CompressedColumn"/> class from a CSparse compressed column storage.
+        /// </summary>
+        /// <param name="ccs"> CSparse compressed column storage. </param>
+        private CompressedColumn(CSparse.Storage.CompressedColumnStorage<double> ccs)
+        {
+            _storedMatrix = ccs;
         }
 
         #endregion
@@ -181,11 +209,9 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <returns> The <see cref="CompressedColumn"/> of the given size, with zeros on every coordinates. </returns>
         public static new CompressedColumn Zero(int rowCount, int columnCount)
         {
-            int[] columnPointer = new int[columnCount + 1];
-            List<int> rowIndices = new List<int>();
-            List<double> values = new List<double>();
+            CSparse.Storage.CompressedColumnStorage<double> ccs = new CSparse.Double.SparseMatrix(rowCount, columnCount, 0);
 
-            return new CompressedColumn(rowCount, columnCount, columnPointer, rowIndices, values);
+            return new CompressedColumn(ccs);
         }
 
         /// <summary>
@@ -195,19 +221,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <returns> The <see cref="CompressedColumn"/> of the given size, with ones on the diagonal and zeros elsewhere. </returns>
         public static new CompressedColumn Identity(int size)
         {
-            int[] columnPointers = new int[size + 1];
-            List<int> rowIndices = new List<int>(size);
-            List<double> values = new List<double>(size);
-
-            for (int i = 0; i < size; i++)
-            {
-                columnPointers[i] = i;
-                rowIndices.Add(i);
-                values.Add(1.0);
-            }
-            columnPointers[size] = size;
-
-            return new CompressedColumn(size, size, columnPointers, rowIndices, values);
+            return new CompressedColumn(CSparse.Double.SparseMatrix.CreateIdentity(size));
         }
 
         #endregion
@@ -224,64 +238,9 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <returns> The new <see cref="CompressedColumn"/> resulting from the addition. </returns>
         public static CompressedColumn Add(CompressedColumn left, CompressedColumn right)
         {
-            // Verifications
-            if (left.ColumnCount != right.ColumnCount || left.RowCount != right.RowCount)
-            {
-                throw new ArgumentException("The matrices do not have the same size.");
-            }
+            CSparse.Storage.CompressedColumnStorage<double> ccs = left._storedMatrix.Add(right._storedMatrix);
 
-            List<double> values = new List<double>(left.NonZeroCount + right.NonZeroCount);
-            List<int> rowIndices = new List<int>(left.NonZeroCount + right.NonZeroCount);
-
-            int[] columnPointers = new int[left.ColumnCount + 1];
-            columnPointers[0] = 0;
-
-            int i_RightNZ = 0;
-            // Iterate on the columns of left
-            for (int i_C = 0; i_C < left.ColumnCount; i_C++)
-            {
-                int i_RighColumnPointer = right._columnPointers[i_C + 1];
-
-                // Iterate on the non-zero values of the current left column
-                for (int i_LeftNZ = left._columnPointers[i_C]; i_LeftNZ < left._columnPointers[i_C + 1]; i_LeftNZ++)
-                {
-                    int i_LeftRow = left._rowIndices[i_LeftNZ];
-
-                    // Add the non-zero values of the current right column which are before the current left non-zero value.
-                    while (right._rowIndices[i_RightNZ] < i_LeftRow && i_RightNZ < i_RighColumnPointer)
-                    {
-                        values.Add(right._values[i_RightNZ]);
-                        rowIndices.Add(right._rowIndices[i_RightNZ]);
-
-                        i_RightNZ++;
-                    }
-
-                    // If the the non-zero values of the current left and right column are a the same row.
-                    if (right._rowIndices[i_RightNZ] == i_LeftRow)
-                    {
-                        values.Add(left._values[i_LeftNZ] + right._values[i_RightNZ]);
-                        rowIndices.Add(i_LeftRow);
-
-                        i_RightNZ++;
-                    }
-                    else
-                    {
-                        values.Add(left._values[i_LeftNZ]);
-                        rowIndices.Add(i_LeftRow);
-                    }
-                }
-
-                // Add the remaining non-zero values of the current right column which are after these of the current left column.
-                for (; i_RightNZ < i_RighColumnPointer; i_RightNZ++)
-                {
-                    values.Add(right._values[i_RightNZ]);
-                    rowIndices.Add(right._rowIndices[i_RightNZ]);
-                }
-
-                columnPointers[i_C + 1] = values.Count;
-            }
-
-            return new CompressedColumn(left.RowCount, left.ColumnCount, columnPointers, rowIndices, values);
+            return new CompressedColumn(ccs);
         }
 
         /// <summary>
@@ -292,64 +251,10 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <returns> The new <see cref="CompressedColumn"/> resulting from the subtraction. </returns>
         public static CompressedColumn Subtract(CompressedColumn left, CompressedColumn right)
         {
-            // Verifications
-            if (left.ColumnCount != right.ColumnCount || left.RowCount != right.RowCount)
-            {
-                throw new ArgumentException("The matrices do not have the same size.");
-            }
+            CSparse.Storage.CompressedColumnStorage<double> ccs = new CSparse.Double.SparseMatrix(left.RowCount, left.ColumnCount, left.NonZerosCount + right.RowCount);
 
-            List<double> values = new List<double>(left.NonZeroCount + right.NonZeroCount);
-            List<int> rowIndices = new List<int>(left.NonZeroCount + right.NonZeroCount);
-
-            int[] columnPointers = new int[left.ColumnCount + 1];
-            columnPointers[0] = 0;
-
-            int i_RightNZ = 0;
-            // Iterate on the columns of left
-            for (int i_C = 0; i_C < left.ColumnCount; i_C++)
-            {
-                int i_RighColumnPointer = right._columnPointers[i_C + 1];
-
-                // Iterate on the non-zero values of the current left column
-                for (int i_LeftNZ = left._columnPointers[i_C]; i_LeftNZ < left._columnPointers[i_C + 1]; i_LeftNZ++)
-                {
-                    int i_LeftRow = left._rowIndices[i_LeftNZ];
-
-                    // Add the non-zero values of the current right column which are before the current left non-zero value.
-                    while (right._rowIndices[i_RightNZ] < i_LeftRow && i_RightNZ < i_RighColumnPointer)
-                    {
-                        values.Add(-right._values[i_RightNZ]);
-                        rowIndices.Add(right._rowIndices[i_RightNZ]);
-
-                        i_RightNZ++;
-                    }
-
-                    // If the the non-zero values of the current left and right column are a the same row.
-                    if (right._rowIndices[i_RightNZ] == i_LeftRow)
-                    {
-                        values.Add(left._values[i_LeftNZ] - right._values[i_RightNZ]);
-                        rowIndices.Add(i_LeftRow);
-
-                        i_RightNZ++;
-                    }
-                    else
-                    {
-                        values.Add(left._values[i_LeftNZ]);
-                        rowIndices.Add(i_LeftRow);
-                    }
-                }
-
-                // Add the remaining non-zero values of the current right column which are after these of the current left column.
-                for ( ; i_RightNZ < i_RighColumnPointer; i_RightNZ++)
-                {
-                    values.Add(-right._values[i_RightNZ]);
-                    rowIndices.Add(right._rowIndices[i_RightNZ]);
-                }
-
-                columnPointers[i_C + 1] = values.Count;
-            }
-
-            return new CompressedColumn(left.RowCount, left.ColumnCount, columnPointers, rowIndices, values);
+            left._storedMatrix.Add(1.0, -1.0, right._storedMatrix, ccs);
+            return new CompressedColumn(ccs);
         }
 
 
@@ -368,88 +273,22 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
                 throw new ArgumentException("The matrices size does not allow their multiplication.");
             }
 
-            // Row indices and values per columns.
+            CSparse.Storage.CompressedColumnStorage<double> ccs = left._storedMatrix.Multiply(right._storedMatrix);
+            return new CompressedColumn(ccs);
+        }
 
-            int[] columnPointers = new int[right.ColumnCount + 1];
-            List<int> rowIndices = new List<int>();
-            List<double> values = new List<double>();
+        /// <summary>
+        /// Computes the left multiplication of a <see cref="CompressedColumn"/> with its transposition : <c>At*A</c>.
+        /// </summary>
+        /// <param name="matrix">transposed <see cref="CompressedColumn"/> for the multiplication. </param>
+        /// <returns> The new <see cref="CompressedColumn"/> resulting from the multiplication. </returns>
+        public static CompressedColumn TransposeMultiplySelf(CompressedColumn matrix)
+        {
+            CSparse.Storage.CompressedColumnStorage<double> transposed = matrix._storedMatrix.Transpose();
 
-            columnPointers[0] = 0;
+            CSparse.Storage.CompressedColumnStorage<double> ccs = transposed.Multiply(matrix._storedMatrix);
 
-            int i_RightNZ = right._columnPointers[0];
-            // Iterate on the columns of right
-            for (int i_C = 0; i_C < right.ColumnCount; i_C++)
-            {
-                int i_RightNZ_ColumnBound = right._columnPointers[i_C + 1];
-
-                // For the initialisation of rowIndices[i_C] and values[i_C]
-                while (rowIndices.Count == columnPointers[i_C] & i_RightNZ < i_RightNZ_ColumnBound)
-                {
-                    int i_RR = right._rowIndices[i_RightNZ];
-                    double rightVal = right._values[i_RightNZ];
-
-                    for (int i_LeftNZ = left._columnPointers[i_RR]; i_LeftNZ < left._columnPointers[i_RR + 1]; i_LeftNZ++)
-                    {
-                        int i_R = left._rowIndices[i_LeftNZ];
-                        double leftVal = left._values[i_LeftNZ];
-
-                        rowIndices.Add(i_R);
-                        values.Add(leftVal * rightVal);
-                    }
-
-                    i_RightNZ++;
-                }
-
-                for (; i_RightNZ < i_RightNZ_ColumnBound; i_RightNZ++)
-                {
-                    int i_RR = right._rowIndices[i_RightNZ];
-                    double rightVal = right._values[i_RightNZ];
-
-                    int i_Pointer = columnPointers[i_C];
-                    int i_LeftNZ_ColumnBound = left._columnPointers[i_RR + 1];
-
-                    int i_LeftNZ = left._columnPointers[i_RR];
-                    for (; i_LeftNZ < i_LeftNZ_ColumnBound; i_LeftNZ++)
-                    {
-                        int i_R = left._rowIndices[i_LeftNZ];
-                        double leftVal = left._values[i_LeftNZ];
-
-                        if(i_R < rowIndices[i_Pointer])
-                        {
-                            rowIndices.Insert(i_Pointer, i_R);
-                            values.Insert(i_Pointer, leftVal * rightVal);
-
-                            i_Pointer++;
-                        }
-                        else if(i_R == rowIndices[i_Pointer])
-                        {
-                            values[i_Pointer] += leftVal * rightVal;
-
-                            i_Pointer++;
-                            if (i_Pointer == values.Count) { i_LeftNZ++; break; }
-                        }
-                        else
-                        {
-                            i_Pointer++;
-                            if (i_Pointer == values.Count) { break; }
-
-                            i_LeftNZ--;
-                        }
-                    }
-
-                    for (; i_LeftNZ < i_LeftNZ_ColumnBound; i_LeftNZ++)
-                    {
-                        int i_R = left._rowIndices[i_LeftNZ];
-                        double leftVal = left._values[i_LeftNZ];
-
-                        rowIndices.Add(i_R);
-                        values.Add(leftVal * rightVal);
-                    }
-                }
-
-                columnPointers[i_C + 1] = values.Count;
-            }
-            return new CompressedColumn(left.RowCount, right.ColumnCount, columnPointers, rowIndices, values);
+            return new CompressedColumn(ccs);
         }
 
 
@@ -647,18 +486,15 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <returns> The new <see cref="CompressedColumn"/> resulting from the scalar multiplication. </returns>
         public static CompressedColumn Multiply(double factor, CompressedColumn operand)
         {
-            List<double> values = new List<double>(operand.NonZeroCount);
-            for (int i_NZ = 0; i_NZ < operand.NonZeroCount; i_NZ++)
-            {
-                values.Add(factor * operand._values[i_NZ]);
-            }
+            if (factor == 0.0) { return CompressedColumn.Zero(operand.RowCount, operand.ColumnCount); }
 
-            List<int> rowIndices = new List<int>(operand._rowIndices);
+            int[] columnPointers = operand._storedMatrix.ColumnPointers.Clone() as int[];
+            int[] rowIndices = operand._storedMatrix.RowIndices.Clone() as int[];
 
-            int[] columnPointers = new int[operand._columnPointers.Length];
-            for (int i = 0; i < columnPointers.Length; i++)
+            double[] values = new double[operand.NonZerosCount];
+            for (int i_NZ = 0; i_NZ < values.Length; i_NZ++)
             {
-                columnPointers[i] = operand._columnPointers[i];
+                values[i_NZ] = factor * operand._storedMatrix.Values[i_NZ];
             }
 
             return new CompressedColumn(operand.RowCount, operand.ColumnCount, columnPointers, rowIndices, values);
@@ -672,21 +508,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <returns> The new <see cref="CompressedColumn"/> resulting from the scalar multiplication. </returns>
         public static CompressedColumn Multiply(CompressedColumn operand, double factor)
         {
-            List<double> values = new List<double>(operand.NonZeroCount);
-            for (int i_NZ = 0; i_NZ < operand.NonZeroCount; i_NZ++)
-            {
-                values.Add(operand._values[i_NZ] * factor);
-            }
-
-            List<int> rowIndices = new List<int>(operand._rowIndices);
-
-            int[] columnPointers = new int[operand._columnPointers.Length];
-            for (int i = 0; i < columnPointers.Length; i++)
-            {
-                columnPointers[i] = operand._columnPointers[i];
-            }
-
-            return new CompressedColumn(operand.RowCount, operand.ColumnCount, columnPointers, rowIndices, values);
+            return CompressedColumn.Multiply(factor, operand);
         }
 
 
@@ -696,20 +518,21 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <param name="operand"> <see cref="CompressedColumn"/> to divide. </param>
         /// <param name="divisor"> <see cref="double"/>-precision real number to divide with. </param>
         /// <returns> The new <see cref="CompressedColumn"/> resulting from the scalar division. </returns>
+        /// <exception cref="DivideByZeroException"> The divisor can not be zero. </exception>
         public static CompressedColumn Divide(CompressedColumn operand, double divisor)
         {
-            List<double> values = new List<double>(operand.NonZeroCount);
-            for (int i_NZ = 0; i_NZ < operand.NonZeroCount; i_NZ++)
+            if (divisor == 0.0)
             {
-                values.Add(operand._values[i_NZ] / divisor);
+                throw new DivideByZeroException("The divisor can not be zero.");
             }
 
-            List<int> rowIndices = new List<int>(operand._rowIndices);
+            int[] columnPointers = operand._storedMatrix.ColumnPointers.Clone() as int[];
+            int[] rowIndices = operand._storedMatrix.RowIndices.Clone() as int[];
 
-            int[] columnPointers = new int[operand._columnPointers.Length];
-            for (int i = 0; i < columnPointers.Length; i++)
+            double[] values = new double[operand.NonZerosCount];
+            for (int i_NZ = 0; i_NZ < values.Length; i_NZ++)
             {
-                columnPointers[i] = operand._columnPointers[i];
+                values[i_NZ] = operand._storedMatrix.Values[i_NZ] / divisor;
             }
 
             return new CompressedColumn(operand.RowCount, operand.ColumnCount, columnPointers, rowIndices, values);
@@ -744,15 +567,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         {
             double[] components = new double[matrix.RowCount];
 
-            int i_NZ = matrix._columnPointers[0];
-            for (int i = 0; i < matrix.ColumnCount; i++)
-            {
-                for (; i_NZ < matrix._columnPointers[i + 1]; i_NZ++)
-                {
-                    int i_R = matrix._rowIndices[i_NZ];
-                    components[i_R] += matrix._values[i_NZ] * vector[i];
-                }
-            }
+            matrix._storedMatrix.Multiply(vector._components, components);
 
             return new DenseVector(components);
         }
@@ -765,24 +580,19 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <returns> The new <see cref="DenseVector"/> resulting from the multiplication. </returns>
         public static SparseVector Multiply(CompressedColumn matrix, SparseVector vector)
         {
-            SparseVector result = new SparseVector(matrix.RowCount);
+            double[] components = new double[matrix.RowCount];
 
-            for (int i = 0; i < matrix.ColumnCount; i++)
+            matrix._storedMatrix.Multiply(vector.ToArray(), components);
+
+            List<int> rowIndices = new List<int>();
+            List<double> values = new List<double>();
+
+            for (int i = 0; i < components.Length; i++)
             {
-                bool isZero = !vector.TryGetComponent(i, out double val);
-                if (isZero) { continue; }
-
-                for (int i_NZ = matrix._columnPointers[i]; i_NZ < matrix._columnPointers[i + 1]; i_NZ++)
-                {
-                    int i_R = matrix._rowIndices[i_NZ];
-
-                    if (result.TryGetComponent(i_R, out double existing)) { result[i_R] = existing + (matrix._values[i_NZ] * val); }
-                    else { result[i_R] = matrix._values[i_NZ] * val; ; }
-                }
+                if (components[i] != 0.0) { rowIndices.Add(i); values.Add(components[i]); }
             }
 
-            return result;
-
+            return new SparseVector(components.Length, rowIndices, values);
         }
 
 
@@ -812,19 +622,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         {
             double[] components = new double[matrix.ColumnCount];
 
-            int i_NZ = matrix._columnPointers[0];
-            for (int i_R = 0; i_R < components.Length; i_R++)
-            {
-                double component = 0.0;
-
-                for (; i_NZ < matrix._columnPointers[i_R + 1]; i_NZ++)
-                {
-                    int i = matrix._rowIndices[i_NZ];
-                    component += matrix._values[i_NZ] * vector[i];
-                }
-
-                components[i_R] = component;
-            }
+            matrix._storedMatrix.TransposeMultiply(vector._components, components);
 
             return new DenseVector(components);
         }
@@ -837,24 +635,19 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <returns> The new <see cref="DenseVector"/> resulting from the multiplication. </returns>
         public static SparseVector TransposeMultiply(CompressedColumn matrix, SparseVector vector)
         {
-            int size = matrix.ColumnCount;
+            double[] components = new double[matrix.ColumnCount];
+
+            matrix._storedMatrix.TransposeMultiply(vector.ToArray(), components);
+
             List<int> rowIndices = new List<int>();
             List<double> values = new List<double>();
 
-            int i_NZ = matrix._columnPointers[0];
-            for (int i_R = 0; i_R < size; i_R++)
+            for (int i = 0; i < components.Length; i++)
             {
-                double component = 0.0;
-
-                for (; i_NZ < matrix._columnPointers[i_R + 1]; i_NZ++)
-                {
-                    if (vector.TryGetComponent(matrix._rowIndices[i_NZ], out double val)) { component += matrix._values[i_NZ] * val; }
-                }
-
-                if (component != 0.0) { rowIndices.Add(i_R); values.Add(component); }
+                if (components[i] != 0.0) { rowIndices.Add(i); values.Add(components[i]); }
             }
 
-            return new SparseVector(size, rowIndices, values);
+            return new SparseVector(components.Length, rowIndices, values);
         }
 
         #endregion
@@ -868,7 +661,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <returns> The non-zero value of the current <see cref="CompressedColumn"/> sparse matrix at the given index. </returns>
         public double GetValue(int index)
         {
-            return _values[index];
+            return _storedMatrix.Values[index];
         }
 
         /// <summary>
@@ -877,7 +670,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <returns> The non-zero values of the current <see cref="CompressedColumn"/> sparse matrix. </returns>
         public double[] Values()
         {
-            return _values.ToArray();
+            return _storedMatrix.Values.Clone() as double[];
         }
 
 
@@ -888,7 +681,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <returns> The row index of the current <see cref="CompressedColumn"/> sparse matrix at the given index. </returns>
         public int GetRowIndex(int index)
         {
-            return _rowIndices[index];
+            return _storedMatrix.RowIndices[index];
         }
 
         /// <summary>
@@ -897,7 +690,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <returns> The row indices of the current <see cref="CompressedColumn"/> sparse matrix. </returns>
         public int[] RowIndices()
         {
-            return _rowIndices.ToArray();
+            return _storedMatrix.RowIndices.Clone() as int[];
         }
 
 
@@ -908,7 +701,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <returns> The column pointers of the current <see cref="CompressedColumn"/> sparse matrix. </returns>
         public int GetColumnPointers(int index)
         {
-            return _columnPointers[index];
+            return _storedMatrix.ColumnPointers[index];
         }
 
         /// <summary>
@@ -917,57 +710,27 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <returns> The column pointers of the current <see cref="CompressedColumn"/> sparse matrix. </returns>
         public int[] ColumnPointers()
         {
-            return _columnPointers.Clone() as int[];
+            return _storedMatrix.ColumnPointers.Clone() as int[];
+        }
+
+
+        /// <inheritdoc/>
+        public override IEnumerable<(int RowIndex, int ColumnIndex, double Value)> GetNonZeros()
+        {
+            for (int i_C = 0; i_C < ColumnCount; i_C++)
+            {
+                for (int i_NZ = _storedMatrix.ColumnPointers[i_C]; i_NZ < _storedMatrix.ColumnPointers[i_C + 1]; i_NZ++)
+                {
+                    yield return (RowIndex: _storedMatrix.RowIndices[i_NZ], ColumnIndex:  i_C, Value: _storedMatrix.Values[i_NZ]);
+                }
+            }
         }
 
 
         /// <inheritdoc/>
         public override void Transpose()
         {
-            // Get the number of elements per row of the current matrix
-            int[] rowHelper = new int[RowCount];
-            for (int i_NZ = 0; i_NZ < NonZeroCount; i_NZ++)
-            {
-                rowHelper[_rowIndices[i_NZ]]++;
-            }
-
-
-            // Creates the new column pointer
-            int[] columnPointers = new int[RowCount + 1];
-
-            columnPointers[0] = 0;
-            for (int i_C = 0; i_C < RowCount; i_C++)
-            {
-                columnPointers[i_C + 1] = columnPointers[i_C] + rowHelper[i_C];
-                rowHelper[i_C] = 0;
-            }
-
-
-            // Creates the new row index and value lists
-            int[] rowIndices = new int[NonZeroCount];
-            double[] values = new double[NonZeroCount];
-
-            int i_ColumnNZ = _columnPointers[0];
-            for (int i_R = 0; i_R < ColumnCount; i_R++)
-            {
-                for (; i_ColumnNZ < _columnPointers[i_R + 1]; i_ColumnNZ++)
-                {
-
-                    int i_C = _rowIndices[i_ColumnNZ];
-                    int i_Pointer = columnPointers[i_C] + rowHelper[i_C];
-
-                    rowIndices[i_Pointer] = i_R;
-                    values[i_Pointer] = _values[i_ColumnNZ];
-                    rowHelper[i_C]++;
-                }
-            }
-
-
-            _columnPointers = columnPointers;
-            _rowIndices = new List<int>(rowIndices);
-            _values = new List<double>(values);
-
-            (_rowCount, _columnCount) = (_columnCount, _rowCount);
+            _storedMatrix = _storedMatrix.Transpose();
         }
 
 
@@ -979,7 +742,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         public DenseVector[] Kernel()
         {
             // Verification
-            if (NonZeroCount == 0) { throw new Exception("The kernel of a zero matrix cannot be computed."); }
+            if (NonZerosCount == 0) { throw new Exception("The kernel of a zero matrix cannot be computed."); }
 
             CompressedColumn squareCcs = CompleteToSquare();
 
@@ -991,6 +754,25 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         }
 
 
+        /// <summary>
+        /// Solve the system <code>Ax=y</code> using Cholesky decomposition.
+        /// </summary>
+        /// <param name="vector"> The vector y in the system. </param>
+        /// <returns> The vector x in the system. </returns>
+        public DenseVector SolveCholesky(Vector vector)
+        {
+            var cholesky = CSparse.Double.Factorization.SparseCholesky.Create(_storedMatrix, CSparse.ColumnOrdering.MinimumDegreeAtPlusA);
+
+            double[] components;
+            if (vector is SparseVector sparse) { components = sparse.ToArray(); }
+            else if (vector is DenseVector dense) { components = dense._components; }
+            else { throw new NotImplementedException($"The resolution of the linear system from a {vector.GetType()} as a {nameof(Vector)} is not implemented."); }
+
+            double[] x = new double[ColumnCount];
+            cholesky.Solve(components, x);
+            return new DenseVector(x);
+        }
+
 
         /// <summary>
         /// Converts a the current <see cref="CompressedColumn"/> matrix into an equivalent <see cref="CompressedRow"/> matrix.
@@ -1000,9 +782,9 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         {
             // Get the number of elements per row
             int[] rowHelper = new int[RowCount];
-            for (int i_NZ = 0; i_NZ < NonZeroCount; i_NZ++)
+            for (int i_NZ = 0; i_NZ < NonZerosCount; i_NZ++)
             {
-                rowHelper[_rowIndices[i_NZ]]++;
+                rowHelper[_storedMatrix.RowIndices[i_NZ]]++;
             }
 
 
@@ -1018,19 +800,19 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
 
 
             // Creates the column index and value lists
-            int[] columnIndices = new int[NonZeroCount];
-            double[] values = new double[NonZeroCount];
+            int[] columnIndices = new int[NonZerosCount];
+            double[] values = new double[NonZerosCount];
 
-            int i_ColumnNZ = _columnPointers[0];
+            int i_ColumnNZ = _storedMatrix.ColumnPointers[0];
             for (int i_C = 0; i_C < ColumnCount; i_C++)
             {
-                for (; i_ColumnNZ < _columnPointers[i_C + 1]; i_ColumnNZ++)
+                for (; i_ColumnNZ < _storedMatrix.ColumnPointers[i_C + 1]; i_ColumnNZ++)
                 {
-                    int i_R = _rowIndices[i_ColumnNZ];
+                    int i_R = _storedMatrix.RowIndices[i_ColumnNZ];
                     int i_Pointer = rowPointers[i_R] + rowHelper[i_R];
 
                     columnIndices[i_Pointer] = i_C;
-                    values[i_Pointer] = _values[i_ColumnNZ];
+                    values[i_Pointer] = _storedMatrix.Values[i_ColumnNZ];
                     rowHelper[i_R]++;
                 }
             }
@@ -1053,114 +835,114 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         private CompressedColumn CompleteToSquare()
         {
             // If the matrix is rectangular with more columns
-            if (_rowCount < _columnCount)
+            if (RowCount < ColumnCount)
             {
                 // Complete the current matrix to be a square matrix.
                 // In order to keep the null space unchanged, the non-zero row with the least component is duplicated.
                 CompressedRow crs = ToCompressedRow();
 
                 int i_SparseRow = 0;
-                int sparseRowCount = NonZeroCount;
+                int sparseRowCount = NonZerosCount;
 
-                int[] rowPointers = new int[_columnCount + 1];
+                int[] rowPointers = new int[ColumnCount + 1];
                 rowPointers[0] = 0;
-                for (int i_R = 0; i_R < _rowCount; i_R++)
+                for (int i_R = 0; i_R < RowCount; i_R++)
                 {
                     rowPointers[i_R + 1] = crs.GetRowPointer(i_R + 1);
 
                     int count = rowPointers[i_R + 1] - rowPointers[i_R];
                     if (count != 0 & count < sparseRowCount) { sparseRowCount = count; i_SparseRow = i_R; }
                 }
-                for (int i_R = _rowCount; i_R < _columnCount; i_R++)
+                for (int i_R = RowCount; i_R < ColumnCount; i_R++)
                 {
                     rowPointers[i_R + 1] = rowPointers[i_R] + sparseRowCount;
                 }
 
-                List<int> columnIndices = new List<int>(NonZeroCount + (sparseRowCount * (_columnCount - _rowCount)));
-                List<double> values = new List<double>(NonZeroCount + (sparseRowCount * (_columnCount - _rowCount)));
-                for (int i_R = 0; i_R < _rowCount; i_R++)
+                List<int> columnIndices = new List<int>(NonZerosCount + (sparseRowCount * (ColumnCount - RowCount)));
+                List<double> values = new List<double>(NonZerosCount + (sparseRowCount * (ColumnCount - RowCount)));
+                for (int i_R = 0; i_R < RowCount; i_R++)
                 {
                     for (int i_NZ = rowPointers[i_R]; i_NZ < rowPointers[i_R + 1]; i_NZ++)
                     {
                         columnIndices.Add(crs.GetColumnIndex(i_NZ));
-                        values.Add(crs.GetValues(i_NZ));
+                        values.Add(crs.GetValue(i_NZ));
                     }
                 }
-                for (int i_R = 0; i_R < _columnCount - _rowCount; i_R++)
+                for (int i_R = 0; i_R < ColumnCount - RowCount; i_R++)
                 {
                     for (int i_NZ = rowPointers[i_SparseRow]; i_NZ < rowPointers[i_SparseRow + 1]; i_NZ++)
                     {
                         columnIndices.Add(crs.GetColumnIndex(i_NZ));
-                        values.Add(crs.GetValues(i_NZ));
+                        values.Add(crs.GetValue(i_NZ));
                     }
                 }
 
-                CompressedRow result = new CompressedRow(_columnCount, _columnCount, rowPointers, columnIndices, values);
+                CompressedRow result = new CompressedRow(ColumnCount, ColumnCount, rowPointers, columnIndices, values);
                 return result.ToCompressedColumn();
             }
             // If the matrix is rectangular with more rows
-            else if (_columnCount < _rowCount)
+            else if (ColumnCount < RowCount)
             {
                 // Complete the current matrix to be a square matrix.
                 // In order to keep the null space unchanged, the non-zero column with the least component is duplicated.
                 int i_SparseColumn = 0;
-                int sparseColumnCount = NonZeroCount;
+                int sparseColumnCount = NonZerosCount;
 
-                int[] columnPointers = new int[_rowCount + 1];
+                int[] columnPointers = new int[RowCount + 1];
                 columnPointers[0] = 0;
-                for (int i_C = 0; i_C < _columnCount; i_C++)
+                for (int i_C = 0; i_C < ColumnCount; i_C++)
                 {
-                    columnPointers[i_C + 1] = _columnPointers[i_C + 1];
+                    columnPointers[i_C + 1] = _storedMatrix.ColumnPointers[i_C + 1];
 
                     int count = columnPointers[i_C + 1] - columnPointers[i_C];
                     if (count != 0 & count < sparseColumnCount) { sparseColumnCount = count; i_SparseColumn = i_C; }
                 }
-                for (int i_C = _columnCount; i_C < _rowCount; i_C++)
+                for (int i_C = ColumnCount; i_C < RowCount; i_C++)
                 {
                     columnPointers[i_C + 1] = columnPointers[i_C] + sparseColumnCount;
                 }
 
-                List<int> rowIndices = new List<int>(NonZeroCount + (sparseColumnCount * (_rowCount - _columnCount)));
-                List<double> values = new List<double>(NonZeroCount + (sparseColumnCount * (_rowCount - _columnCount)));
-                for (int i_C = 0; i_C < _columnCount; i_C++)
+                List<int> rowIndices = new List<int>(NonZerosCount + (sparseColumnCount * (RowCount - ColumnCount)));
+                List<double> values = new List<double>(NonZerosCount + (sparseColumnCount * (RowCount - ColumnCount)));
+                for (int i_C = 0; i_C < ColumnCount; i_C++)
                 {
                     for (int i_NZ = columnPointers[i_C]; i_NZ < columnPointers[i_C + 1]; i_NZ++)
                     {
-                        rowIndices.Add(_rowIndices[i_NZ]);
-                        values.Add(_values[i_NZ]);
+                        rowIndices.Add(_storedMatrix.RowIndices[i_NZ]);
+                        values.Add(_storedMatrix.Values[i_NZ]);
                     }
                 }
-                for (int i_C = 0; i_C < _rowCount - _columnCount; i_C++)
+                for (int i_C = 0; i_C < RowCount - ColumnCount; i_C++)
                 {
                     for (int i_NZ = columnPointers[i_SparseColumn]; i_NZ < columnPointers[i_SparseColumn + 1]; i_NZ++)
                     {
-                        rowIndices.Add(_rowIndices[i_NZ]);
-                        values.Add(_values[i_NZ]);
+                        rowIndices.Add(_storedMatrix.RowIndices[i_NZ]);
+                        values.Add(_storedMatrix.Values[i_NZ]);
                     }
                 }
 
-                return new CompressedColumn(_rowCount, _rowCount, columnPointers, rowIndices, values);
+                return new CompressedColumn(RowCount, RowCount, columnPointers, rowIndices.ToArray(), values.ToArray());
             }
             // If the matrix is a square matrix
             else
             {
-                int[] columnPointers = new int[_columnPointers.Length];
-                for (int i = 0; i < _columnPointers.Length; i++)
+                int[] columnPointers = new int[_storedMatrix.ColumnPointers.Length];
+                for (int i = 0; i < _storedMatrix.ColumnPointers.Length; i++)
                 {
-                    columnPointers[i] = _columnPointers[i];
+                    columnPointers[i] = _storedMatrix.ColumnPointers[i];
                 }
-                List<int> rowIndices = new List<int>(_rowIndices.Count);
-                for (int i = 0; i < _rowIndices.Count; i++)
+                List<int> rowIndices = new List<int>(NonZerosCount);
+                for (int i = 0; i < NonZerosCount; i++)
                 {
-                    rowIndices.Add(_rowIndices[i]);
+                    rowIndices.Add(_storedMatrix.RowIndices[i]);
                 }
-                List<double> values = new List<double>(_values.Count);
-                for (int i = 0; i < _values.Count; i++)
+                List<double> values = new List<double>(NonZerosCount);
+                for (int i = 0; i < NonZerosCount; i++)
                 {
-                    values.Add(_values[i]);
+                    values.Add(_storedMatrix.Values[i]);
                 }
 
-                return new CompressedColumn(_rowCount, _columnCount, columnPointers, rowIndices, values);
+                return new CompressedColumn(RowCount, ColumnCount, columnPointers, rowIndices.ToArray(), values.ToArray());
             }
         }
 
@@ -1279,28 +1061,28 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         private DenseVector[] FilterKernelVectors(DenseVector[] kernel)
         {
             // If the matrix is rectangular with more columns
-            if (_rowCount < _columnCount)
+            if (RowCount < ColumnCount)
             {
                 // In this case, the initial rectangular matrix was completed with linearly-dependent row.
                 // Fortunately, the kernel of the initial matrix and the completed matrix are the same.
                 return kernel;
             }
             // If the matrix is rectangular with more rows
-            else if (_columnCount < _rowCount)
+            else if (ColumnCount < RowCount)
             {
                 // In this case, the initial rectangular matrix was completed with linearly-dependent columns.
                 // Fortunately, we know that the vectors of the actual null-space should be orthogonal to
 
                 // This array contains the vectors to which our null space should be orthogonal
-                DenseVector[] orthogonalVectors = new DenseVector[_rowCount - _columnCount]; 
-                for (int i = 0; i < (_rowCount - _columnCount); i++)
+                DenseVector[] orthogonalVectors = new DenseVector[RowCount - ColumnCount]; 
+                for (int i = 0; i < (RowCount - ColumnCount); i++)
                 {
-                    orthogonalVectors[i] = new DenseVector(_rowCount);
-                    orthogonalVectors[i][_columnCount + i] = 1;
+                    orthogonalVectors[i] = new DenseVector(RowCount);
+                    orthogonalVectors[i][ColumnCount + i] = 1;
                 }
 
                 Storage.DictionaryOfKeys dok = new Storage.DictionaryOfKeys();
-                for (int i_R = 0; i_R < (_rowCount - _columnCount); i_R++)
+                for (int i_R = 0; i_R < (RowCount - ColumnCount); i_R++)
                 {
                     for (int i_C = 0; i_C < kernel.Length; i_C++)
                     {
@@ -1309,7 +1091,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
                     }
                 }
 
-                CompressedColumn ccs = new CompressedColumn((_rowCount - _columnCount), kernel.Length, dok);
+                CompressedColumn ccs = new CompressedColumn((RowCount - ColumnCount), kernel.Length, dok);
 
                 DenseVector[] intermediateresult = ccs.Kernel();
 
@@ -1319,7 +1101,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
                 int counter = 0;
                 foreach (DenseVector combination in intermediateresult)
                 {
-                    DenseVector finalResult = new DenseVector(_rowCount);
+                    DenseVector finalResult = new DenseVector(RowCount);
                     for (int i = 0; i < kernel.Length; i++)
                     {
                         DenseVector vec = DenseVector.Multiply(combination[i], kernel[i]);
@@ -1328,7 +1110,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
                     //This part can be improved
                     var array = finalResult.ToArray();
 
-                    Array.Resize(ref array, _columnCount);
+                    Array.Resize(ref array, ColumnCount);
 
                     finalResults[counter] = (new DenseVector(array));
                     counter += 1;
@@ -1348,13 +1130,10 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <inheritdoc/>
         protected override void Opposite()
         {
-            List<double> values = new List<double>(NonZeroCount);
-            for (int i_NZ = 0; i_NZ < NonZeroCount; i_NZ++)
+            for (int i_NZ = 0; i_NZ < NonZerosCount; i_NZ++)
             {
-                values.Add(-_values[i_NZ]);
+                _storedMatrix.Values[i_NZ] = -_storedMatrix.Values[i_NZ];
             }
-
-            _values = values;
         }
 
         #endregion

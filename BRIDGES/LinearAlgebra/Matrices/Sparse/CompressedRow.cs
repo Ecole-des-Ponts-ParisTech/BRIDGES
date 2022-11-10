@@ -31,7 +31,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <summary>
         /// Pointers giving the number of non-zero values before the row at a given index.
         /// </summary>
-        /// <remarks> Array of length (ColumnCount + 1), starting at 0 and ending at <see cref="SparseMatrix.NonZeroCount"/>. </remarks>
+        /// <remarks> Array of length (ColumnCount + 1), starting at 0 and ending at <see cref="SparseMatrix.NonZerosCount"/>. </remarks>
         private int[] _rowPointers;
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
 
 
         /// <inheritdoc/>
-        public override int NonZeroCount
+        public override int NonZerosCount
         {
             get { return _values.Count; }
         }
@@ -231,8 +231,8 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
                 throw new ArgumentException("The matrices do not have the same size.");
             }
 
-            List<double> values = new List<double>(left.NonZeroCount + right.NonZeroCount);
-            List<int> columnIndices = new List<int>(left.NonZeroCount + right.NonZeroCount);
+            List<double> values = new List<double>(left.NonZerosCount + right.NonZerosCount);
+            List<int> columnIndices = new List<int>(left.NonZerosCount + right.NonZerosCount);
 
             int[] rowPointers = new int[left.RowCount + 1];
             rowPointers[0] = 0;
@@ -300,8 +300,8 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
                 throw new ArgumentException("The matrices do not have the same size.");
             }
 
-            List<double> values = new List<double>(left.NonZeroCount + right.NonZeroCount);
-            List<int> columnIndices = new List<int>(left.NonZeroCount + right.NonZeroCount);
+            List<double> values = new List<double>(left.NonZerosCount + right.NonZerosCount);
+            List<int> columnIndices = new List<int>(left.NonZerosCount + right.NonZerosCount);
 
             int[] rowPointers = new int[left.RowCount + 1];
             rowPointers[0] = 0;
@@ -372,8 +372,8 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
             }
 
             int[] rowPointers = new int[left.RowCount + 1];
-            List<double> values = new List<double>(left.NonZeroCount * right.NonZeroCount);
-            List<int> columnIndices = new List<int>(left.NonZeroCount * right.NonZeroCount);
+            List<double> values = new List<double>(left.NonZerosCount * right.NonZerosCount);
+            List<int> columnIndices = new List<int>(left.NonZerosCount * right.NonZerosCount);
 
             rowPointers[0] = 0;
 
@@ -454,6 +454,22 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
             }
 
             return new CompressedRow(left.RowCount, right.ColumnCount, rowPointers, columnIndices, values);
+        }
+
+        /// <summary>
+        /// Computes the left multiplication of a <see cref="CompressedRow"/> with its transposition : <c>At*A</c>.
+        /// </summary>
+        /// <param name="matrix">transposed <see cref="CompressedRow"/> for the multiplication. </param>
+        /// <returns> The new <see cref="CompressedRow"/> resulting from the multiplication. </returns>
+        public static CompressedRow TransposeMultiplySelf(CompressedRow matrix)
+        {
+            List<int> columnIndices = new List<int>(matrix.ColumnIndices());
+            List<double> values = new List<double>(matrix.Values());
+            CompressedRow transposedMatrix =
+                new CompressedRow(matrix.RowCount, matrix.ColumnCount, matrix.RowPointers(), columnIndices, values);
+            transposedMatrix.Transpose();
+
+            return CompressedRow.Multiply(transposedMatrix, matrix);
         }
 
 
@@ -651,8 +667,8 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <returns> The new <see cref="CompressedRow"/> resulting from the scalar multiplication. </returns>
         public static CompressedRow Multiply(double factor, CompressedRow operand)
         {
-            List<double> values = new List<double>(operand.NonZeroCount);
-            for (int i_NZ = 0; i_NZ < operand.NonZeroCount; i_NZ++)
+            List<double> values = new List<double>(operand.NonZerosCount);
+            for (int i_NZ = 0; i_NZ < operand.NonZerosCount; i_NZ++)
             {
                 values.Add(factor * operand._values[i_NZ]);
             }
@@ -676,8 +692,8 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <returns> The new <see cref="CompressedRow"/> resulting from the scalar multiplication. </returns>
         public static CompressedRow Multiply(CompressedRow operand, double factor)
         {
-            List<double> values = new List<double>(operand.NonZeroCount);
-            for (int i_NZ = 0; i_NZ < operand.NonZeroCount; i_NZ++)
+            List<double> values = new List<double>(operand.NonZerosCount);
+            for (int i_NZ = 0; i_NZ < operand.NonZerosCount; i_NZ++)
             {
                 values.Add(operand._values[i_NZ] * factor);
             }
@@ -702,8 +718,8 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <returns> The new <see cref="CompressedRow"/> resulting from the scalar division. </returns>
         public static CompressedRow Divide(CompressedRow operand, double divisor)
         {
-            List<double> values = new List<double>(operand.NonZeroCount);
-            for (int i_NZ = 0; i_NZ < operand.NonZeroCount; i_NZ++)
+            List<double> values = new List<double>(operand.NonZerosCount);
+            for (int i_NZ = 0; i_NZ < operand.NonZerosCount; i_NZ++)
             {
                 values.Add(operand._values[i_NZ] / divisor);
             }
@@ -866,7 +882,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// Returns the non-zero values of the current <see cref="CompressedRow"/> sparse matrix.
         /// </summary>
         /// <returns> The non-zero values of the current <see cref="CompressedRow"/> sparse matrix. </returns>
-        public double[] GetValues()
+        public double[] Values()
         {
             return _values.ToArray();
         }
@@ -876,7 +892,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// </summary>
         /// <param name="index"> Index of the non-zero value to get.</param>
         /// <returns> The non-zero value of the current <see cref="CompressedRow"/> sparse matrix at the given index. </returns>
-        public double GetValues(int index)
+        public double GetValue(int index)
         {
             return _values[index];
         }
@@ -886,7 +902,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// Returns the column indices of the current <see cref="CompressedRow"/> sparse matrix.
         /// </summary>
         /// <returns> The column indices of the current <see cref="CompressedRow"/> sparse matrix. </returns>
-        public int[] GetColumnIndices()
+        public int[] ColumnIndices()
         {
             return _columnIndices.ToArray();
         }
@@ -906,7 +922,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// Returns the row pointers of the current <see cref="CompressedRow"/> sparse matrix.
         /// </summary>
         /// <returns> The row pointers of the current <see cref="CompressedRow"/> sparse matrix. </returns>
-        public int[] GetRowPointers()
+        public int[] RowPointers()
         {
             return _rowPointers.Clone() as int[]; 
         }
@@ -923,11 +939,24 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
 
 
         /// <inheritdoc/>
+        public override IEnumerable<(int RowIndex, int ColumnIndex, double Value)> GetNonZeros()
+        {
+            for (int i_R = 0; i_R < RowCount; i_R++)
+            {
+                for (int i_NZ = _rowPointers[i_R]; i_NZ < _rowPointers[i_R + 1]; i_NZ++)
+                {
+                    yield return (RowIndex: i_R, ColumnIndex: _columnIndices[i_NZ], Value: _values[i_NZ]);
+                }
+            }
+        }
+
+
+        /// <inheritdoc/>
         public override void Transpose()
         {
             // Get the number of elements per column of the current matrix
             int[] columnHelper = new int[ColumnCount];
-            for (int i_NZ = 0; i_NZ < NonZeroCount; i_NZ++)
+            for (int i_NZ = 0; i_NZ < NonZerosCount; i_NZ++)
             {
                 columnHelper[_columnIndices[i_NZ]]++;
             }
@@ -945,8 +974,8 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
 
 
             // Creates the new column index and value lists
-            int[] columnIndices = new int[NonZeroCount];
-            double[] values = new double[NonZeroCount];
+            int[] columnIndices = new int[NonZerosCount];
+            double[] values = new double[NonZerosCount];
 
             int i_RowNZ = _rowPointers[0];
             for (int i_R = 0; i_R < RowCount; i_R++)
@@ -964,6 +993,22 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
             }
         }
 
+        /// <summary>
+        /// Solve the system <code>Ax=y</code> using Cholesky decomposition.
+        /// </summary>
+        /// <param name="vector"> The vector y in the system. </param>
+        /// <returns> The vector x in the system. </returns>
+        public DenseVector SolveCholesky(DenseVector vector)
+        {
+            CompressedColumn ccs = this.ToCompressedColumn();
+            var sparse = new CSparse.Double.SparseMatrix(RowCount, ColumnCount, ccs.Values(), ccs.RowIndices(), ccs.ColumnPointers());
+            var cholesky = CSparse.Double.Factorization.SparseCholesky.Create(sparse, CSparse.ColumnOrdering.MinimumDegreeAtPlusA);
+
+            double[] x = new double[ColumnCount];
+            cholesky.Solve(vector._components, x);
+            return new DenseVector(x);
+        }
+
 
         /// <summary>
         /// Converts a the current <see cref="CompressedRow"/> matrix into an equivalent <see cref="CompressedColumn"/> matrix.
@@ -973,7 +1018,7 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         {
             // Get the number of elements per column
             int[] columnHelper = new int[ColumnCount];
-            for (int i_NZ = 0; i_NZ < NonZeroCount; i_NZ++)
+            for (int i_NZ = 0; i_NZ < NonZerosCount; i_NZ++)
             {
                 columnHelper[_columnIndices[i_NZ]]++;
             }
@@ -991,8 +1036,8 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
 
 
             // Creates the row index and value lists
-            double[] values = new double[NonZeroCount];
-            int[] rowIndices = new int[NonZeroCount];
+            double[] values = new double[NonZerosCount];
+            int[] rowIndices = new int[NonZerosCount];
 
             int i_RowNZ = _rowPointers[0];
             for (int i_R = 0; i_R < RowCount; i_R++)
@@ -1008,12 +1053,9 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
                 }
             }
 
-
-            List<int> list_RowIndices = new List<int>(rowIndices);
-            List<double> list_Values = new List<double>(values);
-
-            return new CompressedColumn(RowCount, ColumnCount, columnPointers , list_RowIndices, list_Values);
+            return new CompressedColumn(RowCount, ColumnCount, columnPointers , rowIndices, values);
         }
+
 
         #endregion
 
@@ -1023,8 +1065,8 @@ namespace BRIDGES.LinearAlgebra.Matrices.Sparse
         /// <inheritdoc/>
         protected override void Opposite()
         {
-            List<double> values = new List<double>(NonZeroCount);
-            for (int i_NZ = 0; i_NZ < NonZeroCount; i_NZ++)
+            List<double> values = new List<double>(NonZerosCount);
+            for (int i_NZ = 0; i_NZ < NonZerosCount; i_NZ++)
             {
                 values.Add(-_values[i_NZ]);
             }

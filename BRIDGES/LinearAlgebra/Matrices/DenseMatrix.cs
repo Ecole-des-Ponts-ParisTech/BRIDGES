@@ -173,6 +173,20 @@ namespace BRIDGES.LinearAlgebra.Matrices
             return matrix;
         }
 
+        /// <summary>
+        /// Computes the left multiplication of a <see cref="DenseMatrix"/> with its transposition : <c>At*A</c>.
+        /// </summary>
+        /// <param name="matrix">transposed <see cref="DenseMatrix"/> for the multiplication. </param>
+        /// <returns> The new <see cref="DenseMatrix"/> resulting from the multiplication. </returns>
+        public static DenseMatrix TransposeMultiplySelf(DenseMatrix matrix)
+        {
+            DenseMatrix result = new DenseMatrix();
+
+            result._storedMatrix = matrix._storedMatrix.TransposeThisAndMultiply(matrix._storedMatrix) as MNet_LinAlg.Double.DenseMatrix;
+
+            return matrix;
+        }
+
 
         /******************** Matrix Embedding ********************/
 
@@ -619,9 +633,9 @@ namespace BRIDGES.LinearAlgebra.Matrices
 
             result._storedMatrix = left._storedMatrix.Clone() as MNet_LinAlg.Double.DenseMatrix;
 
-            int[] columnIndices = right.GetColumnIndices();
-            int[] rowPointers = right.GetRowPointers();
-            double[] values = right.GetValues();
+            int[] columnIndices = right.ColumnIndices();
+            int[] rowPointers = right.RowPointers();
+            double[] values = right.Values();
 
             // Iterate on the rows of right
             for (int i_R = 0; i_R < right.RowCount; i_R++)
@@ -654,9 +668,9 @@ namespace BRIDGES.LinearAlgebra.Matrices
 
             result._storedMatrix = right._storedMatrix.Clone() as MNet_LinAlg.Double.DenseMatrix;
 
-            int[] columnIndices = left.GetColumnIndices();
-            int[] rowPointers = left.GetRowPointers();
-            double[] values = left.GetValues();
+            int[] columnIndices = left.ColumnIndices();
+            int[] rowPointers = left.RowPointers();
+            double[] values = left.Values();
 
             // Iterate on the rows of left
             for (int i_R = 0; i_R < left.RowCount; i_R++)
@@ -690,9 +704,9 @@ namespace BRIDGES.LinearAlgebra.Matrices
 
             result._storedMatrix = left._storedMatrix.Clone() as MNet_LinAlg.Double.DenseMatrix;
 
-            int[] columnIndices = right.GetColumnIndices();
-            int[] rowPointers = right.GetRowPointers();
-            double[] values = right.GetValues();
+            int[] columnIndices = right.ColumnIndices();
+            int[] rowPointers = right.RowPointers();
+            double[] values = right.Values();
 
             // Iterate on the rows of right
             for (int i_R = 0; i_R < right.RowCount; i_R++)
@@ -725,9 +739,9 @@ namespace BRIDGES.LinearAlgebra.Matrices
 
             result._storedMatrix = right._storedMatrix.Multiply(-1.0) as MNet_LinAlg.Double.DenseMatrix;
 
-            int[] columnIndices = left.GetColumnIndices();
-            int[] rowPointers = left.GetRowPointers();
-            double[] values = left.GetValues();
+            int[] columnIndices = left.ColumnIndices();
+            int[] rowPointers = left.RowPointers();
+            double[] values = left.Values();
 
             // Iterate on the rows of left
             for (int i_R = 0; i_R < left.RowCount; i_R++)
@@ -761,9 +775,9 @@ namespace BRIDGES.LinearAlgebra.Matrices
             int columnCount = right.ColumnCount;
             double[] components = new double[rowCount * columnCount];
 
-            int[] rowPointers = right.GetRowPointers();
-            int[] columnIndices = right.GetColumnIndices();
-            double[] values = right.GetValues();
+            int[] rowPointers = right.RowPointers();
+            int[] columnIndices = right.ColumnIndices();
+            double[] values = right.Values();
 
             // Iterate on the rows of right
             int i_NZ = rowPointers[0];
@@ -802,9 +816,9 @@ namespace BRIDGES.LinearAlgebra.Matrices
 
             DenseMatrix result = new DenseMatrix(left.RowCount, right.ColumnCount);
 
-            int[] columnIndices = left.GetColumnIndices();
-            int[] rowPointers = left.GetRowPointers();
-            double[] values = left.GetValues();
+            int[] columnIndices = left.ColumnIndices();
+            int[] rowPointers = left.RowPointers();
+            double[] values = left.Values();
 
             // Iterate on the rows of left
             for (int i_R = 0; i_R < left.RowCount; i_R++)
@@ -928,21 +942,14 @@ namespace BRIDGES.LinearAlgebra.Matrices
         {
             double[] components = new double[matrix.RowCount];
 
-            IEnumerator<KeyValuePair<int, double>> kvpEnumerator = vector.GetNonZeros();
-            try
+            foreach(var component in vector.GetNonZeros())
             {
-                while (kvpEnumerator.MoveNext())
+                for (int i_R = 0; i_R < components.Length; i_R++)
                 {
-                    KeyValuePair<int, double> kvp = kvpEnumerator.Current;
-
-                    for (int i_R = 0; i_R < components.Length; i_R++)
-                    {
-                        components[i_R] += matrix._storedMatrix[i_R, kvp.Key] * kvp.Value;
-                    }
+                    components[i_R] += matrix._storedMatrix[i_R, component.RowIndex] * component.Value;
                 }
             }
-            finally { kvpEnumerator.Dispose(); }
-
+            
             return new DenseVector(components);
         }
 
@@ -996,20 +1003,13 @@ namespace BRIDGES.LinearAlgebra.Matrices
         {
             double[] components = new double[matrix.ColumnCount];
 
-            IEnumerator<KeyValuePair<int, double>> kvpEnumerator = vector.GetNonZeros();
-            try
+            foreach(var component in vector.GetNonZeros())
             {
-                while (kvpEnumerator.MoveNext())
+                for (int i_R = 0; i_R < components.Length; i_R++)
                 {
-                    KeyValuePair<int, double> kvp = kvpEnumerator.Current;
-
-                    for (int i_R = 0; i_R < components.Length; i_R++)
-                    {
-                        components[i_R] += matrix._storedMatrix[kvp.Key, i_R] * kvp.Value;
-                    }
+                    components[i_R] += matrix._storedMatrix[component.RowIndex, i_R] * component.Value;
                 }
             }
-            finally { kvpEnumerator.Dispose(); }
 
             return new DenseVector(components);
         }
