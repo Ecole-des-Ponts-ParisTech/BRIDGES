@@ -12628,6 +12628,19 @@ references:
   isSpec: "True"
   fullName: BRIDGES.LinearAlgebra.Matrices.DenseMatrix.TransposeMultiply
   nameWithType: DenseMatrix.TransposeMultiply
+- uid: BRIDGES.LinearAlgebra.Matrices.DenseMatrix.TransposeMultiplySelf(BRIDGES.LinearAlgebra.Matrices.DenseMatrix)
+  name: TransposeMultiplySelf(DenseMatrix)
+  href: api/BRIDGES.LinearAlgebra.Matrices.DenseMatrix.html#BRIDGES_LinearAlgebra_Matrices_DenseMatrix_TransposeMultiplySelf_BRIDGES_LinearAlgebra_Matrices_DenseMatrix_
+  commentId: M:BRIDGES.LinearAlgebra.Matrices.DenseMatrix.TransposeMultiplySelf(BRIDGES.LinearAlgebra.Matrices.DenseMatrix)
+  fullName: BRIDGES.LinearAlgebra.Matrices.DenseMatrix.TransposeMultiplySelf(BRIDGES.LinearAlgebra.Matrices.DenseMatrix)
+  nameWithType: DenseMatrix.TransposeMultiplySelf(DenseMatrix)
+- uid: BRIDGES.LinearAlgebra.Matrices.DenseMatrix.TransposeMultiplySelf*
+  name: TransposeMultiplySelf
+  href: api/BRIDGES.LinearAlgebra.Matrices.DenseMatrix.html#BRIDGES_LinearAlgebra_Matrices_DenseMatrix_TransposeMultiplySelf_
+  commentId: Overload:BRIDGES.LinearAlgebra.Matrices.DenseMatrix.TransposeMultiplySelf
+  isSpec: "True"
+  fullName: BRIDGES.LinearAlgebra.Matrices.DenseMatrix.TransposeMultiplySelf
+  nameWithType: DenseMatrix.TransposeMultiplySelf
 - uid: BRIDGES.LinearAlgebra.Matrices.DenseMatrix.Zero(System.Int32,System.Int32)
   name: Zero(Int32, Int32)
   href: api/BRIDGES.LinearAlgebra.Matrices.DenseMatrix.html#BRIDGES_LinearAlgebra_Matrices_DenseMatrix_Zero_System_Int32_System_Int32_
@@ -13039,6 +13052,19 @@ references:
   isSpec: "True"
   fullName: BRIDGES.LinearAlgebra.Matrices.Matrix.TransposeMultiply
   nameWithType: Matrix.TransposeMultiply
+- uid: BRIDGES.LinearAlgebra.Matrices.Matrix.TransposeMultiplySelf(BRIDGES.LinearAlgebra.Matrices.Matrix)
+  name: TransposeMultiplySelf(Matrix)
+  href: api/BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_TransposeMultiplySelf_BRIDGES_LinearAlgebra_Matrices_Matrix_
+  commentId: M:BRIDGES.LinearAlgebra.Matrices.Matrix.TransposeMultiplySelf(BRIDGES.LinearAlgebra.Matrices.Matrix)
+  fullName: BRIDGES.LinearAlgebra.Matrices.Matrix.TransposeMultiplySelf(BRIDGES.LinearAlgebra.Matrices.Matrix)
+  nameWithType: Matrix.TransposeMultiplySelf(Matrix)
+- uid: BRIDGES.LinearAlgebra.Matrices.Matrix.TransposeMultiplySelf*
+  name: TransposeMultiplySelf
+  href: api/BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_TransposeMultiplySelf_
+  commentId: Overload:BRIDGES.LinearAlgebra.Matrices.Matrix.TransposeMultiplySelf
+  isSpec: "True"
+  fullName: BRIDGES.LinearAlgebra.Matrices.Matrix.TransposeMultiplySelf
+  nameWithType: Matrix.TransposeMultiplySelf
 - uid: BRIDGES.LinearAlgebra.Matrices.Matrix.Zero(System.Int32,System.Int32)
   name: Zero(Int32, Int32)
   href: api/BRIDGES.LinearAlgebra.Matrices.Matrix.html#BRIDGES_LinearAlgebra_Matrices_Matrix_Zero_System_Int32_System_Int32_
@@ -13064,21 +13090,18 @@ references:
   commentId: T:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn
   fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn
   nameWithType: CompressedColumn
+- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.#ctor(BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn)
+  name: CompressedColumn(CompressedColumn)
+  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedColumn__ctor_BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedColumn_
+  commentId: M:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.#ctor(BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn)
+  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.CompressedColumn(BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn)
+  nameWithType: CompressedColumn.CompressedColumn(CompressedColumn)
 - uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.#ctor(System.Int32,System.Int32,BRIDGES.LinearAlgebra.Matrices.Storage.DictionaryOfKeys)
   name: CompressedColumn(Int32, Int32, DictionaryOfKeys)
   href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedColumn__ctor_System_Int32_System_Int32_BRIDGES_LinearAlgebra_Matrices_Storage_DictionaryOfKeys_
   commentId: M:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.#ctor(System.Int32,System.Int32,BRIDGES.LinearAlgebra.Matrices.Storage.DictionaryOfKeys)
   fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.CompressedColumn(System.Int32, System.Int32, BRIDGES.LinearAlgebra.Matrices.Storage.DictionaryOfKeys)
   nameWithType: CompressedColumn.CompressedColumn(Int32, Int32, DictionaryOfKeys)
-- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.#ctor(System.Int32,System.Int32,System.Int32[],List{System.Int32},List{System.Double})
-  name: CompressedColumn(Int32, Int32, Int32[], List<Int32>, List<Double>)
-  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedColumn__ctor_System_Int32_System_Int32_System_Int32___List_System_Int32__List_System_Double__
-  commentId: M:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.#ctor(System.Int32,System.Int32,System.Int32[],List{System.Int32},List{System.Double})
-  name.vb: CompressedColumn(Int32, Int32, Int32(), List(Of Int32), List(Of Double))
-  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.CompressedColumn(System.Int32, System.Int32, System.Int32[], List<System.Int32>, List<System.Double>)
-  fullName.vb: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.CompressedColumn(System.Int32, System.Int32, System.Int32(), List(Of System.Int32), List(Of System.Double))
-  nameWithType: CompressedColumn.CompressedColumn(Int32, Int32, Int32[], List<Int32>, List<Double>)
-  nameWithType.vb: CompressedColumn.CompressedColumn(Int32, Int32, Int32(), List(Of Int32), List(Of Double))
 - uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.#ctor*
   name: CompressedColumn
   href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedColumn__ctor_
@@ -13366,6 +13389,19 @@ references:
   isSpec: "True"
   fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.GetColumnPointers
   nameWithType: CompressedColumn.GetColumnPointers
+- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.GetNonZeros
+  name: GetNonZeros()
+  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedColumn_GetNonZeros
+  commentId: M:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.GetNonZeros
+  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.GetNonZeros()
+  nameWithType: CompressedColumn.GetNonZeros()
+- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.GetNonZeros*
+  name: GetNonZeros
+  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedColumn_GetNonZeros_
+  commentId: Overload:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.GetNonZeros
+  isSpec: "True"
+  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.GetNonZeros
+  nameWithType: CompressedColumn.GetNonZeros
 - uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.GetRowIndex(System.Int32)
   name: GetRowIndex(Int32)
   href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedColumn_GetRowIndex_System_Int32_
@@ -13501,19 +13537,19 @@ references:
   isSpec: "True"
   fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.Multiply
   nameWithType: CompressedColumn.Multiply
-- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.NonZeroCount
-  name: NonZeroCount
-  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedColumn_NonZeroCount
-  commentId: P:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.NonZeroCount
-  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.NonZeroCount
-  nameWithType: CompressedColumn.NonZeroCount
-- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.NonZeroCount*
-  name: NonZeroCount
-  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedColumn_NonZeroCount_
-  commentId: Overload:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.NonZeroCount
+- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.NonZerosCount
+  name: NonZerosCount
+  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedColumn_NonZerosCount
+  commentId: P:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.NonZerosCount
+  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.NonZerosCount
+  nameWithType: CompressedColumn.NonZerosCount
+- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.NonZerosCount*
+  name: NonZerosCount
+  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedColumn_NonZerosCount_
+  commentId: Overload:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.NonZerosCount
   isSpec: "True"
-  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.NonZeroCount
-  nameWithType: CompressedColumn.NonZeroCount
+  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.NonZerosCount
+  nameWithType: CompressedColumn.NonZerosCount
 - uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.Opposite
   name: Opposite()
   href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedColumn_Opposite
@@ -13553,6 +13589,19 @@ references:
   isSpec: "True"
   fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.RowIndices
   nameWithType: CompressedColumn.RowIndices
+- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.SolveCholesky(BRIDGES.LinearAlgebra.Vectors.Vector)
+  name: SolveCholesky(Vector)
+  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedColumn_SolveCholesky_BRIDGES_LinearAlgebra_Vectors_Vector_
+  commentId: M:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.SolveCholesky(BRIDGES.LinearAlgebra.Vectors.Vector)
+  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.SolveCholesky(BRIDGES.LinearAlgebra.Vectors.Vector)
+  nameWithType: CompressedColumn.SolveCholesky(Vector)
+- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.SolveCholesky*
+  name: SolveCholesky
+  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedColumn_SolveCholesky_
+  commentId: Overload:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.SolveCholesky
+  isSpec: "True"
+  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.SolveCholesky
+  nameWithType: CompressedColumn.SolveCholesky
 - uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.Subtract(BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn,BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn)
   name: Subtract(CompressedColumn, CompressedColumn)
   href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedColumn_Subtract_BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedColumn_BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedColumn_
@@ -13641,6 +13690,19 @@ references:
   isSpec: "True"
   fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.TransposeMultiply
   nameWithType: CompressedColumn.TransposeMultiply
+- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.TransposeMultiplySelf(BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn)
+  name: TransposeMultiplySelf(CompressedColumn)
+  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedColumn_TransposeMultiplySelf_BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedColumn_
+  commentId: M:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.TransposeMultiplySelf(BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn)
+  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.TransposeMultiplySelf(BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn)
+  nameWithType: CompressedColumn.TransposeMultiplySelf(CompressedColumn)
+- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.TransposeMultiplySelf*
+  name: TransposeMultiplySelf
+  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedColumn_TransposeMultiplySelf_
+  commentId: Overload:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.TransposeMultiplySelf
+  isSpec: "True"
+  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.TransposeMultiplySelf
+  nameWithType: CompressedColumn.TransposeMultiplySelf
 - uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.Values
   name: Values()
   href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedColumn_Values
@@ -13927,6 +13989,19 @@ references:
   isSpec: "True"
   fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.ColumnCount
   nameWithType: CompressedRow.ColumnCount
+- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.ColumnIndices
+  name: ColumnIndices()
+  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_ColumnIndices
+  commentId: M:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.ColumnIndices
+  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.ColumnIndices()
+  nameWithType: CompressedRow.ColumnIndices()
+- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.ColumnIndices*
+  name: ColumnIndices
+  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_ColumnIndices_
+  commentId: Overload:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.ColumnIndices
+  isSpec: "True"
+  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.ColumnIndices
+  nameWithType: CompressedRow.ColumnIndices
 - uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.Divide(BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow,System.Double)
   name: Divide(CompressedRow, Double)
   href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_Divide_BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_System_Double_
@@ -13953,19 +14028,19 @@ references:
   isSpec: "True"
   fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetColumnIndex
   nameWithType: CompressedRow.GetColumnIndex
-- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetColumnIndices
-  name: GetColumnIndices()
-  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_GetColumnIndices
-  commentId: M:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetColumnIndices
-  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetColumnIndices()
-  nameWithType: CompressedRow.GetColumnIndices()
-- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetColumnIndices*
-  name: GetColumnIndices
-  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_GetColumnIndices_
-  commentId: Overload:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetColumnIndices
+- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetNonZeros
+  name: GetNonZeros()
+  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_GetNonZeros
+  commentId: M:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetNonZeros
+  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetNonZeros()
+  nameWithType: CompressedRow.GetNonZeros()
+- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetNonZeros*
+  name: GetNonZeros
+  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_GetNonZeros_
+  commentId: Overload:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetNonZeros
   isSpec: "True"
-  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetColumnIndices
-  nameWithType: CompressedRow.GetColumnIndices
+  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetNonZeros
+  nameWithType: CompressedRow.GetNonZeros
 - uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetRowPointer(System.Int32)
   name: GetRowPointer(Int32)
   href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_GetRowPointer_System_Int32_
@@ -13979,38 +14054,19 @@ references:
   isSpec: "True"
   fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetRowPointer
   nameWithType: CompressedRow.GetRowPointer
-- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetRowPointers
-  name: GetRowPointers()
-  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_GetRowPointers
-  commentId: M:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetRowPointers
-  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetRowPointers()
-  nameWithType: CompressedRow.GetRowPointers()
-- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetRowPointers*
-  name: GetRowPointers
-  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_GetRowPointers_
-  commentId: Overload:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetRowPointers
+- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetValue(System.Int32)
+  name: GetValue(Int32)
+  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_GetValue_System_Int32_
+  commentId: M:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetValue(System.Int32)
+  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetValue(System.Int32)
+  nameWithType: CompressedRow.GetValue(Int32)
+- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetValue*
+  name: GetValue
+  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_GetValue_
+  commentId: Overload:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetValue
   isSpec: "True"
-  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetRowPointers
-  nameWithType: CompressedRow.GetRowPointers
-- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetValues
-  name: GetValues()
-  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_GetValues
-  commentId: M:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetValues
-  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetValues()
-  nameWithType: CompressedRow.GetValues()
-- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetValues(System.Int32)
-  name: GetValues(Int32)
-  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_GetValues_System_Int32_
-  commentId: M:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetValues(System.Int32)
-  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetValues(System.Int32)
-  nameWithType: CompressedRow.GetValues(Int32)
-- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetValues*
-  name: GetValues
-  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_GetValues_
-  commentId: Overload:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetValues
-  isSpec: "True"
-  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetValues
-  nameWithType: CompressedRow.GetValues
+  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.GetValue
+  nameWithType: CompressedRow.GetValue
 - uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.Identity(System.Int32)
   name: Identity(Int32)
   href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_Identity_System_Int32_
@@ -14107,19 +14163,19 @@ references:
   isSpec: "True"
   fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.Multiply
   nameWithType: CompressedRow.Multiply
-- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.NonZeroCount
-  name: NonZeroCount
-  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_NonZeroCount
-  commentId: P:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.NonZeroCount
-  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.NonZeroCount
-  nameWithType: CompressedRow.NonZeroCount
-- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.NonZeroCount*
-  name: NonZeroCount
-  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_NonZeroCount_
-  commentId: Overload:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.NonZeroCount
+- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.NonZerosCount
+  name: NonZerosCount
+  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_NonZerosCount
+  commentId: P:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.NonZerosCount
+  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.NonZerosCount
+  nameWithType: CompressedRow.NonZerosCount
+- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.NonZerosCount*
+  name: NonZerosCount
+  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_NonZerosCount_
+  commentId: Overload:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.NonZerosCount
   isSpec: "True"
-  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.NonZeroCount
-  nameWithType: CompressedRow.NonZeroCount
+  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.NonZerosCount
+  nameWithType: CompressedRow.NonZerosCount
 - uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.Opposite
   name: Opposite()
   href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_Opposite
@@ -14146,6 +14202,32 @@ references:
   isSpec: "True"
   fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.RowCount
   nameWithType: CompressedRow.RowCount
+- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.RowPointers
+  name: RowPointers()
+  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_RowPointers
+  commentId: M:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.RowPointers
+  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.RowPointers()
+  nameWithType: CompressedRow.RowPointers()
+- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.RowPointers*
+  name: RowPointers
+  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_RowPointers_
+  commentId: Overload:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.RowPointers
+  isSpec: "True"
+  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.RowPointers
+  nameWithType: CompressedRow.RowPointers
+- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.SolveCholesky(BRIDGES.LinearAlgebra.Vectors.DenseVector)
+  name: SolveCholesky(DenseVector)
+  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_SolveCholesky_BRIDGES_LinearAlgebra_Vectors_DenseVector_
+  commentId: M:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.SolveCholesky(BRIDGES.LinearAlgebra.Vectors.DenseVector)
+  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.SolveCholesky(BRIDGES.LinearAlgebra.Vectors.DenseVector)
+  nameWithType: CompressedRow.SolveCholesky(DenseVector)
+- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.SolveCholesky*
+  name: SolveCholesky
+  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_SolveCholesky_
+  commentId: Overload:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.SolveCholesky
+  isSpec: "True"
+  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.SolveCholesky
+  nameWithType: CompressedRow.SolveCholesky
 - uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.Subtract(BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn,BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow)
   name: Subtract(CompressedColumn, CompressedRow)
   href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_Subtract_BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedColumn_BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_
@@ -14234,6 +14316,32 @@ references:
   isSpec: "True"
   fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.TransposeMultiply
   nameWithType: CompressedRow.TransposeMultiply
+- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.TransposeMultiplySelf(BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow)
+  name: TransposeMultiplySelf(CompressedRow)
+  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_TransposeMultiplySelf_BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_
+  commentId: M:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.TransposeMultiplySelf(BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow)
+  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.TransposeMultiplySelf(BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow)
+  nameWithType: CompressedRow.TransposeMultiplySelf(CompressedRow)
+- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.TransposeMultiplySelf*
+  name: TransposeMultiplySelf
+  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_TransposeMultiplySelf_
+  commentId: Overload:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.TransposeMultiplySelf
+  isSpec: "True"
+  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.TransposeMultiplySelf
+  nameWithType: CompressedRow.TransposeMultiplySelf
+- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.Values
+  name: Values()
+  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_Values
+  commentId: M:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.Values
+  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.Values()
+  nameWithType: CompressedRow.Values()
+- uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.Values*
+  name: Values
+  href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_Values_
+  commentId: Overload:BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.Values
+  isSpec: "True"
+  fullName: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.Values
+  nameWithType: CompressedRow.Values
 - uid: BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.Zero(System.Int32,System.Int32)
   name: Zero(Int32, Int32)
   href: api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html#BRIDGES_LinearAlgebra_Matrices_Sparse_CompressedRow_Zero_System_Int32_System_Int32_
@@ -14483,6 +14591,19 @@ references:
   isSpec: "True"
   fullName: BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Divide
   nameWithType: SparseMatrix.Divide
+- uid: BRIDGES.LinearAlgebra.Matrices.SparseMatrix.GetNonZeros
+  name: GetNonZeros()
+  href: api/BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html#BRIDGES_LinearAlgebra_Matrices_SparseMatrix_GetNonZeros
+  commentId: M:BRIDGES.LinearAlgebra.Matrices.SparseMatrix.GetNonZeros
+  fullName: BRIDGES.LinearAlgebra.Matrices.SparseMatrix.GetNonZeros()
+  nameWithType: SparseMatrix.GetNonZeros()
+- uid: BRIDGES.LinearAlgebra.Matrices.SparseMatrix.GetNonZeros*
+  name: GetNonZeros
+  href: api/BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html#BRIDGES_LinearAlgebra_Matrices_SparseMatrix_GetNonZeros_
+  commentId: Overload:BRIDGES.LinearAlgebra.Matrices.SparseMatrix.GetNonZeros
+  isSpec: "True"
+  fullName: BRIDGES.LinearAlgebra.Matrices.SparseMatrix.GetNonZeros
+  nameWithType: SparseMatrix.GetNonZeros
 - uid: BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Identity(System.Int32)
   name: Identity(Int32)
   href: api/BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html#BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Identity_System_Int32_
@@ -14539,19 +14660,19 @@ references:
   isSpec: "True"
   fullName: BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Multiply
   nameWithType: SparseMatrix.Multiply
-- uid: BRIDGES.LinearAlgebra.Matrices.SparseMatrix.NonZeroCount
-  name: NonZeroCount
-  href: api/BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html#BRIDGES_LinearAlgebra_Matrices_SparseMatrix_NonZeroCount
-  commentId: P:BRIDGES.LinearAlgebra.Matrices.SparseMatrix.NonZeroCount
-  fullName: BRIDGES.LinearAlgebra.Matrices.SparseMatrix.NonZeroCount
-  nameWithType: SparseMatrix.NonZeroCount
-- uid: BRIDGES.LinearAlgebra.Matrices.SparseMatrix.NonZeroCount*
-  name: NonZeroCount
-  href: api/BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html#BRIDGES_LinearAlgebra_Matrices_SparseMatrix_NonZeroCount_
-  commentId: Overload:BRIDGES.LinearAlgebra.Matrices.SparseMatrix.NonZeroCount
+- uid: BRIDGES.LinearAlgebra.Matrices.SparseMatrix.NonZerosCount
+  name: NonZerosCount
+  href: api/BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html#BRIDGES_LinearAlgebra_Matrices_SparseMatrix_NonZerosCount
+  commentId: P:BRIDGES.LinearAlgebra.Matrices.SparseMatrix.NonZerosCount
+  fullName: BRIDGES.LinearAlgebra.Matrices.SparseMatrix.NonZerosCount
+  nameWithType: SparseMatrix.NonZerosCount
+- uid: BRIDGES.LinearAlgebra.Matrices.SparseMatrix.NonZerosCount*
+  name: NonZerosCount
+  href: api/BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html#BRIDGES_LinearAlgebra_Matrices_SparseMatrix_NonZerosCount_
+  commentId: Overload:BRIDGES.LinearAlgebra.Matrices.SparseMatrix.NonZerosCount
   isSpec: "True"
-  fullName: BRIDGES.LinearAlgebra.Matrices.SparseMatrix.NonZeroCount
-  nameWithType: SparseMatrix.NonZeroCount
+  fullName: BRIDGES.LinearAlgebra.Matrices.SparseMatrix.NonZerosCount
+  nameWithType: SparseMatrix.NonZerosCount
 - uid: BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Subtract(BRIDGES.LinearAlgebra.Matrices.SparseMatrix,BRIDGES.LinearAlgebra.Matrices.SparseMatrix)
   name: Subtract(SparseMatrix, SparseMatrix)
   href: api/BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html#BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Subtract_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_
@@ -14590,6 +14711,19 @@ references:
   isSpec: "True"
   fullName: BRIDGES.LinearAlgebra.Matrices.SparseMatrix.TransposeMultiply
   nameWithType: SparseMatrix.TransposeMultiply
+- uid: BRIDGES.LinearAlgebra.Matrices.SparseMatrix.TransposeMultiplySelf(BRIDGES.LinearAlgebra.Matrices.SparseMatrix)
+  name: TransposeMultiplySelf(SparseMatrix)
+  href: api/BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html#BRIDGES_LinearAlgebra_Matrices_SparseMatrix_TransposeMultiplySelf_BRIDGES_LinearAlgebra_Matrices_SparseMatrix_
+  commentId: M:BRIDGES.LinearAlgebra.Matrices.SparseMatrix.TransposeMultiplySelf(BRIDGES.LinearAlgebra.Matrices.SparseMatrix)
+  fullName: BRIDGES.LinearAlgebra.Matrices.SparseMatrix.TransposeMultiplySelf(BRIDGES.LinearAlgebra.Matrices.SparseMatrix)
+  nameWithType: SparseMatrix.TransposeMultiplySelf(SparseMatrix)
+- uid: BRIDGES.LinearAlgebra.Matrices.SparseMatrix.TransposeMultiplySelf*
+  name: TransposeMultiplySelf
+  href: api/BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html#BRIDGES_LinearAlgebra_Matrices_SparseMatrix_TransposeMultiplySelf_
+  commentId: Overload:BRIDGES.LinearAlgebra.Matrices.SparseMatrix.TransposeMultiplySelf
+  isSpec: "True"
+  fullName: BRIDGES.LinearAlgebra.Matrices.SparseMatrix.TransposeMultiplySelf
+  nameWithType: SparseMatrix.TransposeMultiplySelf
 - uid: BRIDGES.LinearAlgebra.Matrices.SparseMatrix.Zero(System.Int32,System.Int32)
   name: Zero(Int32, Int32)
   href: api/BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html#BRIDGES_LinearAlgebra_Matrices_SparseMatrix_Zero_System_Int32_System_Int32_
@@ -15590,6 +15724,19 @@ references:
   isSpec: "True"
   fullName: BRIDGES.LinearAlgebra.Vectors.SparseVector.Multiply
   nameWithType: SparseVector.Multiply
+- uid: BRIDGES.LinearAlgebra.Vectors.SparseVector.NonZerosCount
+  name: NonZerosCount
+  href: api/BRIDGES.LinearAlgebra.Vectors.SparseVector.html#BRIDGES_LinearAlgebra_Vectors_SparseVector_NonZerosCount
+  commentId: P:BRIDGES.LinearAlgebra.Vectors.SparseVector.NonZerosCount
+  fullName: BRIDGES.LinearAlgebra.Vectors.SparseVector.NonZerosCount
+  nameWithType: SparseVector.NonZerosCount
+- uid: BRIDGES.LinearAlgebra.Vectors.SparseVector.NonZerosCount*
+  name: NonZerosCount
+  href: api/BRIDGES.LinearAlgebra.Vectors.SparseVector.html#BRIDGES_LinearAlgebra_Vectors_SparseVector_NonZerosCount_
+  commentId: Overload:BRIDGES.LinearAlgebra.Vectors.SparseVector.NonZerosCount
+  isSpec: "True"
+  fullName: BRIDGES.LinearAlgebra.Vectors.SparseVector.NonZerosCount
+  nameWithType: SparseVector.NonZerosCount
 - uid: BRIDGES.LinearAlgebra.Vectors.SparseVector.Opposite
   name: Opposite()
   href: api/BRIDGES.LinearAlgebra.Vectors.SparseVector.html#BRIDGES_LinearAlgebra_Vectors_SparseVector_Opposite
@@ -16166,3 +16313,767 @@ references:
   commentId: F:BRIDGES.Settings.AngularPrecision
   fullName: BRIDGES.Settings.AngularPrecision
   nameWithType: Settings.AngularPrecision
+- uid: BRIDGES.Solvers.GuidedProjection
+  name: BRIDGES.Solvers.GuidedProjection
+  href: api/BRIDGES.Solvers.GuidedProjection.html
+  commentId: N:BRIDGES.Solvers.GuidedProjection
+  fullName: BRIDGES.Solvers.GuidedProjection
+  nameWithType: BRIDGES.Solvers.GuidedProjection
+- uid: BRIDGES.Solvers.GuidedProjection.Energy
+  name: Energy
+  href: api/BRIDGES.Solvers.GuidedProjection.Energy.html
+  commentId: T:BRIDGES.Solvers.GuidedProjection.Energy
+  fullName: BRIDGES.Solvers.GuidedProjection.Energy
+  nameWithType: Energy
+- uid: BRIDGES.Solvers.GuidedProjection.Energy.energyType
+  name: energyType
+  href: api/BRIDGES.Solvers.GuidedProjection.Energy.html#BRIDGES_Solvers_GuidedProjection_Energy_energyType
+  commentId: F:BRIDGES.Solvers.GuidedProjection.Energy.energyType
+  fullName: BRIDGES.Solvers.GuidedProjection.Energy.energyType
+  nameWithType: Energy.energyType
+- uid: BRIDGES.Solvers.GuidedProjection.Energy.variables
+  name: variables
+  href: api/BRIDGES.Solvers.GuidedProjection.Energy.html#BRIDGES_Solvers_GuidedProjection_Energy_variables
+  commentId: F:BRIDGES.Solvers.GuidedProjection.Energy.variables
+  fullName: BRIDGES.Solvers.GuidedProjection.Energy.variables
+  nameWithType: Energy.variables
+- uid: BRIDGES.Solvers.GuidedProjection.Energy.Weight
+  name: Weight
+  href: api/BRIDGES.Solvers.GuidedProjection.Energy.html#BRIDGES_Solvers_GuidedProjection_Energy_Weight
+  commentId: P:BRIDGES.Solvers.GuidedProjection.Energy.Weight
+  fullName: BRIDGES.Solvers.GuidedProjection.Energy.Weight
+  nameWithType: Energy.Weight
+- uid: BRIDGES.Solvers.GuidedProjection.Energy.Weight*
+  name: Weight
+  href: api/BRIDGES.Solvers.GuidedProjection.Energy.html#BRIDGES_Solvers_GuidedProjection_Energy_Weight_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.Energy.Weight
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.Energy.Weight
+  nameWithType: Energy.Weight
+- uid: BRIDGES.Solvers.GuidedProjection.EnergyTypes
+  name: BRIDGES.Solvers.GuidedProjection.EnergyTypes
+  href: api/BRIDGES.Solvers.GuidedProjection.EnergyTypes.html
+  commentId: N:BRIDGES.Solvers.GuidedProjection.EnergyTypes
+  fullName: BRIDGES.Solvers.GuidedProjection.EnergyTypes
+  nameWithType: BRIDGES.Solvers.GuidedProjection.EnergyTypes
+- uid: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality
+  name: SegmentOrthogonality
+  href: api/BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality.html
+  commentId: T:BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality
+  fullName: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality
+  nameWithType: SegmentOrthogonality
+- uid: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality.#ctor(System.Double[])
+  name: SegmentOrthogonality(Double[])
+  href: api/BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality.html#BRIDGES_Solvers_GuidedProjection_EnergyTypes_SegmentOrthogonality__ctor_System_Double___
+  commentId: M:BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality.#ctor(System.Double[])
+  name.vb: SegmentOrthogonality(Double())
+  fullName: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality.SegmentOrthogonality(System.Double[])
+  fullName.vb: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality.SegmentOrthogonality(System.Double())
+  nameWithType: SegmentOrthogonality.SegmentOrthogonality(Double[])
+  nameWithType.vb: SegmentOrthogonality.SegmentOrthogonality(Double())
+- uid: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality.#ctor*
+  name: SegmentOrthogonality
+  href: api/BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality.html#BRIDGES_Solvers_GuidedProjection_EnergyTypes_SegmentOrthogonality__ctor_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality.#ctor
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality.SegmentOrthogonality
+  nameWithType: SegmentOrthogonality.SegmentOrthogonality
+- uid: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality.LocalKi
+  name: LocalKi
+  href: api/BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality.html#BRIDGES_Solvers_GuidedProjection_EnergyTypes_SegmentOrthogonality_LocalKi
+  commentId: P:BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality.LocalKi
+  fullName: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality.LocalKi
+  nameWithType: SegmentOrthogonality.LocalKi
+- uid: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality.LocalKi*
+  name: LocalKi
+  href: api/BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality.html#BRIDGES_Solvers_GuidedProjection_EnergyTypes_SegmentOrthogonality_LocalKi_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality.LocalKi
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality.LocalKi
+  nameWithType: SegmentOrthogonality.LocalKi
+- uid: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality.Si
+  name: Si
+  href: api/BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality.html#BRIDGES_Solvers_GuidedProjection_EnergyTypes_SegmentOrthogonality_Si
+  commentId: P:BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality.Si
+  fullName: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality.Si
+  nameWithType: SegmentOrthogonality.Si
+- uid: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality.Si*
+  name: Si
+  href: api/BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality.html#BRIDGES_Solvers_GuidedProjection_EnergyTypes_SegmentOrthogonality_Si_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality.Si
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality.Si
+  nameWithType: SegmentOrthogonality.Si
+- uid: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity
+  name: SegmentParallelity
+  href: api/BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity.html
+  commentId: T:BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity
+  fullName: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity
+  nameWithType: SegmentParallelity
+- uid: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity.#ctor(System.Double[])
+  name: SegmentParallelity(Double[])
+  href: api/BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity.html#BRIDGES_Solvers_GuidedProjection_EnergyTypes_SegmentParallelity__ctor_System_Double___
+  commentId: M:BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity.#ctor(System.Double[])
+  name.vb: SegmentParallelity(Double())
+  fullName: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity.SegmentParallelity(System.Double[])
+  fullName.vb: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity.SegmentParallelity(System.Double())
+  nameWithType: SegmentParallelity.SegmentParallelity(Double[])
+  nameWithType.vb: SegmentParallelity.SegmentParallelity(Double())
+- uid: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity.#ctor*
+  name: SegmentParallelity
+  href: api/BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity.html#BRIDGES_Solvers_GuidedProjection_EnergyTypes_SegmentParallelity__ctor_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity.#ctor
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity.SegmentParallelity
+  nameWithType: SegmentParallelity.SegmentParallelity
+- uid: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity.LocalKi
+  name: LocalKi
+  href: api/BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity.html#BRIDGES_Solvers_GuidedProjection_EnergyTypes_SegmentParallelity_LocalKi
+  commentId: P:BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity.LocalKi
+  fullName: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity.LocalKi
+  nameWithType: SegmentParallelity.LocalKi
+- uid: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity.LocalKi*
+  name: LocalKi
+  href: api/BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity.html#BRIDGES_Solvers_GuidedProjection_EnergyTypes_SegmentParallelity_LocalKi_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity.LocalKi
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity.LocalKi
+  nameWithType: SegmentParallelity.LocalKi
+- uid: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity.Si
+  name: Si
+  href: api/BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity.html#BRIDGES_Solvers_GuidedProjection_EnergyTypes_SegmentParallelity_Si
+  commentId: P:BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity.Si
+  fullName: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity.Si
+  nameWithType: SegmentParallelity.Si
+- uid: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity.Si*
+  name: Si
+  href: api/BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity.html#BRIDGES_Solvers_GuidedProjection_EnergyTypes_SegmentParallelity_Si_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity.Si
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity.Si
+  nameWithType: SegmentParallelity.Si
+- uid: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm
+  name: GuidedProjectionAlgorithm
+  href: api/BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.html
+  commentId: T:BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm
+  fullName: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm
+  nameWithType: GuidedProjectionAlgorithm
+- uid: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.#ctor(System.Double,System.Int32)
+  name: GuidedProjectionAlgorithm(Double, Int32)
+  href: api/BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.html#BRIDGES_Solvers_GuidedProjection_GuidedProjectionAlgorithm__ctor_System_Double_System_Int32_
+  commentId: M:BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.#ctor(System.Double,System.Int32)
+  fullName: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.GuidedProjectionAlgorithm(System.Double, System.Int32)
+  nameWithType: GuidedProjectionAlgorithm.GuidedProjectionAlgorithm(Double, Int32)
+- uid: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.#ctor*
+  name: GuidedProjectionAlgorithm
+  href: api/BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.html#BRIDGES_Solvers_GuidedProjection_GuidedProjectionAlgorithm__ctor_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.#ctor
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.GuidedProjectionAlgorithm
+  nameWithType: GuidedProjectionAlgorithm.GuidedProjectionAlgorithm
+- uid: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddConstraint(BRIDGES.Solvers.GuidedProjection.Interfaces.ILinearisedConstraintType,List{System.ValueTuple{BRIDGES.Solvers.GuidedProjection.VariableSet,System.Int32}},Func{System.Int32,System.Double})
+  name: AddConstraint(ILinearisedConstraintType, List<(VariableSet, Int32)>, Func<Int32, Double>)
+  href: api/BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.html#BRIDGES_Solvers_GuidedProjection_GuidedProjectionAlgorithm_AddConstraint_BRIDGES_Solvers_GuidedProjection_Interfaces_ILinearisedConstraintType_List_System_ValueTuple_BRIDGES_Solvers_GuidedProjection_VariableSet_System_Int32___Func_System_Int32_System_Double__
+  commentId: M:BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddConstraint(BRIDGES.Solvers.GuidedProjection.Interfaces.ILinearisedConstraintType,List{System.ValueTuple{BRIDGES.Solvers.GuidedProjection.VariableSet,System.Int32}},Func{System.Int32,System.Double})
+  name.vb: AddConstraint(ILinearisedConstraintType, List(Of (VariableSet, Int32)(Of VariableSet, Int32)), Func(Of Int32, Double))
+  fullName: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddConstraint(BRIDGES.Solvers.GuidedProjection.Interfaces.ILinearisedConstraintType, List<System.ValueTuple<BRIDGES.Solvers.GuidedProjection.VariableSet, System.Int32>>, Func<System.Int32, System.Double>)
+  fullName.vb: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddConstraint(BRIDGES.Solvers.GuidedProjection.Interfaces.ILinearisedConstraintType, List(Of System.ValueTuple(Of BRIDGES.Solvers.GuidedProjection.VariableSet, System.Int32)), Func(Of System.Int32, System.Double))
+  nameWithType: GuidedProjectionAlgorithm.AddConstraint(ILinearisedConstraintType, List<(VariableSet, Int32)>, Func<Int32, Double>)
+  nameWithType.vb: GuidedProjectionAlgorithm.AddConstraint(ILinearisedConstraintType, List(Of (VariableSet, Int32)(Of VariableSet, Int32)), Func(Of Int32, Double))
+- uid: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddConstraint(BRIDGES.Solvers.GuidedProjection.Interfaces.ILinearisedConstraintType,List{System.ValueTuple{BRIDGES.Solvers.GuidedProjection.VariableSet,System.Int32}},System.Double)
+  name: AddConstraint(ILinearisedConstraintType, List<(VariableSet, Int32)>, Double)
+  href: api/BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.html#BRIDGES_Solvers_GuidedProjection_GuidedProjectionAlgorithm_AddConstraint_BRIDGES_Solvers_GuidedProjection_Interfaces_ILinearisedConstraintType_List_System_ValueTuple_BRIDGES_Solvers_GuidedProjection_VariableSet_System_Int32___System_Double_
+  commentId: M:BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddConstraint(BRIDGES.Solvers.GuidedProjection.Interfaces.ILinearisedConstraintType,List{System.ValueTuple{BRIDGES.Solvers.GuidedProjection.VariableSet,System.Int32}},System.Double)
+  name.vb: AddConstraint(ILinearisedConstraintType, List(Of (VariableSet, Int32)(Of VariableSet, Int32)), Double)
+  fullName: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddConstraint(BRIDGES.Solvers.GuidedProjection.Interfaces.ILinearisedConstraintType, List<System.ValueTuple<BRIDGES.Solvers.GuidedProjection.VariableSet, System.Int32>>, System.Double)
+  fullName.vb: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddConstraint(BRIDGES.Solvers.GuidedProjection.Interfaces.ILinearisedConstraintType, List(Of System.ValueTuple(Of BRIDGES.Solvers.GuidedProjection.VariableSet, System.Int32)), System.Double)
+  nameWithType: GuidedProjectionAlgorithm.AddConstraint(ILinearisedConstraintType, List<(VariableSet, Int32)>, Double)
+  nameWithType.vb: GuidedProjectionAlgorithm.AddConstraint(ILinearisedConstraintType, List(Of (VariableSet, Int32)(Of VariableSet, Int32)), Double)
+- uid: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddConstraint(BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType,List{System.ValueTuple{BRIDGES.Solvers.GuidedProjection.VariableSet,System.Int32}},Func{System.Int32,System.Double})
+  name: AddConstraint(IQuadraticConstraintType, List<(VariableSet, Int32)>, Func<Int32, Double>)
+  href: api/BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.html#BRIDGES_Solvers_GuidedProjection_GuidedProjectionAlgorithm_AddConstraint_BRIDGES_Solvers_GuidedProjection_Interfaces_IQuadraticConstraintType_List_System_ValueTuple_BRIDGES_Solvers_GuidedProjection_VariableSet_System_Int32___Func_System_Int32_System_Double__
+  commentId: M:BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddConstraint(BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType,List{System.ValueTuple{BRIDGES.Solvers.GuidedProjection.VariableSet,System.Int32}},Func{System.Int32,System.Double})
+  name.vb: AddConstraint(IQuadraticConstraintType, List(Of (VariableSet, Int32)(Of VariableSet, Int32)), Func(Of Int32, Double))
+  fullName: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddConstraint(BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType, List<System.ValueTuple<BRIDGES.Solvers.GuidedProjection.VariableSet, System.Int32>>, Func<System.Int32, System.Double>)
+  fullName.vb: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddConstraint(BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType, List(Of System.ValueTuple(Of BRIDGES.Solvers.GuidedProjection.VariableSet, System.Int32)), Func(Of System.Int32, System.Double))
+  nameWithType: GuidedProjectionAlgorithm.AddConstraint(IQuadraticConstraintType, List<(VariableSet, Int32)>, Func<Int32, Double>)
+  nameWithType.vb: GuidedProjectionAlgorithm.AddConstraint(IQuadraticConstraintType, List(Of (VariableSet, Int32)(Of VariableSet, Int32)), Func(Of Int32, Double))
+- uid: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddConstraint(BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType,List{System.ValueTuple{BRIDGES.Solvers.GuidedProjection.VariableSet,System.Int32}},System.Double)
+  name: AddConstraint(IQuadraticConstraintType, List<(VariableSet, Int32)>, Double)
+  href: api/BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.html#BRIDGES_Solvers_GuidedProjection_GuidedProjectionAlgorithm_AddConstraint_BRIDGES_Solvers_GuidedProjection_Interfaces_IQuadraticConstraintType_List_System_ValueTuple_BRIDGES_Solvers_GuidedProjection_VariableSet_System_Int32___System_Double_
+  commentId: M:BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddConstraint(BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType,List{System.ValueTuple{BRIDGES.Solvers.GuidedProjection.VariableSet,System.Int32}},System.Double)
+  name.vb: AddConstraint(IQuadraticConstraintType, List(Of (VariableSet, Int32)(Of VariableSet, Int32)), Double)
+  fullName: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddConstraint(BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType, List<System.ValueTuple<BRIDGES.Solvers.GuidedProjection.VariableSet, System.Int32>>, System.Double)
+  fullName.vb: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddConstraint(BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType, List(Of System.ValueTuple(Of BRIDGES.Solvers.GuidedProjection.VariableSet, System.Int32)), System.Double)
+  nameWithType: GuidedProjectionAlgorithm.AddConstraint(IQuadraticConstraintType, List<(VariableSet, Int32)>, Double)
+  nameWithType.vb: GuidedProjectionAlgorithm.AddConstraint(IQuadraticConstraintType, List(Of (VariableSet, Int32)(Of VariableSet, Int32)), Double)
+- uid: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddConstraint*
+  name: AddConstraint
+  href: api/BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.html#BRIDGES_Solvers_GuidedProjection_GuidedProjectionAlgorithm_AddConstraint_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddConstraint
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddConstraint
+  nameWithType: GuidedProjectionAlgorithm.AddConstraint
+- uid: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddEnergy(BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType,List{System.ValueTuple{BRIDGES.Solvers.GuidedProjection.VariableSet,System.Int32}},Func{System.Int32,System.Double})
+  name: AddEnergy(IEnergyType, List<(VariableSet, Int32)>, Func<Int32, Double>)
+  href: api/BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.html#BRIDGES_Solvers_GuidedProjection_GuidedProjectionAlgorithm_AddEnergy_BRIDGES_Solvers_GuidedProjection_Interfaces_IEnergyType_List_System_ValueTuple_BRIDGES_Solvers_GuidedProjection_VariableSet_System_Int32___Func_System_Int32_System_Double__
+  commentId: M:BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddEnergy(BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType,List{System.ValueTuple{BRIDGES.Solvers.GuidedProjection.VariableSet,System.Int32}},Func{System.Int32,System.Double})
+  name.vb: AddEnergy(IEnergyType, List(Of (VariableSet, Int32)(Of VariableSet, Int32)), Func(Of Int32, Double))
+  fullName: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddEnergy(BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType, List<System.ValueTuple<BRIDGES.Solvers.GuidedProjection.VariableSet, System.Int32>>, Func<System.Int32, System.Double>)
+  fullName.vb: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddEnergy(BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType, List(Of System.ValueTuple(Of BRIDGES.Solvers.GuidedProjection.VariableSet, System.Int32)), Func(Of System.Int32, System.Double))
+  nameWithType: GuidedProjectionAlgorithm.AddEnergy(IEnergyType, List<(VariableSet, Int32)>, Func<Int32, Double>)
+  nameWithType.vb: GuidedProjectionAlgorithm.AddEnergy(IEnergyType, List(Of (VariableSet, Int32)(Of VariableSet, Int32)), Func(Of Int32, Double))
+- uid: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddEnergy(BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType,List{System.ValueTuple{BRIDGES.Solvers.GuidedProjection.VariableSet,System.Int32}},System.Double)
+  name: AddEnergy(IEnergyType, List<(VariableSet, Int32)>, Double)
+  href: api/BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.html#BRIDGES_Solvers_GuidedProjection_GuidedProjectionAlgorithm_AddEnergy_BRIDGES_Solvers_GuidedProjection_Interfaces_IEnergyType_List_System_ValueTuple_BRIDGES_Solvers_GuidedProjection_VariableSet_System_Int32___System_Double_
+  commentId: M:BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddEnergy(BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType,List{System.ValueTuple{BRIDGES.Solvers.GuidedProjection.VariableSet,System.Int32}},System.Double)
+  name.vb: AddEnergy(IEnergyType, List(Of (VariableSet, Int32)(Of VariableSet, Int32)), Double)
+  fullName: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddEnergy(BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType, List<System.ValueTuple<BRIDGES.Solvers.GuidedProjection.VariableSet, System.Int32>>, System.Double)
+  fullName.vb: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddEnergy(BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType, List(Of System.ValueTuple(Of BRIDGES.Solvers.GuidedProjection.VariableSet, System.Int32)), System.Double)
+  nameWithType: GuidedProjectionAlgorithm.AddEnergy(IEnergyType, List<(VariableSet, Int32)>, Double)
+  nameWithType.vb: GuidedProjectionAlgorithm.AddEnergy(IEnergyType, List(Of (VariableSet, Int32)(Of VariableSet, Int32)), Double)
+- uid: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddEnergy*
+  name: AddEnergy
+  href: api/BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.html#BRIDGES_Solvers_GuidedProjection_GuidedProjectionAlgorithm_AddEnergy_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddEnergy
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddEnergy
+  nameWithType: GuidedProjectionAlgorithm.AddEnergy
+- uid: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddVariableSet(System.Int32)
+  name: AddVariableSet(Int32)
+  href: api/BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.html#BRIDGES_Solvers_GuidedProjection_GuidedProjectionAlgorithm_AddVariableSet_System_Int32_
+  commentId: M:BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddVariableSet(System.Int32)
+  fullName: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddVariableSet(System.Int32)
+  nameWithType: GuidedProjectionAlgorithm.AddVariableSet(Int32)
+- uid: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddVariableSet(System.Int32,System.Int32)
+  name: AddVariableSet(Int32, Int32)
+  href: api/BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.html#BRIDGES_Solvers_GuidedProjection_GuidedProjectionAlgorithm_AddVariableSet_System_Int32_System_Int32_
+  commentId: M:BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddVariableSet(System.Int32,System.Int32)
+  fullName: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddVariableSet(System.Int32, System.Int32)
+  nameWithType: GuidedProjectionAlgorithm.AddVariableSet(Int32, Int32)
+- uid: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddVariableSet*
+  name: AddVariableSet
+  href: api/BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.html#BRIDGES_Solvers_GuidedProjection_GuidedProjectionAlgorithm_AddVariableSet_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddVariableSet
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.AddVariableSet
+  nameWithType: GuidedProjectionAlgorithm.AddVariableSet
+- uid: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.InitialiseX
+  name: InitialiseX()
+  href: api/BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.html#BRIDGES_Solvers_GuidedProjection_GuidedProjectionAlgorithm_InitialiseX
+  commentId: M:BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.InitialiseX
+  fullName: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.InitialiseX()
+  nameWithType: GuidedProjectionAlgorithm.InitialiseX()
+- uid: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.InitialiseX*
+  name: InitialiseX
+  href: api/BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.html#BRIDGES_Solvers_GuidedProjection_GuidedProjectionAlgorithm_InitialiseX_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.InitialiseX
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.InitialiseX
+  nameWithType: GuidedProjectionAlgorithm.InitialiseX
+- uid: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.IterationIndex
+  name: IterationIndex
+  href: api/BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.html#BRIDGES_Solvers_GuidedProjection_GuidedProjectionAlgorithm_IterationIndex
+  commentId: P:BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.IterationIndex
+  fullName: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.IterationIndex
+  nameWithType: GuidedProjectionAlgorithm.IterationIndex
+- uid: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.IterationIndex*
+  name: IterationIndex
+  href: api/BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.html#BRIDGES_Solvers_GuidedProjection_GuidedProjectionAlgorithm_IterationIndex_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.IterationIndex
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.IterationIndex
+  nameWithType: GuidedProjectionAlgorithm.IterationIndex
+- uid: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.MaxIteration
+  name: MaxIteration
+  href: api/BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.html#BRIDGES_Solvers_GuidedProjection_GuidedProjectionAlgorithm_MaxIteration
+  commentId: P:BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.MaxIteration
+  fullName: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.MaxIteration
+  nameWithType: GuidedProjectionAlgorithm.MaxIteration
+- uid: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.MaxIteration*
+  name: MaxIteration
+  href: api/BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.html#BRIDGES_Solvers_GuidedProjection_GuidedProjectionAlgorithm_MaxIteration_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.MaxIteration
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.MaxIteration
+  nameWithType: GuidedProjectionAlgorithm.MaxIteration
+- uid: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.RunIteration(System.Boolean)
+  name: RunIteration(Boolean)
+  href: api/BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.html#BRIDGES_Solvers_GuidedProjection_GuidedProjectionAlgorithm_RunIteration_System_Boolean_
+  commentId: M:BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.RunIteration(System.Boolean)
+  fullName: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.RunIteration(System.Boolean)
+  nameWithType: GuidedProjectionAlgorithm.RunIteration(Boolean)
+- uid: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.RunIteration*
+  name: RunIteration
+  href: api/BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.html#BRIDGES_Solvers_GuidedProjection_GuidedProjectionAlgorithm_RunIteration_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.RunIteration
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.RunIteration
+  nameWithType: GuidedProjectionAlgorithm.RunIteration
+- uid: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.X
+  name: X
+  href: api/BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.html#BRIDGES_Solvers_GuidedProjection_GuidedProjectionAlgorithm_X
+  commentId: P:BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.X
+  fullName: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.X
+  nameWithType: GuidedProjectionAlgorithm.X
+- uid: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.X*
+  name: X
+  href: api/BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.html#BRIDGES_Solvers_GuidedProjection_GuidedProjectionAlgorithm_X_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.X
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.X
+  nameWithType: GuidedProjectionAlgorithm.X
+- uid: BRIDGES.Solvers.GuidedProjection.Interfaces
+  name: BRIDGES.Solvers.GuidedProjection.Interfaces
+  href: api/BRIDGES.Solvers.GuidedProjection.Interfaces.html
+  commentId: N:BRIDGES.Solvers.GuidedProjection.Interfaces
+  fullName: BRIDGES.Solvers.GuidedProjection.Interfaces
+  nameWithType: BRIDGES.Solvers.GuidedProjection.Interfaces
+- uid: BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType
+  name: IEnergyType
+  href: api/BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType.html
+  commentId: T:BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType
+  fullName: BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType
+  nameWithType: IEnergyType
+- uid: BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType.LocalKi
+  name: LocalKi
+  href: api/BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType.html#BRIDGES_Solvers_GuidedProjection_Interfaces_IEnergyType_LocalKi
+  commentId: P:BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType.LocalKi
+  fullName: BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType.LocalKi
+  nameWithType: IEnergyType.LocalKi
+- uid: BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType.LocalKi*
+  name: LocalKi
+  href: api/BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType.html#BRIDGES_Solvers_GuidedProjection_Interfaces_IEnergyType_LocalKi_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType.LocalKi
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType.LocalKi
+  nameWithType: IEnergyType.LocalKi
+- uid: BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType.Si
+  name: Si
+  href: api/BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType.html#BRIDGES_Solvers_GuidedProjection_Interfaces_IEnergyType_Si
+  commentId: P:BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType.Si
+  fullName: BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType.Si
+  nameWithType: IEnergyType.Si
+- uid: BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType.Si*
+  name: Si
+  href: api/BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType.html#BRIDGES_Solvers_GuidedProjection_Interfaces_IEnergyType_Si_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType.Si
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType.Si
+  nameWithType: IEnergyType.Si
+- uid: BRIDGES.Solvers.GuidedProjection.Interfaces.ILinearisedConstraintType
+  name: ILinearisedConstraintType
+  href: api/BRIDGES.Solvers.GuidedProjection.Interfaces.ILinearisedConstraintType.html
+  commentId: T:BRIDGES.Solvers.GuidedProjection.Interfaces.ILinearisedConstraintType
+  fullName: BRIDGES.Solvers.GuidedProjection.Interfaces.ILinearisedConstraintType
+  nameWithType: ILinearisedConstraintType
+- uid: BRIDGES.Solvers.GuidedProjection.Interfaces.ILinearisedConstraintType.UpdateLocal(System.Double[])
+  name: UpdateLocal(Double[])
+  href: api/BRIDGES.Solvers.GuidedProjection.Interfaces.ILinearisedConstraintType.html#BRIDGES_Solvers_GuidedProjection_Interfaces_ILinearisedConstraintType_UpdateLocal_System_Double___
+  commentId: M:BRIDGES.Solvers.GuidedProjection.Interfaces.ILinearisedConstraintType.UpdateLocal(System.Double[])
+  name.vb: UpdateLocal(Double())
+  fullName: BRIDGES.Solvers.GuidedProjection.Interfaces.ILinearisedConstraintType.UpdateLocal(System.Double[])
+  fullName.vb: BRIDGES.Solvers.GuidedProjection.Interfaces.ILinearisedConstraintType.UpdateLocal(System.Double())
+  nameWithType: ILinearisedConstraintType.UpdateLocal(Double[])
+  nameWithType.vb: ILinearisedConstraintType.UpdateLocal(Double())
+- uid: BRIDGES.Solvers.GuidedProjection.Interfaces.ILinearisedConstraintType.UpdateLocal*
+  name: UpdateLocal
+  href: api/BRIDGES.Solvers.GuidedProjection.Interfaces.ILinearisedConstraintType.html#BRIDGES_Solvers_GuidedProjection_Interfaces_ILinearisedConstraintType_UpdateLocal_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.Interfaces.ILinearisedConstraintType.UpdateLocal
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.Interfaces.ILinearisedConstraintType.UpdateLocal
+  nameWithType: ILinearisedConstraintType.UpdateLocal
+- uid: BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType
+  name: IQuadraticConstraintType
+  href: api/BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType.html
+  commentId: T:BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType
+  fullName: BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType
+  nameWithType: IQuadraticConstraintType
+- uid: BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType.Ci
+  name: Ci
+  href: api/BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType.html#BRIDGES_Solvers_GuidedProjection_Interfaces_IQuadraticConstraintType_Ci
+  commentId: P:BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType.Ci
+  fullName: BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType.Ci
+  nameWithType: IQuadraticConstraintType.Ci
+- uid: BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType.Ci*
+  name: Ci
+  href: api/BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType.html#BRIDGES_Solvers_GuidedProjection_Interfaces_IQuadraticConstraintType_Ci_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType.Ci
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType.Ci
+  nameWithType: IQuadraticConstraintType.Ci
+- uid: BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType.LocalBi
+  name: LocalBi
+  href: api/BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType.html#BRIDGES_Solvers_GuidedProjection_Interfaces_IQuadraticConstraintType_LocalBi
+  commentId: P:BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType.LocalBi
+  fullName: BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType.LocalBi
+  nameWithType: IQuadraticConstraintType.LocalBi
+- uid: BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType.LocalBi*
+  name: LocalBi
+  href: api/BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType.html#BRIDGES_Solvers_GuidedProjection_Interfaces_IQuadraticConstraintType_LocalBi_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType.LocalBi
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType.LocalBi
+  nameWithType: IQuadraticConstraintType.LocalBi
+- uid: BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType.LocalHi
+  name: LocalHi
+  href: api/BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType.html#BRIDGES_Solvers_GuidedProjection_Interfaces_IQuadraticConstraintType_LocalHi
+  commentId: P:BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType.LocalHi
+  fullName: BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType.LocalHi
+  nameWithType: IQuadraticConstraintType.LocalHi
+- uid: BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType.LocalHi*
+  name: LocalHi
+  href: api/BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType.html#BRIDGES_Solvers_GuidedProjection_Interfaces_IQuadraticConstraintType_LocalHi_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType.LocalHi
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType.LocalHi
+  nameWithType: IQuadraticConstraintType.LocalHi
+- uid: BRIDGES.Solvers.GuidedProjection.LinearisedConstraint
+  name: LinearisedConstraint
+  href: api/BRIDGES.Solvers.GuidedProjection.LinearisedConstraint.html
+  commentId: T:BRIDGES.Solvers.GuidedProjection.LinearisedConstraint
+  fullName: BRIDGES.Solvers.GuidedProjection.LinearisedConstraint
+  nameWithType: LinearisedConstraint
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraint
+  name: QuadraticConstraint
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraint.html
+  commentId: T:BRIDGES.Solvers.GuidedProjection.QuadraticConstraint
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraint
+  nameWithType: QuadraticConstraint
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraint.constraintType
+  name: constraintType
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraint.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraint_constraintType
+  commentId: F:BRIDGES.Solvers.GuidedProjection.QuadraticConstraint.constraintType
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraint.constraintType
+  nameWithType: QuadraticConstraint.constraintType
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraint.variables
+  name: variables
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraint.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraint_variables
+  commentId: F:BRIDGES.Solvers.GuidedProjection.QuadraticConstraint.variables
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraint.variables
+  nameWithType: QuadraticConstraint.variables
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraint.Weight
+  name: Weight
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraint.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraint_Weight
+  commentId: P:BRIDGES.Solvers.GuidedProjection.QuadraticConstraint.Weight
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraint.Weight
+  nameWithType: QuadraticConstraint.Weight
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraint.Weight*
+  name: Weight
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraint.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraint_Weight_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.QuadraticConstraint.Weight
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraint.Weight
+  nameWithType: QuadraticConstraint.Weight
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes
+  name: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.html
+  commentId: N:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes
+  nameWithType: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength
+  name: CoherentLength
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.html
+  commentId: T:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength
+  nameWithType: CoherentLength
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.#ctor(System.Int32)
+  name: CoherentLength(Int32)
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_CoherentLength__ctor_System_Int32_
+  commentId: M:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.#ctor(System.Int32)
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.CoherentLength(System.Int32)
+  nameWithType: CoherentLength.CoherentLength(Int32)
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.#ctor*
+  name: CoherentLength
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_CoherentLength__ctor_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.#ctor
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.CoherentLength
+  nameWithType: CoherentLength.CoherentLength
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.Ci
+  name: Ci
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_CoherentLength_Ci
+  commentId: P:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.Ci
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.Ci
+  nameWithType: CoherentLength.Ci
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.Ci*
+  name: Ci
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_CoherentLength_Ci_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.Ci
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.Ci
+  nameWithType: CoherentLength.Ci
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.LocalBi
+  name: LocalBi
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_CoherentLength_LocalBi
+  commentId: P:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.LocalBi
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.LocalBi
+  nameWithType: CoherentLength.LocalBi
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.LocalBi*
+  name: LocalBi
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_CoherentLength_LocalBi_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.LocalBi
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.LocalBi
+  nameWithType: CoherentLength.LocalBi
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.LocalHi
+  name: LocalHi
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_CoherentLength_LocalHi
+  commentId: P:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.LocalHi
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.LocalHi
+  nameWithType: CoherentLength.LocalHi
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.LocalHi*
+  name: LocalHi
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_CoherentLength_LocalHi_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.LocalHi
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.LocalHi
+  nameWithType: CoherentLength.LocalHi
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound
+  name: LowerBound
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.html
+  commentId: T:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound
+  nameWithType: LowerBound
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.#ctor(System.Double)
+  name: LowerBound(Double)
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_LowerBound__ctor_System_Double_
+  commentId: M:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.#ctor(System.Double)
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.LowerBound(System.Double)
+  nameWithType: LowerBound.LowerBound(Double)
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.#ctor*
+  name: LowerBound
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_LowerBound__ctor_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.#ctor
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.LowerBound
+  nameWithType: LowerBound.LowerBound
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.Ci
+  name: Ci
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_LowerBound_Ci
+  commentId: P:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.Ci
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.Ci
+  nameWithType: LowerBound.Ci
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.Ci*
+  name: Ci
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_LowerBound_Ci_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.Ci
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.Ci
+  nameWithType: LowerBound.Ci
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.LocalBi
+  name: LocalBi
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_LowerBound_LocalBi
+  commentId: P:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.LocalBi
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.LocalBi
+  nameWithType: LowerBound.LocalBi
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.LocalBi*
+  name: LocalBi
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_LowerBound_LocalBi_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.LocalBi
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.LocalBi
+  nameWithType: LowerBound.LocalBi
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.LocalHi
+  name: LocalHi
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_LowerBound_LocalHi
+  commentId: P:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.LocalHi
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.LocalHi
+  nameWithType: LowerBound.LocalHi
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.LocalHi*
+  name: LocalHi
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_LowerBound_LocalHi_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.LocalHi
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.LocalHi
+  nameWithType: LowerBound.LocalHi
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound
+  name: UpperBound
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.html
+  commentId: T:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound
+  nameWithType: UpperBound
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.#ctor(System.Double)
+  name: UpperBound(Double)
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_UpperBound__ctor_System_Double_
+  commentId: M:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.#ctor(System.Double)
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.UpperBound(System.Double)
+  nameWithType: UpperBound.UpperBound(Double)
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.#ctor*
+  name: UpperBound
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_UpperBound__ctor_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.#ctor
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.UpperBound
+  nameWithType: UpperBound.UpperBound
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.Ci
+  name: Ci
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_UpperBound_Ci
+  commentId: P:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.Ci
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.Ci
+  nameWithType: UpperBound.Ci
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.Ci*
+  name: Ci
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_UpperBound_Ci_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.Ci
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.Ci
+  nameWithType: UpperBound.Ci
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.LocalBi
+  name: LocalBi
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_UpperBound_LocalBi
+  commentId: P:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.LocalBi
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.LocalBi
+  nameWithType: UpperBound.LocalBi
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.LocalBi*
+  name: LocalBi
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_UpperBound_LocalBi_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.LocalBi
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.LocalBi
+  nameWithType: UpperBound.LocalBi
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.LocalHi
+  name: LocalHi
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_UpperBound_LocalHi
+  commentId: P:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.LocalHi
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.LocalHi
+  nameWithType: UpperBound.LocalHi
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.LocalHi*
+  name: LocalHi
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_UpperBound_LocalHi_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.LocalHi
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.LocalHi
+  nameWithType: UpperBound.LocalHi
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength
+  name: VectorLength
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.html
+  commentId: T:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength
+  nameWithType: VectorLength
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.#ctor(System.Double,System.Int32)
+  name: VectorLength(Double, Int32)
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_VectorLength__ctor_System_Double_System_Int32_
+  commentId: M:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.#ctor(System.Double,System.Int32)
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.VectorLength(System.Double, System.Int32)
+  nameWithType: VectorLength.VectorLength(Double, Int32)
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.#ctor*
+  name: VectorLength
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_VectorLength__ctor_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.#ctor
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.VectorLength
+  nameWithType: VectorLength.VectorLength
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.Ci
+  name: Ci
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_VectorLength_Ci
+  commentId: P:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.Ci
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.Ci
+  nameWithType: VectorLength.Ci
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.Ci*
+  name: Ci
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_VectorLength_Ci_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.Ci
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.Ci
+  nameWithType: VectorLength.Ci
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.LocalBi
+  name: LocalBi
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_VectorLength_LocalBi
+  commentId: P:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.LocalBi
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.LocalBi
+  nameWithType: VectorLength.LocalBi
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.LocalBi*
+  name: LocalBi
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_VectorLength_LocalBi_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.LocalBi
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.LocalBi
+  nameWithType: VectorLength.LocalBi
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.LocalHi
+  name: LocalHi
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_VectorLength_LocalHi
+  commentId: P:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.LocalHi
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.LocalHi
+  nameWithType: VectorLength.LocalHi
+- uid: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.LocalHi*
+  name: LocalHi
+  href: api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.html#BRIDGES_Solvers_GuidedProjection_QuadraticConstraintTypes_VectorLength_LocalHi_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.LocalHi
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.LocalHi
+  nameWithType: VectorLength.LocalHi
+- uid: BRIDGES.Solvers.GuidedProjection.VariableSet
+  name: VariableSet
+  href: api/BRIDGES.Solvers.GuidedProjection.VariableSet.html
+  commentId: T:BRIDGES.Solvers.GuidedProjection.VariableSet
+  fullName: BRIDGES.Solvers.GuidedProjection.VariableSet
+  nameWithType: VariableSet
+- uid: BRIDGES.Solvers.GuidedProjection.VariableSet.AddVariable(System.Double[])
+  name: AddVariable(Double[])
+  href: api/BRIDGES.Solvers.GuidedProjection.VariableSet.html#BRIDGES_Solvers_GuidedProjection_VariableSet_AddVariable_System_Double___
+  commentId: M:BRIDGES.Solvers.GuidedProjection.VariableSet.AddVariable(System.Double[])
+  name.vb: AddVariable(Double())
+  fullName: BRIDGES.Solvers.GuidedProjection.VariableSet.AddVariable(System.Double[])
+  fullName.vb: BRIDGES.Solvers.GuidedProjection.VariableSet.AddVariable(System.Double())
+  nameWithType: VariableSet.AddVariable(Double[])
+  nameWithType.vb: VariableSet.AddVariable(Double())
+- uid: BRIDGES.Solvers.GuidedProjection.VariableSet.AddVariable*
+  name: AddVariable
+  href: api/BRIDGES.Solvers.GuidedProjection.VariableSet.html#BRIDGES_Solvers_GuidedProjection_VariableSet_AddVariable_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.VariableSet.AddVariable
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.VariableSet.AddVariable
+  nameWithType: VariableSet.AddVariable
+- uid: BRIDGES.Solvers.GuidedProjection.VariableSet.GetVariable(System.Int32)
+  name: GetVariable(Int32)
+  href: api/BRIDGES.Solvers.GuidedProjection.VariableSet.html#BRIDGES_Solvers_GuidedProjection_VariableSet_GetVariable_System_Int32_
+  commentId: M:BRIDGES.Solvers.GuidedProjection.VariableSet.GetVariable(System.Int32)
+  fullName: BRIDGES.Solvers.GuidedProjection.VariableSet.GetVariable(System.Int32)
+  nameWithType: VariableSet.GetVariable(Int32)
+- uid: BRIDGES.Solvers.GuidedProjection.VariableSet.GetVariable*
+  name: GetVariable
+  href: api/BRIDGES.Solvers.GuidedProjection.VariableSet.html#BRIDGES_Solvers_GuidedProjection_VariableSet_GetVariable_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.VariableSet.GetVariable
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.VariableSet.GetVariable
+  nameWithType: VariableSet.GetVariable
+- uid: BRIDGES.Solvers.GuidedProjection.VariableSet.SetIndex
+  name: SetIndex
+  href: api/BRIDGES.Solvers.GuidedProjection.VariableSet.html#BRIDGES_Solvers_GuidedProjection_VariableSet_SetIndex
+  commentId: P:BRIDGES.Solvers.GuidedProjection.VariableSet.SetIndex
+  fullName: BRIDGES.Solvers.GuidedProjection.VariableSet.SetIndex
+  nameWithType: VariableSet.SetIndex
+- uid: BRIDGES.Solvers.GuidedProjection.VariableSet.SetIndex*
+  name: SetIndex
+  href: api/BRIDGES.Solvers.GuidedProjection.VariableSet.html#BRIDGES_Solvers_GuidedProjection_VariableSet_SetIndex_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.VariableSet.SetIndex
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.VariableSet.SetIndex
+  nameWithType: VariableSet.SetIndex
+- uid: BRIDGES.Solvers.GuidedProjection.VariableSet.VariableCount
+  name: VariableCount
+  href: api/BRIDGES.Solvers.GuidedProjection.VariableSet.html#BRIDGES_Solvers_GuidedProjection_VariableSet_VariableCount
+  commentId: P:BRIDGES.Solvers.GuidedProjection.VariableSet.VariableCount
+  fullName: BRIDGES.Solvers.GuidedProjection.VariableSet.VariableCount
+  nameWithType: VariableSet.VariableCount
+- uid: BRIDGES.Solvers.GuidedProjection.VariableSet.VariableCount*
+  name: VariableCount
+  href: api/BRIDGES.Solvers.GuidedProjection.VariableSet.html#BRIDGES_Solvers_GuidedProjection_VariableSet_VariableCount_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.VariableSet.VariableCount
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.VariableSet.VariableCount
+  nameWithType: VariableSet.VariableCount
+- uid: BRIDGES.Solvers.GuidedProjection.VariableSet.VariableDimension
+  name: VariableDimension
+  href: api/BRIDGES.Solvers.GuidedProjection.VariableSet.html#BRIDGES_Solvers_GuidedProjection_VariableSet_VariableDimension
+  commentId: P:BRIDGES.Solvers.GuidedProjection.VariableSet.VariableDimension
+  fullName: BRIDGES.Solvers.GuidedProjection.VariableSet.VariableDimension
+  nameWithType: VariableSet.VariableDimension
+- uid: BRIDGES.Solvers.GuidedProjection.VariableSet.VariableDimension*
+  name: VariableDimension
+  href: api/BRIDGES.Solvers.GuidedProjection.VariableSet.html#BRIDGES_Solvers_GuidedProjection_VariableSet_VariableDimension_
+  commentId: Overload:BRIDGES.Solvers.GuidedProjection.VariableSet.VariableDimension
+  isSpec: "True"
+  fullName: BRIDGES.Solvers.GuidedProjection.VariableSet.VariableDimension
+  nameWithType: VariableSet.VariableDimension

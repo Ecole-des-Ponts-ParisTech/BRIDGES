@@ -30,7 +30,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Algebra.Fundamentals.IAddable-1.html",
-          "hash": "MAlX45RIduNstE4qkC4nwoJKh67ycyqAbiBgBkukiCA="
+          "hash": "lYbTPs8sYre3n8wWk0bCLLisQnNa1FcsSQUtr4RxtDE="
         }
       },
       "is_incremental": false,
@@ -42,7 +42,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Algebra.Fundamentals.IDivisible-1.html",
-          "hash": "KF7lItNo2p/Fnj0ah+egrZkh9HWSgiEo+M+zEPRt/zo="
+          "hash": "blidyLG2eSt3gHCKimUCWoyY3Un3WSl9FBs5sUM4nG4="
         }
       },
       "is_incremental": false,
@@ -54,7 +54,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Algebra.Fundamentals.IMultiplicable-1.html",
-          "hash": "o7I628bELtcRBqNbULDIgH319bBg7mm/toxDBxsk5dc="
+          "hash": "n/abwFzS0nRCwQFRwv4xeQtYgY18RCbjPx842GrZuSE="
         }
       },
       "is_incremental": false,
@@ -66,7 +66,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Algebra.Fundamentals.IOneable-1.html",
-          "hash": "Wmke/8VQ0TqGs9WuVbvLd9QU8y2pfdzkjMx17eNj+Is="
+          "hash": "7WCsdkB1tod5+7nlipomOdBEhur2l+/7UH6wfKB5ZTI="
         }
       },
       "is_incremental": false,
@@ -78,7 +78,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Algebra.Fundamentals.ISubtractable-1.html",
-          "hash": "qhdSxS1IsHUkYN1DK2WBjkVKfrBT3X+dSHPC37TLae8="
+          "hash": "6/jjED359ozI1zJj/t6rufcuXWEmEJEHigk2eBf1Uxc="
         }
       },
       "is_incremental": false,
@@ -90,7 +90,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Algebra.Fundamentals.IZeroable-1.html",
-          "hash": "uPBE3ltbOubQuWOqrhifI4iDbo50ZNhypy3Vt4+vnCU="
+          "hash": "U9VU7yjR+yCV0laswthCaeHFi2TOr29xUK2CzVPOC5c="
         }
       },
       "is_incremental": false,
@@ -114,7 +114,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Algebra.Measure.IDotProduct-2.html",
-          "hash": "nNcPLGI4KKJ3wpdhjm8yT2mfriXzclxt6F9Dt1cfccU="
+          "hash": "kYVjmeMrHfmS34nS1Aw+77p9wOkElGdZ6ThKIprzBAE="
         }
       },
       "is_incremental": false,
@@ -126,7 +126,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Algebra.Measure.IMetric-1.html",
-          "hash": "hzn91KNzJqPgLTVHHfHBBaEzqKOjYa+aVL/tzlpewt0="
+          "hash": "GTnFEIcAjdZgodC5Jw9bInlsiRfOQkqk+Z5yjA8EDVA="
         }
       },
       "is_incremental": false,
@@ -138,7 +138,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Algebra.Measure.INorm-1.html",
-          "hash": "G1bKj6FRLblXFcMQCA1WlrVTWOCnI4cOQUlLgkBPUsw="
+          "hash": "zmYKXsghwnjMY6DJJsH438LF0RWzCwhz9ek3H4vmS8M="
         }
       },
       "is_incremental": false,
@@ -162,7 +162,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Algebra.Sets.Additive.IAbelianGroup-1.html",
-          "hash": "mm3xNW6R31XVFmFFlmonFXRl+f5ZnWncz74BqtZbnsA="
+          "hash": "KXu4EVgjWB2WJ5bC1U6XxHsIbuh1TnZLMJ30SgHaqDQ="
         }
       },
       "is_incremental": false,
@@ -174,7 +174,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Algebra.Sets.Additive.IGroup-1.html",
-          "hash": "ZmZDWxjN/DwwFx1CsmmaIEdk+cjvQ2U/1XCruhKPKAE="
+          "hash": "CFxp6Uz41vuu/T7c4qN8EIPq96W8mlIFJYFZMXvV/xA="
         }
       },
       "is_incremental": false,
@@ -186,7 +186,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Algebra.Sets.Additive.ILoop-1.html",
-          "hash": "HeC8NWCVijNZ5p2gk35I+Dk7/LpsK27pnPv34OoITeY="
+          "hash": "LDmaeksuo6G2pAzfFbjTxSkbCUnrrLygGmvtNUI66zM="
         }
       },
       "is_incremental": false,
@@ -198,7 +198,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Algebra.Sets.Additive.IMagma-1.html",
-          "hash": "Kv6zpsx438nkxaeRWhRf+fc0YsBtuegeGZK/yXLvNNg="
+          "hash": "cBaIvNIcedu939UfEbIP4jpBWF66sijbT/0pNX0ZHoU="
         }
       },
       "is_incremental": false,
@@ -210,7 +210,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Algebra.Sets.Additive.IMonoid-1.html",
-          "hash": "11elEzR06bB06A1UICgnrfUdW59niD5ZtQOyvhgGSDU="
+          "hash": "E6cu8b5q5FQfYHavvT2Zaqwj8/tdg1HFjvoGhQb+U4Y="
         }
       },
       "is_incremental": false,
@@ -222,7 +222,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Algebra.Sets.Additive.IQuasiGroup-1.html",
-          "hash": "8aA9JlRyKFNh3M1KVvO2otvhraYLjFTkOP3sUYhN4lQ="
+          "hash": "3vICBwEZubDaLucO78DMoIGUrW5KIVl497dv4gKCnlE="
         }
       },
       "is_incremental": false,
@@ -234,7 +234,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Algebra.Sets.Additive.ISemiGroup-1.html",
-          "hash": "B4lg3AtVuao5OQJG//N0tV1bnAps/OkJZ5evEe5+fxQ="
+          "hash": "So9A3eFi/895JUYoJMvpL7WIms4dTM+YOmHOuH1Fhgs="
         }
       },
       "is_incremental": false,
@@ -258,7 +258,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Algebra.Sets.IGroupAction-2.html",
-          "hash": "7R+4leyONAr/LTuNaSNvPRAwYjL2J3TZ4Q6QyGrdvV8="
+          "hash": "AK+S+Z5sqJqrJwNdm6HOZi8X61aJOr/k69YC16cZXIg="
         }
       },
       "is_incremental": false,
@@ -270,7 +270,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Algebra.Sets.Multiplicative.IAbelianGroup-1.html",
-          "hash": "EybEdPBQe4tY2TI/+IeBIFWz2RXi9iF89uKiZUklCsM="
+          "hash": "YZJ3SMMYSy1VTtAFEPufGLD0676fDlCZ1gpxQvmB4Y0="
         }
       },
       "is_incremental": false,
@@ -282,7 +282,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Algebra.Sets.Multiplicative.IGroup-1.html",
-          "hash": "iZ20MN2aFMlQ9QCncsupdDe3zdQEWM4EprjLb2YaUeM="
+          "hash": "g+zSADFmcENqrV3BoqbC2wHzExux9bvCrVhx8Lvp8HM="
         }
       },
       "is_incremental": false,
@@ -294,7 +294,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Algebra.Sets.Multiplicative.ILoop-1.html",
-          "hash": "2fhfEnkKcWhgWQXCWnI+K86I2citfg+3lHRuLro93vs="
+          "hash": "XZELQKtPEtSsLNmVTI4QxK4jyDU5USf/jDLRXkgyQAg="
         }
       },
       "is_incremental": false,
@@ -306,7 +306,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Algebra.Sets.Multiplicative.IMagma-1.html",
-          "hash": "N1FoaO9recEYmCRvvANNAjWE6hhzj6MbnFTM2NACerw="
+          "hash": "Q5nmY0PnatqGS2U2bGOTl3iq/YLwj+vcd3Vn+r/qDZI="
         }
       },
       "is_incremental": false,
@@ -318,7 +318,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Algebra.Sets.Multiplicative.IMonoid-1.html",
-          "hash": "caARyEGUMF7dNlQjYHTTy9XR3orlI7R8oxPoGkujLcI="
+          "hash": "ygor7y2cAZMPR3gHHfb2OdOhjIDXElrM/afUgYEgyYQ="
         }
       },
       "is_incremental": false,
@@ -330,7 +330,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Algebra.Sets.Multiplicative.IQuasiGroup-1.html",
-          "hash": "HV8KOe36yTI4m20ktHiAC3wBkDOzLzJbObDM5vL/w1E="
+          "hash": "vtRKNFhLt984+9dA1FsD69MXeLY1eU0qNw16fYMSjjA="
         }
       },
       "is_incremental": false,
@@ -342,7 +342,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Algebra.Sets.Multiplicative.ISemiGroup-1.html",
-          "hash": "gFiF4PYZjLajSHUv0TzxnL1SFK5TuqukU73ErTvzscI="
+          "hash": "Ft6YAX8s+X8qUy6/+t9RN6CLSGhAv5SsvfzyGzmgYqU="
         }
       },
       "is_incremental": false,
@@ -378,7 +378,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Arithmetic.Numbers.Complex.html",
-          "hash": "IRFNzeUdAednF1dYCn9U+wSSr6CNGaB+zixvTnS8hNQ="
+          "hash": "ouroCkHpi9R5FePPOYByk5cWP7wq8smXIS0XoVxk8Kw="
         }
       },
       "is_incremental": false,
@@ -390,7 +390,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Arithmetic.Numbers.Quaternion.html",
-          "hash": "A52C3XFG0W1RO77Xk0HK4iuMfJUeENsWPw3DWacJ5VE="
+          "hash": "+G0IEtNidZJBU8k8hzLCouNh9py/1c1EsQxxV3/DTXQ="
         }
       },
       "is_incremental": false,
@@ -402,7 +402,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Arithmetic.Numbers.Real.html",
-          "hash": "uYmzo4K8qWGczAsnrorb21+SA1VI5aXv2BSHccqf2lw="
+          "hash": "MmvcvNC5hahc19F6zdq4Y69hTC/dqqStcBADqjIRJao="
         }
       },
       "is_incremental": false,
@@ -426,7 +426,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Arithmetic.Polynomials.Monomial.html",
-          "hash": "hqXHD1G4RrMFrE7lzjn7EhKqb7C5a/h1eHBAbZPI6gM="
+          "hash": "79uE4rSqp2wgXsOGNSsVcz3lMgY1CO0yJfwvMSKXWSU="
         }
       },
       "is_incremental": false,
@@ -438,7 +438,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Arithmetic.Polynomials.MultivariatePolynomial.html",
-          "hash": "Y+zjW4bbvQjsjM5Mmsd0u41Y/nGNPRM4whNwFK/6Ugg="
+          "hash": "u1RKJmBManI5I9yKNhAAa+yFyDYy4RibmZFkH1uE+4g="
         }
       },
       "is_incremental": false,
@@ -450,7 +450,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Arithmetic.Polynomials.Polynomial.html",
-          "hash": "W91KCVwhEb8LipglsHJxyBhn/A6onx2xOvEgYowbrSU="
+          "hash": "VNN6g4DEqt6+4ZwuXaJgetzYiJkqEmnBUxrgqVAvLRc="
         }
       },
       "is_incremental": false,
@@ -462,7 +462,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Arithmetic.Polynomials.Specials.BSpline.html",
-          "hash": "WykG0z3mdvSwTEUH0Su/Yh8UZ3uUBLgUFe7OdsnwvFc="
+          "hash": "WpDiUvhs8cqM+0CQ90mqWOiCQuzIYAxd9lfLDPEDkeE="
         }
       },
       "is_incremental": false,
@@ -474,7 +474,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Arithmetic.Polynomials.Specials.Bernstein.html",
-          "hash": "0fM+Mx2hHleAsgxxLcJlHNf11aZxYI0UD5jS7ibwPE0="
+          "hash": "SSa7asCGDA7cjHjgP6fJ8MLJGAYQYrxgTFT7M5h+FmA="
         }
       },
       "is_incremental": false,
@@ -510,7 +510,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Edge-4.html",
-          "hash": "cSwuVnBW0O6qqkHdXxU2x5dNgMQju9lgFHBrrVhk3gQ="
+          "hash": "Agl0xF5rvvNdWaNhuoYSa7TE9KdpPI9szBs2RVwHbg0="
         }
       },
       "is_incremental": false,
@@ -522,7 +522,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Face-4.html",
-          "hash": "78npVfKWJBsGkI6gl9pVNvC8lJqoNJSPsjYLR3OJR3c="
+          "hash": "fVp/sytD4J/W4+aWGpfOtkxHLtAEWKczsezudbRt3TU="
         }
       },
       "is_incremental": false,
@@ -534,7 +534,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Mesh-4.html",
-          "hash": "2eUhoGSdzMfTL6BYfLsbB0t1hm2qzqHZBT1HWwObtkA="
+          "hash": "y62P04PZt0Yqu8Wzk9onfuPMZZW2yycg8E2c1j7DP+M="
         }
       },
       "is_incremental": false,
@@ -546,7 +546,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.Abstract.Vertex-4.html",
-          "hash": "hy8jJBVmS/nLpQAMqWURJRyi8radep6L7XwYFbUEW2w="
+          "hash": "Su6PZxvsM6v2VHOWOOMV4TB+QWOmQyk41xzofEHWZhM="
         }
       },
       "is_incremental": false,
@@ -570,7 +570,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.FaceVertexMesh.FvEdge-1.html",
-          "hash": "Fttr4BMTs82XaANd9wt72fdTYHllG86Xj/f2ZwA5qbs="
+          "hash": "9vmQv6L/MQ0+xAKXGc1yvrKJbqyWOxhNZlUQXuYVOiM="
         }
       },
       "is_incremental": false,
@@ -582,7 +582,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.FaceVertexMesh.FvFace-1.html",
-          "hash": "DYl6SnwtOZrHrbYmpEtcfiuHnl0Q/cbWChSOh60wW6E="
+          "hash": "l6R6qZzK9qx6WPKtenstnUdX2cO75sXm5axAgJXpFTY="
         }
       },
       "is_incremental": false,
@@ -594,7 +594,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.FaceVertexMesh.FvMesh-1.html",
-          "hash": "WKFf+Kb84aOxDn2s2czwIRViPy3sYXrPC+jkOpMuRsI="
+          "hash": "TLD6W4YvoTzZ+ZB8bfTWAGVQDdptrEZoofsLnsr7dVM="
         }
       },
       "is_incremental": false,
@@ -606,7 +606,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.FaceVertexMesh.FvVertex-1.html",
-          "hash": "OggAcv8sECRNdeOIzibXGFnDccAnBzNvSOYAfHUSqIw="
+          "hash": "QvmYj5lc5vbKoH1DLzjcfCYCkymnmN17WosTSUIswWQ="
         }
       },
       "is_incremental": false,
@@ -630,7 +630,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeEdge-1.html",
-          "hash": "xB7TL7eLpmCT9wqjtNm4dg15c8OyAer4qDnfT4AAPOI="
+          "hash": "MEmCT0xTs+qv+U2bzXDTuRlxXEevsa63XDa2BTaxck8="
         }
       },
       "is_incremental": false,
@@ -642,7 +642,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeFace-1.html",
-          "hash": "BP3HA3VTQ/49R2TI/rx2zfsl9u5/FmaAtmH/4vWb37Q="
+          "hash": "q5Qa6QwzReszMhjBQEz01ionc47vfLyNR1cm+lIue0o="
         }
       },
       "is_incremental": false,
@@ -654,7 +654,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeHalfedge-1.html",
-          "hash": "24vxrjRP/jEQyy983U41lHHoawssJdAGprfiRwc2ckw="
+          "hash": "1RY7iY+zGU46GZKaAC8BnYbQ3CBHW8pXY9BzzOgid3E="
         }
       },
       "is_incremental": false,
@@ -666,7 +666,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeMesh-1.html",
-          "hash": "BiJtC9X2Ka6ExRY7wMBGlMEDFZmS/oEpq+b17btYOnw="
+          "hash": "whUcnw+YWNpkQ0WsJU4il6u9bcFxarI5Dkw9Jng4Gqs="
         }
       },
       "is_incremental": false,
@@ -678,7 +678,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.HalfedgeMesh.HeVertex-1.html",
-          "hash": "rLXS8mS9SL7r63NXOouF2UzC8CrHUgwFHVE+PX6HzEQ="
+          "hash": "MNrRrIcGyT45AYGWKYqO3TSP6Pwold5iT+nfaG1/pyU="
         }
       },
       "is_incremental": false,
@@ -702,7 +702,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.IEdge-1.html",
-          "hash": "dW5PjEE7yaVLV0a0ijwXE6HXnYinUUjZalcLw9+Fon8="
+          "hash": "LmAPTxk8qLw/jLdwkVArY0tmJufeRUxNGc2kpRVM2t4="
         }
       },
       "is_incremental": false,
@@ -714,7 +714,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.IFace-1.html",
-          "hash": "dwd3gulZo/nGccLAoGuQ854sPlnL2B7ONmkXGaZZOJY="
+          "hash": "TzH1p8yCOM7zmRFBRNd4Attgoll8ir+E6tfSYqkTUA4="
         }
       },
       "is_incremental": false,
@@ -726,7 +726,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.IMesh-1.html",
-          "hash": "XLySIoWWOa279Rt1+cRQEy/qXIW8fBKH4bQOmfI/Jsk="
+          "hash": "AdS9+V2Zi8Tjyr9WJOGEcAKS9QIDwuWbA+GC/DaiDZY="
         }
       },
       "is_incremental": false,
@@ -738,7 +738,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.DataStructures.PolyhedralMeshes.IVertex-1.html",
-          "hash": "bUwIPmPFFIv4Wwgi7E5V+17LLnuPhC98zlapLUjuoVw="
+          "hash": "vpPClCJPEVAPaOnWv3Ta/kyTRMElHEst3O58YTXJTBg="
         }
       },
       "is_incremental": false,
@@ -762,7 +762,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Geometry.Euclidean3D.BSplineCurve.html",
-          "hash": "sgHh2dgjMKvDDjBKskbbDF3uROv0Mamgm+2m5wKSXgA="
+          "hash": "TXep2VqwiOy/swQwDkZrQ3Fh81Sj3did09JHRI9N/F0="
         }
       },
       "is_incremental": false,
@@ -774,7 +774,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Geometry.Euclidean3D.BSplineSurface.html",
-          "hash": "dymgINABjkpHLOqBhq1+p4UWV1kYsm64+RSowTjd8S8="
+          "hash": "w/fqYcdKnxNggX2GpPKgmOx+jcgPujwg05JtWIFwHKs="
         }
       },
       "is_incremental": false,
@@ -786,7 +786,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Geometry.Euclidean3D.Basis.html",
-          "hash": "d/IPiZgVrqEv3Txh37mk0wsRZbYrktR7zVR37FS6NPM="
+          "hash": "c7qD3FLlj4yREaqFNKmCFrL9Z9FiCkRJLIva9HgKbFo="
         }
       },
       "is_incremental": false,
@@ -798,7 +798,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Geometry.Euclidean3D.Circle.html",
-          "hash": "i6q2k8MykYEj1Ul0xvrd7gnmVh/+mYMiewFMDAJrisQ="
+          "hash": "urF4eVIBk9EbR89kOfAhBoXsXWjC38/PwU7rNDnXqYQ="
         }
       },
       "is_incremental": false,
@@ -810,7 +810,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Geometry.Euclidean3D.Frame.html",
-          "hash": "Vbymq7xCVOSY1pDoKUtH69WB5lRfq5VfT2PFBv95a+c="
+          "hash": "f95WZ3lAmvFQBl8xTAQRCT+zrUdEyPK92CqlYspaf74="
         }
       },
       "is_incremental": false,
@@ -822,7 +822,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Geometry.Euclidean3D.Line.html",
-          "hash": "cdpD7a1/hgtXKFuCmLgBCliytkmyVk2h7UqreysQRJw="
+          "hash": "wxTAzbJwb/Ij73vajyxwlPzamopUQhYgY1LWNupYJqQ="
         }
       },
       "is_incremental": false,
@@ -834,7 +834,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Geometry.Euclidean3D.NurbsCurve.html",
-          "hash": "saidfziQpY1VqrGacwxVKTFXr+LXg3Chyq9gByEI/lg="
+          "hash": "UQVXY7yqLV4fGeFoXd2Ri8ayiquOonYtxs8uXObjfi4="
         }
       },
       "is_incremental": false,
@@ -846,7 +846,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Geometry.Euclidean3D.NurbsSurface.html",
-          "hash": "GikcS8K2n+lwlisGPu2tnWOp+OQAFF715Ecx8VihF5A="
+          "hash": "kfXqZYjPOwZm12KqXiWg5OehibS9Ovyo4+7LY1Ry+f4="
         }
       },
       "is_incremental": false,
@@ -858,7 +858,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Geometry.Euclidean3D.Plane.html",
-          "hash": "xvotB1K02sMOAJvVbtnRC0J95SdhjsSdAo3Sg06KrM0="
+          "hash": "gjJNTOvLA7eaQYfScVFruTE+dOqbDHlACBanH/OQKJc="
         }
       },
       "is_incremental": false,
@@ -870,7 +870,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Geometry.Euclidean3D.Point.html",
-          "hash": "yUCggkGci9fL1Y/R+Jsz9cX+JH+e+XHdQXvBlUpotmc="
+          "hash": "SBtlh4RpMaa58rp/qIkbpK5SYIVunF25cn0i8IlGIUw="
         }
       },
       "is_incremental": false,
@@ -882,7 +882,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Geometry.Euclidean3D.Polyline.html",
-          "hash": "pmFvCuc3fM9pSZSRqYWuAlCRZS0rvHJphnEv7C37wyo="
+          "hash": "R74rPY7TfRQJmQ5QEgQE4qTwoCsNKj+5oTnOTSh8OZQ="
         }
       },
       "is_incremental": false,
@@ -894,7 +894,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Geometry.Euclidean3D.Ray.html",
-          "hash": "6UKYAGkhju4e3YbnaKTR3NxDnSMpFhTWYkA9mt109Gk="
+          "hash": "V2EtHSsCg3cJmXrfFvNdJ1+b7os+/hl3cdFj7ZLDZBE="
         }
       },
       "is_incremental": false,
@@ -906,7 +906,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Geometry.Euclidean3D.Segment.html",
-          "hash": "imn96JqGTXIP6DggHcAaV5dwX0HCwuWLNEqgv0OUGTA="
+          "hash": "21ClPEaIGbeaPLu6jXLRJLKtE0HTx8u/2FoguiM2Ms4="
         }
       },
       "is_incremental": false,
@@ -918,7 +918,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Geometry.Euclidean3D.Sphere.html",
-          "hash": "4A/e14ipBdgVgjmF9m5or+N1YDa/QvA9++L+R7ciVQs="
+          "hash": "b2QOt8rssDHQVPTAPwAITZnxR07uvlpcoPuFAJPmW3A="
         }
       },
       "is_incremental": false,
@@ -930,7 +930,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Geometry.Euclidean3D.Vector.html",
-          "hash": "9bcLVrxqTwTnvZj0QD+EE3m7PnSrEAzdB8MKP+6zmO8="
+          "hash": "t4tH/gz73LrWr00fg6UlJUUzMFx+z3L9DRIGvIv3jrY="
         }
       },
       "is_incremental": false,
@@ -954,7 +954,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Geometry.Kernel.BSplineCurve-1.html",
-          "hash": "8Y/VrZ9xGA7hyHDLhn80mBslC5bDc+p4nlClgVFYIGM="
+          "hash": "uhz29OkCRRHUB37OzbqP9HGKIKFhK2D9Mv/9Sex8Vmg="
         }
       },
       "is_incremental": false,
@@ -966,7 +966,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Geometry.Kernel.BSplineSurface-1.html",
-          "hash": "GTWOXEd9YQJR90j5qlduYg7f47izZCFXNkMKzrihApc="
+          "hash": "QlecQoqlxQDUdgpvmtiHg6EraZbUf7KodnjGNv+GUt8="
         }
       },
       "is_incremental": false,
@@ -978,7 +978,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Geometry.Kernel.CurveParameterFormat.html",
-          "hash": "uGAxi5P1lpQ7YDjro6LEQKERtWwKYX2Kf9CWv1sx94A="
+          "hash": "etDrlyWtx43yDCrJ4r46UoVEHuaYReg29qOTwoVcp2Q="
         }
       },
       "is_incremental": false,
@@ -1002,7 +1002,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Geometry.Projective3D.Point.html",
-          "hash": "qktI2FllYNWA4StRj5mr5u4pMUr+6UR300LhO6Gr3Ss="
+          "hash": "KXqGn9OThBYEzQtKVcrrEFGFgNuWrIq6TJlweWpjDJ8="
         }
       },
       "is_incremental": false,
@@ -1026,7 +1026,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.LinearAlgebra.Factorisation.SparseQR.html",
-          "hash": "Y0jxRqBVgF34jzMnpOA/a+kyAyz92I4UZrEaDM3QrAw="
+          "hash": "/gsw/AvLdvP11EnpKOHrgCST2bQf9xix1Hfs7QazDdg="
         }
       },
       "is_incremental": false,
@@ -1050,7 +1050,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.LinearAlgebra.Matrices.DenseMatrix.html",
-          "hash": "+jEu5lsPiaUmlot0NeJ16Y/ND8JYIL1jn1VJdTRKI5Q="
+          "hash": "aT8JZcWNAkqBHyuyG91btVrvuaQuzBWkQsj32diAV6o="
         }
       },
       "is_incremental": false,
@@ -1062,7 +1062,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.LinearAlgebra.Matrices.Matrix.html",
-          "hash": "75kOkzok4UCl2cnm/vYV4R+JOYJlD/wzFhtmnLxp8kk="
+          "hash": "wjU9Rp0oKXx2ArhSPTKWtizAVVTQnBu6rriE91naYg0="
         }
       },
       "is_incremental": false,
@@ -1074,7 +1074,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedColumn.html",
-          "hash": "7ogU4PGbWR9Lj8TWKi4DbicNI3omxHfT7eWXrc02Bug="
+          "hash": "ENdOQGuYTx4sdeSu9Uqwh0tV3aKyrKYOcvEnUAe6M0I="
         }
       },
       "is_incremental": false,
@@ -1086,7 +1086,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.LinearAlgebra.Matrices.Sparse.CompressedRow.html",
-          "hash": "E2wP1wKjHjuI3HCqf+stvUmd6e+q6Lk+2X0A8OqhZwI="
+          "hash": "vQu5MiqvTUQbbPTWsAPjjM1cOZ5NRnNrFXOb6bFa4fw="
         }
       },
       "is_incremental": false,
@@ -1110,7 +1110,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.LinearAlgebra.Matrices.SparseMatrix.html",
-          "hash": "uOCW07uQAkY3BEaxy9+j0WN213u6hzAhCy9hu3VAdc4="
+          "hash": "GCPbwUYsHJFU+yDVOuArK7WTturcAQxeXeyGzjW6IOc="
         }
       },
       "is_incremental": false,
@@ -1122,7 +1122,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.LinearAlgebra.Matrices.Storage.DictionaryOfKeys.html",
-          "hash": "7OuL3RwAQpCUb9MRntZMC/xl86ggmDGAE03/sTEkiL4="
+          "hash": "+zUH2h8IlIWqhxe6D0lwaOHWBjFK4FNdy+p5zF3KHqY="
         }
       },
       "is_incremental": false,
@@ -1158,7 +1158,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.LinearAlgebra.Vectors.DenseVector.html",
-          "hash": "PxYGYKK8445KoKlzYAaptrtMFWEIItLWvmdFCjPRlMM="
+          "hash": "9mZMDhvV22+dySDErWpG9INGc04drrYD//Y2GGYX2j8="
         }
       },
       "is_incremental": false,
@@ -1170,7 +1170,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.LinearAlgebra.Vectors.SparseVector.html",
-          "hash": "oZqqSugnzbKuhgPGwILVmIBvn9NLG2RSZ1C+s4sTJOk="
+          "hash": "yB4b0jCQEh3EMpf0dv++2hfqSe7rNKWyHsVSnI26Psk="
         }
       },
       "is_incremental": false,
@@ -1182,7 +1182,7 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.LinearAlgebra.Vectors.Vector.html",
-          "hash": "W8/ZMf0nuzvKCAWaKcQcZwcgEpqci4RweMOrmexZcaU="
+          "hash": "/kwq6ndEWPqouOwOsCKCMPQ3r4VirNYFL2JGz2xg6ek="
         }
       },
       "is_incremental": false,
@@ -1206,7 +1206,223 @@
       "output": {
         ".html": {
           "relative_path": "api/BRIDGES.Settings.html",
-          "hash": "n/9+UlkygQazbvjRDdwpRsfp9bmCySG6TiBAvv7A6Y8="
+          "hash": "yix9JZhpMsvKjNoGmJUwKAfORPqUXhuSij8YyUCnRC8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Solvers.GuidedProjection.Energy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Solvers.GuidedProjection.Energy.html",
+          "hash": "TgxWRnhhxF3cEXL7emmdI3mp9QBez+Lei6p8KqkI1BE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentOrthogonality.html",
+          "hash": "qwqoz7gfIsZaLghV+Tzu+b6G0u1N7cBbZ1mHjowZyww="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Solvers.GuidedProjection.EnergyTypes.SegmentParallelity.html",
+          "hash": "3CLBAwJaca0VxpscktP6klpJrH5lNdr49f3kDDKGwB8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Solvers.GuidedProjection.EnergyTypes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Solvers.GuidedProjection.EnergyTypes.html",
+          "hash": "SNUpR3S0DOucRhtz37PUxYpyTwpYR6azXnab3GobHf8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Solvers.GuidedProjection.GuidedProjectionAlgorithm.html",
+          "hash": "6WBcR8B4lp+WzS531fCzPZOM05mPqxeAPxl7/9hWrvQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Solvers.GuidedProjection.Interfaces.IEnergyType.html",
+          "hash": "rLDB0zL/fW0YBqHW7pRq6ySRyRoCsOyDyZ1refBjQiU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Solvers.GuidedProjection.Interfaces.ILinearisedConstraintType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Solvers.GuidedProjection.Interfaces.ILinearisedConstraintType.html",
+          "hash": "H769W2G3C6TXl2YJgf4whj3rSK6GE+5FwrFRGRskpIY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Solvers.GuidedProjection.Interfaces.IQuadraticConstraintType.html",
+          "hash": "R9IUu3QD5memC8yPOWqRAbShUqmKnHPTHCkm85MnZXo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Solvers.GuidedProjection.Interfaces.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Solvers.GuidedProjection.Interfaces.html",
+          "hash": "zb/aC4y6UIKW4aQ03GbXHX1dWADvvsMgANr1MoKemq4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Solvers.GuidedProjection.LinearisedConstraint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Solvers.GuidedProjection.LinearisedConstraint.html",
+          "hash": "la9l214f6H3QfHyL3tZvApqC9a/zlJ/ngYCclnk3tLU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraint.html",
+          "hash": "dMohDP800ObZJC0LaeOxpx6UYM0V0VN7JSytvAqOIOg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.CoherentLength.html",
+          "hash": "rNtrPZaeUMN3sXrzkjubvdCZbU7xpMNHYyyahnkwLX0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.LowerBound.html",
+          "hash": "1YHNGJnrPt5F+hsEDka66KxkTFDeZ/yCqfKovP6eKzU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.UpperBound.html",
+          "hash": "+wXHRhTKlXMe6vzvnLSzQ0Yvfzajr86N0QA2I2dugWc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.VectorLength.html",
+          "hash": "dlO9yERE9GZvIT5zU4v202quVEqa7kT7iY6NBMabnl0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Solvers.GuidedProjection.QuadraticConstraintTypes.html",
+          "hash": "jFHow0WU6U5M6c8sk1c+6tpmYZ0CLwTuvBYNWp9Htlo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Solvers.GuidedProjection.VariableSet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Solvers.GuidedProjection.VariableSet.html",
+          "hash": "NZLVeUSog3g6t3ZeqNjCt6J1sqGkR4z/Uz2FcFTVZPg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/BRIDGES.Solvers.GuidedProjection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/BRIDGES.Solvers.GuidedProjection.html",
+          "hash": "8WWVHYScHCJXJHJg4YY8ZfhlZEdecJoGQOGRWP8FFTM="
         }
       },
       "is_incremental": false,
@@ -1245,7 +1461,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "ltDiszXwHYcioleuTW+qmoB8em9kywZzPPmVDaXswh4="
+          "hash": "fH9g7+uvP8N1MSFAvr6MuVRk/YnwjI4oIKZ5dNyASrA="
         }
       },
       "is_incremental": false,
@@ -1331,7 +1547,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 100,
+          "total_file_count": 118,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {
