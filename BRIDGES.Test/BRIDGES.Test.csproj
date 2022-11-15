@@ -1,27 +1,30 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
+		<Title>BRIDGES.Test</Title>
 		<Authors>École des Ponts ParisTech</Authors>
 		<Company>École des Ponts ParisTech</Company>
 		<Description>Test project for the BRIDGES class library.</Description>
 
-		<RepositoryUrl>https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES</RepositoryUrl>
-
 		<TargetFramework>net6.0</TargetFramework>
-	  
-		<IsPackable>false</IsPackable>
+
+		<RepositoryUrl>https://github.com/Ecole-des-Ponts-ParisTech/BRIDGES</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		
+		<IsPackable>false</IsPackable>
 	</PropertyGroup>
 
+	<ItemGroup>
+		<ProjectReference Include="..\BRIDGES\BRIDGES.csproj" />
+	</ItemGroup>
+	
 	<ItemGroup>
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
 		<PackageReference Include="MSTest.TestAdapter" Version="2.2.7" />
 		<PackageReference Include="MSTest.TestFramework" Version="2.2.7" />
 		<PackageReference Include="coverlet.collector" Version="3.1.0" />
 	</ItemGroup>
-
-	<ItemGroup>
-	  <ProjectReference Include="..\BRIDGES\BRIDGES.csproj" />
-	</ItemGroup>
-
+	
 </Project>

@@ -695,35 +695,35 @@ namespace BRIDGES.Arithmetic.Numbers
         #endregion
 
         #region Casts
-        /*
-                /// <summary>
-                /// Casts a <see cref="Complex"/> number into a <see cref="Quaternion"/> number.
-                /// </summary>
-                /// <param name="complex"> <see cref="Complex"/> number to cast. </param>
-                /// <returns> The new <see cref="Quaternion"/> number resulting from the cast. </returns>
-                public static implicit operator Quaternion(Complex complex) { return new Quaternion(complex.RealPart, complex.ImaginaryPart, 0.0, 0.0); }
 
-                /// <summary>
-                /// Casts a <see cref="Real"/> number into a <see cref="Quaternion"/> number.
-                /// </summary>
-                /// <param name="real"> <see cref="Real"/> number to cast. </param>
-                /// <returns> The new <see cref="Quaternion"/> number resulting from the cast. </returns>
-                public static implicit operator Quaternion(Real real) { return new Quaternion(real.Value, 0.0, 0.0, 0.0); }
+        /// <summary>
+        /// Casts a <see cref="Complex"/> number into a <see cref="Quaternion"/> number.
+        /// </summary>
+        /// <param name="complex"> <see cref="Complex"/> number to cast. </param>
+        /// <returns> The new <see cref="Quaternion"/> number resulting from the cast. </returns>
+        public static explicit operator Quaternion(Complex complex) { return new Quaternion(complex.RealPart, complex.ImaginaryPart, 0.0, 0.0); }
 
-                /// <summary>
-                /// Casts a <see cref="double"/>-precision real number into a <see cref="Quaternion"/> number.
-                /// </summary>
-                /// <param name="number"> <see cref="double"/>-precision real number to cast. </param>
-                /// <returns> The new <see cref="Quaternion"/> number resulting from the cast. </returns>
-                public static implicit operator Quaternion(double number) { return new Quaternion(number, 0.0, 0.0, 0.0); }
+        /// <summary>
+        /// Casts a <see cref="Real"/> number into a <see cref="Quaternion"/> number.
+        /// </summary>
+        /// <param name="real"> <see cref="Real"/> number to cast. </param>
+        /// <returns> The new <see cref="Quaternion"/> number resulting from the cast. </returns>
+        public static explicit operator Quaternion(Real real) { return new Quaternion(real.Value, 0.0, 0.0, 0.0); }
 
-                /// <summary>
-                /// Casts a <see cref="ValueTuple{T1, T2, T3, T4}"/> into a <see cref="Quaternion"/> number.
-                /// </summary>
-                /// <param name="quadruple"> <see cref="ValueTuple{T1, T2, T3, T4}"/> to cast. </param>
-                /// <returns> The new <see cref="Quaternion"/> number resulting from the cast. </returns>
-                public static implicit operator Quaternion(ValueTuple<double, double, double, double> quadruple) { return new Quaternion(quadruple.Item1, quadruple.Item2, quadruple.Item3, quadruple.Item4); }
-        */
+        /// <summary>
+        /// Casts a <see cref="double"/>-precision real number into a <see cref="Quaternion"/> number.
+        /// </summary>
+        /// <param name="number"> <see cref="double"/>-precision real number to cast. </param>
+        /// <returns> The new <see cref="Quaternion"/> number resulting from the cast. </returns>
+        public static explicit operator Quaternion(double number) { return new Quaternion(number, 0.0, 0.0, 0.0); }
+
+        /// <summary>
+        /// Casts a <see cref="ValueTuple{T1, T2, T3, T4}"/> into a <see cref="Quaternion"/> number.
+        /// </summary>
+        /// <param name="quadruple"> <see cref="ValueTuple{T1, T2, T3, T4}"/> to cast. </param>
+        /// <returns> The new <see cref="Quaternion"/> number resulting from the cast. </returns>
+        public static explicit operator Quaternion(ValueTuple<double, double, double, double> quadruple) { return new Quaternion(quadruple.Item1, quadruple.Item2, quadruple.Item3, quadruple.Item4); }
+
         #endregion
 
         #region Methods

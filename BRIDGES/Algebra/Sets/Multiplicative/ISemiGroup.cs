@@ -4,9 +4,9 @@
 namespace BRIDGES.Algebra.Sets.Multiplicative
 {
     /// <summary>
-    /// Interface defining a multiplicative semi-group.
+    /// Interface defining methods to manipulate elements in a multiplicative semi-group.
     /// </summary>
-    /// <typeparam name="T"> Type of the elements in the multiplicative set. </typeparam>
+    /// <typeparam name="T"> Type of the elements in the multiplicative semi-group. </typeparam>
     public interface ISemiGroup<T> : IMagma<T>
         where T : ISemiGroup<T>
     {

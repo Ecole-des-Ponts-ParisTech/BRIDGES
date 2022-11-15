@@ -432,7 +432,7 @@ namespace BRIDGES.Geometry.Euclidean3D
         /******************** Methods ********************/
 
         /// <inheritdoc/>
-        Point Alg_Fund.IAddable<Point>.Add(Point right) => new Point(X + right.X, Y + right.Y, Z + right.Z);
+        Point Alg_Fund.IAddable<Point>.Add(Point right) { return new Point(X + right.X, Y + right.Y, Z + right.Z); }
 
         /// <inheritdoc/>
         Point Alg_Fund.ISubtractable<Point>.Subtract(Point right) { return new Point(X - right.X, Y - right.Y, Z - right.Z); }

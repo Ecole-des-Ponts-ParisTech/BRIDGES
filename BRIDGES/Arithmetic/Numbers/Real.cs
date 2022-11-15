@@ -204,21 +204,21 @@ namespace BRIDGES.Arithmetic.Numbers
         #endregion
 
         #region Casts
-        /*
-                /// <summary>
-                /// Casts a <see cref="Real"/> number into a <see cref="double"/>-precision real number.
-                /// </summary>
-                /// <param name="real"> <see cref="Real"/> number to cast. </param>
-                /// <returns> The new <see cref="double"/>-precision real number resulting from the cast. </returns>
-                public static implicit operator double(Real real) { return real.Value; }
 
-                /// <summary>
-                /// Casts a <see cref="double"/>-precision real number into a <see cref="Real"/> number.
-                /// </summary>
-                /// <param name="number"> <see cref="double"/>-precision real number to cast. </param>
-                /// <returns> The new <see cref="Real"/> number resulting from the cast. </returns>
-                public static implicit operator Real(double number) { return new Real(number); }
-        */
+        /// <summary>
+        /// Casts a <see cref="Real"/> number into a <see cref="double"/>-precision real number.
+        /// </summary>
+        /// <param name="real"> <see cref="Real"/> number to cast. </param>
+        /// <returns> The new <see cref="double"/>-precision real number resulting from the cast. </returns>
+        public static explicit operator double(Real real) { return real.Value; }
+
+        /// <summary>
+        /// Casts a <see cref="double"/>-precision real number into a <see cref="Real"/> number.
+        /// </summary>
+        /// <param name="number"> <see cref="double"/>-precision real number to cast. </param>
+        /// <returns> The new <see cref="Real"/> number resulting from the cast. </returns>
+        public static explicit operator Real(double number) { return new Real(number); }
+
         #endregion
 
         #region Methods

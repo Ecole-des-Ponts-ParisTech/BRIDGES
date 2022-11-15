@@ -4,7 +4,7 @@
 namespace BRIDGES.Algebra.Fundamentals
 {
     /// <summary>
-    /// Interface defining the division, i.e. the multiplication with an element's inverse value (or multiplicative inverse).
+    /// Interface defining a method for the division of two operands (i.e. the multiplication with an element's inverse value).
     /// </summary>
     /// <typeparam name="T"> Type of the elements in the multiplicative set. </typeparam>
     /// <remarks>
@@ -16,7 +16,7 @@ namespace BRIDGES.Algebra.Fundamentals
         #region Methods
 
         /// <summary>
-        /// Divides the current element with another element.
+        /// Computes the division of the current element with another element on the right.
         /// </summary>
         /// <param name="right"> Element to divide with on the right. </param>
         /// <returns> The new element resulting from the division. </returns>

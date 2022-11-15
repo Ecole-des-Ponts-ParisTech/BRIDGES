@@ -4,7 +4,7 @@
 namespace BRIDGES.Algebra.Fundamentals
 {
     /// <summary>
-    /// Interface defining the multiplication of two operands, i.e. an internal binary operation.
+    /// Interface defining a method for the multiplication of two operands (i.e. an internal binary operation).
     /// </summary>
     /// <typeparam name="T"> Type of the elements in the multiplicative set. </typeparam>
     public interface IMultiplicable<T>
@@ -35,7 +35,7 @@ namespace BRIDGES.Algebra.Fundamentals
         #region Methods
 
         /// <summary>
-        /// Multiplies the current element with another element.
+        /// Computes the multiplication of the current element with another element on the right.
         /// </summary>
         /// <param name="right"> Element to multiply with on the right. </param>
         /// <returns> The new element resulting from the multiplication. </returns>

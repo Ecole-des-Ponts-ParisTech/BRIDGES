@@ -1,0 +1,62 @@
+name: Deploy Pages with DocFX
+
+# Controls the event triggering the workflow
+on:
+  # Gives the possibility to trigger the workflow manually.
+  workflow_call:
+  # Gives the possibility to trigger the workflow from another workflow.
+  workflow_dispatch:
+
+# Permission for the 'github-pages-deploy-action'
+permissions:
+  contents: write
+
+# Job to run in the workflow
+jobs:
+  build-pages-and-push:
+    # Runs the job only if the branch is 'master'
+    if: ${{github.ref}} == 'master'
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name : Check-out article branch
+      uses : actions/checkout@v3
+      with :
+        ref : 'docs'
+
+    - name: Check-out code project branch
+      uses: actions/checkout@v3
+      with:
+        ref : ${{github.ref}}
+        path : src
+
+    - name : Setup .Net
+      uses : actions/setup-dotnet@v2
+      with :
+        dotnet-version : 6.0.x
+
+    - name : Download and Install DocFX
+      run : |
+        wget "https://github.com/dotnet/docfx/releases/latest/download/docfx.zip"
+        sudo unzip docfx.zip -d "${HOME}/docfx"
+        rm docfx.zip
+
+    - name : Build DocFX Metadata
+      run : |
+        mono "${HOME}/docfx/docfx.exe" metadata
+
+    - name : Nest API ToC Namespaces
+      run : |
+        sudo pwsh ./unflatten-namespaces.ps1 ./api/toc.yml
+
+
+    - name : Build Static Pages with DocFX
+      run : |
+        mono "${HOME}/docfx/docfx.exe" build ${{ github.workspace }}/docfx.json
+
+    - name : Deploy Static Pages
+      uses : JamesIves/github-pages-deploy-action@v4
+      with :
+        folder : ${{ github.workspace }}/_site
+        branch : 'gh-pages'

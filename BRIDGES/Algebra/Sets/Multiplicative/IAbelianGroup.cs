@@ -4,9 +4,9 @@
 namespace BRIDGES.Algebra.Sets.Multiplicative
 {
     /// <summary>
-    /// Interface defining a multiplicative abelian group.
+    /// Interface defining methods to manipulate elements in a multiplicative abelian group.
     /// </summary>
-    /// <typeparam name="T"> Type of the elements in the multiplicative set. </typeparam>
+    /// <typeparam name="T"> Type of the elements in the multiplicative multiplicative group. </typeparam>
     public interface IAbelianGroup<T> : IGroup<T>
         where T : IAbelianGroup<T>
     {

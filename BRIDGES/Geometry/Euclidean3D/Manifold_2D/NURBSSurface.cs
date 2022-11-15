@@ -6,7 +6,6 @@ using Arith_Spe = BRIDGES.Arithmetic.Polynomials.Specials;
 
 namespace BRIDGES.Geometry.Euclidean3D
 {
-
     /// <summary>
     /// Class defining a NURBS surface in three-dimensional euclidean space.
     /// </summary>

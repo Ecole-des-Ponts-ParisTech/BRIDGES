@@ -4,9 +4,9 @@
 namespace BRIDGES.Algebra.Sets.Additive
 {
     /// <summary>
-    /// Interface defining an additive semi-group.
+    /// Interface defining methods to manipulate elements in an additive semi-group.
     /// </summary>
-    /// <typeparam name="T"> Type of the elements in the additive set. </typeparam>
+    /// <typeparam name="T"> Type of the elements in the additive semi-group. </typeparam>
     public interface ISemiGroup<T> : IMagma<T>
         where T : ISemiGroup<T>
     {

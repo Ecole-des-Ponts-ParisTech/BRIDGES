@@ -6,12 +6,12 @@ using BRIDGES.Algebra.Fundamentals;
 namespace BRIDGES.Algebra.Sets.Multiplicative
 {
     /// <summary>
-    /// Interface defining a multiplicative loop.
+    /// Interface defining methods to manipulate elements in a multiplicative loop.
     /// </summary>
-    /// <typeparam name="T"> Type of the elements in the multiplicative set. </typeparam>
+    /// <typeparam name="T"> Type of the elements in the multiplicative loop. </typeparam>
     public interface ILoop<T> : IQuasiGroup<T>, IOneable<T>
         where T : ILoop<T>
     {
-        /* Nothing to do */
+        /* Do Nothing */
     }
 }
