@@ -342,7 +342,7 @@ namespace BRIDGES.Geometry.Euclidean3D
 
         #endregion
 
-        #region Methods
+        #region Public Methods
 
         /// <summary>
         /// Gets the coordinates of the current <see cref="Point"/>.
@@ -376,7 +376,7 @@ namespace BRIDGES.Geometry.Euclidean3D
 
 
         /// <summary>
-        /// Evaluates whether the current <see cref="Point"/> is equal to another <see cref="Point"/>.
+        /// Evaluates whether the current <see cref="Point"/> is memberwise equal to another <see cref="Point"/>.
         /// </summary>
         /// <remarks> 
         /// Two <see cref="Point"/> are equal if their coordinates are equal.

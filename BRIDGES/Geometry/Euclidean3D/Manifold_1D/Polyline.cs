@@ -7,10 +7,10 @@ using Geo_Ker = BRIDGES.Geometry.Kernel;
 namespace BRIDGES.Geometry.Euclidean3D
 {
     /// <summary>
-    /// Class defining a polyline curve in three-dimensional euclidean space.<br/>
-    /// It is defined by an ordered list of vertices. 
+    /// Class defining a polyline curve in three-dimensional euclidean space. 
     /// </summary>
-    public class Polyline : Geo_Ker.ICurve<Point>
+    public class Polyline : IEquatable<Polyline>,
+        Geo_Ker.ICurve<Point>, Geo_Ker.IGeometricallyEquatable<Polyline>
     {
         #region Fields
 
@@ -18,8 +18,7 @@ namespace BRIDGES.Geometry.Euclidean3D
         /// Vertices of the current <see cref="Polyline"/>.
         /// </summary>
         /// <remarks> 
-        /// If the polyline is closed, the last vertex must be equal to the first one.<br/> 
-        /// However, if the last vertex matches the first one, the polyline is not necessarily closed.
+        /// If the polyline is closed, the last vertex is not a duplicate of the first one.
         /// </remarks>
         private List<Point> _vertices;
 
@@ -53,7 +52,7 @@ namespace BRIDGES.Geometry.Euclidean3D
         /// <inheritdoc/>
         public double DomainEnd
         {
-            get { return _vertices.Count - 1; }
+            get { return IsClosed ? _vertices.Count : _vertices.Count - 1; }
         }
 
 
@@ -65,7 +64,9 @@ namespace BRIDGES.Geometry.Euclidean3D
         public Point this[int index] 
         {
             get { return _vertices[index]; }
+            set { _vertices[index] = value; }
         }
+
 
         /// <summary>
         /// Gets the number of vertices of the current <see cref="Polyline"/>.
@@ -73,6 +74,14 @@ namespace BRIDGES.Geometry.Euclidean3D
         public int VertexCount 
         {
             get { return _vertices.Count; }
+        }
+
+        /// <summary>
+        /// Gets the number of segments of the current <see cref="Polyline"/>.
+        /// </summary>
+        public int SegmentCount
+        {
+            get { return IsClosed ? _vertices.Count : _vertices.Count - 1; }
         }
 
         #endregion
@@ -84,11 +93,15 @@ namespace BRIDGES.Geometry.Euclidean3D
         /// </summary>
         /// <param name="vertices"> Position of the vertices. </param>
         /// <param name="isClosed"> Determines whether the new <see cref="Polyline"/> is closed or not. </param>
-        public Polyline(Point[] vertices, bool isClosed = false)
+        /// <exception cref="ArgumentException"> The polyline needs at least two vertices. </exception>
+        public Polyline(IEnumerable<Point> vertices, bool isClosed = false)
         {
             IsClosed = isClosed;
 
-            _vertices = new List<Point> (vertices);
+            _vertices = new List<Point>(vertices);
+
+            // Verification
+            if (_vertices.Count < 2) { throw new ArgumentException("The polyline needs at least two vertices."); }
         }
 
         /// <summary>
@@ -134,12 +147,42 @@ namespace BRIDGES.Geometry.Euclidean3D
             _vertices.Insert(index, vertex);
         }
 
+        /// <summary>
+        /// Replaces a vertex in the polyline at the given index.
+        /// </summary>
+        /// <param name="index"> Zero-based index of the vertex to replace. </param>
+        /// <param name="vertex"> New position of the vertex. </param>
+        public void ReplaceVertex(int index, Point vertex)
+        {
+            _vertices[index] = vertex;
+        }
+
+        /// <summary>
+        /// Replaces all the vertices in the polyline.
+        /// </summary>
+        /// <param name="vertices"> New position of the vertices. </param>
+        public void ReplaceVertices(IEnumerable<Point> vertices)
+        {
+            _vertices.RemoveRange(0, VertexCount);
+            _vertices.AddRange(vertices);
+
+            // Verification
+            if (_vertices.Count < 2) { throw new ArgumentException("The polyline needs at least two vertices."); }
+        }
+
 
         /// <summary>
         /// Flips the current <see cref="Polyline"/> by reversing the list of vertices.
         /// </summary>
         public void Flip()
         {
+            if(IsClosed)
+            {
+                Point vertex = _vertices[0];
+                _vertices.RemoveAt(0);
+                _vertices.Add(vertex);
+            }
+
             _vertices.Reverse();
         }
 
@@ -147,40 +190,48 @@ namespace BRIDGES.Geometry.Euclidean3D
         /// Computes the length of the current <see cref="Polyline"/>.
         /// </summary>
         /// <returns> The value corresponding to the <see cref="Polyline"/>'s length. </returns>
-        /// <exception cref="InvalidOperationException"> The length can't be computed. The current <see cref="Polyline"/> doesn't have any vertices. </exception>
         public double Length()
         {
-            // If the polyline is empty.
-            if (_vertices.Count == 0) { throw new InvalidOperationException("The length can't be computed. The current polyline doesn't have any vertices."); }
-            // If the polyline is reduced to a point.
-            else if (_vertices.Count == 1) { return 0.0; }
-            // If the polyline has several vertices.
-            else
+            double length = 0.0;
+            // Calculates the length of the main part.
+            for (int i = 0; i < _vertices.Count - 1; i++)
             {
-                double length = 0.0;
-                // Calculates the length of the main part.
-                for (int i = 0; i < _vertices.Count - 1; i++)
-                {
-                    length += (_vertices[i + 1] - _vertices[i]).Norm();
-                }
-
-                return length;
+                length += _vertices[i].DistanceTo(_vertices[i + 1]);
             }
+
+            if(IsClosed) { length += _vertices[_vertices.Count - 1].DistanceTo(_vertices[0]); }
+
+            return length;
         }
 
         /// <summary>
         /// Evaluates the current <see cref="Polyline"/> at the given parameter.
         /// </summary>
-        /// <param name="parameter"> Value of the parameter. </param>
-        /// <param name="format"> Format of the parameter. </param>
+        /// <param name="t"> Parameter to evaluate the curve. </param>
+        /// <param name="format"> Format of the parameter. 
+        /// <list type="bullet">
+        /// <item>
+        /// <term>Normalised</term>
+        /// <description> The point at <paramref name="t"/> = i is the vertex at index <em>i</em>. </description>
+        /// </item>
+        /// <item>
+        /// <term>ArcLength</term>
+        /// <description> The point at <paramref name="t"/> = 1.0 is at a distance 1.0 from the start point along the polyline. </description>
+        /// </item>
+        /// </list> </param>
         /// <returns> The <see cref="Point"/> on the <see cref="Polyline"/> at the given parameter. </returns>
-        /// <exception cref="ArgumentOutOfRangeException"> The input curve parameter cannot be negative. </exception>
-        public Point PointAt(double parameter, Geo_Ker.CurveParameterFormat format)
+        /// <exception cref="NotImplementedException"> The given format for the curve parameter is not implemented. </exception>
+        public Point PointAt(double t, Geo_Ker.CurveParameterFormat format)
         {
-            if (format == Geo_Ker.CurveParameterFormat.ArcLength) { return PointAt_LengthParameter(parameter); }
-            else if (format == Geo_Ker.CurveParameterFormat.Normalised) { return PointAt_NormalizedParameter(parameter); }
-
-            else { throw new NotImplementedException(); }
+            if (format == Geo_Ker.CurveParameterFormat.ArcLength) 
+            { 
+                return PointAt_LengthParameter(t); 
+            }
+            else if (format == Geo_Ker.CurveParameterFormat.Normalised) 
+            { 
+                return PointAt_NormalisedParameter(t);
+            }
+            else { throw new NotImplementedException("The given format for the curve parameter is not implemented."); }
         }
 
 
@@ -197,46 +248,49 @@ namespace BRIDGES.Geometry.Euclidean3D
             Point closePoint = _vertices[0];
 
             // Find the closest "edge"
-            for (int i = 0; i < _vertices.Count - 1; i++)
+            for (int i = 0; i < SegmentCount + 1; i++)
             {
-                Vector edgeDir = _vertices[i + 1] - _vertices[i];
-                edgeDir.Unitise();
-                double alpha = Point.DotProduct(point - _vertices[i], edgeDir);
+                Point edgeStart = _vertices[i];
+                Point edgeEnd = _vertices[(i + 1) % VertexCount];
 
-                if (alpha <= 0)
+                Vector edgeDir = edgeEnd - edgeStart; edgeDir.Unitise();
+
+                double alpha = Point.DotProduct(point - edgeStart, edgeDir);
+
+                if (alpha <= 0d)
                 {
-                    double d = _vertices[i].DistanceTo(point);
+                    double d = edgeStart.DistanceTo(point);
                     if (d < t)
                     {
                         t = d;
-                        closePoint = _vertices[i];
+                        closePoint = edgeStart;
                     }
                 }
-                else if (alpha >= _vertices[i + 1].DistanceTo(_vertices[i]))
+                else if (alpha >= edgeStart.DistanceTo(edgeEnd))
                 {
-                    double d = _vertices[i + 1].DistanceTo(point);
+                    double d = edgeEnd.DistanceTo(point);
                     if (d < t)
                     {
                         t = d;
-                        closePoint = _vertices[i + 1];
+                        closePoint = edgeEnd;
                     }
                 }
                 else
                 {
-                    Point scaledEdge = _vertices[i] + (alpha * edgeDir);
+                    Point scaledEdge = edgeStart + (alpha * edgeDir);
                     double d = point.DistanceTo(scaledEdge);
                     if (d < t)
                     {
                         t = d;
-                        closePoint = _vertices[i] + edgeDir;
+                        closePoint = edgeStart + edgeDir;
                     }
                 }
             }
 
-            if (_vertices[_vertices.Count - 1].DistanceTo(point) < t)
+            if (EndPoint.DistanceTo(point) < t)
             {
-                t = _vertices[_vertices.Count - 1].DistanceTo(point);
-                closePoint = _vertices[_vertices.Count - 1];
+                t = EndPoint.DistanceTo(point);
+                closePoint = EndPoint;
             }
 
             return closePoint;
@@ -265,79 +319,99 @@ namespace BRIDGES.Geometry.Euclidean3D
             return true;
         }
 
+        /// <inheritdoc/>
+        public bool GeometricallyEquals(Polyline other)
+        {
+            return Equals(other);
+        }
 
-        /********** Private Helpers **********/
+        #endregion
+
+        #region Other Methods
 
         /// <summary>
         /// Evaluates the current <see cref="Polyline"/> at the given length parameter.
         /// </summary>
-        /// <param name="parameter"> Positive length parameter. </param>
+        /// <param name="t"> Length parameter to evaluate the curve. </param>
         /// <returns> The <see cref="Point"/> on the <see cref="Polyline"/> at the given length parameter. </returns>
+        /// <exception cref="ArgumentException"> The arc length parameter can not be negative. </exception>
         /// <exception cref="ArgumentOutOfRangeException"> The input length curve parameter is larger than the polyline length. </exception>
-        private Point PointAt_LengthParameter(double parameter)
+        private Point PointAt_LengthParameter(double t)
         {
-            if (parameter < 0) { throw new ArgumentOutOfRangeException("The arc length parameter can not be negative."); }
+            if (t < 0d) { throw new ArgumentException("The arc length parameter can not be negative."); }
 
             double cumulativeLength = 0.0;
 
             // If the parameter is in the main part.
             for (int i_Vertex = 0; i_Vertex < _vertices.Count - 1; i_Vertex++)
             {
-                Vector axis = _vertices[i_Vertex + 1] - _vertices[i_Vertex];
-                cumulativeLength += axis.Length();
+                double segmentLength = _vertices[i_Vertex].DistanceTo(_vertices[i_Vertex + 1]);
+                cumulativeLength += segmentLength;
 
-                if (parameter <= cumulativeLength)
+                if (t <= cumulativeLength)
                 {
-                    double delta = parameter - (cumulativeLength - axis.Length());
-
+                    Vector axis = _vertices[i_Vertex + 1] - _vertices[i_Vertex];
                     axis.Unitise();
+
+                    double delta = t - (cumulativeLength - segmentLength);
 
                     return _vertices[i_Vertex] + (delta * axis);
                 }
             }
 
-            // If the parameter is equal to the length of the polyline.
-            if (parameter == cumulativeLength)
+            if (IsClosed)
             {
-                return IsClosed ? _vertices[0] : _vertices[_vertices.Count - 1];
+                double segmentLength = _vertices[_vertices.Count - 1].DistanceTo(_vertices[0]);
+                cumulativeLength += segmentLength;
+
+                if (t <= cumulativeLength)
+                {
+                    Vector axis = _vertices[0] - _vertices[_vertices.Count - 1];
+                    axis.Unitise();
+
+                    double delta = t - (cumulativeLength - segmentLength);
+
+                    return _vertices[_vertices.Count - 1] + (delta * axis);
+                }
             }
 
             // If the parameter is larger than the length of the polyline.
-            else { throw new ArgumentOutOfRangeException("The arc length parameter is larger than the curve length."); }
+            throw new ArgumentOutOfRangeException("The arc length parameter is larger than the curve length.");
 
         }
 
         /// <summary>
         /// Evaluates the current <see cref="Polyline"/> at the given normalised parameter.
         /// </summary>
-        /// <param name="parameter"> Positive normalised parameter. </param>
+        /// <param name="t"> Normalised parameter. </param>
         /// <returns> The <see cref="Point"/> on the <see cref="Polyline"/> at the given normalised parameter. </returns>
         /// <exception cref="ArgumentOutOfRangeException"> The normalized parameter is outside the segment's domain. </exception>
-        private Point PointAt_NormalizedParameter(double parameter)
+        private Point PointAt_NormalisedParameter(double t)
         {
             // If the parameter exceeds the curve domain.
-            if (parameter < DomainStart || DomainEnd < parameter) { throw new ArgumentOutOfRangeException("The normalized parameter is outside the segment's domain."); }
+            if (t < DomainStart || DomainEnd < t) { throw new ArgumentOutOfRangeException("The normalized parameter is outside the segment's domain."); }
 
             // If the parameter is equal to the upper bound of the curve domain.
-            if (parameter == DomainEnd) { return _vertices[_vertices.Count - 1]; }
+            if (t == DomainEnd) { return EndPoint; }
 
             // If the parameter is in the rest of the polyline.
+            int index = Convert.ToInt16(Math.Truncate(t));
+            double delta = t - index;
+
+            Point vertex; Vector axis;
+            if (IsClosed && index == _vertices.Count - 1)
             {
-                int index = Convert.ToInt16(Math.Truncate(parameter));
-                double delta = parameter - index;
-
-                Point vertex = _vertices[index];
-                Vector axis = _vertices[index + 1] - _vertices[index];
-
-                return vertex + (delta * axis);
+                vertex = _vertices[index];
+                axis = _vertices[0] - _vertices[index];
             }
+            else
+            {
+                vertex = _vertices[index];
+                axis = _vertices[index + 1] - _vertices[index];
+            }
+
+            return vertex + (delta * axis);        
         }
-
-        #endregion
-
-        #region Private Methods
-
-        /********** For PointAt(Double,CurveParameterFormat) **********/
 
         #endregion
 

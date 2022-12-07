@@ -14,12 +14,12 @@ namespace BRIDGES.Geometry.Euclidean3D
         /// <summary>
         /// Gets the start <see cref="Point"/> of the current <see cref="Ray"/>.
         /// </summary>
-        public Point StartPoint { get; }
+        public Point StartPoint { get; set;  }
 
         /// <summary>
         /// Gets the axis of the current <see cref="Ray"/>.
         /// </summary>
-        public Vector Axis { get; internal set; }
+        public Vector Axis { get; set; }
 
         #endregion
 

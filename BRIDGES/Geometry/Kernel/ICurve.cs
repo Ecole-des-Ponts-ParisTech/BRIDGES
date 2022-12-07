@@ -46,12 +46,12 @@ namespace BRIDGES.Geometry.Kernel
 
 
         /// <summary>
-        /// Gets the start value of the current curve's domain.
+        /// Gets the start value of the normalised domain for the current curve's.
         /// </summary>
         double DomainStart { get; }
 
         /// <summary>
-        /// Gets the end value of the current curve's domain.
+        /// Gets the end value of the normalised domain for the current curve's.
         /// </summary>
         double DomainEnd { get; }
 
@@ -73,10 +73,10 @@ namespace BRIDGES.Geometry.Kernel
         /// <summary>
         /// Evaluates the current curve at the given parameter.
         /// </summary>
-        /// <param name="parameter"> Value of the parameter. </param>
+        /// <param name="t"> Parameter to evaluate the curve. </param>
         /// <param name="format"> Format of the parameter. </param>
         /// <returns> The point on the curve at the given parameter. </returns>
-        TPoint PointAt(double parameter, CurveParameterFormat format);
+        TPoint PointAt(double t, CurveParameterFormat format);
 
         #endregion
     }

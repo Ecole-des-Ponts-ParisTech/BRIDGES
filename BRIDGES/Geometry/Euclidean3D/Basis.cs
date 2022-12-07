@@ -5,10 +5,9 @@ namespace BRIDGES.Geometry.Euclidean3D
 {
     /// <summary>
     /// Class defining a basis in three-dimensional euclidean space.<br/>
-    /// It is defined by an ordered set of linearly independant <see cref="Vector"/>.
     /// </summary>
     /// <remarks> For a basis placed at an origin <see cref="Point"/>, refer to <see cref="Frame"/>. </remarks>
-    public class Basis
+    public class Basis : IEquatable<Basis>
     {
         #region Fields
 
@@ -114,6 +113,32 @@ namespace BRIDGES.Geometry.Euclidean3D
         public Basis(Basis basis)
         {
             _axes = new Vector[3] { basis.XAxis, basis.YAxis, basis.ZAxis };
+        }
+
+        #endregion
+
+        #region Static Methods
+
+        /// <summary>
+        /// Evaluates whether a the axis of a basis are orthogonal to one another.
+        /// </summary>
+        /// <param name="basis"> Basis to evaluate.</param>
+        /// <returns> <see langword="true"/> if the axes are orthogonal, <see langword="false"/> otherwise.</returns>
+        public static bool IsOrthogonal(Basis basis)
+        {
+            Vector[] axes = basis._axes;
+
+            for (int i = 0; i < axes.Length; i++)
+            {
+                if (axes[i].SquaredLength() < Settings.AbsolutePrecision) { return false; }
+
+                for (int j = i + 1; j < axes.Length; j++)
+                {
+                    if (Math.Abs(Vector.DotProduct(axes[i], axes[j])) < Settings.AbsolutePrecision) { return false; }
+                }
+            }
+
+            return true;
         }
 
         #endregion

@@ -200,6 +200,7 @@ namespace BRIDGES.Geometry.Euclidean3D
             return (vectorA.Length() * vectorB.Length()) - Math.Abs(Vector.DotProduct(vectorA, vectorB)) < Settings.AbsolutePrecision;
         }
 
+
         /// <summary>
         /// Evaluates whether two <see cref="Vector"/> are orthogonal.
         /// </summary>
@@ -209,6 +210,26 @@ namespace BRIDGES.Geometry.Euclidean3D
         public static bool AreOrthogonal(Vector vectorA, Vector vectorB)
         {
             return Math.Abs(Vector.DotProduct(vectorA, vectorB)) < Settings.AbsolutePrecision;
+        }
+
+        /// <summary>
+        /// Evaluates whether a collection of <see cref="Vector"/> are orthogonal to one another.
+        /// </summary>
+        /// <param name="vectors"> Collection of <see cref="Vector"/> to evaluate.</param>
+        /// <returns> <see langword="true"/> if the <see cref="Vector"/> are orthogonal, <see langword="false"/> otherwise.</returns>
+        public static bool AreOrthogonal(params Vector[] vectors)
+        {
+            for (int i = 0; i < vectors.Length; i++)
+            {
+                if (vectors[i].SquaredLength() < Settings.AbsolutePrecision) { return false; }
+
+                for (int j = i + 1; j < vectors.Length; j++)
+                {
+                    if (Math.Abs(Vector.DotProduct(vectors[i], vectors[j])) < Settings.AbsolutePrecision) { return false; }
+                }
+            }
+
+            return true;
         }
 
 
@@ -390,7 +411,7 @@ namespace BRIDGES.Geometry.Euclidean3D
 
         #endregion
 
-        #region Methods
+        #region Public Methods
 
         /// <summary>
         /// Gets the coordinates of the current <see cref="Vector"/>.
@@ -463,7 +484,7 @@ namespace BRIDGES.Geometry.Euclidean3D
 
 
         /// <summary>
-        /// Evaluates whether the current <see cref="Vector"/> is equal to another <see cref="Vector"/>.
+        /// Evaluates whether the current <see cref="Vector"/> is memberwise equal to another <see cref="Vector"/>.
         /// </summary>
         /// <remarks> 
         /// Two <see cref="Vector"/> are equal if their coordinates are equal.
